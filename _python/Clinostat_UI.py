@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.frame.setObjectName("frame")
         self.coreImage = QtWidgets.QLabel(self.frame)
         self.coreImage.setGeometry(QtCore.QRect(55, 0, 320, 320))
-        self.coreImage.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.coreImage.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.coreImage.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.coreImage.setText("")
         self.coreImage.setPixmap(QtGui.QPixmap("../_image/Core.png"))
