@@ -31,10 +31,10 @@ while True:
                 f = open ("out.jpg", "rb")
             else:
                 f = open ("out.png", "rb")
-            l = f.read(1024)
+            l = f.read(512)
             while (l):
                 connection.send(l)
-                l = f.read(1024)
+                l = f.read(512)
             f.close()
             break
 

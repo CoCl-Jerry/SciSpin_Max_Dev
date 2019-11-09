@@ -7,8 +7,8 @@
 #define SLAVE_ADDRESS 0x09
 #define COMMANDSIZE 5
 
-const uint8_t amisStepPin = 8;
-const uint8_t amisDirPin = 9;
+const uint8_t amisDirPin = 8;
+const uint8_t amisStepPin = 9;
 const uint8_t amisSlaveSelect = 10;
 AMIS30543 stepper;
 
