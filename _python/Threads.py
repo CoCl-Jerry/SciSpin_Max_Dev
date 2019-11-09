@@ -111,7 +111,7 @@ class Snap(QThread):
 
         with open('../_temp/snapshot.jpg', 'wb') as f:
                 while True:
-                    data = sock.recv(1024)
+                    data = sock.recv(512)
                     if not data:
                         break
                     f.write(data)
