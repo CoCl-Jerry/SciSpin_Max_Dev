@@ -88,9 +88,15 @@
         <rect>
          <x>55</x>
          <y>0</y>
-         <width>300</width>
-         <height>300</height>
+         <width>320</width>
+         <height>320</height>
         </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
        </property>
        <property name="text">
         <string/>
@@ -107,7 +113,7 @@
         <rect>
          <x>20</x>
          <y>320</y>
-         <width>361</width>
+         <width>371</width>
          <height>171</height>
         </rect>
        </property>
@@ -148,7 +154,7 @@
          <rect>
           <x>20</x>
           <y>19</y>
-          <width>321</width>
+          <width>331</width>
           <height>51</height>
          </rect>
         </property>
@@ -223,7 +229,7 @@
          <rect>
           <x>10</x>
           <y>90</y>
-          <width>331</width>
+          <width>351</width>
           <height>71</height>
          </rect>
         </property>
@@ -1119,7 +1125,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Firmware: V 1.03 beta</string>
+     <string>Firmware: V 1.05 beta</string>
     </property>
    </widget>
    <widget class="QTabWidget" name="Sensor_tabWidget">
