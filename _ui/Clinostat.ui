@@ -62,7 +62,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -1098,6 +1098,38 @@
      <string>START TIMELAPSE</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="snapshot_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>868</x>
+      <y>370</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SNAPSHOT</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="preview_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>868</x>
+      <y>400</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PREVIEW</string>
+    </property>
+   </widget>
    <widget class="QLabel" name="version_label">
     <property name="geometry">
      <rect>
@@ -1520,6 +1552,22 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QPushButton" name="rotate_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>868</x>
+      <y>430</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ROTATE IMAGE</string>
+    </property>
+   </widget>
    <widget class="QLabel" name="core_status_label">
     <property name="geometry">
      <rect>
@@ -1532,55 +1580,6 @@
     <property name="text">
      <string>Imaging Core Status: IDLE</string>
     </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>370</y>
-      <width>160</width>
-      <height>112</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_17">
-     <item>
-      <widget class="QPushButton" name="snapshot_pushButton">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>SNAPSHOT</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="focus_pushButton">
-       <property name="text">
-        <string>FOCUS ASSIST</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="preview_pushButton">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>PREVIEW</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="rotate_pushButton">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>ROTATE IMAGE</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
   </widget>
   <action name="actionOpen_Directory">
