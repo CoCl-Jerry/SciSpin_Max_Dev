@@ -553,7 +553,7 @@
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="frame_verticalSlider">
          <property name="minimum">
-          <number>3</number>
+          <number>1</number>
          </property>
          <property name="maximum">
           <number>150</number>
@@ -594,7 +594,7 @@
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="core_verticalSlider">
          <property name="minimum">
-          <number>3</number>
+          <number>1</number>
          </property>
          <property name="maximum">
           <number>150</number>
@@ -644,13 +644,16 @@
        <number>1</number>
       </property>
       <property name="minimum">
-       <double>0.300000000000000</double>
+       <double>0.100000000000000</double>
       </property>
       <property name="maximum">
        <double>15.000000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.100000000000000</double>
+      </property>
+      <property name="value">
+       <double>1.000000000000000</double>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="core_spinBox">
@@ -669,13 +672,16 @@
        <number>1</number>
       </property>
       <property name="minimum">
-       <double>0.300000000000000</double>
+       <double>0.100000000000000</double>
       </property>
       <property name="maximum">
        <double>15.000000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.100000000000000</double>
+      </property>
+      <property name="value">
+       <double>1.000000000000000</double>
       </property>
      </widget>
      <widget class="QPushButton" name="coreErgz_pushButton">
@@ -1138,7 +1144,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">
