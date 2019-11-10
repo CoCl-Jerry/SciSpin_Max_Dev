@@ -86,6 +86,18 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         except Exception as e:
             print(e)
 
+    def start_focus(self):
+        try:
+            self.Focus_Thread = Threads.Focus()
+            self.Focus_Thread.transmit.connect(lambda: UI_Update.transmit_update(self))
+            self.Focus_Thread.started.connect(lambda: UI_Update.imaging_start(self))
+            self.Focus_Thread.finished.connect(lambda: UI_Update.snap_complete(self))
+            
+            self.Focus_Thread.start()
+            
+        except Exception as e:
+            print()e
+
 
     def start_cycle(self):
         if not Settings.cycle_running:
@@ -216,6 +228,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.coreErgz_pushButton.clicked.connect(lambda: Commands.ergz_motor(Settings.core_addr))
         
         self.snapshot_pushButton.clicked.connect(lambda: self.start_snapshot())
+        self.focus_pushButton.clicked.connect(lambda: self.start_focus())
+
         self.preview_pushButton.clicked.connect(lambda: self.start_preview())
         self.startImaging_pushButton.clicked.connect(lambda: self.start_timelapse())
         self.rotate_pushButton.clicked.connect(lambda: self.rotate_image())
