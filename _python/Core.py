@@ -43,8 +43,8 @@ while True:
                 camera.resolution = (350,350)
                 
                 sleep(2)
-                camera.capture("out.jpg")
                 camera.zoom = (1,1,0.5,0.5)
+                camera.capture("out.jpg")
             f = open ("out.jpg", "rb")
                 
             l = f.read(512)
