@@ -141,6 +141,6 @@ def sendCMD(addr,cont):
     bus.write_i2c_block_data(addr, i2c_cmd, converted)
 
 def getInterval(RPM):
-    return str(RPM*10)
+    return str(int(RPM*10))
 
 
