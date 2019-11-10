@@ -118,6 +118,33 @@ class Snap(QThread):
                     self.transmit.emit()
         sock.close()
 
+class Focus(QThread):
+    transmit = QtCore.pyqtSignal()
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        ip_address = "10.0.5.2"
+        server_address = (ip_address, 23456)
+        sock.connect(server_address)
+
+        cmd = "B~"
+        sock.sendall(cmd.encode())
+
+        with open('../_temp/snapshot.jpg', 'wb') as f:
+                while True:
+                    data = sock.recv(512)
+                    if not data:
+                        break
+                    f.write(data)
+                    self.transmit.emit()
+        sock.close()
+
 class Preview(QThread):
     transmit = QtCore.pyqtSignal()
     ir = QtCore.pyqtSignal()
