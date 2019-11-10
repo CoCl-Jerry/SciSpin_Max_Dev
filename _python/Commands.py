@@ -22,7 +22,7 @@ def light_confirm(self):
     Settings.sendCMD(Settings.lighting_addr,curr_cmd)
 
 def light_reset(self):
-    Settings.sendCMD(Settings.lighting_addr,"1~0~34~0~0~0~0")
+    Settings.sendCMD(Settings.lighting_addr,"1~0~83~0~0~0~0")
     sleep(0.1)
     Settings.sendCMD(Settings.lighting_addr,"2~50")
 
@@ -36,7 +36,7 @@ def light_reset(self):
     Settings.commands_list.clear()
 
 def clear_lights():
-    Settings.sendCMD(Settings.lighting_addr,"1~0~34~0~0~0~0")
+    Settings.sendCMD(Settings.lighting_addr,"1~0~83~0~0~0~0")
     
 def ergz_motor(addr):
     if(Settings.LINKED):
