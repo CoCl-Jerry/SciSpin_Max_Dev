@@ -171,5 +171,9 @@ def IR_trigger(self):
         Settings.IR_STAT=False
         self.IR_pushButton.setText("INFRARED:OFF")
 
+def Rainbow_trigger(self):
+    Settings.sendCMD(Settings.lighting_addr,"6~")
+
+
     
 

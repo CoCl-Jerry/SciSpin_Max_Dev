@@ -238,6 +238,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.End_spinBox.valueChanged.connect(lambda: UI_Update.LED_validate(self))
         
         self.IR_pushButton.clicked.connect(lambda: Commands.IR_trigger(self))
+        self.rainbow_pushButton.clicked.connect(lambda: Commands.Rainbow_trigger(self))
+        
         self.light_Confirm_pushButton.clicked.connect(lambda: Commands.light_confirm(self))
         self.light_Reset_pushButton.clicked.connect(lambda: Commands.light_reset(self))
 
