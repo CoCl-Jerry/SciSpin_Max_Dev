@@ -41,7 +41,7 @@ while True:
         elif(CMD[0]=='B'):
             with PiCamera() as camera:
                 camera.resolution = (350,350)
-                camera.zoom = (0.3,0.3,0.7,0.7)
+                camera.zoom = (0.4,0.4,1,1)
                 sleep(4)
                 camera.capture("out.jpg")
             f = open ("out.jpg", "rb")
