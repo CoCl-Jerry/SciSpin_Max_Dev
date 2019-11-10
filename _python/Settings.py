@@ -76,10 +76,10 @@ def init():
     date = time.strftime('%m_%d_%Y')
 
     global interval
-    interval = 1
+    interval = 5
 
     global duration
-    duration = 1
+    duration = 5
 
     global total
     total = 1
