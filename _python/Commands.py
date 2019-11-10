@@ -174,6 +174,9 @@ def IR_trigger(self):
 def Rainbow_trigger(self):
     Settings.sendCMD(Settings.lighting_addr,"6~")
 
+def Disco_trigger(self):
+    Settings.sendCMD(Settings.lighting_addr,"7~")
+
 
     
 

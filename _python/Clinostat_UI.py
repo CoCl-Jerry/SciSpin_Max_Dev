@@ -152,7 +152,7 @@ class Ui_MainWindow(object):
         self.rainbow_pushButton.setCheckable(False)
         self.rainbow_pushButton.setObjectName("rainbow_pushButton")
         self.disco_pushButton = QtWidgets.QPushButton(self.frame_2)
-        self.disco_pushButton.setEnabled(False)
+        self.disco_pushButton.setEnabled(True)
         self.disco_pushButton.setGeometry(QtCore.QRect(40, 120, 121, 41))
         self.disco_pushButton.setObjectName("disco_pushButton")
         self.lightCycle_label = QtWidgets.QLabel(self.frame_2)
