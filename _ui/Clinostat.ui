@@ -62,7 +62,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -809,7 +809,7 @@
             <string> min</string>
            </property>
            <property name="minimum">
-            <number>1</number>
+            <number>5</number>
            </property>
            <property name="maximum">
             <number>99999999</number>
@@ -852,7 +852,7 @@
             <string> min</string>
            </property>
            <property name="minimum">
-            <number>1</number>
+            <number>5</number>
            </property>
            <property name="maximum">
             <number>99999999</number>

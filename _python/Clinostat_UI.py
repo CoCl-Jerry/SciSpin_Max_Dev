@@ -304,7 +304,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.Image_Interval)
         self.ICI_spinBox = QtWidgets.QSpinBox(self.layoutWidget_2)
         self.ICI_spinBox.setEnabled(True)
-        self.ICI_spinBox.setMinimum(1)
+        self.ICI_spinBox.setMinimum(5)
         self.ICI_spinBox.setMaximum(99999999)
         self.ICI_spinBox.setObjectName("ICI_spinBox")
         self.verticalLayout.addWidget(self.ICI_spinBox)
@@ -318,7 +318,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.Image_Duration)
         self.ISD_spinBox = QtWidgets.QSpinBox(self.layoutWidget_2)
         self.ISD_spinBox.setEnabled(True)
-        self.ISD_spinBox.setMinimum(1)
+        self.ISD_spinBox.setMinimum(5)
         self.ISD_spinBox.setMaximum(99999999)
         self.ISD_spinBox.setObjectName("ISD_spinBox")
         self.verticalLayout_2.addWidget(self.ISD_spinBox)
@@ -614,7 +614,7 @@ class Ui_MainWindow(object):
         self.actionCreate_Timelapse.setObjectName("actionCreate_Timelapse")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         self.Sensor_tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
