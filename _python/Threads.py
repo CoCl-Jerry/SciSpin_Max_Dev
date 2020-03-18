@@ -185,9 +185,11 @@ class Temp(QThread):
         self._running = False
 
     def run(self):
-        Settings.temperature = CPUTemperature()
-        self.update.emit()
-        sleep(1)
+        while True:
+            cpu = CPUTemperature()
+            Settings.temperature = cpu
+            self.update.emit()
+            sleep(1)
 
 
 class Timelapse(QThread):
