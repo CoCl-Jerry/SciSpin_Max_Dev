@@ -75,7 +75,7 @@ class Snap(QThread):
         self._running = False
 
     def run(self):
-        if Settings.IR_imaging
+        if Settings.IR_imaging:
         Commands.IR_Imaging_trigger()
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
