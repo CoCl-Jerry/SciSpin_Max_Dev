@@ -110,9 +110,8 @@ class Preview(QThread):
         ip_address = "10.0.5.2"
         server_address = (ip_address, 23456)
         sock.connect(server_address)
-        if Settings.IR_state:
-            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
-                "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
+        cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
+            "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
 
         sock.sendall(cmd.encode())
 
@@ -204,7 +203,6 @@ class Timelapse(QThread):
             ip_address = "10.0.5.2"
             server_address = (ip_address, 23456)
             sock.connect(server_address)
-            if Settings.IR_state:
 
             cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
                 "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
