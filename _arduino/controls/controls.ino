@@ -1,6 +1,7 @@
 //Import the library required
 #include <Wire.h>
 #include <Adafruit_NeoPixel.h>
+#include <avr/wdt.h> 
 
 //Slave Address for the Communication
 #define LED_PIN 5
@@ -132,6 +133,13 @@ void exeCMD() {
       delay(4000);
       digitalWrite(IR_PIN, !digitalRead(IR_PIN));
     }
+  }
+
+  if (commands[0] == 7)
+  {
+    wdt_disable();
+    wdt_enable(WDTO_15MS);
+    while (1) {}
   }
 }
 

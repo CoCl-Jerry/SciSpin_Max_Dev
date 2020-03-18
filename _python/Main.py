@@ -75,7 +75,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.light_Confirm_pushButton.clicked.connect(
             lambda: Commands.light_confirm(self))
         self.light_Reset_pushButton.clicked.connect(
-            lambda: Commands.light_reset())
+            lambda: Commands.light_reset(self
+                                         ))
 
         self.title_lineEdit.textChanged.connect(
             lambda: Functions.IST_Edit(self))
