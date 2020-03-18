@@ -1356,19 +1356,6 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </widget>
-   <widget class="QLabel" name="version_label">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>550</y>
-      <width>141</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Firmware: V 1.05 beta</string>
-    </property>
-   </widget>
    <widget class="QTabWidget" name="Sensor_tabWidget">
     <property name="geometry">
      <rect>
@@ -1812,7 +1799,7 @@ p, li { white-space: pre-wrap; }
        <x>10</x>
        <y>0</y>
        <width>161</width>
-       <height>131</height>
+       <height>148</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -1911,7 +1898,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>570</y>
+      <y>550</y>
       <width>121</width>
       <height>16</height>
      </rect>
