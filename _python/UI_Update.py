@@ -74,6 +74,10 @@ def sensor_update(self):
         self.MAG_Z_text_label.setText(Settings.MAG_Z_text)
 
 
+def temp_update(self):
+    self.temp_label.setText("Temperature: " + str(Settings.temperature))
+
+
 def LED_validate(self):
     if(self.Start_spinBox.value() >= self.End_spinBox.value()):
         self.light_Confirm_pushButton.setEnabled(False)

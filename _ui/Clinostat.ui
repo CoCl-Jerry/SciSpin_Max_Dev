@@ -1907,6 +1907,19 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="temp_label">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>570</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Temperature: NULL</string>
+    </property>
+   </widget>
   </widget>
   <action name="actionOpen_Directory">
    <property name="enabled">

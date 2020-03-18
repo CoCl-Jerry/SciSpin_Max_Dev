@@ -14,14 +14,14 @@ def init():
 
 
 def light_confirm(self):
-    curr_cmd = str(self.Start_spinBox.value() - 1) + "~" + str(self.End_spinBox.value() - 1) + "~" + str(self.R_spinBox.value() * 2.55) + \
-        "~" + str(self.G_spinBox.value() * 2.55) + "~" + str(self.B_spinBox.value()
-                                                             * 2.55) + "~" + str(self.W_spinBox.value() * 2.55)
+    curr_cmd = str(self.Start_spinBox.value() - 1) + "~" + str(self.End_spinBox.value() - 1) + "~" + str(self.R_spinBox.value()) + \
+        "~" + str(self.G_spinBox.value()) + "~" + \
+        str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value())
     Settings.commands_list.append(curr_cmd)
     print(Settings.lighting_addr, "1~" + curr_cmd)
     Settings.sendCMD(Settings.lighting_addr, "1~" + curr_cmd)
     sleep(0.05)
-    curr_cmd = "2~" + str(self.BRT_spinBox.value() * 255)
+    curr_cmd = "2~" + str(self.BRT_spinBox.value())
     Settings.sendCMD(Settings.lighting_addr, curr_cmd)
 
 

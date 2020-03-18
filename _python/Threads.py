@@ -12,6 +12,7 @@ from time import sleep
 from PyQt5 import QtCore
 from PyQt5.QtCore import QThread
 from picamera import PiCamera
+from gpiozero import CPUTemperature
 
 
 class Cycle(QThread):
@@ -172,6 +173,21 @@ class Sensor(QThread):
 
             self.update.emit()
             sleep(0.1)
+
+
+class Temp(QThread):
+    update = QtCore.pyqtSignal()
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        Settings.temperature = CPUTemperature()
+        self.update.emit()
+        sleep(1)
 
 
 class Timelapse(QThread):

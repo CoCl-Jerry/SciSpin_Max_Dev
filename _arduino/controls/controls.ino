@@ -4,6 +4,7 @@
 
 //Slave Address for the Communication
 #define LED_PIN 5
+#define FAN_PIN 8
 #define IR_PIN 9
 #define NUM_LEDS 83
 #define BRIGHTNESS 50
@@ -139,6 +140,11 @@ void exeCMD() {
     void(* resetFunc) (void) = 0;
     resetFunc(); //call reset
   }
+
+  if (commands[0] == 8)
+  {
+    digitalWrite(FAN_PIN, !digitalRead(FAN_PIN));
+  }
 }
 
 void colorWipe(uint32_t c, uint8_t wait) {
@@ -152,7 +158,7 @@ void colorWipe(uint32_t c, uint8_t wait) {
 void stripUpdate() {
   for (uint16_t i = 0; i < strip.numPixels(); i++) {
     if (i >= commands[1] && i < commands[2]) {
-      strip.setPixelColor(i, commands[3], commands[4], commands[5], commands[6]);
+      strip.setPixelColor(i, int(commands[3] * 2.55), int(commands[4] * 2.55), int(commands[5] * 2.55), int(commands[6] * 2.55));
     }
   }
 
@@ -163,7 +169,7 @@ void stripShow() {
 }
 
 void brightnessUpdate() {
-  strip.setBrightness(commands[1]);
+  strip.setBrightness(int(commands[1] * 2.55));
   strip.show();
 }
 

@@ -72,3 +72,10 @@ def sensor_init():
         self.Sensor_Thread.update.connect(
             lambda: UI_Update.sensor_update(self))
         self.Sensor_Thread.start()
+
+
+def temperature_init(self):
+    self.temp_Thread = Threads.Temp()
+    self.temp_Thread.update.connect(
+        lambda: UI_Update.temp_update(self))
+    self.temp_Thread.start()

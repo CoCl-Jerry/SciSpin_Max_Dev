@@ -118,6 +118,9 @@ def init():
     global cycle_time
     cycle_time = 60
 
+    global temperature
+    temperature = 0
+
     global forward
     forward = QtGui.QIcon()
     forward.addPixmap(QtGui.QPixmap("../_image/forward.png"),
