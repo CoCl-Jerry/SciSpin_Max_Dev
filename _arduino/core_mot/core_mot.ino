@@ -8,13 +8,12 @@
 #define MOTORSTEPS 2820
 
 //Slave Address for the Communication
-//#define SLAVE_ADDRESS 0x09
-#define SLAVE_ADDRESS 0x10
+#define SLAVE_ADDRESS 0x09
+//#define SLAVE_ADDRESS 0x10
 #define COMMANDSIZE 5
 
 //Import the library required
 #include <Wire.h>
-#include <avr/wdt.h> 
 #include <TMC2208Stepper.h>
 
 TMC2208Stepper driver = TMC2208Stepper(RX_PIN, TX_PIN);  // Create driver and use
@@ -212,8 +211,7 @@ void exeCMD() {
   }
   if (commands[0] == 5)
   {
-    wdt_disable();
-    wdt_enable(WDTO_15MS);
-    while (1) {}
+    void(* resetFunc) (void) = 0;  
+    resetFunc(); //call reset
   }
 }
