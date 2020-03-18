@@ -1,18 +1,15 @@
+import Settings
+import Commands
+import UI_Update
+
+import PyQt5
+from PyQt5.QtWidgets import *
+from PyQt5 import QtGui
+
 
 def rotate_image():
     Settings.rotation += 1
     self.start_snapshot()
-
-
-def sensor_init():
-
-    os.system("i2cdetect -y 1 > ../_temp/output.txt")
-
-    if '1f' in open('../_temp/output.txt').read():
-        self.Sensor_Thread = Threads.Sensor()
-        self.Sensor_Thread.update.connect(
-            lambda: UI_Update.sensor_update(self))
-        self.Sensor_Thread.start()
 
 
 def IST_Edit(self):

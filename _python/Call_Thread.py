@@ -2,6 +2,8 @@ import Settings
 import UI_Update
 import Threads
 
+import os
+
 
 def start_snapshot(self):
     try:
@@ -59,3 +61,14 @@ def start_timelapse(self):
             self.Progress_Bar.setValue(Settings.current + 1)
     except Exception as e:
         print(e)
+
+
+def sensor_init():
+
+    os.system("i2cdetect -y 1 > ../_temp/output.txt")
+
+    if '1f' in open('../_temp/output.txt').read():
+        self.Sensor_Thread = Threads.Sensor()
+        self.Sensor_Thread.update.connect(
+            lambda: UI_Update.sensor_update(self))
+        self.Sensor_Thread.start()
