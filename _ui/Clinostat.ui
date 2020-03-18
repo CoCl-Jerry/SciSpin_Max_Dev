@@ -58,11 +58,11 @@
       <x>10</x>
       <y>10</y>
       <width>631</width>
-      <height>551</height>
+      <height>571</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -74,7 +74,7 @@
         <x>0</x>
         <y>20</y>
         <width>411</width>
-        <height>500</height>
+        <height>511</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -114,7 +114,7 @@
          <x>20</x>
          <y>320</y>
          <width>371</width>
-         <height>171</height>
+         <height>181</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -146,7 +146,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Setting&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Intensity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QWidget" name="horizontalLayoutWidget_4">
@@ -170,8 +170,14 @@
            </item>
            <item>
             <widget class="QSpinBox" name="Start_spinBox">
+             <property name="prefix">
+              <string># </string>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
              <property name="maximum">
-              <number>33</number>
+              <number>84</number>
              </property>
             </widget>
            </item>
@@ -188,11 +194,17 @@
            </item>
            <item>
             <widget class="QSpinBox" name="End_spinBox">
+             <property name="prefix">
+              <string># </string>
+             </property>
              <property name="minimum">
-              <number>1</number>
+              <number>2</number>
              </property>
              <property name="maximum">
-              <number>83</number>
+              <number>84</number>
+             </property>
+             <property name="value">
+              <number>84</number>
              </property>
             </widget>
            </item>
@@ -209,11 +221,14 @@
            </item>
            <item>
             <widget class="QSpinBox" name="BRT_spinBox">
+             <property name="suffix">
+              <string> %</string>
+             </property>
              <property name="minimum">
               <number>1</number>
              </property>
              <property name="maximum">
-              <number>255</number>
+              <number>100</number>
              </property>
              <property name="value">
               <number>50</number>
@@ -236,8 +251,11 @@
         <layout class="QGridLayout" name="gridLayout">
          <item row="1" column="1">
           <widget class="QSpinBox" name="B_spinBox">
+           <property name="suffix">
+            <string> %</string>
+           </property>
            <property name="maximum">
-            <number>255</number>
+            <number>100</number>
            </property>
           </widget>
          </item>
@@ -250,22 +268,34 @@
          </item>
          <item row="0" column="1">
           <widget class="QSpinBox" name="R_spinBox">
+           <property name="suffix">
+            <string> %</string>
+           </property>
            <property name="maximum">
-            <number>255</number>
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>50</number>
            </property>
           </widget>
          </item>
          <item row="1" column="3">
           <widget class="QSpinBox" name="W_spinBox">
+           <property name="suffix">
+            <string> %</string>
+           </property>
            <property name="maximum">
-            <number>255</number>
+            <number>100</number>
            </property>
           </widget>
          </item>
          <item row="0" column="3">
           <widget class="QSpinBox" name="G_spinBox">
+           <property name="suffix">
+            <string> %</string>
+           </property>
            <property name="maximum">
-            <number>255</number>
+            <number>100</number>
            </property>
           </widget>
          </item>
@@ -443,20 +473,20 @@
        </rect>
       </property>
       <property name="text">
-       <string>INFRARED:OFF</string>
+       <string>Toggle Infrared</string>
       </property>
      </widget>
-     <widget class="QCheckBox" name="IR_checkBox">
+     <widget class="QCheckBox" name="infraredImaging_checkBox">
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>496</y>
-        <width>141</width>
-        <height>21</height>
+        <y>500</y>
+        <width>151</width>
+        <height>17</height>
        </rect>
       </property>
       <property name="text">
-       <string>IR When Imaging</string>
+       <string>Infrared While Imaging</string>
       </property>
      </widget>
     </widget>
@@ -730,6 +760,250 @@
       </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="preset_tab">
+     <attribute name="title">
+      <string>PRESETS</string>
+     </attribute>
+     <widget class="QTabWidget" name="Preset_tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>601</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Germination</string>
+       </attribute>
+       <widget class="QTextBrowser" name="Germination_textBrowser">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>551</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; font-weight:600;&quot;&gt;Germination Assay&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;The seeds are allowed to germinate for five days under 80% brightness, solid color growth lights, lighting direction and color can be customized by the user.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>250</y>
+          <width>551</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="1">
+          <widget class="QComboBox" name="germinationColor_comboBox">
+           <item>
+            <property name="text">
+             <string>RED</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>GREEN</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BLUE</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>PURPLE</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>RGB WHITE</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>WARM WHITE</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="germinationColor_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="germinationDirection_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Direction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="germinationDirection_comboBox">
+           <item>
+            <property name="text">
+             <string>FULL</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>TOP</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BOTTOM</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>LEFT</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>RIGHT</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>TOP THIRD</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>LEFT THIRD</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>RIGHT THIRD</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Light Cycle</string>
+       </attribute>
+       <widget class="QTextBrowser" name="lightCycle_textBrowser">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>551</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; font-weight:600;&quot;&gt;Light Cycle&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;The seeds are allowed to germinate under current lighting configureation, all lights are cycled between on and off after a user defined time, during the off cycle, IR is toggled when imaging.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>250</y>
+          <width>551</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QLabel" name="onCycle_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ON CYCLE Duration&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="offCycle_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;OFF CYCLE Duration&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="onCycle_spinBox">
+           <property name="suffix">
+            <string> h</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>999</number>
+           </property>
+           <property name="value">
+            <number>8</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QSpinBox" name="offCycle_spinBox">
+           <property name="suffix">
+            <string> h</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>999</number>
+           </property>
+           <property name="value">
+            <number>8</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="Preset_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>440</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Toggle Preset</string>
       </property>
      </widget>
     </widget>
@@ -1081,54 +1355,6 @@
       </layout>
      </widget>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="startImaging_pushButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>830</x>
-      <y>490</y>
-      <width>181</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>START TIMELAPSE</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="snapshot_pushButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>868</x>
-      <y>370</y>
-      <width>141</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>SNAPSHOT</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="preview_pushButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>868</x>
-      <y>400</y>
-      <width>141</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PREVIEW</string>
-    </property>
    </widget>
    <widget class="QLabel" name="version_label">
     <property name="geometry">
@@ -1552,22 +1778,6 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="rotate_pushButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>868</x>
-      <y>430</y>
-      <width>141</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ROTATE IMAGE</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="core_status_label">
     <property name="geometry">
      <rect>
@@ -1580,6 +1790,129 @@
     <property name="text">
      <string>Imaging Core Status: IDLE</string>
     </property>
+   </widget>
+   <widget class="QFrame" name="Capture_frame">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>370</y>
+      <width>181</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>161</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_17">
+      <item>
+       <widget class="QLabel" name="zoomControl_label">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zoom Control&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="xAxis_label">
+        <property name="text">
+         <string>AXIS A: 0.0</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="xAxis_horizontalSlider">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::NoTicks</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="yAxis_label">
+        <property name="text">
+         <string>AXIS B: 1.0</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="yAxis_horizontalSlider">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>true</bool>
+        </property>
+        <property name="invertedControls">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::NoTicks</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="snapshot_pushButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>SNAPSHOT</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rotate_pushButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>ROTATE IMAGE</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="startImaging_pushButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>START TIMELAPSE</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <action name="actionOpen_Directory">

@@ -3,8 +3,8 @@
 #include <Adafruit_NeoPixel.h>
 
 //Slave Address for the Communication
-#define LED_PIN 3
-#define IR_PIN 4
+#define LED_PIN 5
+#define IR_PIN 9
 #define NUM_LEDS 83
 #define BRIGHTNESS 50
 #define QUARTER NUM_LEDS/4
@@ -15,7 +15,6 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRBW + NEO_KH
 
 char data[50];
 int commands[COMMANDSIZE];
-boolean IR = false;
 
 //Code Initialization
 void setup() {
@@ -40,22 +39,16 @@ void setup() {
 
   pinMode(IR_PIN, OUTPUT);
   digitalWrite(IR_PIN, HIGH);
-  delay(100);
+  delay(500);
   digitalWrite(IR_PIN, LOW);
 
 
 }
 
 void loop() {
-  if (commands[0] == 6)
-  {
-    rainbow(10);
-  }
 
-  if (commands[0] == 7)
-  {
-    disco(10);
-  }
+  disco(10);
+
 }
 
 // callback for received data
@@ -117,15 +110,8 @@ void exeCMD() {
 
   if (commands[0] == 3)
   {
-    if (!IR)
-    {
-      digitalWrite(IR_PIN, HIGH);
-    }
-    else
-    {
-      digitalWrite(IR_PIN, LOW);
-    }
-    IR = !IR;
+
+    digitalWrite(IR_PIN, !digitalRead(IR_PIN));
   }
 
   if (commands[0] == 4)
@@ -136,6 +122,16 @@ void exeCMD() {
   if (commands[0] == 5)
   {
     stripShow();
+  }
+
+  if (commands[0] == 6)
+  {
+    if (!digitalRead(IR_PIN))
+    {
+      digitalWrite(IR_PIN, !digitalRead(IR_PIN));
+      delay(4000);
+      digitalWrite(IR_PIN, !digitalRead(IR_PIN));
+    }
   }
 }
 
