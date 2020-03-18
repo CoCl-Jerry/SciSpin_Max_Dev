@@ -76,7 +76,7 @@ class Snap(QThread):
 
     def run(self):
         if Settings.IR_imaging:
-        Commands.IR_Imaging_trigger()
+            Commands.IR_Imaging_trigger()
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         ip_address = "10.0.5.2"
