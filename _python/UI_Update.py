@@ -77,7 +77,7 @@ def sensor_update(self):
 
 def temp_update(self):
     self.temp_label.setText("Temperature: " + str(Settings.temperature))
-    if Settings.temperature > 70:
+    if int(Settings.temperature) > 70:
         Commands.fan_on()
     else:
         Commands.fan_off()

@@ -39,9 +39,10 @@ void setup() {
   colorWipe(strip.Color(0, 0, 0, 0), 1);
 
   pinMode(IR_PIN, OUTPUT);
-  digitalWrite(IR_PIN, HIGH);
+  pinMode(FAN_PIN, OUTPUT);
+  digitalWrite(FAN_PIN, HIGH);
   delay(500);
-  digitalWrite(IR_PIN, LOW);
+  digitalWrite(FAN_PIN, LOW);
 
 
 }

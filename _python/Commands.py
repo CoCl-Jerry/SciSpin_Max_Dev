@@ -176,7 +176,7 @@ def reverse_core_select():
 
 
 def IR_trigger():
-    Settings.sendCMD(Settings.lighting_addr, "3~")
+    Settings.sendCMD(Settings.lighting_addr, "8~")
     if not Settings.IR_STAT:
         Settings.IR_STAT = True
 
