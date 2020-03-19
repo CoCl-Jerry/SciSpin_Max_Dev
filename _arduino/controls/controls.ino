@@ -4,8 +4,8 @@
 
 //Slave Address for the Communication
 #define LED_PIN 5
-#define FAN_PIN 8
-#define IR_PIN 9
+#define FAN_PIN 9
+#define IR_PIN 8
 #define NUM_LEDS 83
 #define BRIGHTNESS 50
 #define QUARTER NUM_LEDS/4

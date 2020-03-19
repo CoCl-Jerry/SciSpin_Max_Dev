@@ -185,11 +185,11 @@ def IR_trigger():
 
 
 def fan_on():
-    Settings.sendCMD(Settings.lighting_addr, "3~")
+    Settings.sendCMD(Settings.lighting_addr, "8~")
 
 
 def fan_off():
-    Settings.sendCMD(Settings.lighting_addr, "8~")
+    Settings.sendCMD(Settings.lighting_addr, "9~")
 
 # def Rainbow_trigger():
 # def Disco_trigger():
