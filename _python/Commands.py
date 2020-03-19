@@ -189,7 +189,7 @@ def fan_on():
 
 
 def fan_off():
-    Settings.sendCMD(Settings.lighting_addr, "3~")
+    Settings.sendCMD(Settings.lighting_addr, "8~")
 
 # def Rainbow_trigger():
 # def Disco_trigger():
