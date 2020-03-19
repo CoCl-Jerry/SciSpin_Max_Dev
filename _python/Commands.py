@@ -184,8 +184,16 @@ def IR_trigger():
         Settings.IR_STAT = False
 
 
+def fan_on():
+    Settings.sendCMD(Settings.lighting_addr, "8~")
+
+
+def fan_off():
+    Settings.sendCMD(Settings.lighting_addr, "9~")
+
 # def Rainbow_trigger():
 # def Disco_trigger():
+
 
 def IR_Imaging_trigger():
     Settings.sendCMD(Settings.lighting_addr, "6~")

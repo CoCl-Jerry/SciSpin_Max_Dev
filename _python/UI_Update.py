@@ -1,6 +1,7 @@
 import PyQt5
 import os
 import Settings
+import Commands
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -76,7 +77,10 @@ def sensor_update(self):
 
 def temp_update(self):
     self.temp_label.setText("Temperature: " + str(Settings.temperature))
-    print(str(Settings.temperature))
+    if Settings.temperature > 70:
+        Commands.fan_on()
+    else:
+        Commands.fan_off()
 
 
 def LED_validate(self):

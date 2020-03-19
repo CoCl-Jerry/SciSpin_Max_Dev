@@ -143,7 +143,12 @@ void exeCMD() {
 
   if (commands[0] == 8)
   {
-    digitalWrite(FAN_PIN, !digitalRead(FAN_PIN));
+    digitalWrite(FAN_PIN, HIGH);
+  }
+
+  if (commands[0] == 9)
+  {
+    digitalWrite(FAN_PIN, LOW);
   }
 }
 
