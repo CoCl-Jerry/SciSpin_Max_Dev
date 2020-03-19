@@ -176,7 +176,7 @@ def reverse_core_select():
 
 
 def IR_trigger():
-    Settings.sendCMD(Settings.lighting_addr, "8~")
+    Settings.sendCMD(Settings.lighting_addr, "3~")
     if not Settings.IR_STAT:
         Settings.IR_STAT = True
 
@@ -185,11 +185,11 @@ def IR_trigger():
 
 
 def fan_on():
-    Settings.sendCMD(Settings.lighting_addr, "8~")
+    Settings.sendCMD(Settings.lighting_addr, "3~")
 
 
 def fan_off():
-    Settings.sendCMD(Settings.lighting_addr, "9~")
+    Settings.sendCMD(Settings.lighting_addr, "3~")
 
 # def Rainbow_trigger():
 # def Disco_trigger():
