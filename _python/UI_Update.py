@@ -77,10 +77,7 @@ def sensor_update(self):
 
 def temp_update(self):
     self.temp_label.setText("Temperature: " + str(Settings.temperature))
-    if int(Settings.temperature) > 70:
-        Commands.fan_on()
-    elif int(Settings.temperature) < 60:
-        Commands.fan_off()
+    Commands.fan_update():
 
 
 def LED_validate(self):
