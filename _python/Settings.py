@@ -158,5 +158,6 @@ def sendCMD(addr, cont):
             converted.append(ord(b))
         bus.write_i2c_block_data(addr, i2c_cmd, converted)
         Settings.busy = False
+        print(cont)
     except Exception as e:
         print(e)
