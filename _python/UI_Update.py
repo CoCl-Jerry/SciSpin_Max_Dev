@@ -77,7 +77,7 @@ def sensor_update(self):
 
 def temp_update(self):
     self.temp_label.setText("Temperature: " + str(Settings.temperature))
-    Commands.fan_update():
+    Commands.fan_update()
 
 
 def LED_validate(self):
