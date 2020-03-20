@@ -176,10 +176,6 @@ def IR_trigger():
     else:
         Settings.IR_STAT = False
 
-
-def fan_update():
-    Settings.sendCMD(Settings.lighting_addr, "8~" + str(Settings.temperature))
-
 # def Rainbow_trigger():
 # def Disco_trigger():
 

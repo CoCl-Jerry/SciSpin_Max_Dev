@@ -23,7 +23,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         Settings.init()
         Call_Thread.sensor_init()
-        Call_Thread.temperature_init(self)
         Commands.init()
 
         self.Sensor_tabWidget.currentChanged.connect(lambda: self.printci())

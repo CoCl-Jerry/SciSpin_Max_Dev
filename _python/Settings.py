@@ -122,12 +122,6 @@ def init():
     global cycle_time
     cycle_time = 60
 
-    global temperature
-    temperature = 0
-
-    global previous_temperature
-    previous_temperature = 0
-
     global forward
     forward = QtGui.QIcon()
     forward.addPixmap(QtGui.QPixmap("../_image/forward.png"),
@@ -151,8 +145,8 @@ def init():
 
 def sendCMD(addr, cont):
     try:
-        while Settings.busy:
-            time.sleep(0.01)
+        if Settings.busy:
+            time.sleep(0.05)
 
         Settings.busy = True
         bus = smbus.SMBus(1)
@@ -161,6 +155,5 @@ def sendCMD(addr, cont):
             converted.append(ord(b))
         bus.write_i2c_block_data(addr, i2c_cmd, converted)
         Settings.busy = False
-        print(cont)
     except Exception as e:
         print(e)

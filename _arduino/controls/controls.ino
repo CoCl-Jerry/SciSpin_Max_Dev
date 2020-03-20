@@ -40,9 +40,8 @@ void setup() {
 
   pinMode(IR_PIN, OUTPUT);
   pinMode(FAN_PIN, OUTPUT);
-  digitalWrite(FAN_PIN, HIGH);
-  delay(500);
-  digitalWrite(FAN_PIN, LOW);
+  
+  analogWrite(FAN_PIN, commands[1] * 1.5);
 
 
 }
@@ -140,11 +139,6 @@ void exeCMD() {
   {
     void(* resetFunc) (void) = 0;
     resetFunc(); //call reset
-  }
-
-  if (commands[0] == 8)
-  {
-    analogWrite(FAN_PIN, commands[1]);
   }
 }
 
