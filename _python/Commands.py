@@ -1,5 +1,4 @@
 import Settings
-from time import sleep
 import socket
 #from PyQt5.QtCore import QThread
 #from PyQt5 import QtCore, QtGui, QtWidgets
@@ -7,9 +6,7 @@ import socket
 
 def init():
     Settings.sendCMD(Settings.lighting_addr, "7~")
-    sleep(0.05)
     Settings.sendCMD(Settings.frame_addr, "5~")
-    sleep(0.05)
     Settings.sendCMD(Settings.core_addr, "5~")
 
 
@@ -20,14 +17,12 @@ def light_confirm(self):
     Settings.commands_list.append(curr_cmd)
     print(Settings.lighting_addr, "1~" + curr_cmd)
     Settings.sendCMD(Settings.lighting_addr, "1~" + curr_cmd)
-    sleep(0.05)
     curr_cmd = "2~" + str(self.BRT_spinBox.value())
     Settings.sendCMD(Settings.lighting_addr, curr_cmd)
 
 
 def light_reset(self):
     Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0")
-    sleep(0.05)
     Settings.sendCMD(Settings.lighting_addr, "2~128")
 
     self.R_spinBox.setValue(50)
@@ -94,7 +89,6 @@ def linked_slider_change(self):
 
     CMD = "2~" + str(Settings.frame_RPM * 10)
     Settings.sendCMD(Settings.frame_addr, CMD)
-    sleep(0.05)
     CMD = "2~" + str(Settings.core_RPM * 10)
     Settings.sendCMD(Settings.core_addr, CMD)
 
@@ -127,7 +121,6 @@ def linked_spin_change(self):
 
     CMD = "2~" + str(Settings.frame_RPM * 10)
     Settings.sendCMD(Settings.frame_addr, CMD)
-    sleep(0.02)
     CMD = "2~" + str(Settings.core_RPM * 10)
     Settings.sendCMD(Settings.core_addr, CMD)
 
@@ -184,12 +177,8 @@ def IR_trigger():
         Settings.IR_STAT = False
 
 
-def fan_on():
-    Settings.sendCMD(Settings.lighting_addr, "8~")
-
-
-def fan_off():
-    Settings.sendCMD(Settings.lighting_addr, "9~")
+def fan_speed():
+    Settings.sendCMD(Settings.lighting_addr, "8~" + str(Settings.temperature))
 
 # def Rainbow_trigger():
 # def Disco_trigger():

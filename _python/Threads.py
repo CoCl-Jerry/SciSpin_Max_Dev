@@ -186,7 +186,7 @@ class Temp(QThread):
 
     def run(self):
         while True:
-            Settings.temperature = CPUTemperature().temperature
+            Settings.temperature = int(CPUTemperature().temperature)
             self.update.emit()
             sleep(1)
 

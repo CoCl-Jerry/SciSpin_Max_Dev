@@ -1,5 +1,5 @@
 import smbus
-import time
+from time
 from PyQt5 import QtGui
 
 i2c_cmd = 0x5E
@@ -18,6 +18,9 @@ def init():
 
     global imaging
     imaging = False
+
+    global busy
+    busy = False
 
     global frame_RPM
     frame_RPM = 0.3
@@ -144,10 +147,15 @@ def init():
 
 def sendCMD(addr, cont):
     try:
+        while busy:
+            time.sleep(0.01)
+
+        busy = True
         bus = smbus.SMBus(1)
         converted = []
         for b in cont:
             converted.append(ord(b))
         bus.write_i2c_block_data(addr, i2c_cmd, converted)
+        busy = False
     except Exception as e:
         print(e)

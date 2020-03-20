@@ -4,8 +4,8 @@
 
 //Slave Address for the Communication
 #define LED_PIN 5
-#define FAN_PIN 9
 #define IR_PIN 8
+#define FAN_PIN 9
 #define NUM_LEDS 83
 #define BRIGHTNESS 50
 #define QUARTER NUM_LEDS/4
@@ -144,12 +144,7 @@ void exeCMD() {
 
   if (commands[0] == 8)
   {
-    digitalWrite(FAN_PIN, HIGH);
-  }
-
-  if (commands[0] == 9)
-  {
-    digitalWrite(FAN_PIN, LOW);
+    analogWrite(FAN_PIN, commands[1]);
   }
 }
 
