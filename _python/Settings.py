@@ -125,6 +125,9 @@ def init():
     global temperature
     temperature = 0
 
+    global previous_temperature
+    previous_temperature = 0
+
     global forward
     forward = QtGui.QIcon()
     forward.addPixmap(QtGui.QPixmap("../_image/forward.png"),
