@@ -147,15 +147,15 @@ def init():
 
 def sendCMD(addr, cont):
     try:
-        while self.busy:
+        while Settings.busy:
             time.sleep(0.01)
 
-        self.busy = True
+        Settings.busy = True
         bus = smbus.SMBus(1)
         converted = []
         for b in cont:
             converted.append(ord(b))
         bus.write_i2c_block_data(addr, i2c_cmd, converted)
-        self.busy = False
+        Settings.busy = False
     except Exception as e:
         print(e)
