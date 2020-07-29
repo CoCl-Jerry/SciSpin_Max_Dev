@@ -25,7 +25,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         Call_Thread.sensor_init(self)
         Commands.init()
 
-        self.Sensor_tabWidget.currentChanged.connect(lambda: self.printci())
+        self.Sensor_tabWidget.currentChanged.connect(
+            lambda: Functions.printci())
 
         self.frameErgz_pushButton.clicked.connect(
             lambda: Commands.ergz_motor(Settings.frame_addr))
