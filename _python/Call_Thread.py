@@ -63,7 +63,7 @@ def start_timelapse(self):
         print(e)
 
 
-def sensor_init():
+def sensor_init(self):
 
     os.system("i2cdetect -y 1 > ../_temp/output.txt")
 

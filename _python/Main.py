@@ -22,7 +22,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.setupUi(self)
 
         Settings.init()
-        Call_Thread.sensor_init()
+        Call_Thread.sensor_init(self)
         Commands.init()
 
         self.Sensor_tabWidget.currentChanged.connect(lambda: self.printci())
