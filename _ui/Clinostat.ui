@@ -792,7 +792,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -1791,6 +1791,9 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
    <widget class="QFrame" name="Capture_frame">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -1811,7 +1814,7 @@ p, li { white-space: pre-wrap; }
        <x>10</x>
        <y>0</y>
        <width>161</width>
-       <height>148</height>
+       <height>161</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -1878,6 +1881,13 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="preview_pushButton">
+        <property name="text">
+         <string>PREVIEW</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="rotate_pushButton">
         <property name="enabled">
          <bool>true</bool>
@@ -1896,7 +1906,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>150</y>
+       <y>170</y>
        <width>161</width>
        <height>41</height>
       </rect>
