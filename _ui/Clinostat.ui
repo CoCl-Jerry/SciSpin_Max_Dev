@@ -33,6 +33,9 @@
       <height>350</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string/>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
     </property>
@@ -378,6 +381,12 @@
          <height>41</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>rainbb</string>
+       </property>
+       <property name="toolTipDuration">
+        <number>10</number>
+       </property>
        <property name="text">
         <string>Rainbow</string>
        </property>
@@ -396,6 +405,9 @@
          <width>121</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>disco</string>
        </property>
        <property name="text">
         <string>Disco</string>
@@ -1888,6 +1900,9 @@ p, li { white-space: pre-wrap; }
        <width>161</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
      </property>
      <property name="text">
       <string>START TIMELAPSE</string>

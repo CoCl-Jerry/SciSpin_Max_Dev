@@ -41,7 +41,7 @@ void setup() {
   pinMode(IR_PIN, OUTPUT);
   pinMode(FAN_PIN, OUTPUT);
   
-  analogWrite(FAN_PIN, commands[1] * 1.5);
+  analogWrite(FAN_PIN, 100);
 
 
 }
