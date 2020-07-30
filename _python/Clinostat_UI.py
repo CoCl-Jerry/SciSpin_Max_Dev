@@ -219,6 +219,7 @@ class Ui_MainWindow(object):
         self.frame_verticalSlider = QtWidgets.QSlider(self.verticalLayoutWidget_6)
         self.frame_verticalSlider.setMinimum(1)
         self.frame_verticalSlider.setMaximum(1000)
+        self.frame_verticalSlider.setSingleStep(5)
         self.frame_verticalSlider.setProperty("value", 10)
         self.frame_verticalSlider.setTracking(True)
         self.frame_verticalSlider.setOrientation(QtCore.Qt.Vertical)

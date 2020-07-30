@@ -124,11 +124,12 @@ void getInterval() {
 //  }
 
 
-  interval = (600000000 / ((long)MOTORSTEPS * (long)microStep * MotorSpeed));
+//  interval = (600000000 / ((long)MOTORSTEPS * (long)microStep * MotorSpeed));
 
   NextTime = micros();
 
   //debug
+  interval = MotorSpeed;
   Serial.println(MotorSpeed);
   Serial.println(microStep);
   Serial.println(interval);
