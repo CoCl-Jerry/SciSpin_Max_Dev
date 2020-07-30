@@ -468,7 +468,7 @@ class Ui_MainWindow(object):
         self.x_resolution_spinBox = QtWidgets.QSpinBox(self.gridLayoutWidget_2)
         self.x_resolution_spinBox.setMinimum(50)
         self.x_resolution_spinBox.setMaximum(3240)
-        self.x_resolution_spinBox.setProperty("value", 2460)
+        self.x_resolution_spinBox.setProperty("value", 2464)
         self.x_resolution_spinBox.setObjectName("x_resolution_spinBox")
         self.gridLayout_2.addWidget(self.x_resolution_spinBox, 0, 0, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.gridLayoutWidget_2)
