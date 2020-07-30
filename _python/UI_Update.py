@@ -32,15 +32,15 @@ def snap_complete(self):
 
 
 def preview_complete(self):
-    self.core_status_label.setText("Time Taken" + str(Settings.time_elipsed))
+    self.core_status_label.setText("Time Taken " + str(Settings.time_elipsed))
     if(Settings.imaging_mode == 1):
         preview_img = PyQt5.QtGui.QImage("../_temp/preview.jpg")
         self.Image_Frame.setPixmap(QtGui.QPixmap(preview_img))
-        os.system("gpicview ../_temp/preview.jpg")
+        #os.system("gpicview ../_temp/preview.jpg")
     else:
         preview_img = PyQt5.QtGui.QImage("../_temp/preview.png")
         self.Image_Frame.setPixmap(QtGui.QPixmap(preview_img))
-        os.system("gpicview ../_temp/preview.png")
+        #os.system("gpicview ../_temp/preview.png")
     Settings.imaging = False
     Settings.trasmitted = 0
     update_imaging(self)
