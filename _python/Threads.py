@@ -119,7 +119,7 @@ class Preview(QThread):
         if(Settings.imaging_mode == 1):
             with open('../_temp/preview.jpg', 'wb') as f:
                 while True:
-                    data = sock.recv(512)
+                    data = sock.recv(1024)
                     if not data:
                         break
                     f.write(data)
@@ -129,7 +129,7 @@ class Preview(QThread):
         else:
             with open('../_temp/preview.png', 'wb') as f:
                 while True:
-                    data = sock.recv(512)
+                    data = sock.recv(1024)
                     if not data:
                         break
                     f.write(data)

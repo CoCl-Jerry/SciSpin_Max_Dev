@@ -99,10 +99,10 @@ def init():
     rotation = 0
 
     global x_resolution
-    x_resolution = 2464
+    x_resolution = 1000
 
     global y_resolution
-    y_resolution = 2464
+    y_resolution = 1000
 
     global imaging_mode
     imaging_mode = 1
