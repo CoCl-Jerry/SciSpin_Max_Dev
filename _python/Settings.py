@@ -99,10 +99,10 @@ def init():
     rotation = 0
 
     global x_resolution
-    x_resolution = 1000
+    x_resolution = 2464
 
     global y_resolution
-    y_resolution = 1000
+    y_resolution = 2464
 
     global imaging_mode
     imaging_mode = 1
@@ -124,9 +124,6 @@ def init():
 
     global time_elipsed
     time_elipsed = 0
-
-    global window
-    window = 512
 
     global forward
     forward = QtGui.QIcon()

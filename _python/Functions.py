@@ -56,9 +56,8 @@ def select_directory(self):
 
 
 def update_resolution(self):
-    #Settings.x_resolution = self.x_resolution_spinBox.value()
-    #Settings.y_resolution = self.y_resolution_spinBox.value()
-    Settings.window = self.x_resolution_spinBox.value()
+    Settings.x_resolution = self.x_resolution_spinBox.value()
+    Settings.y_resolution = self.y_resolution_spinBox.value()
 
 
 def update_mode(self):
