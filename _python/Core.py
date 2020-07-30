@@ -17,20 +17,20 @@ while True:
 
         CMD = recieved.split('~', 5)
 
-        if(CMD[0]=='A'):
+        if(CMD[0] == 'A'):
             with PiCamera() as camera:
-                camera.resolution = (int(CMD[1]),int(CMD[2]))
-                camera._set_rotation(90*int(CMD[3]))
+                camera.resolution = (int(CMD[1]), int(CMD[2]))
+                camera._set_rotation(90 * int(CMD[3]))
                 sleep(2)
-                if(int(CMD[4])==1):
+                if(int(CMD[4]) == 1):
                     camera.capture("out.jpg")
                 else:
                     camera.capture("out.png")
-            
-            if(int(CMD[4])==1):
-                f = open ("out.jpg", "rb")
+
+            if(int(CMD[4]) == 1):
+                f = open("out.jpg", "rb")
             else:
-                f = open ("out.png", "rb")
+                f = open("out.png", "rb")
             l = f.read(512)
             while (l):
                 connection.send(l)
@@ -38,14 +38,14 @@ while True:
             f.close()
             break
 
-        elif(CMD[0]=='B'):
+        elif(CMD[0] == 'B'):
             with PiCamera() as camera:
-                camera.resolution = (350,350)
-                camera.zoom = (0.25,0.25,0.5,0.5)
-                sleep(4)
+                camera.resolution = (350, 350)
+                #camera.zoom = (0.25, 0.25, 0.5, 0.5)
+                sleep(2)
                 camera.capture("out.jpg")
-            f = open ("out.jpg", "rb")
-                
+            f = open("out.jpg", "rb")
+
             l = f.read(512)
             while (l):
                 connection.send(l)
@@ -54,7 +54,3 @@ while True:
             break
 
     connection.close()
-    
-
-
-
