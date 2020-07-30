@@ -122,6 +122,9 @@ def init():
     global cycle_time
     cycle_time = 60
 
+    global time_elipsed
+    time_elipsed = 0
+
     global forward
     forward = QtGui.QIcon()
     forward.addPixmap(QtGui.QPixmap("../_image/forward.png"),

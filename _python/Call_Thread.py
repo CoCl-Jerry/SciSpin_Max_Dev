@@ -21,6 +21,22 @@ def start_snapshot(self):
         print(e)
 
 
+def start_preview(self):
+    try:
+        self.Preview_Thread = Threads.Preview()
+        self.Preview_Thread.transmit.connect(
+            lambda: UI_Update.transmit_update(self))
+        self.Preview_Thread.started.connect(
+            lambda: UI_Update.snap_start(self))
+        self.Preview_Thread.finished.connect(
+            lambda: UI_Update.preview_complete(self))
+
+        self.Preview_Thread.start()
+
+    except Exception as e:
+        print(e)
+
+
 def start_cycle(self):
     if not Settings.cycle_running:
         try:

@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -1239,21 +1239,21 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="resolution_label">
       <property name="geometry">
        <rect>
-        <x>45</x>
-        <y>360</y>
+        <x>70</x>
+        <y>300</y>
         <width>231</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;IMAGING RESOLUTION&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;IMAGING SETTINGS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_6">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>380</y>
+        <x>410</x>
+        <y>340</y>
         <width>201</width>
         <height>61</height>
        </rect>
@@ -1282,7 +1282,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>390</x>
-        <y>360</y>
+        <y>300</y>
         <width>231</width>
         <height>31</height>
        </rect>
@@ -1295,19 +1295,12 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>390</y>
-        <width>281</width>
-        <height>54</height>
+        <y>330</y>
+        <width>381</width>
+        <height>101</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="1">
-        <widget class="QLabel" name="CoreCtr_label_5">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;X&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QSpinBox" name="x_resolution_spinBox">
          <property name="suffix">
@@ -1318,22 +1311,6 @@ p, li { white-space: pre-wrap; }
          </property>
          <property name="maximum">
           <number>3240</number>
-         </property>
-         <property name="value">
-          <number>2464</number>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QSpinBox" name="y_resolution_spinBox">
-         <property name="suffix">
-          <string> px</string>
-         </property>
-         <property name="minimum">
-          <number>50</number>
-         </property>
-         <property name="maximum">
-          <number>2464</number>
          </property>
          <property name="value">
           <number>2464</number>
@@ -1357,6 +1334,47 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
+       <item row="0" column="2">
+        <widget class="QSpinBox" name="y_resolution_spinBox">
+         <property name="suffix">
+          <string> px</string>
+         </property>
+         <property name="minimum">
+          <number>50</number>
+         </property>
+         <property name="maximum">
+          <number>2464</number>
+         </property>
+         <property name="value">
+          <number>2464</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QSlider" name="yAxis_horizontalSlider">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="value">
+          <number>100</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="invertedAppearance">
+          <bool>true</bool>
+         </property>
+         <property name="invertedControls">
+          <bool>false</bool>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::NoTicks</enum>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="2">
         <widget class="QLabel" name="label_3">
          <property name="text">
@@ -1367,83 +1385,41 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
+       <item row="3" column="2">
+        <widget class="QSlider" name="xAxis_horizontalSlider">
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::NoTicks</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="CoreCtr_label_5">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;X&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="yAxis_label">
+         <property name="text">
+          <string>Zoom Axis B: 1.0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="xAxis_label">
+         <property name="text">
+          <string>Zoom Axis A: 0.0</string>
+         </property>
+        </widget>
+       </item>
       </layout>
-     </widget>
-     <widget class="QSlider" name="yAxis_horizontalSlider">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>350</y>
-        <width>159</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="minimum">
-       <number>1</number>
-      </property>
-      <property name="maximum">
-       <number>100</number>
-      </property>
-      <property name="value">
-       <number>100</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="invertedAppearance">
-       <bool>true</bool>
-      </property>
-      <property name="invertedControls">
-       <bool>false</bool>
-      </property>
-      <property name="tickPosition">
-       <enum>QSlider::NoTicks</enum>
-      </property>
-     </widget>
-     <widget class="QSlider" name="xAxis_horizontalSlider">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>350</y>
-        <width>159</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <number>100</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="tickPosition">
-       <enum>QSlider::NoTicks</enum>
-      </property>
-     </widget>
-     <widget class="QLabel" name="yAxis_label">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>320</y>
-        <width>159</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>AXIS B: 1.0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="xAxis_label">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>320</y>
-        <width>159</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>AXIS A: 0.0</string>
-      </property>
      </widget>
     </widget>
    </widget>
@@ -1453,11 +1429,11 @@ p, li { white-space: pre-wrap; }
       <x>660</x>
       <y>390</y>
       <width>161</width>
-      <height>161</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">
@@ -1866,7 +1842,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="text">
-     <string>Imaging Core Status: IDLE</string>
+     <string>Imaging Core Status: OFFLINE</string>
     </property>
    </widget>
    <widget class="QFrame" name="Capture_frame">
@@ -1878,7 +1854,7 @@ p, li { white-space: pre-wrap; }
       <x>830</x>
       <y>370</y>
       <width>181</width>
-      <height>211</height>
+      <height>201</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -1893,7 +1869,7 @@ p, li { white-space: pre-wrap; }
        <x>10</x>
        <y>0</y>
        <width>161</width>
-       <height>121</height>
+       <height>111</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -1933,9 +1909,9 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>140</y>
+       <y>120</y>
        <width>161</width>
-       <height>51</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="toolTip">
@@ -1945,19 +1921,6 @@ p, li { white-space: pre-wrap; }
       <string>START TIMELAPSE</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QLabel" name="temp_label">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>550</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Temperature: NULL</string>
-    </property>
    </widget>
   </widget>
   <action name="actionOpen_Directory">

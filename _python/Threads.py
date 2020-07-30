@@ -113,22 +113,24 @@ class Preview(QThread):
         cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
             "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
 
+        start_time = timeit.default_timer()
         sock.sendall(cmd.encode())
 
         if(Settings.imaging_mode == 1):
             with open('../_temp/preview.jpg', 'wb') as f:
                 while True:
-                    data = sock.recv(1024)
+                    data = sock.recv(512)
                     if not data:
                         break
                     f.write(data)
                     self.transmit.emit()
             sock.close()
+        Settings.time_elipsed = int(timeit.default_timer() - start_time)
 
         else:
             with open('../_temp/preview.png', 'wb') as f:
                 while True:
-                    data = sock.recv(1024)
+                    data = sock.recv(512)
                     if not data:
                         break
                     f.write(data)

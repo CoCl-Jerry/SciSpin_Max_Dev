@@ -37,6 +37,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Call_Thread.start_snapshot(self))
         self.startImaging_pushButton.clicked.connect(
             lambda: Call_Thread.start_timelapse(self))
+        self.preview_pushButton.clicked.connect(
+            lambda: Call_Thread.start_preview(self))
 
         self.rotate_pushButton.clicked.connect(
             lambda: Functions.rotate_image(self))

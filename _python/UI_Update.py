@@ -32,7 +32,7 @@ def snap_complete(self):
 
 
 def preview_complete(self):
-    self.core_status_label.setText("Imaging Core Status: IDLE")
+    self.core_status_label.setText("Time Taken" + str(Settings.time_elipsed))
     if(Settings.imaging_mode == 1):
         preview_img = PyQt5.QtGui.QImage("../_temp/preview.jpg")
         self.Image_Frame.setPixmap(QtGui.QPixmap(preview_img))
