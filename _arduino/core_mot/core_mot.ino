@@ -31,13 +31,44 @@ boolean sysRunning = false;
 
 unsigned long NextTime = 0;
 
+int speedMatrix[15][10] = { {826, 400, 261, 187, 150, 122, 101, 85, 75, 64},//1-10
+  { 57, 52, 46, 43, 36, 85, 80, 76, 68, 65
+  },//11-20
+  { 61, 56, 54, 52, 116, 109, 104, 100, 96, 93
+  },//21-30
+  { 90, 86, 83, 80, 76, 74, 72, 70, 68, 65
+  },//31-40
+  { 63, 61, 60, 59, 56, 125, 122, 121, 119, 115
+  },//41-50
+  { 112, 110, 106, 105, 104, 102, 99, 97, 95, 93
+  },//51-60
+  { 91, 90, 88, 87, 85, 183, 181, 178, 176, 174
+  },//61-70
+  { 171, 167, 166, 164, 160, 159, 157, 154, 150, 149
+  },//71-80
+  { 148, 305, 302, 299, 296, 292, 288, 284, 280, 277
+  },//81-90
+  { 273, 269, 265, 268, 261, 258, 255, 252, 249, 246
+  },//91-100
+  { 244, 242, 240, 236, 234, 233, 230, 228, 227, 223
+  },//101-110
+  { 221, 220, 217, 215, 213, 211, 210, 209, 207, 204
+  },//111-120
+  { 417, 416, 414, 411, 408, 404, 402, 400, 394, 391
+  },//121-130
+  { 388, 384, 381, 378, 375, 374, 372, 369, 366, 364
+  },//131-140
+  { 360, 357, 353, 350, 348, 347, 344, 342, 340, 335
+  } //141-150
+};
+
 
 //Code Initialization
 void setup() {
 
-  //debug
-  Serial.begin(9600);
-  //debug
+  //  //debug
+  //  Serial.begin(9600);
+  //  //debug
 
   Wire.begin(SLAVE_ADDRESS);
   Wire.onReceive(receiveData);
@@ -75,64 +106,49 @@ void loop() {
 }
 
 void getInterval() {
-//  if (MotorSpeed <= 20)
-//  {
-//    driver.microsteps(256);
-//    microStep = 256;
-//  }
-//
-//  else if (MotorSpeed <= 45)
-//  {
-//    driver.microsteps(128);
-//    microStep = 128;
-//  }
-//
-//  else if (MotorSpeed <= 60)
-//  {
-//    driver.microsteps(64);
-//    microStep = 64;
-//  }
-//
-//  else if (MotorSpeed <= 80)
-//  {
-//    driver.microsteps(32);
-//    microStep = 32;
-//  }
-//
-//  else if (MotorSpeed <= 100)
-//  {
-//    driver.microsteps(16);
-//    microStep = 16;
-//  }
-//
-//  else if (MotorSpeed <= 120)
-//  {
-//    driver.microsteps(8);
-//    microStep = 8;
-//  }
-//
-//  else if (MotorSpeed <= 140)
-//  {
-//    driver.microsteps(4);
-//    microStep = 4;
-//  }
-//
-//  else
-//  {
-//    driver.microsteps(2);
-//    microStep = 2;
-//  }
+  if (MotorSpeed <= 15)
+  {
+    driver.microsteps(256);
+  }
 
+  else if (MotorSpeed <= 24)
+  {
+    driver.microsteps(128);
+  }
 
-//  interval = (600000000 / ((long)MOTORSTEPS * (long)microStep * MotorSpeed));
+  else if (MotorSpeed <= 45)
+  {
+    driver.microsteps(64);
+  }
 
+  else if (MotorSpeed <= 65)
+  {
+    driver.microsteps(32);
+  }
+
+  else if (MotorSpeed <= 81)
+  {
+    driver.microsteps(16);
+  }
+
+  else if (MotorSpeed <= 120)
+  {
+    driver.microsteps(8);
+  }
+
+  else
+  {
+    driver.microsteps(4);
+  }
+
+  interval = speedMatrix[MotorSpeed / 10][MotorSpeed % 10 - 1];
   NextTime = micros();
 
   //debug
-  interval = MotorSpeed;
-  Serial.println(MotorSpeed);
-  Serial.println(microStep);
-  Serial.println(interval);
+  //interval = MotorSpeed;
+  //    Serial.println(MotorSpeed/10);
+  //    Serial.println(MotorSpeed%10);
+  //Serial.println(interval);
   //debug
 
 
