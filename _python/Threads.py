@@ -125,7 +125,6 @@ class Preview(QThread):
                     f.write(data)
                     self.transmit.emit()
             sock.close()
-        Settings.time_elipsed = int(timeit.default_timer() - start_time)
 
         else:
             with open('../_temp/preview.png', 'wb') as f:
@@ -136,6 +135,7 @@ class Preview(QThread):
                     f.write(data)
                     self.transmit.emit()
             sock.close()
+        Settings.time_elipsed = int(timeit.default_timer() - start_time)
 
 
 class Sensor(QThread):
