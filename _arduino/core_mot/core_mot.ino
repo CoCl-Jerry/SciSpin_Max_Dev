@@ -8,8 +8,8 @@
 #define MOTORSTEPS 2820
 
 //Slave Address for the Communication
-//#define SLAVE_ADDRESS 0x09
-#define SLAVE_ADDRESS 0x10
+#define SLAVE_ADDRESS 0x09        //frame
+//#define SLAVE_ADDRESS 0x10          //core
 #define COMMANDSIZE 5
 
 //Import the library required
@@ -35,6 +35,9 @@ unsigned long NextTime = 0;
 //Code Initialization
 void setup() {
 
+  //debug
+  Serial.begin(9600);
+  //debug
 
   Wire.begin(SLAVE_ADDRESS);
   Wire.onReceive(receiveData);
@@ -72,60 +75,67 @@ void loop() {
 }
 
 void getInterval() {
-  if (MotorSpeed <= 20)
-  {
-    driver.microsteps(256);
-    microStep = 256;
-  }
-
-  else if (MotorSpeed <= 45)
-  {
-    driver.microsteps(128);
-    microStep = 128;
-  }
-
-  else if (MotorSpeed <= 60)
-  {
-    driver.microsteps(64);
-    microStep = 64;
-  }
-
-  else if (MotorSpeed <= 80)
-  {
-    driver.microsteps(32);
-    microStep = 32;
-  }
-
-  else if (MotorSpeed <= 100)
-  {
-    driver.microsteps(16);
-    microStep = 16;
-  }
-
-  else if (MotorSpeed <= 120)
-  {
-    driver.microsteps(8);
-    microStep = 8;
-  }
-
-  else if (MotorSpeed <= 140)
-  {
-    driver.microsteps(4);
-    microStep = 4;
-  }
-
-  else
-  {
-    driver.microsteps(2);
-    microStep = 2;
-  }
-
-
+//  if (MotorSpeed <= 20)
+//  {
+//    driver.microsteps(256);
+//    microStep = 256;
+//  }
+//
+//  else if (MotorSpeed <= 45)
+//  {
+//    driver.microsteps(128);
+//    microStep = 128;
+//  }
+//
+//  else if (MotorSpeed <= 60)
+//  {
+//    driver.microsteps(64);
+//    microStep = 64;
+//  }
+//
+//  else if (MotorSpeed <= 80)
+//  {
+//    driver.microsteps(32);
+//    microStep = 32;
+//  }
+//
+//  else if (MotorSpeed <= 100)
+//  {
+//    driver.microsteps(16);
+//    microStep = 16;
+//  }
+//
+//  else if (MotorSpeed <= 120)
+//  {
+//    driver.microsteps(8);
+//    microStep = 8;
+//  }
+//
+//  else if (MotorSpeed <= 140)
+//  {
+//    driver.microsteps(4);
+//    microStep = 4;
+//  }
+//
+//  else
+//  {
+//    driver.microsteps(2);
+//    microStep = 2;
+//  }
 
 
   interval = (600000000 / ((long)MOTORSTEPS * (long)microStep * MotorSpeed));
 
   NextTime = micros();
+
+  //debug
+  Serial.println(MotorSpeed);
+  Serial.println(microStep);
+  Serial.println(interval);
+  //debug
+
+
+
 
 }
 
