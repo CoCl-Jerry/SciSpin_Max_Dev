@@ -31,7 +31,7 @@ while True:
                     else:
                         camera.capture("out.png")
 
-                if(int(CMD[4]) == 1):
+                if(int(CMD[8]) == 1):
                     f = open("out.jpg", "rb")
                 else:
                     f = open("out.png", "rb")
