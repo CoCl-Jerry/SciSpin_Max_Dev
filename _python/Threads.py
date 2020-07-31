@@ -203,8 +203,8 @@ class Timelapse(QThread):
             start_time = timeit.default_timer()
             Settings.current = i
             if(Settings.imaging_mode == 1):
-                Settings.current_image = Settings.full_dir +
-                "/" + Settings.sequence_name + "_%04d.jpg" % i
+                Settings.current_image = Settings.full_dir + \
+                    "/" + Settings.sequence_name + "_%04d.jpg" % i
             else:
                 Settings.current_image = Settings.full_dir +
                 "/" + Settings.sequence_name + "_%04d.png" % i
