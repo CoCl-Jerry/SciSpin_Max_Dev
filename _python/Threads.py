@@ -179,6 +179,7 @@ class Sensor(QThread):
                 sleep(0.1)
             if(not os.path.isdir(Settings.log_dir)):
                 os.umask(0)
+                os.mkdir("/home/pi/Desktop/sensor_log")
                 os.mkdir(Settings.log_dir)
 
                 log_file = open(Settings.log_dir + "log.txt", "w")
