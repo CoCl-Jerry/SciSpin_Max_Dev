@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import QtGui
 
 
-def rotate_image():
+def rotate_image(self):
     Settings.rotation += 1
     self.start_snapshot(self)
 
