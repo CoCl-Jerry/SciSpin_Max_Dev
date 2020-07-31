@@ -94,16 +94,12 @@ def link(self):
 def dir(self):
     if(Settings.frame_dir):
         self.frameReverse_pushButton.setIcon(Settings.reverse)
-        print("fr")
     else:
         self.frameReverse_pushButton.setIcon(Settings.forward)
-        print("ff")
     if(Settings.core_dir):
         self.coreReverse_pushButton.setIcon(Settings.reverse)
-        print("cr")
     else:
         self.coreReverse_pushButton.setIcon(Settings.forward)
-        print("cf")
 
 
 def validate_input(self):
