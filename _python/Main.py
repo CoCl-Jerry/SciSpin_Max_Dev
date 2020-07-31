@@ -105,7 +105,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.yAxis_horizontalSlider.valueChanged.connect(
             lambda: Functions.camera_update(self))
         self.yAxis_horizontalSlider.sliderReleased.connect(
-            lambda: Call_Thread.camera_update(self))
+            lambda: Call_Thread.start_snapshot(self))
 
         self.JPG_radioButton.toggled.connect(
             lambda: Functions.update_mode(self))
