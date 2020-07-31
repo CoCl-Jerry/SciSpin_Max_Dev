@@ -177,6 +177,7 @@ class Sensor(QThread):
 
                 self.update.emit()
                 sleep(0.1)
+        print("test")
 
 
 class Timelapse(QThread):
