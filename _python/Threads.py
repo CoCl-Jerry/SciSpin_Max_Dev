@@ -86,7 +86,6 @@ class Snap(QThread):
             str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
             str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
             "~" + str(int(Settings.AOI_H * 100)) + "~1"
-        print(cmd)
         sock.sendall(cmd.encode())
 
         with open('../_temp/snapshot.jpg', 'wb') as f:
@@ -113,8 +112,11 @@ class Preview(QThread):
         ip_address = "10.0.5.2"
         server_address = (ip_address, 23456)
         sock.connect(server_address)
-        cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
-            "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
+        cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
+            str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+            str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+            "~" + str(int(Settings.AOI_H * 100)) + \
+            "~" + str(Settings.imaging_mode)
 
         start_time = timeit.default_timer()
         sock.sendall(cmd.encode())
@@ -243,8 +245,11 @@ class Timelapse(QThread):
             server_address = (ip_address, 23456)
             sock.connect(server_address)
 
-            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
-                "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
+            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
+                str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+                str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+                "~" + str(int(Settings.AOI_H * 100)) + \
+                "~" + str(Settings.imaging_mode)
 
             sock.sendall(cmd.encode())
 
