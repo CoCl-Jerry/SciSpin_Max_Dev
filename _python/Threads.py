@@ -186,12 +186,15 @@ class Sensor(QThread):
                 log_file = open(Settings.log_dir + "/log.txt", "w")
 
                 if(Settings.tag_index == 0):
-                    log_file.write(Settings.ACC_X_text + " " + Settings.ACC_Y_text " " + Settings.ACC_Z_text)
+                    output = Settings.ACC_X_text + " " + Settings.ACC_Y_text " " + Settings.ACC_Z_text
+                    log_file.write(output)
 
                 elif(Settings.tag_index == 1):
-                    log_file.write(Settings.GYRO_X_text + " " + Settings.GYRO_Y_text " " + Settings.GYRO_Z_text)
+                    output = Settings.GYRO_X_text + " " + Settings.GYRO_Y_text " " + Settings.GYRO_Z_text
+                    log_file.write(output)
                 else:
-                    log_file.write(Settings.MAG_X_text + " " + Settings.MAG_Y_text " " + Settings.MAG_Z_text)
+                    output = Settings.MAG_X_text + " " + Settings.MAG_Y_text " " + Settings.MAG_Z_text
+                    log_file.write(output)
                 log_file.close()
                 Settings.log_sensor = False
 
