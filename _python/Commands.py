@@ -157,15 +157,17 @@ def reverse_motor(addr, motor):
         Settings.frame_dir = not Settings.frame_dir
         Settings.core_dir = not Settings.core_dir
 
-        Settings.sendCMD(Settings.frame_addr, "3~" + str(Settings.frame_dir))
-        Settings.sendCMD(Settings.core_addr, "3~" + str(Settings.core_dir))
+        Settings.sendCMD(Settings.frame_addr, "3~" +
+                         str(int(Settings.frame_dir)))
+        Settings.sendCMD(Settings.core_addr, "3~" +
+                         str(int(Settings.core_dir)))
     else:
         if (motor):
             Settings.frame_dir = not Settings.frame_dir
-            Settings.sendCMD(addr, "3~" + str(Settings.frame_dir))
+            Settings.sendCMD(addr, "3~" + str(int(Settings.frame_dir)))
         else:
             Settings.core_dir = not Settings.core_dir
-            Settings.sendCMD(addr, "3~" + str(Settings.core_dir))
+            Settings.sendCMD(addr, "3~" + str(int(Settings.core_dir)))
 
 
 def IR_trigger():
