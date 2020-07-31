@@ -206,8 +206,8 @@ class Timelapse(QThread):
                 Settings.current_image = Settings.full_dir + \
                     "/" + Settings.sequence_name + "_%04d.jpg" % i
             else:
-                Settings.current_image = Settings.full_dir +
-                "/" + Settings.sequence_name + "_%04d.png" % i
+                Settings.current_image = Settings.full_dir + \
+                    "/" + Settings.sequence_name + "_%04d.png" % i
 
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             ip_address = "10.0.5.2"
