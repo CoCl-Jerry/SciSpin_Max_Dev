@@ -155,63 +155,75 @@ class Sensor(QThread):
         self._running = False
 
     def run(self):
-        i2c = busio.I2C(board.SCL, board.SDA)
-        sensor = adafruit_fxos8700.FXOS8700(i2c)
+        try:
+            i2c = busio.I2C(board.SCL, board.SDA)
+            sensor = adafruit_fxos8700.FXOS8700(i2c)
 
-        i2c2 = busio.I2C(board.SCL, board.SDA)
-        sensor2 = adafruit_fxas21002c.FXAS21002C(i2c2)
-        while True:
-            if(Settings.tag_index == 0):
-                accel_x, accel_y, accel_z = sensor.accelerometer
-                Settings.ACC_X_text = "{0:.2f}".format(accel_x)
-                Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
-                Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
-
-            elif(Settings.tag_index == 1):
-                gyro_x, gyro_y, gyro_z = sensor2.gyroscope
-                Settings.GYRO_X_text = "{0:.2f}".format(gyro_x)
-                Settings.GYRO_Y_text = "{0:.2f}".format(gyro_y)
-                Settings.GYRO_Z_text = "{0:.2f}".format(gyro_z)
-            else:
-                mag_x, mag_y, mag_z = sensor.magnetometer
-                Settings.MAG_X_text = "{0:.2f}".format(mag_x)
-                Settings.MAG_Y_text = "{0:.2f}".format(mag_y)
-                Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
-
-            self.update.emit()
-            sleep(Settings.sample_time)
-
-            if(Settings.log_sensor):
-                if(not Settings.sensor_flag):
-                    self.logstart.emit()
-                    if(not os.path.isdir(Settings.prelog_dir)):
-                        os.umask(0)
-                        os.mkdir(Settings.prelog_dir)
-                    if(not os.path.isdir(Settings.log_dir)):
-                        os.mkdir(Settings.log_dir)
-                    log_file = open(Settings.log_dir + "/log.txt", "w")
-                    Settings.sensor_flag = True
-
+            i2c2 = busio.I2C(board.SCL, board.SDA)
+            sensor2 = adafruit_fxas21002c.FXAS21002C(i2c2)
+            while True:
                 if(Settings.tag_index == 0):
-
-                    log_file.write(Settings.ACC_X_text + "\t" +
-                                   Settings.ACC_Y_text + "\t" + Settings.ACC_Z_text + "\r\n")
+                    accel_x, accel_y, accel_z = sensor.accelerometer
+                    Settings.ACC_X_text = "{0:.2f}".format(accel_x)
+                    Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
+                    Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
 
                 elif(Settings.tag_index == 1):
-
-                    log_file.write(Settings.GYRO_X_text + "\t" +
-                                   Settings.GYRO_Y_text + "\t" + Settings.GYRO_Z_text + "\r\n")
+                    gyro_x, gyro_y, gyro_z = sensor2.gyroscope
+                    Settings.GYRO_X_text = "{0:.2f}".format(gyro_x)
+                    Settings.GYRO_Y_text = "{0:.2f}".format(gyro_y)
+                    Settings.GYRO_Z_text = "{0:.2f}".format(gyro_z)
                 else:
+                    mag_x, mag_y, mag_z = sensor.magnetometer
+                    Settings.MAG_X_text = "{0:.2f}".format(mag_x)
+                    Settings.MAG_Y_text = "{0:.2f}".format(mag_y)
+                    Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
 
-                    log_file.write(Settings.MAG_X_text + "\t" +
-                                   Settings.MAG_Y_text + "\t" + Settings.MAG_Z_text + "\r\n")
+                self.update.emit()
+                sleep(Settings.sample_time)
 
-                print(int(timeit.default_timer() - Settings.log_start_time))
-                if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
-                    Settings.log_sensor = False
-                    Settings.sensor_flag = False
-                    log_file.close()
-                    self.logdone.emit()
+                if(Settings.log_sensor):
+                    if(not Settings.sensor_flag):
+                        self.logstart.emit()
+                        if(not os.path.isdir(Settings.prelog_dir)):
+                            os.umask(0)
+                            os.mkdir(Settings.prelog_dir)
+                        if(not os.path.isdir(Settings.log_dir)):
+                            os.mkdir(Settings.log_dir)
+                        log_file = open(Settings.log_dir + "/log.txt", "w")
+                        Settings.sensor_flag = True
+
+                    if(Settings.tag_index == 0):
+
+                        log_file.write(Settings.ACC_X_text + "\t" +
+                                       Settings.ACC_Y_text + "\t" + Settings.ACC_Z_text + "\r\n")
+
+                    elif(Settings.tag_index == 1):
+
+                        log_file.write(Settings.GYRO_X_text + "\t" +
+                                       Settings.GYRO_Y_text + "\t" + Settings.GYRO_Z_text + "\r\n")
+                    else:
+
+                        log_file.write(Settings.MAG_X_text + "\t" +
+                                       Settings.MAG_Y_text + "\t" + Settings.MAG_Z_text + "\r\n")
+
+                    print(int(timeit.default_timer() - Settings.log_start_time))
+                    if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
+                        Settings.log_sensor = False
+                        Settings.sensor_flag = False
+                        log_file.close()
+                        self.logdone.emit()
+        except Exception as e:
+            print(e)
+            self.ACC_X_text_label.setText("offline")
+            self.ACC_Y_text_label.setText("offline")
+            self.ACC_Z_text_label.setText("offline")
+            self.GYRO_X_text_label.setText("offline")
+            self.GYRO_Y_text_label.setText("offline")
+            self.GYRO_Z_text_label.setText("offline")
+            self.MAG_X_text_label.setText("offline")
+            self.MAG_Y_text_label.setText("offline")
+            self.MAG_Z_text_label.setText("offline")
 
 
 class Timelapse(QThread):
