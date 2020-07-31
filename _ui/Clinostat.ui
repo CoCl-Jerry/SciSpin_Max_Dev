@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -231,7 +231,7 @@
            <item>
             <widget class="QSpinBox" name="BRT_spinBox">
              <property name="toolTip">
-              <string>General Brightness of all LEDs, internal temperature may rise if both the number of LEDs and the brightness are set high</string>
+              <string>General Brightness of all visible light LEDs, internal temperature may rise if both the number of LEDs and the brightness are set high</string>
              </property>
              <property name="suffix">
               <string> %</string>
@@ -300,7 +300,7 @@
          <item row="1" column="3">
           <widget class="QSpinBox" name="W_spinBox">
            <property name="toolTip">
-            <string>Warm White Color Intensity, note that warm white LEDs consume a considerable more amount of power than the other color LEDs, this may lead to issues if used in combination with other LEDs at high brightness </string>
+            <string>Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs</string>
            </property>
            <property name="suffix">
             <string> %</string>
@@ -523,15 +523,15 @@
        <rect>
         <x>450</x>
         <y>480</y>
-        <width>141</width>
-        <height>31</height>
+        <width>161</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="toolTip">
        <string>Briefly switch off all visible light LEDs and toggle on infrared LEDs during imaging, light is restored afterwards</string>
       </property>
       <property name="text">
-       <string>Infrared when Imaging</string>
+       <string>Infrared Imaging</string>
       </property>
      </widget>
     </widget>
@@ -547,6 +547,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Reverse rotation direction</string>
       </property>
       <property name="text">
        <string/>
@@ -570,6 +573,9 @@
         <width>50</width>
         <height>50</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Sync or desync motor controls</string>
       </property>
       <property name="text">
        <string/>
@@ -596,6 +602,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Reverse rotation direction</string>
       </property>
       <property name="text">
        <string/>
@@ -714,6 +723,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string>Enable or disable frame motor driver</string>
+      </property>
       <property name="text">
        <string>ENERGIZE COILS</string>
       </property>
@@ -785,6 +797,9 @@
         <width>149</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Enable or disable core motor driver</string>
       </property>
       <property name="text">
        <string>ENERGIZE COILS</string>
@@ -1511,7 +1526,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">
