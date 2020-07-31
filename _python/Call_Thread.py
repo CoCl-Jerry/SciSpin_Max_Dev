@@ -82,33 +82,22 @@ def start_timelapse(self):
 
 
 def sensor_init(self):
-    try:
-        os.system("ip addr show > ../_temp/output.txt")
-        if 'peer' in open('../_temp/output.txt').read():
-            self.core_status_label.setText("Core Status: Online")
-        else:
-            error = PyQt5.QtGui.QImage("../_image/Error.png")
-            self.Image_Frame.setPixmap(QtGui.QPixmap(error))
 
-        os.system("i2cdetect -y 1 > ../_temp/output.txt")
+    os.system("ip addr show > ../_temp/output.txt")
+    if 'peer' in open('../_temp/output.txt').read():
+        self.core_status_label.setText("Core Status: Online")
+    else:
+        error = PyQt5.QtGui.QImage("../_image/Error.png")
+        self.Image_Frame.setPixmap(QtGui.QPixmap(error))
 
-        if '1f' in open('../_temp/output.txt').read():
-            self.Sensor_Thread = Threads.Sensor()
-            self.Sensor_Thread.update.connect(
-                lambda: UI_Update.sensor_update(self))
-            self.Sensor_Thread.logstart.connect(
-                lambda: UI_Update.sensor_logstart(self))
-            self.Sensor_Thread.logdone.connect(
-                lambda: UI_Update.sensor_logdone(self))
-            self.Sensor_Thread.start()
-    except Exception as e:
-        print(e)
-        self.ACC_X_text_label.setText("offline")
-        self.ACC_Y_text_label.setText("offline")
-        self.ACC_Z_text_label.setText("offline")
-        self.GYRO_X_text_label.setText("offline")
-        self.GYRO_Y_text_label.setText("offline")
-        self.GYRO_Z_text_label.setText("offline")
-        self.MAG_X_text_label.setText("offline")
-        self.MAG_Y_text_label.setText("offline")
-        self.MAG_Z_text_label.setText("offline")
+    os.system("i2cdetect -y 1 > ../_temp/output.txt")
+
+    if '1f' in open('../_temp/output.txt').read():
+        self.Sensor_Thread = Threads.Sensor()
+        self.Sensor_Thread.update.connect(
+            lambda: UI_Update.sensor_update(self))
+        self.Sensor_Thread.logstart.connect(
+            lambda: UI_Update.sensor_logstart(self))
+        self.Sensor_Thread.logdone.connect(
+            lambda: UI_Update.sensor_logdone(self))
+        self.Sensor_Thread.start()

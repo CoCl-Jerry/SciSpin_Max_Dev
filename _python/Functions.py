@@ -10,7 +10,7 @@ from PyQt5 import QtGui
 
 def rotate_image():
     Settings.rotation += 1
-    self.start_snapshot()
+    self.start_snapshot(self)
 
 
 def IST_Edit(self):
