@@ -176,9 +176,7 @@ def init():
                      QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
     global error
-    error = QtGui.QIcon()
-    error.addPixmap(QtGui.QPixmap("../_image/Error.png"),
-                    QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    error = PyQt5.QtGui.QImage("../_image/Error.png"),
 
 
 def sendCMD(addr, cont):
