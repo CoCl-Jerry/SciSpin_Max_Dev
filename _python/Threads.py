@@ -188,9 +188,11 @@ class Sensor(QThread):
                         os.umask(0)
                         os.mkdir(Settings.prelog_dir)
                     if(not os.path.isdir(Settings.log_dir)):
+                        os.umask(0)
                         os.mkdir(Settings.log_dir)
                     log_file = open(Settings.log_dir + "/log.txt", "w")
                     Settings.sensor_flag = True
+                    os.chmod(Settings.log_dir + "/log.txt", 0o777)
 
                 if(Settings.tag_index == 0):
 
