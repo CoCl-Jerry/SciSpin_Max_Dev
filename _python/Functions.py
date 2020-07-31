@@ -152,30 +152,30 @@ def start_lighting_preset(self):
 
             if Settings.germinationDirection == 0:
                 Settings.send_commands_list.append(
-                    "1~0~19~" + Settings.current_CMD)
+                    "1~0~84~" + Settings.current_CMD)
             elif Settings.germinationDirection == 1:
                 Settings.send_commands_list.append(
-                    "1~5~15~" + Settings.current_CMD)
+                    "1~21~62~" + Settings.current_CMD)
             elif Settings.germinationDirection == 2:
                 Settings.send_commands_list.append(
-                    "1~0~5~" + Settings.current_CMD)
+                    "1~0~21~" + Settings.current_CMD)
                 Settings.send_commands_list.append(
-                    "1~14~19~" + Settings.current_CMD)
+                    "1~62~84~" + Settings.current_CMD)
             elif Settings.germinationDirection == 3:
                 Settings.send_commands_list.append(
-                    "1~9~19~" + Settings.current_CMD)
+                    "1~42~84~" + Settings.current_CMD)
             elif Settings.germinationDirection == 4:
                 Settings.send_commands_list.append(
-                    "1~0~10~" + Settings.current_CMD)
+                    "1~0~42~" + Settings.current_CMD)
             elif Settings.germinationDirection == 5:
                 Settings.send_commands_list.append(
-                    "1~6~13~" + Settings.current_CMD)
+                    "1~31~51~" + Settings.current_CMD)
             elif Settings.germinationDirection == 6:
                 Settings.send_commands_list.append(
-                    "1~13~19~" + Settings.current_CMD)
+                    "1~62~84~" + Settings.current_CMD)
             elif Settings.germinationDirection == 7:
                 Settings.send_commands_list.append(
-                    "1~0~6~" + Settings.current_CMD)
+                    "1~1~21~" + Settings.current_CMD)
             Commands.deploy_lights(Settings.send_commands_list)
             Settings.send_commands_list.clear()
 

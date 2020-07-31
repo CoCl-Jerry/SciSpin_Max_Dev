@@ -15,7 +15,7 @@ def init():
 def light_confirm(self):
     curr_cmd = str(self.Start_spinBox.value() - 1) + "~" + str(self.End_spinBox.value() - 1) + "~" + str(self.R_spinBox.value()) + \
         "~" + str(self.G_spinBox.value()) + "~" + \
-        str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value())
+        str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value() + "\n")
     Settings.commands_list.append(curr_cmd)
     print(Settings.lighting_addr, "1~" + curr_cmd)
     Settings.sendCMD(Settings.lighting_addr, "1~" + curr_cmd)
@@ -24,7 +24,7 @@ def light_confirm(self):
 
 
 def light_reset(self):
-    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0")
+    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0\n")
     Settings.sendCMD(Settings.lighting_addr, "2~128")
 
     self.R_spinBox.setValue(50)
@@ -38,7 +38,7 @@ def light_reset(self):
 
 
 def clear_lights():
-    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0")
+    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0\n")
 
 
 def ergz_motor(addr):
@@ -182,5 +182,5 @@ def deploy_lights(temp_list):
     for x in temp_list:
         Settings.sendCMD(Settings.lighting_addr, x)
         sleep(0.1)
-    current_CMD = "4~"
+    current_CMD = "4~\n"
     Settings.sendCMD(Settings.lighting_addr, current_CMD)
