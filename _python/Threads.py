@@ -83,9 +83,9 @@ class Snap(QThread):
         server_address = (ip_address, 23456)
         sock.connect(server_address)
         cmd = "A~" + str(350) + "~" + str(350) + "~" + \
-            str(Settings.rotation) + "~" + str(Settings.AOI_X) + "~" + \
-            str(Settings.AOI_Y) + "~" + str(Settings.AOI_W) + \
-            "~" + str(Settings.AOI_H) + "~1"
+            str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+            str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+            "~" + str(int(Settings.AOI_H * 100)) + "~1"
         print(cmd)
         sock.sendall(cmd.encode())
 
