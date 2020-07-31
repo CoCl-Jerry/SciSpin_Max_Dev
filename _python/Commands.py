@@ -48,7 +48,7 @@ def ergz_motor(addr):
         Settings.sendCMD(addr, "1~")
 
 
-def reverse_motor(addr, motor):
+def reverse_motor(addr, motor, self):
     if(Settings.LINKED):
         Settings.sendCMD(Settings.frame_addr, "3~")
         Settings.sendCMD(Settings.core_addr, "3~")
