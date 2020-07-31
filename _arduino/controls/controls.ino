@@ -44,7 +44,7 @@ void setup() {
 
 
 
-  analogWrite(FAN_PIN, 50);
+  analogWrite(FAN_PIN, 100);
 
 
 }
@@ -155,9 +155,9 @@ void exeCMD() {
   {
     if (!digitalRead(IR_PIN))
     {
-      digitalWrite(IR_PIN, !digitalRead(IR_PIN));
+      digitalWrite(IR_PIN, HIGH);
       delay(4000);
-      digitalWrite(IR_PIN, !digitalRead(IR_PIN));
+      digitalWrite(IR_PIN, LOW);
     }
     rainbow_cmd = false;
   }

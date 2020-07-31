@@ -176,4 +176,4 @@ def Rainbow_trigger():
 
 
 def IR_Imaging_trigger():
-    Settings.sendCMD(Settings.lighting_addr, "6~")
+    Settings.sendCMD(Settings.lighting_addr, "6~\n")
