@@ -178,10 +178,6 @@ class Sensor(QThread):
             self.update.emit()
             sleep(0.1)
 
-        if (not os.path.isdir(Settings.log_dir)):
-            os.umask(0)
-            os.mkdir(Settings.log_dir)
-
 
 class Timelapse(QThread):
     captured = QtCore.pyqtSignal()
@@ -214,8 +210,8 @@ class Timelapse(QThread):
             server_address = (ip_address, 23456)
             sock.connect(server_address)
 
-            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) +
-            "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
+            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
+                "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
 
             sock.sendall(cmd.encode())
 

@@ -74,17 +74,14 @@ def init():
     global current_image
     current_image = ""
 
-    global date
-    date = time.strftime('%m_%d_%Y')
-
-    global log_dir
-    log_dir = "/home/pi/Desktop/Sensor_log/" + date
-
     global default_dir
     default_dir = "/home/pi/Desktop"
 
     global full_dir
     full_dir = ""
+
+    global date
+    date = time.strftime('%m_%d_%Y')
 
     global AOI_X
     AOI_X = 0
