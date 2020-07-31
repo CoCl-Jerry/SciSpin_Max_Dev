@@ -23,6 +23,12 @@ def init():
     global busy
     busy = False
 
+    global free_sensor
+    free_sensor = True
+
+    global log_duration
+    log_duration = 1
+
     global frame_RPM
     frame_RPM = 0.3
 

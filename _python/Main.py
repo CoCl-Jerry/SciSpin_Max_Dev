@@ -72,6 +72,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.IR_pushButton.clicked.connect(lambda: Commands.IR_trigger())
 
+        self.log_pushButton.clicked.connect(
+            lambda: Functions.sensor_log(self))
+
         #self.rainbow_pushButton.clicked.connect(lambda: Commands.Rainbow_trigger())
         #self.disco_pushButton.clicked.connect(lambda: Commands.Disco_trigger())
 

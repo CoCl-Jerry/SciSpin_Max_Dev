@@ -1525,7 +1525,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">
@@ -2025,22 +2025,19 @@ p, li { white-space: pre-wrap; }
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
-      <widget class="QDoubleSpinBox" name="log_doubleSpinBox">
-       <property name="suffix">
-        <string> s</string>
-       </property>
-       <property name="decimals">
-        <number>1</number>
-       </property>
-       <property name="minimum">
-        <double>0.100000000000000</double>
+      <widget class="QPushButton" name="log_pushButton">
+       <property name="text">
+        <string>LOG FOR</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="log_pushButton">
-       <property name="text">
-        <string>LOG</string>
+      <widget class="QSpinBox" name="log_spinBox">
+       <property name="suffix">
+        <string> MIN</string>
+       </property>
+       <property name="minimum">
+        <number>1</number>
        </property>
       </widget>
      </item>
