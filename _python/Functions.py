@@ -115,7 +115,7 @@ def core_spin_select(self):
 
 
 def sensor_log(self):
-    Settings.free_sensor = False
+    Settings.log_sensor = True
     Settings.log_duration = self.log_spinBox.value()
     # if(Settings.LINKED):
     #     Commands.linked_spin_change(self)

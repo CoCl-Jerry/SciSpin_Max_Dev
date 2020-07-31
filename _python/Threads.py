@@ -207,9 +207,6 @@ class Sensor(QThread):
             #     Settings.MAG_Y_text = "{0:.2f}".format(mag_y)
             #     Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
 
-                log_file.write("Purchase Amount:test")
-                log_file.close()
-
 
 class Timelapse(QThread):
     captured = QtCore.pyqtSignal()
