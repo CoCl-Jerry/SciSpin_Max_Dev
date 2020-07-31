@@ -55,9 +55,23 @@ def select_directory(self):
     UI_Update.validate_input(self)
 
 
-def update_resolution(self):
+def camera_update(self):
+    Settings.AOI_X = self.xAxis_horizontalSlider.sliderPosition() / 100
+    Settings.AOI_Y = self.xAxis_horizontalSlider.sliderPosition() / 100
+    Settings.AOI_W = self.yAxis_horizontalSlider.sliderPosition() / 100
+    Settings.AOI_H = self.yAxis_horizontalSlider.sliderPosition() / 100
+
     Settings.x_resolution = self.x_resolution_spinBox.value()
     Settings.y_resolution = self.y_resolution_spinBox.value()
+
+    formatted_x = "{:.2f}".format(
+        self.xAxis_horizontalSlider.sliderPosition() / 100)
+    formatted_y = "{:.2f}".format(
+        self.yAxis_horizontalSlider.sliderPosition() / 100)
+    self.xAxis_label.setText(
+        "Zoom Axis A: " + formatted_x)
+    self.yAxis_label.setText(
+        "Zoom Axis B: " + formatted_y)
 
 
 def update_mode(self):
@@ -98,14 +112,3 @@ def core_spin_select(self):
         Commands.linked_spin_change(self)
     else:
         Commands.core_spin_select(self)
-
-
-def zoomSliderChange(self):
-    formatted_x = "{:.2f}".format(
-        self.xAxis_horizontalSlider.sliderPosition() / 100)
-    formatted_y = "{:.2f}".format(
-        self.yAxis_horizontalSlider.sliderPosition() / 100)
-    self.xAxis_label.setText(
-        "Zoom Axis A: " + formatted_x)
-    self.yAxis_label.setText(
-        "Zoom Axis B: " + formatted_y)

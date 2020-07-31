@@ -77,6 +77,15 @@ def init():
     global date
     date = time.strftime('%m_%d_%Y')
 
+    global AOI_X
+    AOI_X = 0
+    global AOI_Y
+    AOI_Y = 0
+    global AOI_W
+    AOI_W = 1
+    global AOI_H
+    AOI_H = 1
+
     global interval
     interval = 5
 
