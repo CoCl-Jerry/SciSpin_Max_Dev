@@ -23,12 +23,6 @@ def init():
     global busy
     busy = False
 
-    global frame_dir
-    frame_dir = False
-
-    global core_dir
-    core_dir = False
-
     global frame_RPM
     frame_RPM = 0.3
 
@@ -46,6 +40,12 @@ def init():
 
     global tag_index
     tag_index = 0
+
+    global frame_dir
+    frame_dir = 0
+
+    global core_dir
+    core_dir = 0
 
     global ACC_X_text
     ACC_X_text = "offline"
