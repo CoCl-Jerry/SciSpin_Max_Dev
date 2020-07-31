@@ -1157,6 +1157,9 @@ p, li { white-space: pre-wrap; }
            <property name="maximum">
             <number>99999999</number>
            </property>
+           <property name="value">
+            <number>2</number>
+           </property>
           </widget>
          </item>
          <item>
@@ -1199,6 +1202,9 @@ p, li { white-space: pre-wrap; }
            </property>
            <property name="maximum">
             <number>99999999</number>
+           </property>
+           <property name="value">
+            <number>2</number>
            </property>
           </widget>
          </item>

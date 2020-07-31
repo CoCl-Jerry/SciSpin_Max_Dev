@@ -102,10 +102,10 @@ def init():
     AOI_H = 1
 
     global interval
-    interval = 5
+    interval = 2
 
     global duration
-    duration = 5
+    duration = 2
 
     global total
     total = 1
