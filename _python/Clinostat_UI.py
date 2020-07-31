@@ -251,6 +251,7 @@ class Ui_MainWindow(object):
         self.frameErgz_pushButton.setObjectName("frameErgz_pushButton")
         self.frame_spinBox = QtWidgets.QDoubleSpinBox(self.Frame_tab)
         self.frame_spinBox.setGeometry(QtCore.QRect(80, 419, 149, 31))
+        self.frame_spinBox.setReadOnly(True)
         self.frame_spinBox.setDecimals(2)
         self.frame_spinBox.setMinimum(0.05)
         self.frame_spinBox.setMaximum(5.0)
