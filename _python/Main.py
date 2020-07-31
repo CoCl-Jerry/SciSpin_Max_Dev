@@ -49,7 +49,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.rotate_image(self))
 
         self.confirmCycle_pushButton.clicked.connect(
-            lambda: Call_Thread.start_cycle())
+            lambda: Call_Thread.start_cycle(self))
         self.powerCycle_spinBox.valueChanged.connect(
             lambda: Functions.Cycle_Change(self))
 
