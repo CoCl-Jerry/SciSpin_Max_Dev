@@ -119,10 +119,20 @@ def frame_slider_change(self):
 
 def core_slider_change(self):
     Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 10
+    self.core_spinBox.blockSignals(True)
     self.core_spinBox.setValue(Settings.core_RPM)
+    CMD = "2~" + str(Settings.core_RPM * 10)
+    Settings.sendCMD(Settings.core_addr, CMD)
+
+    self.core_spinBox.blockSignals(False)
 
 
 def linked_slider_change(self):
+    self.core_spinBox.blockSignals(True)
+    self.frame_spinBox.blockSignals(True)
+    self.core_verticalSlider.blockSignals(True)
+    self.frame_verticalSlider.blockSignals(True)
+
     if(Settings.frame_RPM != self.frame_verticalSlider.sliderPosition() / 10):
         Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 10
         Settings.core_RPM = Settings.frame_RPM
@@ -135,6 +145,16 @@ def linked_slider_change(self):
         self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
         self.core_spinBox.setValue(Settings.core_RPM)
         self.frame_spinBox.setValue(Settings.frame_RPM)
+
+    CMD = "2~" + str(Settings.frame_RPM * 10)
+    Settings.sendCMD(Settings.frame_addr, CMD)
+    CMD = "2~" + str(Settings.core_RPM * 10)
+    Settings.sendCMD(Settings.core_addr, CMD)
+
+    self.core_spinBox.blockSignals(False)
+    self.frame_spinBox.blockSignals(False)
+    self.core_verticalSlider.blockSignals(False)
+    self.frame_verticalSlider.blockSignals(False)
 
 
 def IR_trigger():
