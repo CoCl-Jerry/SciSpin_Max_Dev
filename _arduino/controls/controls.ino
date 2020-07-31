@@ -141,6 +141,11 @@ void exeCMD() {
     resetFunc(); //call reset
   }
 
+  if (commands[0] == 8)
+  {
+    rainbow(50);
+  }
+
   digitalWrite(BUZZER_PIN, HIGH);
   delay(100);
   digitalWrite(BUZZER_PIN, LOW);

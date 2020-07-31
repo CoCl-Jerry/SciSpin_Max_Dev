@@ -166,7 +166,10 @@ def IR_trigger():
     else:
         Settings.IR_STAT = False
 
-# def Rainbow_trigger():
+
+def Rainbow_trigger():
+    Settings.sendCMD(Settings.lighting_addr, "8~")
+
 # def Disco_trigger():
 
 
