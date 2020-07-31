@@ -116,7 +116,7 @@ class Preview(QThread):
             str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
             str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
             "~" + str(int(Settings.AOI_H * 100)) + \
-            "~" + str(Settings.imaging_mode)
+            "~" + str(int(Settings.imaging_mode))
 
         start_time = timeit.default_timer()
         sock.sendall(cmd.encode())
@@ -249,7 +249,7 @@ class Timelapse(QThread):
                 str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
                 str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
                 "~" + str(int(Settings.AOI_H * 100)) + \
-                "~" + str(Settings.imaging_mode)
+                "~" + str(int(Settings.imaging_mode))
 
             sock.sendall(cmd.encode())
 
