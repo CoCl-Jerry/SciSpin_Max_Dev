@@ -157,32 +157,30 @@ class Sensor(QThread):
         i2c2 = busio.I2C(board.SCL, board.SDA)
         sensor2 = adafruit_fxas21002c.FXAS21002C(i2c2)
 
-        while True:
-           while Settings.free_sensor:
-                if(Settings.tag_index == 0):
-                    accel_x, accel_y, accel_z = sensor.accelerometer
-                    Settings.ACC_X_text = "{0:.2f}".format(accel_x)
-                    Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
-                    Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
+        while Settings.free_sensor:
+            if(Settings.tag_index == 0):
+                accel_x, accel_y, accel_z = sensor.accelerometer
+                Settings.ACC_X_text = "{0:.2f}".format(accel_x)
+                Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
+                Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
 
-                elif(Settings.tag_index == 1):
-                    gyro_x, gyro_y, gyro_z = sensor2.gyroscope
-                    Settings.GYRO_X_text = "{0:.2f}".format(gyro_x)
-                    Settings.GYRO_Y_text = "{0:.2f}".format(gyro_y)
-                    Settings.GYRO_Z_text = "{0:.2f}".format(gyro_z)
-                else:
-                    mag_x, mag_y, mag_z = sensor.magnetometer
-                    Settings.MAG_X_text = "{0:.2f}".format(mag_x)
-                    Settings.MAG_Y_text = "{0:.2f}".format(mag_y)
-                    Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
-
-                self.update.emit()
-                sleep(0.1)
-
+            elif(Settings.tag_index == 1):
+                gyro_x, gyro_y, gyro_z = sensor2.gyroscope
+                Settings.GYRO_X_text = "{0:.2f}".format(gyro_x)
+                Settings.GYRO_Y_text = "{0:.2f}".format(gyro_y)
+                Settings.GYRO_Z_text = "{0:.2f}".format(gyro_z)
             else:
-                if(not os.path.isdir(Settings.log_dir)):
-                    os.umask(0)
-                    os.mkdir(Settings.log_dir)
+                mag_x, mag_y, mag_z = sensor.magnetometer
+                Settings.MAG_X_text = "{0:.2f}".format(mag_x)
+                Settings.MAG_Y_text = "{0:.2f}".format(mag_y)
+                Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
+
+            self.update.emit()
+            sleep(0.1)
+
+        if (not os.path.isdir(Settings.log_dir)):
+            os.umask(0)
+            os.mkdir(Settings.log_dir)
 
 
 class Timelapse(QThread):
@@ -205,19 +203,19 @@ class Timelapse(QThread):
             start_time = timeit.default_timer()
             Settings.current = i
             if(Settings.imaging_mode == 1):
-                Settings.current_image = Settings.full_dir + \
-                    "/" + Settings.sequence_name + "_%04d.jpg" % i
+                Settings.current_image = Settings.full_dir +
+                "/" + Settings.sequence_name + "_%04d.jpg" % i
             else:
-                Settings.current_image = Settings.full_dir + \
-                    "/" + Settings.sequence_name + "_%04d.png" % i
+                Settings.current_image = Settings.full_dir +
+                "/" + Settings.sequence_name + "_%04d.png" % i
 
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             ip_address = "10.0.5.2"
             server_address = (ip_address, 23456)
             sock.connect(server_address)
 
-            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + \
-                "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
+            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) +
+            "~" + str(Settings.rotation) + "~" + str(Settings.imaging_mode)
 
             sock.sendall(cmd.encode())
 
