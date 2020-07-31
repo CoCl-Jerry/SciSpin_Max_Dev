@@ -91,6 +91,18 @@ def link(self):
         self.link_pushButton.setIcon(Settings.linked)
 
 
+def dir(self):
+    if(Settings.frame_dir):
+        self.frameReverse_pushButton.setIcon(Settings.reverse)
+    else:
+        self.frameReverse_pushButton.setIcon(Settings.forward)
+
+    if(Settings.core_dir):
+        self.coreReverse_pushButton.setIcon(Settings.reverse)
+    else:
+        self.coreReverse_pushButton.setIcon(Settings.forward)
+
+
 def validate_input(self):
     Settings.total = int(Settings.duration / Settings.interval)
     if(Settings.total > 0 and len(Settings.sequence_name) != 0):

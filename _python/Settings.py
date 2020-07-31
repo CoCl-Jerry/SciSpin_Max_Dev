@@ -101,6 +101,12 @@ def init():
     global rotation
     rotation = 0
 
+    global frame_dir
+    current = 0
+
+    global core_dir
+    rotation = 0
+
     global x_resolution
     x_resolution = 2464
 
