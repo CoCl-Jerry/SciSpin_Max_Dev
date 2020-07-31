@@ -184,7 +184,7 @@ class Sensor(QThread):
                     os.mkdir(Settings.prelog_dir)
                 if(not os.path.isdir(Settings.log_dir)):
                     os.mkdir(Settings.log_dir)
-                log_file = open(Settings.log_dir + "/log.txt", "w")
+                log_file = open(Settings.log_dir + "/log.txt", "a+")
 
                 if(Settings.tag_index == 0):
 
@@ -199,6 +199,8 @@ class Sensor(QThread):
 
                     log_file.write(Settings.MAG_X_text + "\t" +
                                    Settings.MAG_Y_text + "\t" + Settings.MAG_Z_text + "\r\n")
+
+                print(int(timeit.default_timer() - Settings.log_start_time))
                 if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
                     Settings.log_sensor = False
                     log_file.close()
