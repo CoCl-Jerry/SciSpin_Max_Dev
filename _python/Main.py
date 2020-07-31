@@ -33,6 +33,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.coreErgz_pushButton.clicked.connect(
             lambda: Commands.ergz_motor(Settings.core_addr))
 
+        self.frameReverse_pushButton.clicked.connect(
+            lambda: Commands.reverse_motor(Settings.frame_addr, 1))
+        self.coreReverse_pushButton.clicked.connect(
+            lambda: Commands.reverse_motor(Settings.core_addr, 0))
+
         self.snapshot_pushButton.clicked.connect(
             lambda: Call_Thread.start_snapshot(self))
         self.startImaging_pushButton.clicked.connect(
@@ -57,11 +62,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.frame_slider_select(self))
         self.core_verticalSlider.valueChanged.connect(
             lambda: Functions.core_slider_select(self))
-
-        self.frameReverse_pushButton.clicked.connect(
-            lambda: Commands.reverse_frame_select())
-        self.coreReverse_pushButton.clicked.connect(
-            lambda: Commands.reverse_core_select())
 
         self.link_pushButton.clicked.connect(lambda: UI_Update.link(self))
 

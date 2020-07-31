@@ -152,20 +152,20 @@ def core_spin_select(self):
     Settings.sendCMD(Settings.core_addr, CMD)
 
 
-def reverse_frame_select():
-    if Settings.frame_dir:
-        Settings.frame_dir = 0
-    else:
-        Settings.frame_dir = 1
-    Settings.sendCMD(Settings.frame_addr, "3~" + str(Settings.frame_dir))
+def reverse_motor(addr, motor):
+    if(Settings.LINKED):
+        Settings.frame_dir = not Settings.frame_dir
+        Settings.core_dir = not Settings.core_dir
 
-
-def reverse_core_select():
-    if Settings.core_dir:
-        Settings.core_dir = 0
+        Settings.sendCMD(Settings.frame_addr, "3~" + str(Settings.frame_dir))
+        Settings.sendCMD(Settings.core_addr, "3~" + str(Settings.core_dir))
     else:
-        Settings.core_dir = 1
-    Settings.sendCMD(Settings.core_addr, "3~" + str(Settings.core_dir))
+        if (motor):
+            Settings.frame_dir = not Settings.frame_dir
+            Settings.sendCMD(addr, "3~" + str(Settings.frame_dir))
+        else:
+            Settings.core_dir = not Settings.core_dir
+            Settings.sendCMD(addr, "3~" + str(Settings.core_dir))
 
 
 def IR_trigger():

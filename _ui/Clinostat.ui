@@ -724,7 +724,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Enable or disable frame motor driver</string>
+       <string>Enable or disable motor driver</string>
       </property>
       <property name="text">
        <string>ENERGIZE COILS</string>
@@ -799,7 +799,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Enable or disable core motor driver</string>
+       <string>Enable or disable motor driver</string>
       </property>
       <property name="text">
        <string>ENERGIZE COILS</string>
@@ -1330,6 +1330,9 @@ p, li { white-space: pre-wrap; }
        </item>
        <item row="3" column="0">
         <widget class="QSlider" name="yAxis_horizontalSlider">
+         <property name="toolTip">
+          <string>Zoom controls, snapshot is taken when released, useful during focusing</string>
+         </property>
          <property name="minimum">
           <number>1</number>
          </property>
@@ -1343,7 +1346,7 @@ p, li { white-space: pre-wrap; }
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="invertedAppearance">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="invertedControls">
           <bool>false</bool>
@@ -1372,6 +1375,9 @@ p, li { white-space: pre-wrap; }
        </item>
        <item row="3" column="3">
         <widget class="QSlider" name="xAxis_horizontalSlider">
+         <property name="toolTip">
+          <string>Zoom controls, snapshot is taken when released, useful during focusing</string>
+         </property>
          <property name="maximum">
           <number>100</number>
          </property>
