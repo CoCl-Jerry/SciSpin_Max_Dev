@@ -9,7 +9,6 @@
 #define FAN_PIN 9
 #define NUM_LEDS 83
 #define BRIGHTNESS 50
-#define QUARTER NUM_LEDS/4
 #define SLAVE_ADDRESS 0x08
 #define COMMANDSIZE 7
 
@@ -17,6 +16,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRBW + NEO_KH
 
 char data[50];
 int commands[COMMANDSIZE];
+boolean rainbow_cmd = false;
 
 //Code Initialization
 void setup() {
@@ -50,7 +50,28 @@ void setup() {
 }
 
 void loop() {
-
+  if (rainbow_cmd)
+  {
+    // Hue of first pixel runs 5 complete loops through the color wheel.
+    // Color wheel has a range of 65536 but it's OK if we roll over, so
+    // just count from 0 to 5*65536. Adding 256 to firstPixelHue each time
+    // means we'll make 5*65536/256 = 1280 passes through this outer loop:
+    for (long firstPixelHue = 0; firstPixelHue < 65536; firstPixelHue += 256) {
+      for (int i = 0; i < strip.numPixels(); i++) { // For each pixel in strip...
+        // Offset pixel hue by an amount to make one full revolution of the
+        // color wheel (range of 65536) along the length of the strip
+        // (strip.numPixels() steps):
+        int pixelHue = firstPixelHue + (i * 65536L / strip.numPixels());
+        // strip.ColorHSV() can take 1 or 3 arguments: a hue (0 to 65535) or
+        // optionally add saturation and value (brightness) (each 0 to 255).
+        // Here we're using just the single-argument hue variant. The result
+        // is passed through strip.gamma32() to provide 'truer' colors
+        // before assigning to each pixel:
+        strip.setPixelColor(i, strip.gamma32(strip.ColorHSV(pixelHue)));
+      }
+      strip.show(); // Update strip with new contents
+    }
+  }
 }
 
 // callback for received data
@@ -103,26 +124,31 @@ void exeCMD() {
   {
     stripUpdate();
     strip.show();
+    rainbow_cmd = false;
   }
 
   if (commands[0] == 2)
   {
     brightnessUpdate();
+    rainbow_cmd = false;
   }
 
   if (commands[0] == 3)
   {
     digitalWrite(IR_PIN, !digitalRead(IR_PIN));
+    rainbow_cmd = false;
   }
 
   if (commands[0] == 4)
   {
     stripUpdate();
+    rainbow_cmd = false;
   }
 
   if (commands[0] == 5)
   {
     stripShow();
+    rainbow_cmd = false;
   }
 
   if (commands[0] == 6)
@@ -133,17 +159,24 @@ void exeCMD() {
       delay(4000);
       digitalWrite(IR_PIN, !digitalRead(IR_PIN));
     }
+    rainbow_cmd = false;
   }
 
   if (commands[0] == 7)
   {
     void(* resetFunc) (void) = 0;
     resetFunc(); //call reset
+    rainbow_cmd = false;
   }
 
   if (commands[0] == 8)
+  { rainbow_cmd = true;
+
+  }
+
+  if (commands[0] == 9)
   {
-    rainbow(50);
+    rainbow_cmd = false;
   }
 
   digitalWrite(BUZZER_PIN, HIGH);

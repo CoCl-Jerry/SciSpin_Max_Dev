@@ -387,7 +387,7 @@
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>20</y>
+         <y>60</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -403,7 +403,7 @@
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>60</y>
+         <y>100</y>
          <width>121</width>
          <height>41</height>
         </rect>
@@ -419,25 +419,6 @@
        </property>
        <property name="checkable">
         <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="disco_pushButton">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>120</y>
-         <width>121</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>disco</string>
-       </property>
-       <property name="text">
-        <string>Disco</string>
        </property>
       </widget>
       <widget class="QLabel" name="lightCycle_label">
