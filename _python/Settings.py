@@ -23,6 +23,9 @@ def init():
     global busy
     busy = False
 
+    global log_sensor
+    log_sensor = False
+
     global log_duration
     log_duration = 1
 
@@ -79,6 +82,9 @@ def init():
 
     global date
     date = time.strftime('%m_%d_%Y')
+
+    global prelog_dir
+    prelog_dir = "/home/pi/Desktop/sensor_log/"
 
     global log_dir
     log_dir = "/home/pi/Desktop/sensor_log/" + date
