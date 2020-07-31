@@ -14,11 +14,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>FlashLapse Commad Point</string>
+   <string>SciSpiner MAX</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../_image/icon.png</normaloff>../_image/icon.png</iconset>
+    <normaloff>../_image/icon.ico</normaloff>../_image/icon.ico</iconset>
   </property>
   <property name="documentMode">
    <bool>false</bool>
