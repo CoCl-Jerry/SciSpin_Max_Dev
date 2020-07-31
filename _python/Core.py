@@ -14,6 +14,7 @@ while True:
 
     while True:
         recieved = connection.recv(1024).decode("utf-8")
+        print(recieved)
 
         CMD = recieved.split('~', 9)
 
