@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -598,16 +598,16 @@
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="frame_verticalSlider">
          <property name="minimum">
-          <number>1</number>
+          <number>5</number>
          </property>
          <property name="maximum">
-          <number>150</number>
+          <number>500</number>
          </property>
          <property name="singleStep">
-          <number>1</number>
+          <number>5</number>
          </property>
          <property name="value">
-          <number>10</number>
+          <number>100</number>
          </property>
          <property name="tracking">
           <bool>true</bool>
@@ -698,16 +698,16 @@
        <string> RPM</string>
       </property>
       <property name="decimals">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="minimum">
-       <double>0.100000000000000</double>
+       <double>0.050000000000000</double>
       </property>
       <property name="maximum">
-       <double>15.000000000000000</double>
+       <double>5.000000000000000</double>
       </property>
       <property name="singleStep">
-       <double>0.100000000000000</double>
+       <double>0.050000000000000</double>
       </property>
       <property name="value">
        <double>1.000000000000000</double>
