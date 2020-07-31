@@ -81,10 +81,10 @@ def start_timelapse(self):
 
 def sensor_init(self):
     os.system("ip addr show > ../_temp/output.txt")
-       if 'peer' in open('../_temp/output.txt').read():
-            self.core_status_label.setText("Core Status: Online")
-        else
-           self.Image_Frame.setPixmap(QtGui.QPixmap(Settings.error))
+    if 'peer' in open('../_temp/output.txt').read():
+        self.core_status_label.setText("Core Status: Online")
+    else:
+        self.Image_Frame.setPixmap(QtGui.QPixmap(Settings.error))
 
     os.system("i2cdetect -y 1 > ../_temp/output.txt")
 
