@@ -157,7 +157,7 @@ class Sensor(QThread):
         i2c2 = busio.I2C(board.SCL, board.SDA)
         sensor2 = adafruit_fxas21002c.FXAS21002C(i2c2)
 
-        while True
+        while True:
            while Settings.free_sensor:
                 if(Settings.tag_index == 0):
                     accel_x, accel_y, accel_z = sensor.accelerometer
