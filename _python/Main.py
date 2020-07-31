@@ -122,8 +122,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.Preset_pushButton.clicked.connect(
             lambda: Functions.start_lighting_preset(self))
 
-        Preset_pushButton
-
 
 def main():
     app = QApplication(sys.argv)
