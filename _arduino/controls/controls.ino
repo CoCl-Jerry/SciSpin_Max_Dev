@@ -182,6 +182,7 @@ void exeCMD() {
   digitalWrite(BUZZER_PIN, HIGH);
   delay(100);
   digitalWrite(BUZZER_PIN, LOW);
+  
 }
 
 void colorWipe(uint32_t c, uint8_t wait) {
@@ -198,16 +199,19 @@ void stripUpdate() {
       strip.setPixelColor(i, int(commands[3] * 2.55), int(commands[4] * 2.55), int(commands[5] * 2.55), int(commands[6] * 2.55));
     }
   }
-
+  rainbow_cmd = false;
 }
 
 void stripShow() {
   strip.show();
+  rainbow_cmd = false;
+
 }
 
 void brightnessUpdate() {
   strip.setBrightness(int(commands[1] * 2.55));
   strip.show();
+  rainbow_cmd = false;
 }
 
 // Rainbow cycle along whole strip. Pass delay time (in ms) between frames.
