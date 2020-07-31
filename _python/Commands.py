@@ -47,8 +47,7 @@ def ergz_motor(addr):
         Settings.sendCMD(Settings.core_addr, "1~")
     else:
         Settings.sendCMD(addr, "1~")
-    sleep(0.1)
-    Settings.sendCMD(Settings.lighting_addr, "9~\n")
+    Settings.sendCMD(Settings.lighting_addr, "\n9~\n")
 
 
 def reverse_motor(addr, motor, self):
