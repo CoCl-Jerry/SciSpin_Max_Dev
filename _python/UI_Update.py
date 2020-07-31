@@ -57,6 +57,13 @@ def image_captured(self):
     self.startImaging_pushButton.setEnabled(True)
 
 
+def lightingPreset_update(self):
+    self.lightingPreset_tabWidget.setEnabled(
+        not Settings.lightingPreset_running)
+    if not Settings.lightingPreset_running:
+        Commands.light_reset(self)
+
+
 def sensor_update(self):
 
     if(Settings.tag_index == 0):
