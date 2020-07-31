@@ -119,12 +119,7 @@ def frame_slider_change(self):
 
 def core_slider_change(self):
     Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 10
-    self.core_spinBox.blockSignals(True)
     self.core_spinBox.setValue(Settings.core_RPM)
-    CMD = "2~" + str(Settings.core_RPM * 10)
-    Settings.sendCMD(Settings.core_addr, CMD)
-
-    self.core_spinBox.blockSignals(False)
 
 
 def linked_slider_change(self):
