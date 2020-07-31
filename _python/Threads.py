@@ -177,9 +177,9 @@ class Sensor(QThread):
 
                 self.update.emit()
                 sleep(0.1)
-        if(not os.path.isdir(Settings.log_dir)):
-            os.umask(0)
-            os.mkdir(Settings.log_dir)
+            if(not os.path.isdir(Settings.log_dir)):
+                os.umask(0)
+                os.mkdir(Settings.log_dir)
 
 
 class Timelapse(QThread):
