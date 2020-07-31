@@ -93,9 +93,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.select_directory(self))
 
         self.x_resolution_spinBox.valueChanged.connect(
-            lambda: Functions.Camera_update(self))
+            lambda: Functions.camera_update(self))
         self.y_resolution_spinBox.valueChanged.connect(
-            lambda: Functions.Camera_update(self))
+            lambda: Functions.camera_update(self))
 
         self.xAxis_horizontalSlider.valueChanged.connect(
             lambda: Functions.zoomSliderChange(self))
@@ -103,9 +103,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Call_Thread.start_snapshot(self))
 
         self.yAxis_horizontalSlider.valueChanged.connect(
-            lambda: Functions.Camera_update(self))
+            lambda: Functions.camera_update(self))
         self.yAxis_horizontalSlider.sliderReleased.connect(
-            lambda: Call_Thread.Camera_update(self))
+            lambda: Call_Thread.camera_update(self))
 
         self.JPG_radioButton.toggled.connect(
             lambda: Functions.update_mode(self))
