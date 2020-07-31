@@ -88,7 +88,7 @@ def printci(self):
 
 
 def sample_change(self):
-    Settings.sample_time = self.sample_doubleSpinBox.currentIndex()
+    Settings.sample_time = self.sample_doubleSpinBox.value()
 
 
 def frame_slider_select(self):
