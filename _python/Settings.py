@@ -1,5 +1,4 @@
 import smbus
-import PyQt5
 import time
 import Settings
 from PyQt5 import QtGui
@@ -175,9 +174,6 @@ def init():
     broken = QtGui.QIcon()
     broken.addPixmap(QtGui.QPixmap("../_image/Broken_Link.png"),
                      QtGui.QIcon.Normal, QtGui.QIcon.Off)
-
-    global error
-    error = PyQt5.QtGui.QImage("../_image/Error.png"),
 
 
 def sendCMD(addr, cont):

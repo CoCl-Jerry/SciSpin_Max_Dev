@@ -2,6 +2,7 @@ import Settings
 import UI_Update
 import Threads
 from PyQt5 import QtCore, QtGui, QtWidgets
+import PyQt5
 
 import os
 
@@ -85,7 +86,8 @@ def sensor_init(self):
     if 'peer' in open('../_temp/output.txt').read():
         self.core_status_label.setText("Core Status: Online")
     else:
-        self.Image_Frame.setPixmap(QtGui.QPixmap(Settings.error))
+        error = PyQt5.QtGui.QImage("../_image/Error.png")
+        self.Image_Frame.setPixmap(QtGui.QPixmap(error))
 
     os.system("i2cdetect -y 1 > ../_temp/output.txt")
 
