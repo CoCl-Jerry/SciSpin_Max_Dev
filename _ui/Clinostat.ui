@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -1310,7 +1310,7 @@ p, li { white-space: pre-wrap; }
        <item row="3" column="4">
         <widget class="QLabel" name="yAxis_label">
          <property name="text">
-          <string>Zoom Axis B: 1.0</string>
+          <string>Zoom Axis B: 1.00</string>
          </property>
         </widget>
        </item>
@@ -1324,7 +1324,7 @@ p, li { white-space: pre-wrap; }
        <item row="3" column="1">
         <widget class="QLabel" name="xAxis_label">
          <property name="text">
-          <string>Zoom Axis A: 0.0</string>
+          <string>Zoom Axis A: 0.00</string>
          </property>
         </widget>
        </item>
