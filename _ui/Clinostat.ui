@@ -817,7 +817,7 @@
      <attribute name="title">
       <string>PRESETS</string>
      </attribute>
-     <widget class="QTabWidget" name="Preset_tabWidget">
+     <widget class="QTabWidget" name="lightingPreset_tabWidget">
       <property name="enabled">
        <bool>true</bool>
       </property>
