@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -1038,7 +1038,7 @@ p, li { white-space: pre-wrap; }
         <x>10</x>
         <y>40</y>
         <width>611</width>
-        <height>261</height>
+        <height>241</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1217,7 +1217,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>440</y>
+        <y>460</y>
         <width>611</width>
         <height>61</height>
        </rect>
@@ -1242,117 +1242,57 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="resolution_label">
+     <widget class="QFrame" name="frame_3">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>300</y>
-        <width>231</width>
-        <height>31</height>
+        <x>10</x>
+        <y>290</y>
+        <width>611</width>
+        <height>161</height>
        </rect>
       </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;IMAGING SETTINGS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-     </widget>
-     <widget class="QWidget" name="horizontalLayoutWidget_6">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>340</y>
-        <width>201</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_7">
-       <item>
-        <widget class="QRadioButton" name="JPG_radioButton">
-         <property name="text">
-          <string>.JPG</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="PNG_radioButton">
-         <property name="text">
-          <string>.PNG</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QLabel" name="resolution_label_2">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>300</y>
-        <width>231</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;IMAGE FORMAT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
       </property>
      </widget>
      <widget class="QWidget" name="gridLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>330</y>
-        <width>381</width>
-        <height>101</height>
+        <x>20</x>
+        <y>302</y>
+        <width>591</width>
+        <height>141</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QSpinBox" name="x_resolution_spinBox">
-         <property name="suffix">
-          <string> px</string>
-         </property>
-         <property name="minimum">
-          <number>50</number>
-         </property>
-         <property name="maximum">
-          <number>3240</number>
-         </property>
-         <property name="value">
-          <number>2464</number>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 3240 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
+       <item row="3" column="2">
         <widget class="QLabel" name="CoreCtr_label_6">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
+       <item row="3" column="4">
+        <widget class="QLabel" name="yAxis_label">
+         <property name="text">
+          <string>Zoom Axis B: 1.0</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="2">
-        <widget class="QSpinBox" name="y_resolution_spinBox">
-         <property name="suffix">
-          <string> px</string>
+        <widget class="QLabel" name="resolution_label">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resulution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
-         <property name="minimum">
-          <number>50</number>
-         </property>
-         <property name="maximum">
-          <number>2464</number>
-         </property>
-         <property name="value">
-          <number>2464</number>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="xAxis_label">
+         <property name="text">
+          <string>Zoom Axis A: 0.0</string>
          </property>
         </widget>
        </item>
@@ -1382,6 +1322,13 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item row="1" column="2">
+        <widget class="QLabel" name="CoreCtr_label_5">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;X&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
         <widget class="QLabel" name="label_3">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2464 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1391,7 +1338,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="3" column="2">
+       <item row="3" column="3">
         <widget class="QSlider" name="xAxis_horizontalSlider">
          <property name="maximum">
           <number>100</number>
@@ -1404,24 +1351,76 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="CoreCtr_label_5">
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;X&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 3240 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QSpinBox" name="x_resolution_spinBox">
+         <property name="suffix">
+          <string> px</string>
+         </property>
+         <property name="minimum">
+          <number>50</number>
+         </property>
+         <property name="maximum">
+          <number>3240</number>
+         </property>
+         <property name="value">
+          <number>2464</number>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="3">
+        <widget class="QRadioButton" name="PNG_radioButton">
+         <property name="text">
+          <string>.PNG</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QLabel" name="resolution_label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Image Format&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QSpinBox" name="y_resolution_spinBox">
+         <property name="suffix">
+          <string> px</string>
+         </property>
+         <property name="minimum">
+          <number>50</number>
+         </property>
+         <property name="maximum">
+          <number>2464</number>
+         </property>
+         <property name="value">
+          <number>2464</number>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QRadioButton" name="JPG_radioButton">
+         <property name="text">
+          <string>.JPG</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QLabel" name="yAxis_label">
+        <widget class="QLabel" name="resolution_label_3">
          <property name="text">
-          <string>Zoom Axis B: 1.0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="xAxis_label">
-         <property name="text">
-          <string>Zoom Axis A: 0.0</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zoom Control&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -1435,11 +1434,11 @@ p, li { white-space: pre-wrap; }
       <x>660</x>
       <y>390</y>
       <width>161</width>
-      <height>181</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">
@@ -1464,7 +1463,7 @@ p, li { white-space: pre-wrap; }
         <x>0</x>
         <y>30</y>
         <width>151</width>
-        <height>91</height>
+        <height>71</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
@@ -1583,7 +1582,7 @@ p, li { white-space: pre-wrap; }
         <x>0</x>
         <y>30</y>
         <width>151</width>
-        <height>91</height>
+        <height>71</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1715,7 +1714,7 @@ p, li { white-space: pre-wrap; }
         <x>0</x>
         <y>30</y>
         <width>151</width>
-        <height>91</height>
+        <height>71</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1860,7 +1859,7 @@ p, li { white-space: pre-wrap; }
       <x>830</x>
       <y>370</y>
       <width>181</width>
-      <height>201</height>
+      <height>191</height>
      </rect>
     </property>
     <property name="frameShape">
