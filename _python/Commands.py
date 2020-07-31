@@ -179,7 +179,7 @@ def IR_Imaging_trigger():
 
 def deploy_lights(temp_list):
     for x in temp_list:
-        send_CMD(x)
+        Settings.send_CMD(Settings.lighting_addr, x)
         sleep(0.1)
-    current_CMD = "4\n"
-    send_CMD(current_CMD)
+    current_CMD = "4~"
+    Settings.send_CMD(Settings.lighting_addr, current_CMD)
