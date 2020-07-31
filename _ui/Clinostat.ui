@@ -2027,7 +2027,7 @@ p, li { white-space: pre-wrap; }
      <item row="1" column="1">
       <widget class="QSpinBox" name="log_spinBox">
        <property name="suffix">
-        <string> MIN</string>
+        <string> min</string>
        </property>
        <property name="minimum">
         <number>1</number>
@@ -2044,14 +2044,14 @@ p, li { white-space: pre-wrap; }
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Sample Every</string>
+        <string>Sample Rate</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
       <widget class="QDoubleSpinBox" name="sample_doubleSpinBox">
        <property name="suffix">
-        <string>s</string>
+        <string> s</string>
        </property>
        <property name="decimals">
         <number>1</number>

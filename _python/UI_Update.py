@@ -136,10 +136,14 @@ def transmitst(self):
 
 def sensor_logstart(self):
     self.log_pushButton.setEnabled(False)
+    self.sample_doubleSpinBox.setEnabled(False)
+    self.log_spinBox.setEnabled(False)
 
 
 def sensor_logdone(self):
     self.log_pushButton.setEnabled(True)
+    self.sample_doubleSpinBox.setEnabled(True)
+    self.log_spinBox.setEnabled(True)
 
 
 def timelapse_start(self):
