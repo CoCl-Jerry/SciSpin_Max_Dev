@@ -181,6 +181,12 @@ class Sensor(QThread):
                 os.umask(0)
                 os.mkdir(Settings.log_dir)
 
+                log_file = open(Settings.log_dir + "log.txt", "w")
+
+                log_file.write("Purchase Amount:test"")
+                log_file.close()
+                Settings.free_sensor = True
+
 
 class Timelapse(QThread):
     captured = QtCore.pyqtSignal()
