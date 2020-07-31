@@ -147,6 +147,7 @@ def init():
 
 
 def sendCMD(addr, cont):
+    print(cont)
     try:
         if Settings.busy:
             time.sleep(0.05)
