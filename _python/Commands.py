@@ -1,6 +1,7 @@
 import Settings
 import socket
 import UI_Update
+from time import sleep
 #from PyQt5.QtCore import QThread
 #from PyQt5 import QtCore, QtGui, QtWidgets
 
