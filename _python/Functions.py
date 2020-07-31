@@ -124,3 +124,68 @@ def sensor_log(self):
     Settings.log_start_time = timeit.default_timer()
     Settings.log_sensor = True
     Settings.log_duration = self.log_spinBox.value() * 60
+
+
+def start_lighting_preset(self):
+    if not Settings.lightingPreset_running:
+        Settings.germinationColor = self.germinationColor_comboBox.currentIndex()
+        Settings.germinationDirection = self.germinationDirection_comboBox.currentIndex()
+        Settings.cycleTime = self.cycleTime_spinBox.value()
+        Settings.stripLength = self.stripLength_spinBox.value()
+
+        Settings.lightingPreset_running = True
+        UI_Update.lightingPreset_update(self)
+
+        Commands.clear_lights()
+
+        if not self.lightingPreset_tabWidget.currentIndex():
+            if Settings.germinationColor == 0:
+                Settings.current_CMD = "255~0~0~0\n"
+            elif Settings.germinationColor == 1:
+                Settings.current_CMD = "0~255~0~0\n"
+            elif Settings.germinationColor == 2:
+                Settings.current_CMD = "0~0~255~0\n"
+            elif Settings.germinationColor == 3:
+                Settings.current_CMD = "255~0~255~0\n"
+            elif Settings.germinationColor == 4:
+                Settings.current_CMD = "255~255~255~0\n"
+            elif Settings.germinationColor == 5:
+                Settings.current_CMD = "0~0~0~255\n"
+
+            if Settings.germinationDirection == 0:
+                Settings.send_commands_list.append(
+                    "1~0~19~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 1:
+                Settings.send_commands_list.append(
+                    "1~5~15~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 2:
+                Settings.send_commands_list.append(
+                    "1~0~5~" + Settings.current_CMD)
+                Settings.send_commands_list.append(
+                    "1~14~19~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 3:
+                Settings.send_commands_list.append(
+                    "1~9~19~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 4:
+                Settings.send_commands_list.append(
+                    "1~0~10~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 5:
+                Settings.send_commands_list.append(
+                    "1~6~13~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 6:
+                Settings.send_commands_list.append(
+                    "1~13~19~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 7:
+                Settings.send_commands_list.append(
+                    "1~0~6~" + Settings.current_CMD)
+            Commands.deploy_lights(Settings.send_commands_list)
+            Settings.send_commands_list.clear()
+
+        else:
+            current_CMD = "2~2~" + str(int(self.cycleTime_spinBox.value() * 189.5)) + \
+                "~" + str(self.stripLength_spinBox.value() - 1) + "\n"
+            Commands.send_CMD(current_CMD)
+
+    else:
+        Settings.lightingPreset_running = False
+        UI_Update.lightingPreset_update(self)
