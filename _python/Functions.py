@@ -101,7 +101,11 @@ def core_spin_select(self):
 
 
 def zoomSliderChange(self):
+    formatted_x = "{:.2f}".format(
+        self.xAxis_horizontalSlider.sliderPosition() / 100)
+    formatted_y = "{:.2f}".format(
+        self.yAxis_horizontalSlider.sliderPosition() / 100)
     self.xAxis_label.setText(
-        "Zoom Axis A: " + str(self.xAxis_horizontalSlider.sliderPosition() / 100))
+        "Zoom Axis A: " + formatted_x)
     self.yAxis_label.setText(
-        "Zoom Axis B: " + str(self.yAxis_horizontalSlider.sliderPosition() / 100))
+        "Zoom Axis B: " + formatted_y)
