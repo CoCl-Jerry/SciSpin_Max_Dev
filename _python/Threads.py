@@ -143,8 +143,8 @@ class Preview(QThread):
 
 class Sensor(QThread):
     update = QtCore.pyqtSignal()
-    sensor_logstart = QtCore.pyqtSignal()
-    sensor_logend = QtCore.pyqtSignal()
+    logstart = QtCore.pyqtSignal()
+    logdone = QtCore.pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
@@ -180,7 +180,7 @@ class Sensor(QThread):
             sleep(Settings.sample_time)
 
             if(Settings.log_sensor):
-                self.sensor_logstart.emit()
+                self.logstart.emit()
 
                 if(not os.path.isdir(Settings.prelog_dir)):
                     os.umask(0)
@@ -207,7 +207,7 @@ class Sensor(QThread):
                 if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
                     Settings.log_sensor = False
                     log_file.close()
-                    self.sensor_logend.emit()
+                    self.logdone.emit()
 
 
 class Timelapse(QThread):
