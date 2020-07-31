@@ -83,6 +83,9 @@ def init():
     global date
     date = time.strftime('%m_%d_%Y')
 
+    global log_dir
+    log_dir = "/home/pi/Desktop/sensor_log" + date
+
     global AOI_X
     AOI_X = 0
     global AOI_Y
