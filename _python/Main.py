@@ -98,7 +98,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.camera_update(self))
 
         self.xAxis_horizontalSlider.valueChanged.connect(
-            lambda: Functions.zoomSliderChange(self))
+            lambda: Functions.camera_update(self))
         self.xAxis_horizontalSlider.sliderReleased.connect(
             lambda: Call_Thread.start_snapshot(self))
 
