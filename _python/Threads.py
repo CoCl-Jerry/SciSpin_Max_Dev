@@ -157,26 +157,30 @@ class Sensor(QThread):
         i2c2 = busio.I2C(board.SCL, board.SDA)
         sensor2 = adafruit_fxas21002c.FXAS21002C(i2c2)
 
-        while Settings.free_sensor:
-            if(Settings.tag_index == 0):
-                accel_x, accel_y, accel_z = sensor.accelerometer
-                Settings.ACC_X_text = "{0:.2f}".format(accel_x)
-                Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
-                Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
+        while True
+           while Settings.free_sensor:
+                if(Settings.tag_index == 0):
+                    accel_x, accel_y, accel_z = sensor.accelerometer
+                    Settings.ACC_X_text = "{0:.2f}".format(accel_x)
+                    Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
+                    Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
 
-            elif(Settings.tag_index == 1):
-                gyro_x, gyro_y, gyro_z = sensor2.gyroscope
-                Settings.GYRO_X_text = "{0:.2f}".format(gyro_x)
-                Settings.GYRO_Y_text = "{0:.2f}".format(gyro_y)
-                Settings.GYRO_Z_text = "{0:.2f}".format(gyro_z)
-            else:
-                mag_x, mag_y, mag_z = sensor.magnetometer
-                Settings.MAG_X_text = "{0:.2f}".format(mag_x)
-                Settings.MAG_Y_text = "{0:.2f}".format(mag_y)
-                Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
+                elif(Settings.tag_index == 1):
+                    gyro_x, gyro_y, gyro_z = sensor2.gyroscope
+                    Settings.GYRO_X_text = "{0:.2f}".format(gyro_x)
+                    Settings.GYRO_Y_text = "{0:.2f}".format(gyro_y)
+                    Settings.GYRO_Z_text = "{0:.2f}".format(gyro_z)
+                else:
+                    mag_x, mag_y, mag_z = sensor.magnetometer
+                    Settings.MAG_X_text = "{0:.2f}".format(mag_x)
+                    Settings.MAG_Y_text = "{0:.2f}".format(mag_y)
+                    Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
 
-            self.update.emit()
-            sleep(0.1)
+                self.update.emit()
+                sleep(0.1)
+            if(not os.path.isdir(Settings.log_dir)):
+                os.umask(0)
+                os.mkdir(Settings.log_dir)
 
 
 class Timelapse(QThread):
