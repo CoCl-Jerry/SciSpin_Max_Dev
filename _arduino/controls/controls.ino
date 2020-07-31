@@ -3,6 +3,7 @@
 #include <Adafruit_NeoPixel.h>
 
 //Slave Address for the Communication
+#define BUZZER_PIN 3
 #define LED_PIN 5
 #define IR_PIN 8
 #define FAN_PIN 9
@@ -19,6 +20,9 @@ int commands[COMMANDSIZE];
 
 //Code Initialization
 void setup() {
+  pinMode(IR_PIN, OUTPUT);
+  pinMode(FAN_PIN, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
   // initialize i2c as slave
   Serial.begin(9600);
   Wire.begin(SLAVE_ADDRESS);
@@ -38,17 +42,14 @@ void setup() {
   startup();
   colorWipe(strip.Color(0, 0, 0, 0), 1);
 
-  pinMode(IR_PIN, OUTPUT);
-  pinMode(FAN_PIN, OUTPUT);
-  
-  analogWrite(FAN_PIN, 100);
+
+
+  analogWrite(FAN_PIN, 50);
 
 
 }
 
 void loop() {
-
-  disco(10);
 
 }
 
@@ -111,7 +112,6 @@ void exeCMD() {
 
   if (commands[0] == 3)
   {
-
     digitalWrite(IR_PIN, !digitalRead(IR_PIN));
   }
 
@@ -140,6 +140,10 @@ void exeCMD() {
     void(* resetFunc) (void) = 0;
     resetFunc(); //call reset
   }
+
+  digitalWrite(BUZZER_PIN, HIGH);
+  delay(100);
+  digitalWrite(BUZZER_PIN, LOW);
 }
 
 void colorWipe(uint32_t c, uint8_t wait) {
@@ -212,6 +216,13 @@ void startup() {
     }
     strip.show(); // Update strip with new contents
   }
+  digitalWrite(BUZZER_PIN, HIGH);
+  delay(100);
+  digitalWrite(BUZZER_PIN, LOW);
+  delay(80);
+  digitalWrite(BUZZER_PIN, HIGH);
+  delay(100);
+  digitalWrite(BUZZER_PIN, LOW);
 }
 
 void disco(int wait) {

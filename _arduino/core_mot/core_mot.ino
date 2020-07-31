@@ -8,8 +8,8 @@
 #define MOTORSTEPS 2820
 
 //Slave Address for the Communication
-#define SLAVE_ADDRESS 0x09        //frame
-//#define SLAVE_ADDRESS 0x10          //core
+//#define SLAVE_ADDRESS 0x09        //frame
+#define SLAVE_ADDRESS 0x10          //core
 #define COMMANDSIZE 5
 
 //Import the library required
@@ -99,6 +99,8 @@ void setup() {
 }
 
 void loop() {
+  if (micros() < NextTime)
+    NextTime = micros();
   if (micros() - NextTime > interval) {
     digitalWrite(STEP_PIN, !digitalRead(STEP_PIN));
     NextTime = micros();         // reset for next pulse

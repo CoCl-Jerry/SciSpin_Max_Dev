@@ -102,6 +102,16 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.infraredImaging_checkBox.stateChanged.connect(
             lambda: Functions.IR_mode(self))
 
+        self.xAxis_horizontalSlider.valueChanged.connect(
+            lambda: Functions.zoomSliderChange(self))
+        self.xAxis_horizontalSlider.sliderReleased.connect(
+            lambda: Call_Thread.start_snapshot(self))
+
+        self.yAxis_horizontalSlider.valueChanged.connect(
+            lambda: Functions.zoomSliderChange(self))
+        self.yAxis_horizontalSlider.sliderReleased.connect(
+            lambda: Call_Thread.start_snapshot(self))
+
 
 def main():
     app = QApplication(sys.argv)
