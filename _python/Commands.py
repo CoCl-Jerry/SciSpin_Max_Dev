@@ -61,7 +61,7 @@ def reverse_motor(addr, motor):
         else:
             Settings.sendCMD(Settings.core_addr, "3~")
             Settings.core_Dir = not Settings.core_dir
-    self.UI_Update.()
+    self.UI_Update.dir()
 
 
 def linked_spin_change(self):
