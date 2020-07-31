@@ -130,8 +130,6 @@ def start_lighting_preset(self):
     if not Settings.lightingPreset_running:
         Settings.germinationColor = self.germinationColor_comboBox.currentIndex()
         Settings.germinationDirection = self.germinationDirection_comboBox.currentIndex()
-        Settings.cycleTime = self.cycleTime_spinBox.value()
-        Settings.stripLength = self.stripLength_spinBox.value()
 
         Settings.lightingPreset_running = True
         UI_Update.lightingPreset_update(self)
