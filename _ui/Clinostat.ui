@@ -622,7 +622,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>5</number>
+          <number>1</number>
          </property>
         </widget>
        </item>
@@ -666,7 +666,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>5</number>
+          <number>1</number>
          </property>
         </widget>
        </item>
