@@ -1,6 +1,7 @@
 import Settings
 import UI_Update
 import Threads
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 import os
 
