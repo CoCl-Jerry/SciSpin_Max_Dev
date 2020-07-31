@@ -409,7 +409,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>rainbb</string>
+        <string>Try it</string>
        </property>
        <property name="toolTipDuration">
         <number>10</number>
@@ -478,6 +478,9 @@
          <height>31</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>All LEDs are toggled at the end of each cycle</string>
+       </property>
        <property name="text">
         <string>CONFIRM</string>
        </property>
@@ -500,6 +503,9 @@
       </property>
      </widget>
      <widget class="QCheckBox" name="infraredImaging_checkBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>450</x>
@@ -509,7 +515,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Briefly switch off all visible light LEDs and toggle on infrared LEDs during imaging, light is restored afterwards</string>
+       <string>Briefly switch off all visible light LEDs and toggle on infrared LEDs during imaging, light is restored afterwards (coming soon...)</string>
       </property>
       <property name="text">
        <string>Infrared Imaging</string>
@@ -842,6 +848,9 @@
             <widget class="QLineEdit" name="title_lineEdit">
              <property name="enabled">
               <bool>true</bool>
+             </property>
+             <property name="toolTip">
+              <string/>
              </property>
             </widget>
            </item>
@@ -1266,6 +1275,9 @@
       <width>161</width>
       <height>111</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>9-DOF Sensor - FXOS8700 + FXAS21002</string>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -1713,6 +1725,9 @@
         <property name="enabled">
          <bool>true</bool>
         </property>
+        <property name="toolTip">
+         <string>Takes a quick snapshot</string>
+        </property>
         <property name="text">
          <string>SNAPSHOT</string>
         </property>
@@ -1720,6 +1735,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="preview_pushButton">
+        <property name="toolTip">
+         <string>Takes a image with current settings</string>
+        </property>
         <property name="text">
          <string>PREVIEW</string>
         </property>
@@ -1729,6 +1747,9 @@
        <widget class="QPushButton" name="rotate_pushButton">
         <property name="enabled">
          <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string>Rotate image 90 degrees</string>
         </property>
         <property name="text">
          <string>ROTATE IMAGE</string>
@@ -1769,6 +1790,9 @@
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="1" column="1">
       <widget class="QSpinBox" name="log_spinBox">
+       <property name="toolTip">
+        <string>total logging duration</string>
+       </property>
        <property name="suffix">
         <string> min</string>
        </property>
@@ -1779,6 +1803,9 @@
      </item>
      <item row="1" column="0">
       <widget class="QPushButton" name="log_pushButton">
+       <property name="toolTip">
+        <string>Start logging data, all logs are saved on the desktop</string>
+       </property>
        <property name="text">
         <string>LOG FOR</string>
        </property>
@@ -1793,6 +1820,9 @@
      </item>
      <item row="0" column="1">
       <widget class="QDoubleSpinBox" name="sample_doubleSpinBox">
+       <property name="toolTip">
+        <string>Time between each sample</string>
+       </property>
        <property name="suffix">
         <string> s</string>
        </property>
