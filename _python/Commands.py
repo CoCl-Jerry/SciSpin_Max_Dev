@@ -176,11 +176,3 @@ def Rainbow_trigger():
 
 def IR_Imaging_trigger():
     Settings.sendCMD(Settings.lighting_addr, "6~")
-
-
-def deploy_lights(temp_list):
-    for x in temp_list:
-        Settings.sendCMD(Settings.lighting_addr, x)
-        sleep(0.1)
-    current_CMD = "4~\n"
-    Settings.sendCMD(Settings.lighting_addr, current_CMD)

@@ -8,9 +8,6 @@ i2c_cmd = 0x5E
 
 def init():
 
-    global send_commands_list
-    send_commands_list = []
-
     global LINKED
     LINKED = True
 
@@ -177,15 +174,6 @@ def init():
     broken = QtGui.QIcon()
     broken.addPixmap(QtGui.QPixmap("../_image/Broken_Link.png"),
                      QtGui.QIcon.Normal, QtGui.QIcon.Off)
-
-    global germinationColor
-    germinationColor = 0
-
-    global germinationDirection
-    germinationDirection = 0
-
-    global lightingPreset_running
-    lightingPreset_running = False
 
 
 def sendCMD(addr, cont):
