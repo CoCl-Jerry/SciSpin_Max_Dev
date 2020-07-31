@@ -26,6 +26,9 @@ def init():
     global log_sensor
     log_sensor = False
 
+    global sensor_flag
+    sensor_flag = False
+
     global log_duration
     log_duration = 1
 

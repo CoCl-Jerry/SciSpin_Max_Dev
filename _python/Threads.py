@@ -180,14 +180,15 @@ class Sensor(QThread):
             sleep(Settings.sample_time)
 
             if(Settings.log_sensor):
-                self.logstart.emit()
-
-                if(not os.path.isdir(Settings.prelog_dir)):
-                    os.umask(0)
-                    os.mkdir(Settings.prelog_dir)
-                if(not os.path.isdir(Settings.log_dir)):
-                    os.mkdir(Settings.log_dir)
-                log_file = open(Settings.log_dir + "/log.txt", "r+")
+                if(not Settings.sensor_flag):
+                    self.logstart.emit()
+                    if(not os.path.isdir(Settings.prelog_dir)):
+                        os.umask(0)
+                        os.mkdir(Settings.prelog_dir)
+                    if(not os.path.isdir(Settings.log_dir)):
+                        os.mkdir(Settings.log_dir)
+                    log_file = open(Settings.log_dir + "/log.txt", "w")
+                    Settings.sensor_flag = True
 
                 if(Settings.tag_index == 0):
 
@@ -206,6 +207,7 @@ class Sensor(QThread):
                 print(int(timeit.default_timer() - Settings.log_start_time))
                 if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
                     Settings.log_sensor = False
+                    Settings.sensor_flag = False
                     log_file.close()
                     self.logdone.emit()
 
