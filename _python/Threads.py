@@ -192,6 +192,7 @@ class Timelapse(QThread):
 
     def run(self):
         if(not os.path.isdir(Settings.full_dir)):
+            os.umask(0)
             os.mkdir(Settings.full_dir)
 
         for i in range(Settings.total):
