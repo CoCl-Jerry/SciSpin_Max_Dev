@@ -146,6 +146,9 @@ def init():
     global time_elipsed
     time_elipsed = 0
 
+    global log_start_time
+    log_start_time = 0
+
     global forward
     forward = QtGui.QIcon()
     forward.addPixmap(QtGui.QPixmap("../_image/forward.png"),

@@ -1,6 +1,7 @@
 import Settings
 import Commands
 import UI_Update
+import timeit
 
 import PyQt5
 from PyQt5.QtWidgets import *
@@ -115,9 +116,6 @@ def core_spin_select(self):
 
 
 def sensor_log(self):
+    Settings.log_start_time = timeit.default_timer()
     Settings.log_sensor = True
-    Settings.log_duration = self.log_spinBox.value()
-    # if(Settings.LINKED):
-    #     Commands.linked_spin_change(self)
-    # else:
-    #     Commands.core_spin_select(self)
+    Settings.log_duration = self.log_spinBox.value() * 60
