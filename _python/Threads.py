@@ -143,6 +143,8 @@ class Preview(QThread):
 
 class Sensor(QThread):
     update = QtCore.pyqtSignal()
+    sensor_logstart = QtCore.pyqtSignal()
+    sensor_logend = QtCore.pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
