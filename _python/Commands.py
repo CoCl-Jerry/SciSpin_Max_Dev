@@ -52,15 +52,15 @@ def reverse_motor(addr, motor, self):
     if(Settings.LINKED):
         Settings.sendCMD(Settings.frame_addr, "3~")
         Settings.sendCMD(Settings.core_addr, "3~")
-        Settings.frame_Dir = not Settings.frame_dir
-        Settings.core_Dir = not Settings.core_dir
+        Settings.frame_dir = not Settings.frame_dir
+        Settings.core_dir = not Settings.core_dir
     else:
         if (motor):
             Settings.sendCMD(Settings.frame_addr, "3~")
-            Settings.frame_Dir = not Settings.frame_dir
+            Settings.frame_dir = not Settings.frame_dir
         else:
             Settings.sendCMD(Settings.core_addr, "3~")
-            Settings.core_Dir = not Settings.core_dir
+            Settings.core_dir = not Settings.core_dir
     UI_Update.dir(self)
 
 
