@@ -175,6 +175,11 @@ def init():
     broken.addPixmap(QtGui.QPixmap("../_image/Broken_Link.png"),
                      QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
+    global error
+    error = QtGui.QIcon()
+    error.addPixmap(QtGui.QPixmap("../_image/Error.png"),
+                    QtGui.QIcon.Normal, QtGui.QIcon.Off)
+
 
 def sendCMD(addr, cont):
     print(cont)
