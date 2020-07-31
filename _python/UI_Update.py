@@ -16,13 +16,13 @@ def cycle_end(self):
 
 
 def snap_start(self):
-    self.core_status_label.setText("Imaging Core Status: IMAGING")
+    self.core_status_label.setText("Core Status: IMAGING")
     Settings.imaging = True
     update_imaging(self)
 
 
 def snap_complete(self):
-    self.core_status_label.setText("Imaging Core Status: IDLE")
+    self.core_status_label.setText("Core Status: IDLE")
 
     snap_img = PyQt5.QtGui.QImage("../_temp/snapshot.jpg")
     self.Image_Frame.setPixmap(QtGui.QPixmap(snap_img))
@@ -32,7 +32,8 @@ def snap_complete(self):
 
 
 def preview_complete(self):
-    self.core_status_label.setText("Time Taken " + str(Settings.time_elipsed))
+    self.core_status_label.setText(
+        "Time Taken " + str(Settings.time_elipsed) + "s")
     if(Settings.imaging_mode == 1):
         preview_img = PyQt5.QtGui.QImage("../_temp/preview.jpg")
         self.Image_Frame.setPixmap(QtGui.QPixmap(preview_img))
@@ -50,7 +51,7 @@ def image_captured(self):
     capture_img = PyQt5.QtGui.QImage(Settings.current_image)
     self.Image_Frame.setPixmap(QtGui.QPixmap(capture_img))
     Settings.trasmitted = 0
-    self.core_status_label.setText("Imaging Core Status: IDLE")
+    self.core_status_label.setText("Core Status: IDLE")
     self.Progress_Label.setText(
         "Progress: " + str(Settings.current + 1) + "/" + str(Settings.total))
     self.Progress_Bar.setValue(Settings.current + 1)
@@ -171,7 +172,7 @@ def timelapse_start(self):
 
     self.startImaging_pushButton.setText("TERMINATE TIMELAPSE")
 
-    self.core_status_label.setText("Imaging Core Status: IMAGING")
+    self.core_status_label.setText("Core Status: IMAGING")
     self.Progress_Bar.setMaximum(Settings.total)
     self.Progress_Bar.setMinimum(0)
 
@@ -193,4 +194,4 @@ def timelapse_end(self):
     self.JPG_radioButton.setEnabled(True)
     self.startImaging_pushButton.setText("START TIMELAPSE")
 
-    self.core_status_label.setText("Imaging Core Status: IDLE")
+    self.core_status_label.setText("Core Status: IDLE")

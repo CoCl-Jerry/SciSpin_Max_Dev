@@ -24,7 +24,7 @@ def light_confirm(self):
 
 
 def light_reset(self):
-    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0\n")
+    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0")
     Settings.sendCMD(Settings.lighting_addr, "2~128")
 
     self.R_spinBox.setValue(50)
@@ -38,7 +38,7 @@ def light_reset(self):
 
 
 def clear_lights():
-    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0\n")
+    Settings.sendCMD(Settings.lighting_addr, "1~0~83~0~0~0~0")
 
 
 def ergz_motor(addr):
