@@ -23,12 +23,6 @@ def init():
     global busy
     busy = False
 
-    global frame_dir
-    frame_dir = False
-
-    global core_dir
-    core_dir = False
-
     global frame_RPM
     frame_RPM = 0.3
 

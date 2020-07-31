@@ -228,7 +228,8 @@ void exeCMD() {
 
   if (commands[0] == 3)
   {
-    setDirection(commands[1]);
+    dir = !dir;
+    setDirection(dir);
   }
   if (commands[0] == 4)
   {
