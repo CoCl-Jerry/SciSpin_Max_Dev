@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>570</height>
+    <height>575</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -173,6 +173,9 @@
            </item>
            <item>
             <widget class="QSpinBox" name="Start_spinBox">
+             <property name="toolTip">
+              <string>The first LED that you wish to control. [1,84]</string>
+             </property>
              <property name="prefix">
               <string># </string>
              </property>
@@ -197,6 +200,9 @@
            </item>
            <item>
             <widget class="QSpinBox" name="End_spinBox">
+             <property name="toolTip">
+              <string>The Last LED that you wish to control. [1,84]</string>
+             </property>
              <property name="prefix">
               <string># </string>
              </property>
@@ -224,6 +230,9 @@
            </item>
            <item>
             <widget class="QSpinBox" name="BRT_spinBox">
+             <property name="toolTip">
+              <string>General Brightness of all LEDs, internal temperature may rise if both the number of LEDs and the brightness is set high.</string>
+             </property>
              <property name="suffix">
               <string> %</string>
              </property>
@@ -254,6 +263,9 @@
         <layout class="QGridLayout" name="gridLayout">
          <item row="1" column="1">
           <widget class="QSpinBox" name="B_spinBox">
+           <property name="toolTip">
+            <string>Blue Color Intensity</string>
+           </property>
            <property name="suffix">
             <string> %</string>
            </property>
@@ -265,12 +277,15 @@
          <item row="1" column="2">
           <widget class="QLabel" name="W_label">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;White:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;W White:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
           <widget class="QSpinBox" name="R_spinBox">
+           <property name="toolTip">
+            <string>Red Color Intensity</string>
+           </property>
            <property name="suffix">
             <string> %</string>
            </property>
@@ -284,6 +299,9 @@
          </item>
          <item row="1" column="3">
           <widget class="QSpinBox" name="W_spinBox">
+           <property name="toolTip">
+            <string>Warm White Color Intensity</string>
+           </property>
            <property name="suffix">
             <string> %</string>
            </property>
@@ -294,6 +312,9 @@
          </item>
          <item row="0" column="3">
           <widget class="QSpinBox" name="G_spinBox">
+           <property name="toolTip">
+            <string>Green Color Intensity</string>
+           </property>
            <property name="suffix">
             <string> %</string>
            </property>
@@ -304,6 +325,9 @@
          </item>
          <item row="0" column="4">
           <widget class="QPushButton" name="light_Reset_pushButton">
+           <property name="toolTip">
+            <string>Turn off all LEDs and restore settings to default.</string>
+           </property>
            <property name="text">
             <string>RESET</string>
            </property>
@@ -311,6 +335,9 @@
          </item>
          <item row="1" column="4">
           <widget class="QPushButton" name="light_Confirm_pushButton">
+           <property name="toolTip">
+            <string>Confirm current light settings.</string>
+           </property>
            <property name="text">
             <string>CONFIRM</string>
            </property>
@@ -801,7 +828,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -1036,7 +1063,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>20</y>
         <width>611</width>
         <height>241</height>
        </rect>
@@ -1104,7 +1131,7 @@ p, li { white-space: pre-wrap; }
             <string> min</string>
            </property>
            <property name="minimum">
-            <number>5</number>
+            <number>2</number>
            </property>
            <property name="maximum">
             <number>99999999</number>
@@ -1147,7 +1174,7 @@ p, li { white-space: pre-wrap; }
             <string> min</string>
            </property>
            <property name="minimum">
-            <number>5</number>
+            <number>2</number>
            </property>
            <property name="maximum">
             <number>99999999</number>
@@ -1160,22 +1187,6 @@ p, li { white-space: pre-wrap; }
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>120</height>
-            </size>
-           </property>
-          </spacer>
          </item>
          <item>
           <widget class="QLabel" name="directory_label">
@@ -1246,7 +1257,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>270</y>
+        <y>280</y>
         <width>611</width>
         <height>161</height>
        </rect>
@@ -1262,7 +1273,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>280</y>
+        <y>290</y>
         <width>591</width>
         <height>141</height>
        </rect>
@@ -1903,7 +1914,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="text">
-     <string>Imaging Core Status: OFFLINE</string>
+     <string>Core Status: OFFLINE</string>
     </property>
    </widget>
    <widget class="QFrame" name="Capture_frame">
