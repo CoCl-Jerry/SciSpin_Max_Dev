@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -1521,7 +1521,7 @@ p, li { white-space: pre-wrap; }
       <x>660</x>
       <y>390</y>
       <width>161</width>
-      <height>131</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -1535,7 +1535,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>0</y>
+        <y>-10</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -1548,9 +1548,9 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>30</y>
+        <y>20</y>
         <width>151</width>
-        <height>71</height>
+        <height>61</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
@@ -1667,9 +1667,9 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>30</y>
+        <y>20</y>
         <width>151</width>
-        <height>71</height>
+        <height>61</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1781,7 +1781,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>0</y>
+        <y>-10</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -1799,9 +1799,9 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>30</y>
+        <y>20</y>
         <width>151</width>
-        <height>71</height>
+        <height>61</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1913,7 +1913,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>0</y>
+        <y>-10</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -2014,30 +2014,53 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_5">
+   <widget class="QWidget" name="gridLayoutWidget_5">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>520</y>
-      <width>141</width>
-      <height>31</height>
+      <x>660</x>
+      <y>500</y>
+      <width>161</width>
+      <height>61</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_6">
-     <item>
-      <widget class="QPushButton" name="log_pushButton">
-       <property name="text">
-        <string>LOG FOR</string>
-       </property>
-      </widget>
-     </item>
-     <item>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="1" column="1">
       <widget class="QSpinBox" name="log_spinBox">
        <property name="suffix">
         <string> MIN</string>
        </property>
        <property name="minimum">
         <number>1</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="log_pushButton">
+       <property name="text">
+        <string>LOG FOR</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Sample Every</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QDoubleSpinBox" name="sample_doubleSpinBox">
+       <property name="suffix">
+        <string>s</string>
+       </property>
+       <property name="decimals">
+        <number>1</number>
+       </property>
+       <property name="minimum">
+        <double>0.100000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
        </property>
       </widget>
      </item>

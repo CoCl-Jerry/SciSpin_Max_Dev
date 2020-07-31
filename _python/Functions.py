@@ -87,6 +87,10 @@ def printci(self):
     Settings.tag_index = self.Sensor_tabWidget.currentIndex()
 
 
+def sample_change(self):
+    Settings.sample_time = self.sample_doubleSpinBox.currentIndex()
+
+
 def frame_slider_select(self):
     if(Settings.LINKED):
         Commands.linked_slider_change(self)

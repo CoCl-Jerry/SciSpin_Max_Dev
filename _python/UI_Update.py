@@ -134,6 +134,14 @@ def transmitst(self):
     self.startImaging_pushButton.setEnabled(False)
 
 
+def sensor_logstart(self):
+    self.log_pushButton.setEnabled(False)
+
+
+def sensor_logdone(self):
+    self.log_pushButton.setEnabled(True)
+
+
 def timelapse_start(self):
     Settings.timelapse_running = True
     self.snapshot_pushButton.setEnabled(False)

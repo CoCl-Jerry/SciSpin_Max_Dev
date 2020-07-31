@@ -175,16 +175,17 @@ class Sensor(QThread):
                 Settings.MAG_Z_text = "{0:.2f}".format(mag_z)
 
             self.update.emit()
-            sleep(0.1)
+            sleep(Settings.sample_time)
 
             if(Settings.log_sensor):
+                self.sensor_logstart.emit()
 
                 if(not os.path.isdir(Settings.prelog_dir)):
                     os.umask(0)
                     os.mkdir(Settings.prelog_dir)
                 if(not os.path.isdir(Settings.log_dir)):
                     os.mkdir(Settings.log_dir)
-                log_file = open(Settings.log_dir + "/log.txt", "a+")
+                log_file = open(Settings.log_dir + "/log.txt", "r+")
 
                 if(Settings.tag_index == 0):
 
@@ -204,6 +205,7 @@ class Sensor(QThread):
                 if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
                     Settings.log_sensor = False
                     log_file.close()
+                    self.sensor_logend.emit()
 
 
 class Timelapse(QThread):

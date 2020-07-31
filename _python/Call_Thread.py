@@ -87,4 +87,8 @@ def sensor_init(self):
         self.Sensor_Thread = Threads.Sensor()
         self.Sensor_Thread.update.connect(
             lambda: UI_Update.sensor_update(self))
+        self.Sensor_Thread.logstart.connect(
+            lambda: UI_Update.sensor_logstart(self))
+        self.Sensor_Thread.logdone.connect(
+            lambda: UI_Update.sensor_logdone(self))
         self.Sensor_Thread.start()

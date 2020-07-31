@@ -149,6 +149,9 @@ def init():
     global log_start_time
     log_start_time = 0
 
+    global sample_time
+    sample_time = 0
+
     global forward
     forward = QtGui.QIcon()
     forward.addPixmap(QtGui.QPixmap("../_image/forward.png"),
