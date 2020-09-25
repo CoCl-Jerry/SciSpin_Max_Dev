@@ -76,7 +76,7 @@ class Snap(QThread):
             Commands.IR_Imaging_trigger()
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        ip_address = "10.0.5.2"
+        ip_address = "10.0.5.1"
         server_address = (ip_address, 23456)
         sock.connect(server_address)
         cmd = "A~" + str(350) + "~" + str(350) + "~" + \
@@ -106,7 +106,7 @@ class Preview(QThread):
 
     def run(self):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        ip_address = "10.0.5.2"
+        ip_address = "10.0.5.1"
         server_address = (ip_address, 23456)
         sock.connect(server_address)
         cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
@@ -240,7 +240,7 @@ class Timelapse(QThread):
                     "/" + Settings.sequence_name + "_%04d.png" % i
 
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            ip_address = "10.0.5.2"
+            ip_address = "10.0.5.1"
             server_address = (ip_address, 23456)
             sock.connect(server_address)
 
