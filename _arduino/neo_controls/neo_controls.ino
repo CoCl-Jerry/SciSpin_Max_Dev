@@ -45,10 +45,10 @@ void setup() {
   Serial.begin(9600);
   
   Serial1.begin(115200);
-  Motor_1.push();
+  Motor_2.push();
 
   Serial2.begin(115200);
-  Motor_2.push();
+  Motor_1.push();
 
   pinMode(IR_PIN, OUTPUT);
   pinMode(FAN_PIN, OUTPUT);
