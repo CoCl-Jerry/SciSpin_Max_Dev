@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -130,13 +130,13 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>100</y>
+          <y>112</y>
           <width>351</width>
-          <height>73</height>
+          <height>71</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="2" column="3">
+         <item row="1" column="3">
           <widget class="QSpinBox" name="W_spinBox">
            <property name="toolTip">
             <string>Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs</string>
@@ -149,28 +149,28 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="2">
+         <item row="1" column="2">
           <widget class="QLabel" name="W_label">
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;W White:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item row="0" column="0">
           <widget class="QLabel" name="R_label">
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Red:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="1" column="0">
           <widget class="QLabel" name="B_label">
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Blue:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="1" column="1">
           <widget class="QSpinBox" name="B_spinBox">
            <property name="toolTip">
             <string>Blue Color Intensity</string>
@@ -183,7 +183,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
+         <item row="0" column="1">
           <widget class="QSpinBox" name="R_spinBox">
            <property name="toolTip">
             <string>Red Color Intensity</string>
@@ -199,14 +199,14 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
+         <item row="0" column="2">
           <widget class="QLabel" name="G_label">
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Green:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
+         <item row="0" column="3">
           <widget class="QSpinBox" name="G_spinBox">
            <property name="toolTip">
             <string>Green Color Intensity</string>
@@ -219,7 +219,7 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="4">
+         <item row="1" column="4">
           <widget class="QPushButton" name="light_Confirm_pushButton">
            <property name="toolTip">
             <string>Confirm current light settings.</string>
@@ -229,20 +229,13 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="4">
+         <item row="0" column="4">
           <widget class="QPushButton" name="light_Reset_pushButton">
            <property name="toolTip">
             <string>Turn off all LEDs and restore settings to default.</string>
            </property>
            <property name="text">
             <string>RESET</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="color_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -354,6 +347,19 @@
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QLabel" name="color_label">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>100</y>
+          <width>79</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
        </widget>
       </widget>
      </widget>
@@ -1241,7 +1247,7 @@
      <string>9-DOF Sensor - FXOS8700 + FXAS21002</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">
@@ -1498,9 +1504,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>20</y>
+        <y>10</y>
         <width>152</width>
-        <height>61</height>
+        <height>71</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">

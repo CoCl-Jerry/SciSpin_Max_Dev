@@ -92,7 +92,7 @@ def sensor_init(self):
 
     os.system("i2cdetect -y 1 > ../_temp/output.txt")
 
-    if '1f' in open('../_temp/output.txt').read():
+    if '1d' in open('../_temp/output.txt').read():
         self.Sensor_Thread = Threads.Sensor()
         self.Sensor_Thread.update.connect(
             lambda: UI_Update.sensor_update(self))
