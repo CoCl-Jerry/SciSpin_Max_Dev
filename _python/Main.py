@@ -33,9 +33,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Commands.core_toggle(self))
 
         self.frameReverse_pushButton.clicked.connect(
-            lambda: Commands.reverse_motor(Settings.frame_addr, 1, self))
+            lambda: Commands.reverse_motor(0, self))
         self.coreReverse_pushButton.clicked.connect(
-            lambda: Commands.reverse_motor(Settings.core_addr, 0, self))
+            lambda: Commands.reverse_motor(1, self))
 
         self.snapshot_pushButton.clicked.connect(
             lambda: Call_Thread.start_snapshot(self))

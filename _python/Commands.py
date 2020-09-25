@@ -93,7 +93,7 @@ def core_toggle(self):
     UI_Update.motor_update(self)
 
 
-def reverse_motor(addr, motor, self):
+def reverse_motor(motor, self):
     if(Settings.LINKED):
         Settings.frame_dir = not Settings.frame_dir
         Settings.core_dir = not Settings.core_dir

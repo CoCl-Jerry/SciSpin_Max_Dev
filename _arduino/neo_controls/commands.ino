@@ -17,8 +17,7 @@ void exeCMD() {
           enableMotor(false);
           break;
         case 2:
-          setDir(commands[2], false)
-
+          setDir(commands[2], false);
           break;
         case 3:
 
@@ -34,7 +33,6 @@ void exeCMD() {
 
 
 
-
     case 2:
       switch (commands[1]) {
         case 0:
@@ -44,8 +42,7 @@ void exeCMD() {
           enableMotor(true);
           break;
         case 2:
-          setDir(commands[2], true)
-
+          setDir(commands[2], true);
           break;
         case 3:
 
