@@ -72,7 +72,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.End_spinBox.valueChanged.connect(
             lambda: UI_Update.LED_validate(self))
 
-        self.IR_pushButton.clicked.connect(lambda: Commands.IR_trigger())
+        self.IR_pushButton.clicked.connect(lambda: Commands.IR_toggle())
 
         self.log_pushButton.clicked.connect(
             lambda: Functions.sensor_log(self))
