@@ -93,6 +93,11 @@ def sensor_init(self):
     os.system("i2cdetect -y 1 > ../_temp/output.txt")
 
     if '1d' in open('../_temp/output.txt').read():
+        Settings.acc_attached = True
+    if '76' in open('../_temp/output.txt').read():
+        Settings.temp_attached = True
+
+    if Settings.temp_attached or Settings.acc_attached:
         self.Sensor_Thread = Threads.Sensor()
         self.Sensor_Thread.update.connect(
             lambda: UI_Update.sensor_update(self))

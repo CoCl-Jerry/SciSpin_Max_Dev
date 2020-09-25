@@ -588,7 +588,7 @@
           <number>10</number>
          </property>
          <property name="maximum">
-          <number>250</number>
+          <number>350</number>
          </property>
          <property name="singleStep">
           <number>5</number>
@@ -641,7 +641,7 @@
           <number>10</number>
          </property>
          <property name="maximum">
-          <number>250</number>
+          <number>350</number>
          </property>
          <property name="singleStep">
           <number>5</number>
@@ -706,7 +706,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="maximum">
-       <double>2.500000000000000</double>
+       <double>3.500000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.050000000000000</double>
@@ -734,7 +734,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="maximum">
-       <double>2.500000000000000</double>
+       <double>3.500000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.050000000000000</double>
@@ -1247,7 +1247,7 @@
      <string>9-DOF Sensor - FXOS8700 + FXAS21002</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">

@@ -160,22 +160,22 @@ class Sensor(QThread):
 
         while True:
             try:
-                if(Settings.tag_index == 0):
+                if Settings.tag_index == 0 and Settings.acc_attached:
                     accel_x, accel_y, accel_z = sensor.acceleration
                     Settings.ACC_X_text = "{0:.2f}".format(accel_x)
                     Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
                     Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
-                elif(Settings.tag_index == 1):
+                elif Settings.tag_index == 1 and Settings.acc_attached:
                     accel_x, accel_y, accel_z = sensor.acceleration
                     Settings.TEMP_text = "{0:.2f}".format(bme280.temperature)
                     Settings.HUD_text = "{0:.2f}".format(bme280.humidity)
-                else:
+                elif Settings.tag_index == 1 and Settings.acc_attached:
                     Settings.PR_text = "{0:.2f}".format(bme280.pressure)
 
                 self.update.emit()
                 sleep(Settings.sample_time)
 
-                if(Settings.log_sensor):
+                if Settings.log_sensor:
                     if(not Settings.sensor_flag):
                         self.logstart.emit()
                         if(not os.path.isdir(Settings.prelog_dir)):

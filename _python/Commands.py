@@ -227,3 +227,5 @@ def getMicrostep(rpm):
         return "256"
     elif rpm <= 250:
         return "128"
+    elif rpm <= 350:
+        return "64"

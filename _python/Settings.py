@@ -44,6 +44,12 @@ def init():
     global core_enabled
     core_enabled = False
 
+    global acc_attached
+    acc_attached = False
+
+    global temp_attached
+    temp_attached = False
+
     global tag_index
     tag_index = 0
 
@@ -218,6 +224,28 @@ def init():
         240: 448,
         245: 444,
         250: 432,
+
+        255: 898,
+        260: 860,
+        265: 840,
+        270: 824,
+        275: 810,
+        280: 796,
+        285: 776,
+        290: 764,
+        295: 748,
+        300: 738,
+        305: 724,
+        310: 712,
+        315: 696,
+        320: 688,
+        325: 680,
+        330: 664,
+        335: 658,
+        340: 646,
+        345: 640,
+        350: 626,
+
 
     }
 
