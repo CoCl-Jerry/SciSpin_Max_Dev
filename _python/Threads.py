@@ -2,8 +2,6 @@ import Settings
 import socket
 import board
 import busio
-import adafruit_fxos8700
-import adafruit_fxas21002c
 import os
 import timeit
 import Commands
@@ -65,7 +63,7 @@ class Cycle(QThread):
 
 class Snap(QThread):
 
-    transmit = QtCore.pyqtSignal()
+    transmit = pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
@@ -98,7 +96,7 @@ class Snap(QThread):
 
 
 class Preview(QThread):
-    transmit = QtCore.pyqtSignal()
+    transmit = pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
@@ -143,9 +141,9 @@ class Preview(QThread):
 
 
 class Sensor(QThread):
-    update = QtCore.pyqtSignal()
-    logstart = QtCore.pyqtSignal()
-    logdone = QtCore.pyqtSignal()
+    update = pyqtSignal()
+    logstart = pyqtSignal()
+    logdone = pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
@@ -216,9 +214,9 @@ class Sensor(QThread):
 
 
 class Timelapse(QThread):
-    captured = QtCore.pyqtSignal()
-    transmit = QtCore.pyqtSignal()
-    transmitstart = QtCore.pyqtSignal()
+    captured = pyqtSignal()
+    transmit = pyqtSignal()
+    transmitstart = pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)

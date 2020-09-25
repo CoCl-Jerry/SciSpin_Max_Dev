@@ -11,7 +11,8 @@ def init():
 def light_confirm(self):
     curr_cmd = str(self.Start_spinBox.value() - 1) + "~" + str(self.End_spinBox.value() - 1) + "~" + str(self.R_spinBox.value()) + \
         "~" + str(self.G_spinBox.value()) + "~" + \
-        str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value()) + "~" + str(self.BRT_spinBox.value())"\n"
+        str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value()) + \
+        "~" + str(self.BRT_spinBox.value()) + "\n"
     Settings.commands_list.append(curr_cmd)
 
     Settings.sendCMD("3~1~" + curr_cmd)
