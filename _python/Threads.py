@@ -158,7 +158,7 @@ class Sensor(QThread):
         if Settings.acc_attached:
             sensor = adafruit_mma8451.MMA8451(i2c)
         if Settings.temp_attached:
-        bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, 0x76)
+            bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, 0x76)
 
         while True:
             try:
