@@ -1,8 +1,7 @@
-import PyQt5
 import os
 import Settings
 import Commands
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QImage, QPixmap
 
 
 def cycle_start(self):

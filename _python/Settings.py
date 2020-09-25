@@ -38,15 +38,6 @@ def init():
     global core_RPM
     core_RPM = 0.3
 
-    global lighting_addr
-    lighting_addr = 0x08
-
-    global frame_addr
-    frame_addr = 0x09
-
-    global core_addr
-    core_addr = 0x10
-
     global tag_index
     tag_index = 0
 
@@ -56,20 +47,6 @@ def init():
     ACC_Y_text = "offline"
     global ACC_Z_text
     ACC_Z_text = "offline"
-
-    global GYRO_X_text
-    GYRO_X_text = "offline"
-    global GYRO_Y_text
-    GYRO_Y_text = "offline"
-    global GYRO_Z_text
-    GYRO_Z_text = "offline"
-
-    global MAG_X_text
-    MAG_X_text = "offline"
-    global MAG_Y_text
-    MAG_Y_text = "offline"
-    global MAG_Z_text
-    MAG_Z_text = "offline"
 
     global sequence_name
     sequence_name = ""
@@ -176,7 +153,7 @@ def init():
                      QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
 
-def sendCMD(addr, cont):
+def sendCMD(cont):
     print(cont)
     try:
         if Settings.busy:
@@ -187,7 +164,7 @@ def sendCMD(addr, cont):
         converted = []
         for b in cont:
             converted.append(ord(b))
-        bus.write_i2c_block_data(addr, i2c_cmd, converted)
+        bus.write_i2c_block_data(0x08, i2c_cmd, converted)
         Settings.busy = False
     except Exception as e:
         print(e)

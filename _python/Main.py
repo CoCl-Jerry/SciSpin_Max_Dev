@@ -9,9 +9,8 @@ import time
 
 import sys
 
-import PyQt5
-from PyQt5.QtWidgets import *
-from PyQt5 import QtGui
+from PyQt5.QtWidgets import QMainWindow, QApplication
+
 import Clinostat_UI
 
 
@@ -77,10 +76,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.log_pushButton.clicked.connect(
             lambda: Functions.sensor_log(self))
-
-        self.rainbow_pushButton.clicked.connect(
-            lambda: Commands.Rainbow_trigger())
-        #self.disco_pushButton.clicked.connect(lambda: Commands.Disco_trigger())
 
         self.light_Confirm_pushButton.clicked.connect(
             lambda: Commands.light_confirm(self))

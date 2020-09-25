@@ -89,10 +89,10 @@
       <widget class="QLabel" name="coreImage">
        <property name="geometry">
         <rect>
-         <x>55</x>
-         <y>0</y>
-         <width>320</width>
-         <height>320</height>
+         <x>65</x>
+         <y>15</y>
+         <width>280</width>
+         <height>280</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -105,7 +105,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../_image/Core.png</pixmap>
+        <pixmap>../_image/insert.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -136,7 +136,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;LED Address&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;LED Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="color_label">
@@ -149,7 +149,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Intensity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QWidget" name="horizontalLayoutWidget_4">
@@ -167,7 +167,7 @@
            <item>
             <widget class="QLabel" name="Start_label">
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Start LED:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Start LED: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[1 , 85]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -183,7 +183,7 @@
               <number>1</number>
              </property>
              <property name="maximum">
-              <number>84</number>
+              <number>85</number>
              </property>
             </widget>
            </item>
@@ -194,7 +194,7 @@
            <item>
             <widget class="QLabel" name="Start_label_3">
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;End LED:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;End LED: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[2 , 86]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -210,7 +210,7 @@
               <number>2</number>
              </property>
              <property name="maximum">
-              <number>84</number>
+              <number>86</number>
              </property>
              <property name="value">
               <number>84</number>
@@ -224,7 +224,7 @@
            <item>
             <widget class="QLabel" name="BRT_lable">
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Brightness:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Brightness: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[0 , 150]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -240,7 +240,7 @@
               <number>1</number>
              </property>
              <property name="maximum">
-              <number>100</number>
+              <number>150</number>
              </property>
              <property name="value">
               <number>50</number>
@@ -372,9 +372,9 @@
       <property name="geometry">
        <rect>
         <x>420</x>
-        <y>20</y>
+        <y>120</y>
         <width>191</width>
-        <height>381</height>
+        <height>121</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -383,114 +383,77 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="presets_label">
+      <widget class="QWidget" name="verticalLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>60</y>
-         <width>141</width>
-         <height>31</height>
+         <x>9</x>
+         <y>10</y>
+         <width>171</width>
+         <height>101</height>
         </rect>
        </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Presets&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="rainbow_pushButton">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>100</y>
-         <width>121</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Try it</string>
-       </property>
-       <property name="toolTipDuration">
-        <number>10</number>
-       </property>
-       <property name="text">
-        <string>Rainbow</string>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="lightCycle_label">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>210</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Power Cycle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="powerCycle_spinBox">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>270</y>
-         <width>121</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="suffix">
-        <string> min</string>
-       </property>
-       <property name="minimum">
-        <number>1</number>
-       </property>
-       <property name="maximum">
-        <number>999999999</number>
-       </property>
-       <property name="value">
-        <number>60</number>
-       </property>
-      </widget>
-      <widget class="QLabel" name="Cycle_label">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>240</y>
-         <width>121</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Cycle Duration:</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="confirmCycle_pushButton">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>310</y>
-         <width>121</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>All LEDs are toggled at the end of each cycle</string>
-       </property>
-       <property name="text">
-        <string>CONFIRM</string>
-       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_18">
+        <item>
+         <widget class="QLabel" name="lightCycle_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Power Cycle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="Cycle_label">
+          <property name="text">
+           <string>Cycle Duration:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="powerCycle_spinBox">
+          <property name="suffix">
+           <string> min</string>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>999999999</number>
+          </property>
+          <property name="value">
+           <number>60</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="confirmCycle_pushButton">
+          <property name="toolTip">
+           <string>All LEDs are toggled at the end of each cycle</string>
+          </property>
+          <property name="text">
+           <string>CONFIRM</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
      <widget class="QPushButton" name="IR_pushButton">
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>420</y>
+        <y>380</y>
         <width>141</width>
         <height>51</height>
        </rect>
@@ -509,7 +472,7 @@
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>480</y>
+        <y>440</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -620,26 +583,29 @@
        <item>
         <widget class="QLabel" name="frame_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;FRAME&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Motor 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="frame_verticalSlider">
          <property name="minimum">
-          <number>1</number>
+          <number>10</number>
          </property>
          <property name="maximum">
-          <number>50</number>
+          <number>500</number>
          </property>
          <property name="singleStep">
-          <number>1</number>
+          <number>5</number>
          </property>
          <property name="pageStep">
           <number>5</number>
          </property>
          <property name="value">
-          <number>10</number>
+          <number>100</number>
+         </property>
+         <property name="sliderPosition">
+          <number>100</number>
          </property>
          <property name="tracking">
           <bool>true</bool>
@@ -651,7 +617,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>1</number>
+          <number>5</number>
          </property>
         </widget>
        </item>
@@ -670,20 +636,26 @@
        <item>
         <widget class="QLabel" name="core_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;CORE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Motor 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="core_verticalSlider">
          <property name="minimum">
-          <number>1</number>
+          <number>10</number>
          </property>
          <property name="maximum">
-          <number>50</number>
+          <number>500</number>
+         </property>
+         <property name="singleStep">
+          <number>5</number>
          </property>
          <property name="value">
-          <number>10</number>
+          <number>100</number>
+         </property>
+         <property name="sliderPosition">
+          <number>100</number>
          </property>
          <property name="tracking">
           <bool>true</bool>
@@ -695,7 +667,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>1</number>
+          <number>5</number>
          </property>
         </widget>
        </item>
@@ -714,7 +686,7 @@
        <string>Enable or disable motor driver</string>
       </property>
       <property name="text">
-       <string>ENERGIZE COILS</string>
+       <string>ENABLE MOTOR</string>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="frame_spinBox">
@@ -789,7 +761,7 @@
        <string>Enable or disable motor driver</string>
       </property>
       <property name="text">
-       <string>ENERGIZE COILS</string>
+       <string>ENABLE MOTOR</string>
       </property>
      </widget>
      <widget class="Line" name="line">
@@ -1416,122 +1388,8 @@
     </widget>
     <widget class="QWidget" name="GYRO_tab">
      <attribute name="title">
-      <string>GYRO</string>
+      <string>TEMP</string>
      </attribute>
-     <widget class="QWidget" name="horizontalLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>20</y>
-        <width>151</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_8">
-         <item>
-          <widget class="QLabel" name="GYRO_X_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;X:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="GYRO_Y_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Y:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="GYRO_Z_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Z:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_9">
-         <item>
-          <widget class="QLabel" name="GYRO_X_text_label">
-           <property name="text">
-            <string>offline</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="GYRO_Y_text_label">
-           <property name="text">
-            <string>offline</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="GYRO_Z_text_label">
-           <property name="text">
-            <string>offline</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_10">
-         <item>
-          <widget class="QLabel" name="GYRO_X_Unit_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;deg/s&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="GYRO_Y_Unit_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;deg/s&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="GYRO_Z_Unit_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;deg/s&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
      <widget class="QLabel" name="GYRO_label">
       <property name="geometry">
        <rect>
@@ -1542,128 +1400,14 @@
        </rect>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Gyroscope&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>
     <widget class="QWidget" name="MAG_tab">
      <attribute name="title">
-      <string>MAG</string>
+      <string>PR</string>
      </attribute>
-     <widget class="QWidget" name="horizontalLayoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>20</y>
-        <width>151</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_11">
-         <item>
-          <widget class="QLabel" name="MAG_X_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;X:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="MAG_Y_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Y:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="MAG_Z_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Z:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_12">
-         <item>
-          <widget class="QLabel" name="MAG_X_text_label">
-           <property name="text">
-            <string>offline</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="MAG_Y_text_label">
-           <property name="text">
-            <string>offline</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="MAG_Z_text_label">
-           <property name="text">
-            <string>offline</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_13">
-         <item>
-          <widget class="QLabel" name="MAG_X_Unit_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;μTesla&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="MAG_Y_Unit_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;μTesla&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="MAG_Z_Unit_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;μTesla&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
      <widget class="QLabel" name="MAG_label">
       <property name="geometry">
        <rect>
@@ -1674,7 +1418,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Magnetometer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pressure&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>

@@ -9,8 +9,7 @@ import timeit
 import Commands
 
 from time import sleep
-from PyQt5 import QtCore
-from PyQt5.QtCore import QThread
+from PyQt5.QtCore import QThread, pyqtSignal
 from picamera import PiCamera
 
 

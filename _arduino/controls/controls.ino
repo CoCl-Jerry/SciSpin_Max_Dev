@@ -1,17 +1,30 @@
 //Import the library required
 #include <Wire.h>
 #include <Adafruit_NeoPixel.h>
+#include <TMC2208Stepper.h>
 
 //Slave Address for the Communication
-#define BUZZER_PIN 3
-#define LED_PIN 5
-#define IR_PIN 8
-#define FAN_PIN 9
-#define NUM_LEDS 83
+#define BUZZER_PIN A8
+#define LED_PIN 6
+#define IR_PIN A0
+#define FAN_PIN 8
+#define NUM_LEDS 86
 #define BRIGHTNESS 50
 #define SLAVE_ADDRESS 0x08
 #define COMMANDSIZE 7
 
+//Frame Motor
+#define DIR_PIN_1   3
+#define STEP_PIN_1  4 // Step on rising edge
+#define EN_PIN_1    5  // LOW: Driver enabled. HIGH: Driver disabled
+
+//Core Motor
+#define DIR_PIN_2   10
+#define STEP_PIN_2  11 // Step on rising edge
+#define EN_PIN_2    12  // LOW: Driver enabled. HIGH: Driver disabled
+
+TMC2208Stepper Frame_driver = TMC2208Stepper(&Serial1);
+TMC2208Stepper Core_driver = TMC2208Stepper(&Serial2);
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRBW + NEO_KHZ800);
 
 char data[50];
@@ -182,7 +195,7 @@ void exeCMD() {
   digitalWrite(BUZZER_PIN, HIGH);
   delay(100);
   digitalWrite(BUZZER_PIN, LOW);
-  
+
 }
 
 void colorWipe(uint32_t c, uint8_t wait) {
