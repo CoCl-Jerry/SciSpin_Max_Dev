@@ -90,7 +90,7 @@ def LED_validate(self):
 
 
 def link(self):
-    if(Settings.LINKED):
+    if Settings.LINKED:
         Settings.LINKED = False
         self.link_pushButton.setIcon(Settings.broken)
     else:
@@ -99,11 +99,11 @@ def link(self):
 
 
 def dir(self):
-    if(Settings.frame_dir):
+    if Settings.frame_dir:
         self.frameReverse_pushButton.setIcon(Settings.reverse)
     else:
         self.frameReverse_pushButton.setIcon(Settings.forward)
-    if(Settings.core_dir):
+    if Settings.core_dir:
         self.coreReverse_pushButton.setIcon(Settings.reverse)
     else:
         self.coreReverse_pushButton.setIcon(Settings.forward)

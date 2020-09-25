@@ -2,6 +2,7 @@ void receiveData(int byteCount) {
   int i = 0;
   if (Wire.read() == '^')
   {
+    digitalWrite(BUZZER_PIN, HIGH);
     while (Wire.available()) {
       data[i] = Wire.read();
       i++;
@@ -11,6 +12,7 @@ void receiveData(int byteCount) {
     processCMD();
     exeCMD();
   }
+  digitalWrite(BUZZER_PIN, LOW);
 }
 
 void processCMD() {
