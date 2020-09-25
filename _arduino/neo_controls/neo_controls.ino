@@ -44,6 +44,8 @@ unsigned long NextTime_1 = 0;
 unsigned long NextTime_2 = 0;
 
 void setup() {
+  Serial.begin(9600);
+  
   Serial1.begin(115200);
   Frame_driver.push();
 

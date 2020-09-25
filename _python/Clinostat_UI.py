@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
         self.End_spinBox = QtWidgets.QSpinBox(self.horizontalLayoutWidget_4)
         self.End_spinBox.setMinimum(2)
         self.End_spinBox.setMaximum(86)
-        self.End_spinBox.setProperty("value", 84)
+        self.End_spinBox.setProperty("value", 86)
         self.End_spinBox.setObjectName("End_spinBox")
         self.verticalLayout_15.addWidget(self.End_spinBox)
         self.horizontalLayout_5.addLayout(self.verticalLayout_15)

@@ -1,4 +1,5 @@
 void exeCMD() {
+  printCMD();
   switch (commands[0]) {
     case 0:
       wdt_disable();
