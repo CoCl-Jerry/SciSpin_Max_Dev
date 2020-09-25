@@ -225,3 +225,5 @@ def linked_slider_change(self):
 def getMicrostep(rpm):
     if rpm <= 150:
         return "256"
+    elif rpm <= 250:
+        return "128"

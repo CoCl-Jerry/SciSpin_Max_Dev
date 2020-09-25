@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -588,7 +588,7 @@
           <number>10</number>
          </property>
          <property name="maximum">
-          <number>150</number>
+          <number>250</number>
          </property>
          <property name="singleStep">
           <number>5</number>
@@ -641,7 +641,7 @@
           <number>10</number>
          </property>
          <property name="maximum">
-          <number>150</number>
+          <number>250</number>
          </property>
          <property name="singleStep">
           <number>5</number>
@@ -706,7 +706,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="maximum">
-       <double>1.500000000000000</double>
+       <double>2.500000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.050000000000000</double>
@@ -734,7 +734,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="maximum">
-       <double>1.500000000000000</double>
+       <double>2.500000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.050000000000000</double>
@@ -1385,26 +1385,13 @@
      <attribute name="title">
       <string>TEMP</string>
      </attribute>
-     <widget class="QLabel" name="TEMP_Main_label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>-10</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_2">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>20</y>
+        <y>10</y>
         <width>152</width>
-        <height>61</height>
+        <height>71</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1487,19 +1474,6 @@
      <attribute name="title">
       <string>PR</string>
      </attribute>
-     <widget class="QLabel" name="PR_Main_label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>-10</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pressure&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_3">
       <property name="geometry">
        <rect>
