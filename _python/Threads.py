@@ -169,7 +169,6 @@ class Sensor(QThread):
                     accel_x, accel_y, accel_z = sensor.acceleration
                     Settings.TEMP_text = "{0:.2f}".format(bme280.temperature)
                     Settings.HUD_text = "{0:.2f}".format(bme280.humidity)
-                elif Settings.tag_index == 1 and Settings.acc_attached:
                     Settings.PR_text = "{0:.2f}".format(bme280.pressure)
 
                 self.update.emit()
@@ -192,15 +191,10 @@ class Sensor(QThread):
 
                         log_file.write(Settings.ACC_X_text + "\t" +
                                        Settings.ACC_Y_text + "\t" + Settings.ACC_Z_text + "\r\n")
-
-                    elif(Settings.tag_index == 1):
-
-                        log_file.write(Settings.GYRO_X_text + "\t" +
-                                       Settings.GYRO_Y_text + "\t" + Settings.GYRO_Z_text + "\r\n")
                     else:
 
-                        log_file.write(Settings.MAG_X_text + "\t" +
-                                       Settings.MAG_Y_text + "\t" + Settings.MAG_Z_text + "\r\n")
+                        log_file.write(Settings.TEMP_text + "\t" +
+                                       Settings.HUD_text + "\t" + Settings.PR_text + "\r\n")
 
                     print(int(timeit.default_timer() - Settings.log_start_time))
                     if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
