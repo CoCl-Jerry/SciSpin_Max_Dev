@@ -99,6 +99,7 @@ void setup() {
 
   startup();
   analogWrite(FAN_PIN, 100);
+  digitalWrite(IR_PIN, LOW);
 }
 
 void loop() {

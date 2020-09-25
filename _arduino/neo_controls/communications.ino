@@ -33,10 +33,3 @@ void clearCMD() {
     commands[i] = 0;
   }
 }
-
-void printCMD() {
-  for (int i = 0; i < COMMANDSIZE; i++)
-  {
-    Serial.println(commands[i]);
-  }
-}

@@ -35,6 +35,18 @@ def light_reset(self):
 def clear_lights():
     Settings.sendCMD("3~0")
 
+
+def IR_toggle(self):
+    if not Settings.IR_stat:
+        self.IR_pushButton.setText("IR STATUS:ON")
+        current_CMD = "4~1~\n"
+    else:
+        self.IR_pushButton.setText("IR STATUS:OFF")
+        current_CMD = "4~0~\n"
+    Settings.IR_stat = not Settings.IR_stat
+    send_CMD(current_CMD)
+
+
 #
 # def ergz_motor(addr):
 #     if(Settings.LINKED):
@@ -155,13 +167,6 @@ def clear_lights():
 #     self.frame_verticalSlider.blockSignals(False)
 #
 #
-# def IR_trigger():
-#     Settings.sendCMD(Settings.lighting_addr, "3~")
-#     if not Settings.IR_STAT:
-#         Settings.IR_STAT = True
-#
-#     else:
-#         Settings.IR_STAT = False
 #
 #
 # def IR_Imaging_trigger():

@@ -11,8 +11,8 @@ def init():
     global LINKED
     LINKED = True
 
-    global IR_STAT
-    IR_STAT = False
+    global IR_stat
+    IR_stat = False
 
     global IR_imaging
     IR_imaging = False

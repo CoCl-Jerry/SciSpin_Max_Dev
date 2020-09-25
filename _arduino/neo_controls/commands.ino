@@ -1,5 +1,4 @@
 void exeCMD() {
-  printCMD();
   switch (commands[0]) {
     case 0:
       wdt_disable();
@@ -26,7 +25,19 @@ void exeCMD() {
           brightnessUpdate();
           break;
         default:
-          // statements
+          break;
+      }
+      break;
+
+    case 4:
+      switch (commands[1]) {
+        case 0:
+          digitalWrite(IR_PIN, LOW);
+          break;
+        case 1:
+          digitalWrite(IR_PIN, HIGH);
+          break;
+        default:
           break;
       }
       break;

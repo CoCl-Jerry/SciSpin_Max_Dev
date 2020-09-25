@@ -89,10 +89,10 @@
       <widget class="QLabel" name="coreImage">
        <property name="geometry">
         <rect>
-         <x>65</x>
+         <x>70</x>
          <y>15</y>
-         <width>280</width>
-         <height>280</height>
+         <width>270</width>
+         <height>270</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -115,9 +115,9 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>310</y>
+         <y>300</y>
          <width>371</width>
-         <height>181</height>
+         <height>191</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -126,142 +126,51 @@
        <property name="frameShadow">
         <enum>QFrame::Sunken</enum>
        </property>
-       <widget class="QLabel" name="Address_label">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>0</y>
-          <width>141</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;LED Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="color_label">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>65</y>
-          <width>141</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QWidget" name="horizontalLayoutWidget_4">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>19</y>
-          <width>331</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_14">
-           <item>
-            <widget class="QLabel" name="Start_label">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Start LED: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[1 , 85]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="Start_spinBox">
-             <property name="toolTip">
-              <string>The first LED that you wish to control [1,84]</string>
-             </property>
-             <property name="prefix">
-              <string># </string>
-             </property>
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <number>85</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_15">
-           <item>
-            <widget class="QLabel" name="Start_label_3">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;End LED: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[2 , 86]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="End_spinBox">
-             <property name="toolTip">
-              <string>The Last LED that you wish to control [2,84]</string>
-             </property>
-             <property name="prefix">
-              <string># </string>
-             </property>
-             <property name="minimum">
-              <number>2</number>
-             </property>
-             <property name="maximum">
-              <number>86</number>
-             </property>
-             <property name="value">
-              <number>86</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_16">
-           <item>
-            <widget class="QLabel" name="BRT_lable">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Brightness: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[0 , 150]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="BRT_spinBox">
-             <property name="toolTip">
-              <string>General Brightness of all visible light LEDs, internal temperature may rise if both the number of LEDs and the brightness are set high</string>
-             </property>
-             <property name="suffix">
-              <string> %</string>
-             </property>
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <number>150</number>
-             </property>
-             <property name="value">
-              <number>50</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
        <widget class="QWidget" name="gridLayoutWidget">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>90</y>
+          <y>100</y>
           <width>351</width>
-          <height>71</height>
+          <height>73</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="1" column="1">
+         <item row="2" column="3">
+          <widget class="QSpinBox" name="W_spinBox">
+           <property name="toolTip">
+            <string>Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs</string>
+           </property>
+           <property name="suffix">
+            <string> %</string>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="W_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;W White:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="R_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Red:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="B_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Blue:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
           <widget class="QSpinBox" name="B_spinBox">
            <property name="toolTip">
             <string>Blue Color Intensity</string>
@@ -274,14 +183,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="W_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;W White:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
+         <item row="1" column="1">
           <widget class="QSpinBox" name="R_spinBox">
            <property name="toolTip">
             <string>Red Color Intensity</string>
@@ -297,20 +199,14 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
-          <widget class="QSpinBox" name="W_spinBox">
-           <property name="toolTip">
-            <string>Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs</string>
-           </property>
-           <property name="suffix">
-            <string> %</string>
-           </property>
-           <property name="maximum">
-            <number>100</number>
+         <item row="1" column="2">
+          <widget class="QLabel" name="G_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Green:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="3">
+         <item row="1" column="3">
           <widget class="QSpinBox" name="G_spinBox">
            <property name="toolTip">
             <string>Green Color Intensity</string>
@@ -323,17 +219,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="4">
-          <widget class="QPushButton" name="light_Reset_pushButton">
-           <property name="toolTip">
-            <string>Turn off all LEDs and restore settings to default.</string>
-           </property>
-           <property name="text">
-            <string>RESET</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="4">
+         <item row="2" column="4">
           <widget class="QPushButton" name="light_Confirm_pushButton">
            <property name="toolTip">
             <string>Confirm current light settings.</string>
@@ -343,24 +229,127 @@
            </property>
           </widget>
          </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="light_Reset_pushButton">
+           <property name="toolTip">
+            <string>Turn off all LEDs and restore settings to default.</string>
+           </property>
+           <property name="text">
+            <string>RESET</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="2">
-          <widget class="QLabel" name="G_label">
+          <widget class="QLabel" name="color_label">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Green:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="R_label">
+        </layout>
+       </widget>
+       <widget class="Line" name="line_13">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>85</y>
+          <width>351</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>351</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="2" column="1">
+          <widget class="QLabel" name="Start_label_3">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Red:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;End LED: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[2 , 86]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="B_label">
+         <item row="2" column="0">
+          <widget class="QLabel" name="Start_label">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Blue:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Start LED: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[1 , 85]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="BRT_lable">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Brightness: &lt;/span&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;[0 , 150]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="Address_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;LED Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QSpinBox" name="Start_spinBox">
+           <property name="toolTip">
+            <string>The first LED that you wish to control [1,84]</string>
+           </property>
+           <property name="prefix">
+            <string># </string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>85</number>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QSpinBox" name="End_spinBox">
+           <property name="toolTip">
+            <string>The Last LED that you wish to control [2,84]</string>
+           </property>
+           <property name="prefix">
+            <string># </string>
+           </property>
+           <property name="minimum">
+            <number>2</number>
+           </property>
+           <property name="maximum">
+            <number>86</number>
+           </property>
+           <property name="value">
+            <number>86</number>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QSpinBox" name="BRT_spinBox">
+           <property name="toolTip">
+            <string>General Brightness of all visible light LEDs, internal temperature may rise if both the number of LEDs and the brightness are set high</string>
+           </property>
+           <property name="suffix">
+            <string> %</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>150</number>
+           </property>
+           <property name="value">
+            <number>50</number>
            </property>
           </widget>
          </item>
@@ -462,7 +451,7 @@
        <string>Control Infrared LEDs</string>
       </property>
       <property name="text">
-       <string>Toggle Infrared</string>
+       <string>IR STATUS:OFF</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="infraredImaging_checkBox">
