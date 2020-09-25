@@ -74,7 +74,7 @@ class Snap(QThread):
         self._running = False
 
     def run(self):
-        Try:
+        try:
             if Settings.IR_imaging:
                 Commands.IR_Imaging_trigger()
 
