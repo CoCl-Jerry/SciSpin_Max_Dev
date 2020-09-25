@@ -44,9 +44,6 @@ def init():
     global core_enabled
     core_enabled = False
 
-    global IR_stat
-    IR_stat = False
-
     global tag_index
     tag_index = 0
 

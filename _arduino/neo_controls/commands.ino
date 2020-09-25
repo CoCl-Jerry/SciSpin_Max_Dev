@@ -99,4 +99,7 @@ void exeCMD() {
       // statements
       break;
   }
+  digitalWrite(BUZZER_PIN, HIGH);
+  delay(100);
+  digitalWrite(BUZZER_PIN, LOW);
 }
