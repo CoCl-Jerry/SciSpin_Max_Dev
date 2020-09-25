@@ -23,8 +23,8 @@ def snap_start(self):
 def snap_complete(self):
     self.core_status_label.setText("Core Status: IDLE")
 
-    snap_img = PyQt5.QtGui.QImage("../_temp/snapshot.jpg")
-    self.Image_Frame.setPixmap(QtGui.QPixmap(snap_img))
+    snap_img = QImage("../_temp/snapshot.jpg")
+    self.Image_Frame.setPixmap(QPixmap(snap_img))
     Settings.imaging = False
     Settings.trasmitted = 0
     update_imaging(self)
@@ -34,12 +34,12 @@ def preview_complete(self):
     self.core_status_label.setText(
         "Time Taken " + str(Settings.time_elipsed) + "s")
     if(Settings.imaging_mode == 1):
-        preview_img = PyQt5.QtGui.QImage("../_temp/preview.jpg")
-        self.Image_Frame.setPixmap(QtGui.QPixmap(preview_img))
+        preview_img = QImage("../_temp/preview.jpg")
+        self.Image_Frame.setPixmap(QPixmap(preview_img))
         os.system("gpicview ../_temp/preview.jpg")
     else:
-        preview_img = PyQt5.QtGui.QImage("../_temp/preview.png")
-        self.Image_Frame.setPixmap(QtGui.QPixmap(preview_img))
+        preview_img = QImage("../_temp/preview.png")
+        self.Image_Frame.setPixmap(QPixmap(preview_img))
         os.system("gpicview ../_temp/preview.png")
     Settings.imaging = False
     Settings.trasmitted = 0
@@ -47,8 +47,8 @@ def preview_complete(self):
 
 
 def image_captured(self):
-    capture_img = PyQt5.QtGui.QImage(Settings.current_image)
-    self.Image_Frame.setPixmap(QtGui.QPixmap(capture_img))
+    capture_img = QImage(Settings.current_image)
+    self.Image_Frame.setPixmap(QPixmap(capture_img))
     Settings.trasmitted = 0
     self.core_status_label.setText("Core Status: IDLE")
     self.Progress_Label.setText(
