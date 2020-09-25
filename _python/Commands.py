@@ -133,9 +133,9 @@ def linked_spin_change(self):
         self.frame_spinBox.setValue(Settings.frame_RPM)
 
     CMD = "1~3~256~" + str(Settings.speed_dict[Settings.frame_RPM * 10])
-    Settings.sendCMD(Settings.frame_addr, CMD)
+    Settings.sendCMD(CMD)
     CMD = "2~3~256~" + str(Settings.speed_dict[Settings.core_RPM * 10])
-    Settings.sendCMD(Settings.core_addr, CMD)
+    Settings.sendCMD(CMD)
 
     self.core_spinBox.blockSignals(False)
     self.frame_spinBox.blockSignals(False)
