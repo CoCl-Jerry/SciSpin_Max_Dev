@@ -132,9 +132,11 @@ def linked_spin_change(self):
         self.core_verticalSlider.setValue(Settings.core_RPM * 100)
         self.frame_spinBox.setValue(Settings.frame_RPM)
 
-    CMD = "1~3~256~" + str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
+    CMD = "1~3~" + getMicrostep(frame_RPM * 100) + "~" + \
+        str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
     Settings.sendCMD(CMD)
-    CMD = "2~3~256~" + str(Settings.speed_dict[int(Settings.core_RPM * 100)])
+    CMD = "2~3~" + getMicrostep(core_RPM * 100) + "~" + \
+        str(Settings.speed_dict[int(Settings.core_RPM * 100)])
     Settings.sendCMD(CMD)
 
     self.core_spinBox.blockSignals(False)
@@ -143,28 +145,30 @@ def linked_spin_change(self):
     self.frame_verticalSlider.blockSignals(False)
 
 
-# def frame_spin_select(self):
-#     Settings.frame_RPM = self.frame_spinBox.value()
-#
-#     self.frame_verticalSlider.blockSignals(True)
-#     self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
-#     self.frame_verticalSlider.blockSignals(False)
-#
-#     CMD = "2~" + str(int(Settings.frame_RPM * 10))
-#     Settings.sendCMD(Settings.frame_addr, CMD)
-#
-#
-# def core_spin_select(self):
-#     Settings.core_RPM = self.core_spinBox.value()
-#
-#     self.core_verticalSlider.blockSignals(True)
-#     self.core_verticalSlider.setValue(Settings.core_RPM * 10)
-#     self.core_verticalSlider.blockSignals(False)
-#
-#     CMD = "2~" + str(int(Settings.core_RPM * 10))
-#     Settings.sendCMD(Settings.core_addr, CMD)
-#
-#
+def frame_spin_select(self):
+    Settings.frame_RPM = self.frame_spinBox.value()
+
+    self.frame_verticalSlider.blockSignals(True)
+    self.frame_verticalSlider.setValue(Settings.frame_RPM * 100)
+    self.frame_verticalSlider.blockSignals(False)
+
+    CMD = "1~3~" + getMicrostep(frame_RPM * 100) + "~" + \
+        str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
+    Settings.sendCMD(CMD)
+
+
+def core_spin_select(self):
+    Settings.core_RPM = self.core_spinBox.value()
+
+    self.core_verticalSlider.blockSignals(True)
+    self.core_verticalSlider.setValue(Settings.core_RPM * 10)
+    self.core_verticalSlider.blockSignals(False)
+
+    CMD = "2~3~" + getMicrostep(core_RPM * 100) + "~" + \
+        str(Settings.speed_dict[int(Settings.core_RPM * 100)])
+    Settings.sendCMD(CMD)
+
+
 # def frame_slider_change(self):
 #     Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 10
 #     self.frame_spinBox.setValue(Settings.frame_RPM)
@@ -209,3 +213,8 @@ def linked_spin_change(self):
 #
 # def IR_Imaging_trigger():
 #     Settings.sendCMD(Settings.lighting_addr, "6~\n")
+
+
+def getMicrostep(rpm):
+    if rpm <= 150:
+        return "256"

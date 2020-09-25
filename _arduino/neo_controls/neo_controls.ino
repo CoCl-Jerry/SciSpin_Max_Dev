@@ -30,12 +30,12 @@ int commands[COMMANDSIZE];
 
 int MotorSpeed_1 = 10;
 int interval_1 = 1892;
-int currentLimit_1 = 300;
+int currentLimit_1 = 500;
 boolean dir_1 = true;
 
 int MotorSpeed_2 = 10;
 int interval_2 = 1892;
-int currentLimit_2 = 300;
+int currentLimit_2 = 500;
 boolean dir_2 = true;
 
 unsigned long NextTime_1 = 0;
