@@ -21,12 +21,15 @@ void exeCMD() {
         case 3:
           stripShow();
           break;
+        case 4:
+          brightnessUpdate();
+          break;
         default:
           // statements
           break;
       }
       break;
-    
+
     default:
       // statements
       break;

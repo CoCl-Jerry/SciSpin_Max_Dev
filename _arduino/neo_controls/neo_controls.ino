@@ -90,13 +90,13 @@ void setup() {
   uint32_t data = 0;
   Frame_driver.DRV_STATUS(&data);
   Core_driver.DRV_STATUS(&data);
-  
+
   Serial.begin(9600);
   Wire.begin(SLAVE_ADDRESS);
   Wire.onReceive(receiveData);
 
   startup();
-
+  analogWrite(FAN_PIN, 100);
 }
 
 void loop() {

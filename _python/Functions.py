@@ -4,9 +4,7 @@ import UI_Update
 import timeit
 import Call_Thread
 
-import PyQt5
-from PyQt5.QtWidgets import *
-from PyQt5 import QtGui
+from PyQt5.QtWidgets import QFileDialog
 
 
 def rotate_image(self):
