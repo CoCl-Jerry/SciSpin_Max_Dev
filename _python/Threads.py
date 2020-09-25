@@ -74,27 +74,30 @@ class Snap(QThread):
         self._running = False
 
     def run(self):
-        if Settings.IR_imaging:
-            Commands.IR_Imaging_trigger()
+        Try:
+            if Settings.IR_imaging:
+                Commands.IR_Imaging_trigger()
 
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        ip_address = "10.0.5.1"
-        server_address = (ip_address, 23456)
-        sock.connect(server_address)
-        cmd = "A~" + str(350) + "~" + str(350) + "~" + \
-            str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-            str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-            "~" + str(int(Settings.AOI_H * 100)) + "~1"
-        sock.sendall(cmd.encode())
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            ip_address = "10.0.5.1"
+            server_address = (ip_address, 23456)
+            sock.connect(server_address)
+            cmd = "A~" + str(350) + "~" + str(350) + "~" + \
+                str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+                str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+                "~" + str(int(Settings.AOI_H * 100)) + "~1"
+            sock.sendall(cmd.encode())
 
-        with open('../_temp/snapshot.jpg', 'wb') as f:
-            while True:
-                data = sock.recv(5)
-                if not data:
-                    break
-                f.write(data)
-                self.transmit.emit()
-        sock.close()
+            with open('../_temp/snapshot.jpg', 'wb') as f:
+                while True:
+                    data = sock.recv(5)
+                    if not data:
+                        break
+                    f.write(data)
+                    self.transmit.emit()
+            sock.close()
+        except Exception as e:
+            print(e)
 
 
 class Preview(QThread):
@@ -220,51 +223,54 @@ class Timelapse(QThread):
         self._running = False
 
     def run(self):
-        if(not os.path.isdir(Settings.full_dir)):
-            os.umask(0)
-            os.mkdir(Settings.full_dir)
+        try:
+            if(not os.path.isdir(Settings.full_dir)):
+                os.umask(0)
+                os.mkdir(Settings.full_dir)
 
-        for i in range(Settings.total):
-            start_time = timeit.default_timer()
-            Settings.current = i
-            if(Settings.imaging_mode == 1):
-                Settings.current_image = Settings.full_dir + \
-                    "/" + Settings.sequence_name + "_%04d.jpg" % i
-            else:
-                Settings.current_image = Settings.full_dir + \
-                    "/" + Settings.sequence_name + "_%04d.png" % i
+            for i in range(Settings.total):
+                start_time = timeit.default_timer()
+                Settings.current = i
+                if(Settings.imaging_mode == 1):
+                    Settings.current_image = Settings.full_dir + \
+                        "/" + Settings.sequence_name + "_%04d.jpg" % i
+                else:
+                    Settings.current_image = Settings.full_dir + \
+                        "/" + Settings.sequence_name + "_%04d.png" % i
 
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            ip_address = "10.0.5.1"
-            server_address = (ip_address, 23456)
-            sock.connect(server_address)
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                ip_address = "10.0.5.1"
+                server_address = (ip_address, 23456)
+                sock.connect(server_address)
 
-            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
-                str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-                str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-                "~" + str(int(Settings.AOI_H * 100)) + \
-                "~" + str(int(Settings.imaging_mode))
+                cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
+                    str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+                    str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+                    "~" + str(int(Settings.AOI_H * 100)) + \
+                    "~" + str(int(Settings.imaging_mode))
 
-            sock.sendall(cmd.encode())
+                sock.sendall(cmd.encode())
 
-            with open(Settings.current_image, 'wb') as f:
-                self.transmitstart.emit()
-                while True:
-                    data = sock.recv(5)
-                    if not data:
-                        break
-                    f.write(data)
-                    self.transmit.emit()
+                with open(Settings.current_image, 'wb') as f:
+                    self.transmitstart.emit()
+                    while True:
+                        data = sock.recv(5)
+                        if not data:
+                            break
+                        f.write(data)
+                        self.transmit.emit()
 
-            sock.close()
+                sock.close()
 
-            self.captured.emit()
-            elapsed = int(timeit.default_timer() - start_time)
+                self.captured.emit()
+                elapsed = int(timeit.default_timer() - start_time)
 
-            if(elapsed < Settings.interval * 60):
-                for x in range(Settings.interval * 60 - elapsed):
-                    sleep(1)
-                    if not Settings.timelapse_running:
-                        break
-            if not Settings.timelapse_running:
-                break
+                if(elapsed < Settings.interval * 60):
+                    for x in range(Settings.interval * 60 - elapsed):
+                        sleep(1)
+                        if not Settings.timelapse_running:
+                            break
+                if not Settings.timelapse_running:
+                    break
+        except Exception as e:
+            print(e)

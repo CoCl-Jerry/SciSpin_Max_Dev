@@ -31,19 +31,23 @@ int commands[COMMANDSIZE];
 int MotorSpeed_1 = 10;
 int interval_1 = 1892;
 int currentLimit_1 = 500;
+int microstep_1 = 256;
 boolean dir_1 = true;
+boolean ms_change_1 = false;
 
 int MotorSpeed_2 = 10;
 int interval_2 = 1892;
 int currentLimit_2 = 500;
+int microstep_2 = 256;
 boolean dir_2 = true;
+boolean ms_change_2 = false;
 
 unsigned long NextTime_1 = 0;
 unsigned long NextTime_2 = 0;
 
 void setup() {
   Serial.begin(9600);
-  
+
   Serial1.begin(115200);
   Motor_2.push();
 
@@ -66,12 +70,15 @@ void setup() {
   strip.begin();
   strip.show();
 
+  digitalWrite(EN_PIN_1, HIGH);   // Disable driver in hardware
+  digitalWrite(EN_PIN_2, HIGH);   // Disable driver in hardware
+
   Motor_1.pdn_disable(true);     // Use PDN/UART pin for communication
   Motor_1.I_scale_analog(false); // Use internal voltage reference
   Motor_1.rms_current(currentLimit_1);      // Set driver current 500mA
   Motor_1.toff(2);               // Enable driver in software
   Motor_1.mstep_reg_select(true);
-  Motor_1.microsteps(256);
+  Motor_1.microsteps(microstep_1);
   Motor_1.intpol(true);
   Motor_1.dedge(true);
 
@@ -80,12 +87,12 @@ void setup() {
   Motor_2.rms_current(currentLimit_2);      // Set driver current 500mA
   Motor_2.toff(2);               // Enable driver in software
   Motor_2.mstep_reg_select(true);
-  Motor_2.microsteps(256);
+  Motor_2.microsteps(microstep_2);
   Motor_2.intpol(true);
   Motor_2.dedge(true);
 
-  digitalWrite(EN_PIN_1, HIGH);   // Disable driver in hardware
-  digitalWrite(EN_PIN_2, HIGH);   // Disable driver in hardware
+  //  digitalWrite(EN_PIN_1, LOW);   // Disable driver in hardware
+  //  digitalWrite(EN_PIN_2, LOW);   // Disable driver in hardware
 
   uint32_t data = 0;
   Motor_1.DRV_STATUS(&data);
@@ -105,6 +112,21 @@ void loop() {
     NextTime_1 = micros();
   if (micros() < NextTime_2)
     NextTime_2 = micros();
+
+  if (ms_change_1)
+  {
+    Motor_1.microsteps(microstep_1);
+    Serial.print(microstep_1);
+    ms_change_1=false;
+  }
+
+  if (ms_change_2)
+  {
+    Motor_2.microsteps(microstep_2);
+    Serial.print(microstep_2);
+    ms_change_2=false;
+  }
+
 
   if (micros() - NextTime_1 > interval_1) {
     digitalWrite(STEP_PIN_1, !digitalRead(STEP_PIN_1));

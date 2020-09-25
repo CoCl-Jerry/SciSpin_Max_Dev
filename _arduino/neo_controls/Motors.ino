@@ -21,12 +21,15 @@ void setDir(bool mot) {
 
 void setMotor(bool mot) {
   if (mot) {
-    Motor_2.microsteps(int(commands[2]));
+    microstep_2 = commands[2];
     interval_2 = commands[3];
+    ms_change_2 =true;
   }
-  
+
+
   else {
-    Motor_1.microsteps(int(commands[2]));
+    microstep_1 = commands[2];
     interval_1 = commands[3];
+    ms_change_1 = true;
   }
 }
