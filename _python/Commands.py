@@ -164,7 +164,7 @@ def core_spin_select(self):
     self.core_verticalSlider.setValue(Settings.core_RPM * 10)
     self.core_verticalSlider.blockSignals(False)
 
-    CMD = "2~3~" + getMicrostep(Settings.ore_RPM * 100) + "~" + \
+    CMD = "2~3~" + getMicrostep(Settings.core_RPM * 100) + "~" + \
         str(Settings.speed_dict[int(Settings.core_RPM * 100)])
     Settings.sendCMD(CMD)
 
