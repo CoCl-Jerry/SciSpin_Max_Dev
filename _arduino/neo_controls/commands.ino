@@ -11,12 +11,13 @@ void exeCMD() {
     case 1:
       switch (commands[1]) {
         case 0:
-          disableMotor1();
+          disableMotor(false);
           break;
         case 1:
-          enableMotor1();
+          enableMotor(false);
           break;
         case 2:
+          setDir(commands[2], false)
 
           break;
         case 3:
@@ -37,12 +38,13 @@ void exeCMD() {
     case 2:
       switch (commands[1]) {
         case 0:
-          disableMotor2();
+          disableMotor(true);
           break;
         case 1:
-          enableMotor2();
+          enableMotor(true);
           break;
         case 2:
+          setDir(commands[2], true)
 
           break;
         case 3:

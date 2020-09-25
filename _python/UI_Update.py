@@ -103,6 +103,7 @@ def dir(self):
         self.frameReverse_pushButton.setIcon(Settings.reverse)
     else:
         self.frameReverse_pushButton.setIcon(Settings.forward)
+
     if Settings.core_dir:
         self.coreReverse_pushButton.setIcon(Settings.reverse)
     else:

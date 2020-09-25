@@ -30,13 +30,13 @@ int commands[COMMANDSIZE];
 
 int microStep_1 = 256;
 int MotorSpeed_1 = 10;
-int interval_1 = 6428;
+int interval_1 = 1892;
 int currentLimit_1 = 300;
 boolean dir_1 = true;
 
 int microStep_2 = 256;
 int MotorSpeed_2 = 10;
-int interval_2 = 6428;
+int interval_2 = 1892;
 int currentLimit_2 = 300;
 boolean dir_2 = true;
 

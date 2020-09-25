@@ -93,22 +93,22 @@ def core_toggle(self):
     UI_Update.motor_update(self)
 
 
-#
-#
-# def reverse_motor(addr, motor, self):
-#     if(Settings.LINKED):
-#         Settings.sendCMD(Settings.frame_addr, "3~")
-#         Settings.sendCMD(Settings.core_addr, "3~")
-#         Settings.frame_dir = not Settings.frame_dir
-#         Settings.core_dir = not Settings.core_dir
-#     else:
-#         if (motor):
-#             Settings.sendCMD(Settings.frame_addr, "3~")
-#             Settings.frame_dir = not Settings.frame_dir
-#         else:
-#             Settings.sendCMD(Settings.core_addr, "3~")
-#             Settings.core_dir = not Settings.core_dir
-#     UI_Update.dir(self)
+def reverse_motor(addr, motor, self):
+    if(Settings.LINKED):
+        Settings.frame_dir = not Settings.frame_dir
+        Settings.core_dir = not Settings.core_dir
+        Settings.sendCMD("1~2" + str(int(Settings.frame_dir)))
+        Settings.sendCMD("2~2" + str(int(Settings.core_dir)))
+
+    else:
+        if not motor:
+            Settings.frame_dir = not Settings.frame_dir
+            Settings.sendCMD("1~2" + str(int(Settings.frame_dir)))
+
+        else:
+            Settings.core_dir = not Settings.core_dir
+            Settings.sendCMD("2~2" + str(int(Settings.core_dir)))
+    UI_Update.dir(self)
 #
 #
 # def linked_spin_change(self):
