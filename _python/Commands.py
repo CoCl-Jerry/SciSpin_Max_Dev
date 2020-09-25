@@ -1,6 +1,7 @@
 import Settings
 import socket
 import UI_Update
+import math
 from time import sleep
 
 
@@ -132,12 +133,15 @@ def linked_spin_change(self):
         self.core_verticalSlider.setValue(Settings.core_RPM * 100)
         self.frame_spinBox.setValue(Settings.frame_RPM)
 
-    CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 100) + "~" + \
-        str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
-    Settings.sendCMD(CMD)
-    CMD = "2~3~" + getMicrostep(Settings.core_RPM * 100) + "~" + \
-        str(Settings.speed_dict[int(Settings.core_RPM * 100)])
-    Settings.sendCMD(CMD)
+    try:
+        CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 100) + "~" + \
+            str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
+        Settings.sendCMD(CMD)
+        CMD = "2~3~" + getMicrostep(Settings.core_RPM * 100) + "~" + \
+            str(Settings.speed_dict[int(Settings.core_RPM * 100)])
+        Settings.sendCMD(CMD)
+    except Exception as e:
+        print(e)
 
     self.core_spinBox.blockSignals(False)
     self.frame_spinBox.blockSignals(False)
@@ -151,68 +155,71 @@ def frame_spin_select(self):
     self.frame_verticalSlider.blockSignals(True)
     self.frame_verticalSlider.setValue(Settings.frame_RPM * 100)
     self.frame_verticalSlider.blockSignals(False)
-
-    CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 100) + "~" + \
-        str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
-    Settings.sendCMD(CMD)
+    try:
+        CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 100) + "~" + \
+            str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
+        Settings.sendCMD(CMD)
+    except Exception as e:
+        print(e)
 
 
 def core_spin_select(self):
     Settings.core_RPM = self.core_spinBox.value()
 
     self.core_verticalSlider.blockSignals(True)
-    self.core_verticalSlider.setValue(Settings.core_RPM * 10)
+    self.core_verticalSlider.setValue(Settings.core_RPM * 100)
     self.core_verticalSlider.blockSignals(False)
+    try:
+        CMD = "2~3~" + getMicrostep(Settings.core_RPM * 100) + "~" + \
+            str(Settings.speed_dict[int(Settings.core_RPM * 100)])
+        Settings.sendCMD(CMD)
+    except Exception as e:
+        print(e)
 
-    CMD = "2~3~" + getMicrostep(Settings.core_RPM * 100) + "~" + \
-        str(Settings.speed_dict[int(Settings.core_RPM * 100)])
-    Settings.sendCMD(CMD)
+
+def frame_slider_change(self):
+    Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 100
+    self.frame_spinBox.setValue(Settings.frame_RPM)
 
 
-# def frame_slider_change(self):
-#     Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 10
-#     self.frame_spinBox.setValue(Settings.frame_RPM)
-#
-#
-# def core_slider_change(self):
-#     Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 10
-#     self.core_spinBox.setValue(Settings.core_RPM)
-#
-#
-# def linked_slider_change(self):
-#     self.core_spinBox.blockSignals(True)
-#     self.frame_spinBox.blockSignals(True)
-#     self.core_verticalSlider.blockSignals(True)
-#     self.frame_verticalSlider.blockSignals(True)
-#
-#     if(Settings.frame_RPM != self.frame_verticalSlider.sliderPosition() / 10):
-#         Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 10
-#         Settings.core_RPM = Settings.frame_RPM
-#         self.core_verticalSlider.setValue(Settings.core_RPM * 10)
-#         self.core_spinBox.setValue(Settings.core_RPM)
-#         self.frame_spinBox.setValue(Settings.frame_RPM)
-#     else:
-#         Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 10
-#         Settings.frame_RPM = Settings.core_RPM
-#         self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
-#         self.core_spinBox.setValue(Settings.core_RPM)
-#         self.frame_spinBox.setValue(Settings.frame_RPM)
-#
-#     CMD = "2~" + str(int(Settings.frame_RPM * 10))
-#     Settings.sendCMD(Settings.frame_addr, CMD)
-#     CMD = "2~" + str(int(Settings.core_RPM * 10))
-#     Settings.sendCMD(Settings.core_addr, CMD)
-#
-#     self.core_spinBox.blockSignals(False)
-#     self.frame_spinBox.blockSignals(False)
-#     self.core_verticalSlider.blockSignals(False)
-#     self.frame_verticalSlider.blockSignals(False)
-#
-#
-#
-#
-# def IR_Imaging_trigger():
-#     Settings.sendCMD(Settings.lighting_addr, "6~\n")
+def core_slider_change(self):
+    Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 100
+    self.core_spinBox.setValue(Settings.core_RPM)
+
+
+def linked_slider_change(self):
+    self.core_spinBox.blockSignals(True)
+    self.frame_spinBox.blockSignals(True)
+    self.core_verticalSlider.blockSignals(True)
+    self.frame_verticalSlider.blockSignals(True)
+
+    if(Settings.frame_RPM != self.frame_verticalSlider.sliderPosition() / 100):
+        Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 100
+        Settings.core_RPM = Settings.frame_RPM
+        self.core_verticalSlider.setValue(Settings.core_RPM * 100)
+        self.core_spinBox.setValue(Settings.core_RPM)
+        self.frame_spinBox.setValue(Settings.frame_RPM)
+    else:
+        Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 100
+        Settings.frame_RPM = Settings.core_RPM
+        self.frame_verticalSlider.setValue(Settings.frame_RPM * 100)
+        self.core_spinBox.setValue(Settings.core_RPM)
+        self.frame_spinBox.setValue(Settings.frame_RPM)
+
+    try:
+        CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 100) + "~" + \
+            str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
+        Settings.sendCMD(CMD)
+        CMD = "2~3~" + getMicrostep(Settings.core_RPM * 100) + "~" + \
+            str(Settings.speed_dict[int(Settings.core_RPM * 100)])
+        Settings.sendCMD(CMD)
+    except Exception as e:
+        print(e)
+
+    self.core_spinBox.blockSignals(False)
+    self.frame_spinBox.blockSignals(False)
+    self.core_verticalSlider.blockSignals(False)
+    self.frame_verticalSlider.blockSignals(False)
 
 
 def getMicrostep(rpm):
