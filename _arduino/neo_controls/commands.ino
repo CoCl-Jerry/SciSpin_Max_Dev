@@ -17,13 +17,12 @@ void exeCMD() {
           enableMotor(false);
           break;
         case 2:
-          setDir(commands[2], false);
+          setDir(false);
           break;
         case 3:
-
+          setMotor(false);
           break;
         case 4:
-
           break;
 
         default:
@@ -42,13 +41,12 @@ void exeCMD() {
           enableMotor(true);
           break;
         case 2:
-          setDir(commands[2], true);
+          setDir(true);
           break;
         case 3:
-
+          setMotor(true);
           break;
         case 4:
-
           break;
 
         default:

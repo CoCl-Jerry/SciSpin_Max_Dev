@@ -12,10 +12,21 @@ void disableMotor(bool mot) {
     digitalWrite(EN_PIN_1, HIGH);
 }
 
-void setDir(bool dirc, bool mot)
-{
+void setDir(bool mot) {
   if (mot)
-    digitalWrite(DIR_PIN_2, dirc);
+    digitalWrite(DIR_PIN_2, commands[2]);
   else
-    digitalWrite(DIR_PIN_1, dirc);
+    digitalWrite(DIR_PIN_1, commands[2]);
+}
+
+void setMotor(bool mot) {
+  if (mot) {
+    Motor_2.microsteps(commands[2]);
+    interval_2 = commands[3];
+  }
+  
+  else {
+    Motor_1.microsteps(commands[2]);
+    interval_1 = commands[3];
+  }
 }

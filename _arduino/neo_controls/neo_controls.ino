@@ -28,13 +28,11 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRBW + NEO_KH
 char data[50];
 int commands[COMMANDSIZE];
 
-int microStep_1 = 256;
 int MotorSpeed_1 = 10;
 int interval_1 = 1892;
 int currentLimit_1 = 300;
 boolean dir_1 = true;
 
-int microStep_2 = 256;
 int MotorSpeed_2 = 10;
 int interval_2 = 1892;
 int currentLimit_2 = 300;
@@ -73,7 +71,7 @@ void setup() {
   Motor_1.rms_current(currentLimit_1);      // Set driver current 500mA
   Motor_1.toff(2);               // Enable driver in software
   Motor_1.mstep_reg_select(true);
-  Motor_1.microsteps(microStep_1);
+  Motor_1.microsteps(256);
   Motor_1.intpol(true);
   Motor_1.dedge(true);
 
@@ -82,7 +80,7 @@ void setup() {
   Motor_2.rms_current(currentLimit_2);      // Set driver current 500mA
   Motor_2.toff(2);               // Enable driver in software
   Motor_2.mstep_reg_select(true);
-  Motor_2.microsteps(microStep_2);
+  Motor_2.microsteps(256);
   Motor_2.intpol(true);
   Motor_2.dedge(true);
 

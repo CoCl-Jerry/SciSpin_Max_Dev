@@ -109,40 +109,40 @@ def reverse_motor(motor, self):
             Settings.core_dir = not Settings.core_dir
             Settings.sendCMD("2~2~" + str(int(Settings.core_dir)))
     UI_Update.dir(self)
-#
-#
-# def linked_spin_change(self):
-#     self.core_spinBox.blockSignals(True)
-#     self.frame_spinBox.blockSignals(True)
-#     self.core_verticalSlider.blockSignals(True)
-#     self.frame_verticalSlider.blockSignals(True)
-#
-#     if(Settings.frame_RPM != self.frame_spinBox.value()):
-#
-#         Settings.frame_RPM = self.frame_spinBox.value()
-#         Settings.core_RPM = Settings.frame_RPM
-#         self.core_verticalSlider.setValue(Settings.core_RPM * 10)
-#         self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
-#         self.core_spinBox.setValue(Settings.core_RPM)
-#
-#     else:
-#         Settings.core_RPM = self.core_spinBox.value()
-#         Settings.frame_RPM = Settings.core_RPM
-#         self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
-#         self.core_verticalSlider.setValue(Settings.core_RPM * 10)
-#         self.frame_spinBox.setValue(Settings.frame_RPM)
-#
-#     CMD = "2~" + str(int(Settings.frame_RPM * 10))
-#     Settings.sendCMD(Settings.frame_addr, CMD)
-#     CMD = "2~" + str(int(Settings.core_RPM * 10))
-#     Settings.sendCMD(Settings.core_addr, CMD)
-#
-#     self.core_spinBox.blockSignals(False)
-#     self.frame_spinBox.blockSignals(False)
-#     self.core_verticalSlider.blockSignals(False)
-#     self.frame_verticalSlider.blockSignals(False)
-#
-#
+
+
+def linked_spin_change(self):
+    self.core_spinBox.blockSignals(True)
+    self.frame_spinBox.blockSignals(True)
+    self.core_verticalSlider.blockSignals(True)
+    self.frame_verticalSlider.blockSignals(True)
+
+    if(Settings.frame_RPM != self.frame_spinBox.value()):
+
+        Settings.frame_RPM = self.frame_spinBox.value()
+        Settings.core_RPM = Settings.frame_RPM
+        self.core_verticalSlider.setValue(Settings.core_RPM * 10)
+        self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
+        self.core_spinBox.setValue(Settings.core_RPM)
+
+    else:
+        Settings.core_RPM = self.core_spinBox.value()
+        Settings.frame_RPM = Settings.core_RPM
+        self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
+        self.core_verticalSlider.setValue(Settings.core_RPM * 10)
+        self.frame_spinBox.setValue(Settings.frame_RPM)
+
+    CMD = "1~3~256~" + str(Settings.speed_dict[Settings.frame_RPM * 10])
+    Settings.sendCMD(Settings.frame_addr, CMD)
+    CMD = "2~3~256~" + str(Settings.speed_dict[Settings.core_RPM * 10])
+    Settings.sendCMD(Settings.core_addr, CMD)
+
+    self.core_spinBox.blockSignals(False)
+    self.frame_spinBox.blockSignals(False)
+    self.core_verticalSlider.blockSignals(False)
+    self.frame_verticalSlider.blockSignals(False)
+
+
 # def frame_spin_select(self):
 #     Settings.frame_RPM = self.frame_spinBox.value()
 #
