@@ -157,48 +157,51 @@ class Sensor(QThread):
         sensor = adafruit_mma8451.MMA8451(i2c)
 
         while True:
-            if(Settings.tag_index == 0):
-                accel_x, accel_y, accel_z = sensor.acceleration
-                Settings.ACC_X_text = "{0:.2f}".format(accel_x)
-                Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
-                Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
-
-            self.update.emit()
-            sleep(Settings.sample_time)
-
-            if(Settings.log_sensor):
-                if(not Settings.sensor_flag):
-                    self.logstart.emit()
-                    if(not os.path.isdir(Settings.prelog_dir)):
-                        os.umask(0)
-                        os.mkdir(Settings.prelog_dir)
-                    if(not os.path.isdir(Settings.log_dir)):
-                        os.umask(0)
-                        os.mkdir(Settings.log_dir)
-                    log_file = open(Settings.log_dir + "/log.txt", "w")
-                    Settings.sensor_flag = True
-                    os.chmod(Settings.log_dir + "/log.txt", 0o777)
-
+            try:
                 if(Settings.tag_index == 0):
+                    accel_x, accel_y, accel_z = sensor.acceleration
+                    Settings.ACC_X_text = "{0:.2f}".format(accel_x)
+                    Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
+                    Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
 
-                    log_file.write(Settings.ACC_X_text + "\t" +
-                                   Settings.ACC_Y_text + "\t" + Settings.ACC_Z_text + "\r\n")
+                self.update.emit()
+                sleep(Settings.sample_time)
 
-                elif(Settings.tag_index == 1):
+                if(Settings.log_sensor):
+                    if(not Settings.sensor_flag):
+                        self.logstart.emit()
+                        if(not os.path.isdir(Settings.prelog_dir)):
+                            os.umask(0)
+                            os.mkdir(Settings.prelog_dir)
+                        if(not os.path.isdir(Settings.log_dir)):
+                            os.umask(0)
+                            os.mkdir(Settings.log_dir)
+                        log_file = open(Settings.log_dir + "/log.txt", "w")
+                        Settings.sensor_flag = True
+                        os.chmod(Settings.log_dir + "/log.txt", 0o777)
 
-                    log_file.write(Settings.GYRO_X_text + "\t" +
-                                   Settings.GYRO_Y_text + "\t" + Settings.GYRO_Z_text + "\r\n")
-                else:
+                    if(Settings.tag_index == 0):
 
-                    log_file.write(Settings.MAG_X_text + "\t" +
-                                   Settings.MAG_Y_text + "\t" + Settings.MAG_Z_text + "\r\n")
+                        log_file.write(Settings.ACC_X_text + "\t" +
+                                       Settings.ACC_Y_text + "\t" + Settings.ACC_Z_text + "\r\n")
 
-                print(int(timeit.default_timer() - Settings.log_start_time))
-                if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
-                    Settings.log_sensor = False
-                    Settings.sensor_flag = False
-                    log_file.close()
-                    self.logdone.emit()
+                    elif(Settings.tag_index == 1):
+
+                        log_file.write(Settings.GYRO_X_text + "\t" +
+                                       Settings.GYRO_Y_text + "\t" + Settings.GYRO_Z_text + "\r\n")
+                    else:
+
+                        log_file.write(Settings.MAG_X_text + "\t" +
+                                       Settings.MAG_Y_text + "\t" + Settings.MAG_Z_text + "\r\n")
+
+                    print(int(timeit.default_timer() - Settings.log_start_time))
+                    if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
+                        Settings.log_sensor = False
+                        Settings.sensor_flag = False
+                        log_file.close()
+                        self.logdone.emit()
+            except Exception as e:
+                print(e)
 
 
 class Timelapse(QThread):
