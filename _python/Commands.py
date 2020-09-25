@@ -39,22 +39,60 @@ def clear_lights():
 def IR_toggle(self):
     if not Settings.IR_stat:
         self.IR_pushButton.setText("IR STATUS:ON")
-        current_CMD = "4~1~\n"
+        current_CMD = "4~1"
     else:
         self.IR_pushButton.setText("IR STATUS:OFF")
-        current_CMD = "4~0~\n"
+        current_CMD = "4~0"
     Settings.IR_stat = not Settings.IR_stat
     Settings.sendCMD(current_CMD)
 
 
-#
-# def ergz_motor(addr):
-#     if(Settings.LINKED):
-#         Settings.sendCMD(Settings.frame_addr, "1~")
-#         Settings.sendCMD(Settings.core_addr, "1~")
-#     else:
-#         Settings.sendCMD(addr, "1~")
-#     Settings.sendCMD(Settings.lighting_addr, "\n9~\n")
+def frame_toggle(self):
+    if Settings.LINKED and not Settings.frame_enabled:
+        Settings.sendCMD("1~1")
+        Settings.sendCMD("2~1")
+
+        Settings.frame_enabled = True
+        Settings.core_enabled = True
+    else if Settings.LINKED and Settings.frame_enabled:
+        Settings.sendCMD("1~0")
+        Settings.sendCMD("2~0")
+
+        Settings.frame_enabled = False
+        Settings.core_enabled = False
+    else if not Settings.LINKED and not Settings.frame_enabled:
+        Settings.sendCMD("1~1")
+        Settings.frame_enabled = True
+
+    else:
+        Settings.sendCMD("1~0")
+        Settings.frame_enabled = False
+    UI_Update.motor_update(self)
+
+
+def core_toggle(self):
+    if Settings.LINKED and not Settings.core_enabled:
+        Settings.sendCMD("1~1")
+        Settings.sendCMD("2~1")
+
+        Settings.frame_enabled = True
+        Settings.core_enabled = True
+    else if Settings.LINKED and Settings.core_enabled:
+        Settings.sendCMD("1~0")
+        Settings.sendCMD("2~0")
+
+        Settings.frame_enabled = False
+        Settings.core_enabled = False
+    else if not Settings.LINKED and not Settings.core_enabled:
+        Settings.sendCMD("2~1")
+        Settings.core_enabled = True
+
+    else:
+        Settings.sendCMD("2~0")
+        Settings.core_enabled = False
+    UI_Update.motor_update(self)
+
+
 #
 #
 # def reverse_motor(addr, motor, self):

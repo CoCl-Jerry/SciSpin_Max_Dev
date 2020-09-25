@@ -6,6 +6,59 @@ void exeCMD() {
       while (1) {}
       break;
 
+
+
+    case 1:
+      switch (commands[1]) {
+        case 0:
+          disableMotor1();
+          break;
+        case 1:
+          enableMotor1();
+          break;
+        case 2:
+
+          break;
+        case 3:
+
+          break;
+        case 4:
+
+          break;
+
+        default:
+          break;
+      }
+      break;
+
+
+
+
+    case 2:
+      switch (commands[1]) {
+        case 0:
+          disableMotor2();
+          break;
+        case 1:
+          enableMotor2();
+          break;
+        case 2:
+
+          break;
+        case 3:
+
+          break;
+        case 4:
+
+          break;
+
+        default:
+          break;
+      }
+      break;
+
+
+
     case 3:
       switch (commands[1]) {
         case 0:

@@ -21,8 +21,8 @@
 #define SLAVE_ADDRESS 0x08
 #define COMMANDSIZE 10
 
-TMC2208Stepper Frame_driver = TMC2208Stepper(&Serial1);
-TMC2208Stepper Core_driver = TMC2208Stepper(&Serial2);
+TMC2208Stepper Motor_1 = TMC2208Stepper(&Serial2);
+TMC2208Stepper Motor_2 = TMC2208Stepper(&Serial1);
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRBW + NEO_KHZ800);
 
 char data[50];
@@ -47,10 +47,10 @@ void setup() {
   Serial.begin(9600);
   
   Serial1.begin(115200);
-  Frame_driver.push();
+  Motor_1.push();
 
   Serial2.begin(115200);
-  Core_driver.push();
+  Motor_2.push();
 
   pinMode(IR_PIN, OUTPUT);
   pinMode(FAN_PIN, OUTPUT);
@@ -68,30 +68,30 @@ void setup() {
   strip.begin();
   strip.show();
 
-  Frame_driver.pdn_disable(true);     // Use PDN/UART pin for communication
-  Frame_driver.I_scale_analog(false); // Use internal voltage reference
-  Frame_driver.rms_current(currentLimit_1);      // Set driver current 500mA
-  Frame_driver.toff(2);               // Enable driver in software
-  Frame_driver.mstep_reg_select(true);
-  Frame_driver.microsteps(microStep_1);
-  Frame_driver.intpol(true);
-  Frame_driver.dedge(true);
+  Motor_1.pdn_disable(true);     // Use PDN/UART pin for communication
+  Motor_1.I_scale_analog(false); // Use internal voltage reference
+  Motor_1.rms_current(currentLimit_1);      // Set driver current 500mA
+  Motor_1.toff(2);               // Enable driver in software
+  Motor_1.mstep_reg_select(true);
+  Motor_1.microsteps(microStep_1);
+  Motor_1.intpol(true);
+  Motor_1.dedge(true);
 
-  Core_driver.pdn_disable(true);     // Use PDN/UART pin for communication
-  Core_driver.I_scale_analog(false); // Use internal voltage reference
-  Core_driver.rms_current(currentLimit_2);      // Set driver current 500mA
-  Core_driver.toff(2);               // Enable driver in software
-  Core_driver.mstep_reg_select(true);
-  Core_driver.microsteps(microStep_2);
-  Core_driver.intpol(true);
-  Core_driver.dedge(true);
+  Motor_2.pdn_disable(true);     // Use PDN/UART pin for communication
+  Motor_2.I_scale_analog(false); // Use internal voltage reference
+  Motor_2.rms_current(currentLimit_2);      // Set driver current 500mA
+  Motor_2.toff(2);               // Enable driver in software
+  Motor_2.mstep_reg_select(true);
+  Motor_2.microsteps(microStep_2);
+  Motor_2.intpol(true);
+  Motor_2.dedge(true);
 
-  digitalWrite(EN_PIN_1, LOW);   // Disable driver in hardware
-  digitalWrite(EN_PIN_2, LOW);   // Disable driver in hardware
+  digitalWrite(EN_PIN_1, HIGH);   // Disable driver in hardware
+  digitalWrite(EN_PIN_2, HIGH);   // Disable driver in hardware
 
   uint32_t data = 0;
-  Frame_driver.DRV_STATUS(&data);
-  Core_driver.DRV_STATUS(&data);
+  Motor_1.DRV_STATUS(&data);
+  Motor_2.DRV_STATUS(&data);
 
   Serial.begin(9600);
   Wire.begin(SLAVE_ADDRESS);

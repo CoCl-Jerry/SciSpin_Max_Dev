@@ -38,6 +38,15 @@ def init():
     global core_RPM
     core_RPM = 0.3
 
+    global frame_enabled
+    frame_enabled = False
+
+    global core_enabled
+    core_enabled = False
+
+    global IR_stat
+    IR_stat = False
+
     global tag_index
     tag_index = 0
 
@@ -152,9 +161,22 @@ def init():
     broken.addPixmap(QtGui.QPixmap("../_image/Broken_Link.png"),
                      QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
+    global speed_dict
+    speed_dict = {
+        10: 5716,
+        15: 3744,
+        20: 1964,
+        25: 2246,
+        30: 1892,
+        35: 1600,
+        40: 1410,
+        45: 1250,
+        50: 1126
+    }
+
 
 def sendCMD(cont):
-    print(cont)
+    temp = cont + "\n"
     try:
         if Settings.busy:
             time.sleep(0.05)
@@ -162,7 +184,7 @@ def sendCMD(cont):
         Settings.busy = True
         bus = smbus.SMBus(1)
         converted = []
-        for b in cont:
+        for b in temp:
             converted.append(ord(b))
         bus.write_i2c_block_data(0x08, i2c_cmd, converted)
         Settings.busy = False

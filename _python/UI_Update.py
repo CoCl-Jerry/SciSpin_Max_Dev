@@ -194,3 +194,15 @@ def timelapse_end(self):
     self.startImaging_pushButton.setText("START TIMELAPSE")
 
     self.core_status_label.setText("Core Status: IDLE")
+
+
+def motor_update(self):
+    if Settings.frame_enabled:
+        self.frameErgz_pushButton.setText("DISABLE MOTOR")
+    else:
+        self.frameErgz_pushButton.setText("ENABLE MOTOR")
+
+    if Settings.core_enabled:
+        self.coreErgz_pushButton.setText("DISABLE MOTOR")
+    else:
+        self.coreErgz_pushButton.setText("ENABLE MOTOR")
