@@ -54,13 +54,13 @@ def frame_toggle(self):
 
         Settings.frame_enabled = True
         Settings.core_enabled = True
-    else if Settings.LINKED and Settings.frame_enabled:
+    elif Settings.LINKED and Settings.frame_enabled:
         Settings.sendCMD("1~0")
         Settings.sendCMD("2~0")
 
         Settings.frame_enabled = False
         Settings.core_enabled = False
-    else if not Settings.LINKED and not Settings.frame_enabled:
+    elif not Settings.LINKED and not Settings.frame_enabled:
         Settings.sendCMD("1~1")
         Settings.frame_enabled = True
 
@@ -77,13 +77,13 @@ def core_toggle(self):
 
         Settings.frame_enabled = True
         Settings.core_enabled = True
-    else if Settings.LINKED and Settings.core_enabled:
+    elif Settings.LINKED and Settings.core_enabled:
         Settings.sendCMD("1~0")
         Settings.sendCMD("2~0")
 
         Settings.frame_enabled = False
         Settings.core_enabled = False
-    else if not Settings.LINKED and not Settings.core_enabled:
+    elif not Settings.LINKED and not Settings.core_enabled:
         Settings.sendCMD("2~1")
         Settings.core_enabled = True
 
