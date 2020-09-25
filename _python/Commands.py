@@ -44,7 +44,7 @@ def IR_toggle(self):
         self.IR_pushButton.setText("IR STATUS:OFF")
         current_CMD = "4~0~\n"
     Settings.IR_stat = not Settings.IR_stat
-    send_CMD(current_CMD)
+    Settings.sendCMD(current_CMD)
 
 
 #
