@@ -6,6 +6,7 @@ import os
 import timeit
 import Commands
 import adafruit_mma8451
+import adafruit_bme280
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
@@ -155,6 +156,7 @@ class Sensor(QThread):
     def run(self):
         i2c = busio.I2C(board.SCL, board.SDA)
         sensor = adafruit_mma8451.MMA8451(i2c)
+        bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, 0x76)
 
         while True:
             try:
@@ -163,6 +165,12 @@ class Sensor(QThread):
                     Settings.ACC_X_text = "{0:.2f}".format(accel_x)
                     Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
                     Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
+                elif(Settings.tag_index == 1):
+                    accel_x, accel_y, accel_z = sensor.acceleration
+                    Settings.TEMP_text = "{0:.2f}".format(bme280.temperature)
+                    Settings.HUD_text = "{0:.2f}".format(bme280.humidity)
+                else:
+                    Settings.PR_text = "{0:.2f}".format(bme280.pressure)
 
                 self.update.emit()
                 sleep(Settings.sample_time)

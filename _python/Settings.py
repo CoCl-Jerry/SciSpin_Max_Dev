@@ -54,6 +54,14 @@ def init():
     global ACC_Z_text
     ACC_Z_text = "offline"
 
+    global TEMP_text
+    TEMP_text = "offline"
+    global HUD_text
+    HUD_text = "offline"
+
+    global PR_text
+    PR_text = "offline"
+
     global sequence_name
     sequence_name = ""
 

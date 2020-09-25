@@ -72,14 +72,11 @@ def sensor_update(self):
         self.ACC_Z_text_label.setText(Settings.ACC_Z_text)
 
     elif(Settings.tag_index == 1):
-        self.GYRO_X_text_label.setText(Settings.GYRO_X_text)
-        self.GYRO_Y_text_label.setText(Settings.GYRO_Y_text)
-        self.GYRO_Z_text_label.setText(Settings.GYRO_Z_text)
+        self.TEMP_text_label.setText(Settings.TEMP_text)
+        self.HUM_text_label.setText(Settings.HUD_text)
 
     else:
-        self.MAG_X_text_label.setText(Settings.MAG_X_text)
-        self.MAG_Y_text_label.setText(Settings.MAG_Y_text)
-        self.MAG_Z_text_label.setText(Settings.MAG_Z_text)
+        self.PR_text_label.setText(Settings.PR_text)
 
 
 def LED_validate(self):
