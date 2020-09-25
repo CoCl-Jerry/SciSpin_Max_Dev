@@ -121,20 +121,20 @@ def linked_spin_change(self):
 
         Settings.frame_RPM = self.frame_spinBox.value()
         Settings.core_RPM = Settings.frame_RPM
-        self.core_verticalSlider.setValue(Settings.core_RPM * 10)
-        self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
+        self.core_verticalSlider.setValue(Settings.core_RPM * 100)
+        self.frame_verticalSlider.setValue(Settings.frame_RPM * 100)
         self.core_spinBox.setValue(Settings.core_RPM)
 
     else:
         Settings.core_RPM = self.core_spinBox.value()
         Settings.frame_RPM = Settings.core_RPM
-        self.frame_verticalSlider.setValue(Settings.frame_RPM * 10)
-        self.core_verticalSlider.setValue(Settings.core_RPM * 10)
+        self.frame_verticalSlider.setValue(Settings.frame_RPM * 100)
+        self.core_verticalSlider.setValue(Settings.core_RPM * 100)
         self.frame_spinBox.setValue(Settings.frame_RPM)
 
-    CMD = "1~3~256~" + str(Settings.speed_dict[Settings.frame_RPM * 10])
+    CMD = "1~3~256~" + str(Settings.speed_dict[Settings.frame_RPM * 100])
     Settings.sendCMD(CMD)
-    CMD = "2~3~256~" + str(Settings.speed_dict[Settings.core_RPM * 10])
+    CMD = "2~3~256~" + str(Settings.speed_dict[Settings.core_RPM * 100])
     Settings.sendCMD(CMD)
 
     self.core_spinBox.blockSignals(False)
