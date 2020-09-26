@@ -487,7 +487,7 @@
      <widget class="QPushButton" name="frameReverse_pushButton">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>90</x>
         <y>370</y>
         <width>41</width>
         <height>41</height>
@@ -542,7 +542,7 @@
      <widget class="QPushButton" name="coreReverse_pushButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>540</x>
         <y>370</y>
         <width>41</width>
         <height>41</height>
@@ -570,7 +570,7 @@
        <rect>
         <x>130</x>
         <y>10</y>
-        <width>51</width>
+        <width>81</width>
         <height>401</height>
        </rect>
       </property>
@@ -621,9 +621,9 @@
      <widget class="QWidget" name="verticalLayoutWidget_8">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>460</x>
         <y>10</y>
-        <width>51</width>
+        <width>81</width>
         <height>401</height>
        </rect>
       </property>
@@ -674,7 +674,7 @@
      <widget class="QPushButton" name="frameErgz_pushButton">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>100</x>
         <y>462</y>
         <width>149</width>
         <height>41</height>
@@ -688,13 +688,19 @@
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="frame_spinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>100</x>
         <y>419</y>
         <width>149</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -719,13 +725,19 @@
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="core_spinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>420</x>
         <y>419</y>
         <width>149</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
       <property name="suffix">
        <string> RPM</string>
@@ -749,7 +761,7 @@
      <widget class="QPushButton" name="coreErgz_pushButton">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>420</x>
         <y>462</y>
         <width>149</width>
         <height>41</height>
