@@ -171,11 +171,8 @@ def slider_change(mot, self):
     self.core_verticalSlider.blockSignals(False)
     self.frame_verticalSlider.blockSignals(False)
 
-    print(int(Settings.frame_RPM * 100))
-    print(int(Settings.core_RPM * 100))
-
-    CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 20) + "~" + str(Settings.speed_dict[int(Settings.frame_RPM * 100)]) + "~" + getMicrostep(
-        Settings.core_RPM * 20) + "~" + str(Settings.speed_dict[int(Settings.core_RPM * 100)])
+    CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 20) + "~" + str(Settings.speed_dict[math.ceil(Settings.frame_RPM * 100)]) + "~" + getMicrostep(
+        Settings.core_RPM * 20) + "~" + str(Settings.speed_dict[math.ceil(Settings.core_RPM * 100)])
     Settings.sendCMD(CMD)
 
 
