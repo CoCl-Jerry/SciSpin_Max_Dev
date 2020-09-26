@@ -77,7 +77,6 @@ def sensor_update(self):
 
     else:
         self.PR_text_label.setText(Settings.PR_text)
-    print("updating sensor")
 
 
 def LED_validate(self):
