@@ -264,6 +264,7 @@ def init():
 
 def sendCMD(cont):
     temp = cont + "\n"
+    print(temp)
     try:
         if Settings.busy:
             time.sleep(0.05)
