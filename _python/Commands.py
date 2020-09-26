@@ -130,7 +130,8 @@ def spin_change(mot, self):
     self.frame_verticalSlider.blockSignals(False)
 
     CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 20) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-        Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 20) + "~" + str(Settings.speed_dict[int(Settings.core_RPM * 100)])
+        Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 20) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
+            Settings.core_RPM)) * 100)])
     Settings.sendCMD(CMD)
 
 
@@ -172,7 +173,8 @@ def slider_change(mot, self):
     self.frame_verticalSlider.blockSignals(False)
 
     CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 20) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-        Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 20) + "~" + str(Settings.speed_dict[math.ceil(Settings.core_RPM * 100)])
+        Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 20) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
+            Settings.core_RPM)) * 100)])
     Settings.sendCMD(CMD)
 
 
