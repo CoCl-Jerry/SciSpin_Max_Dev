@@ -6,55 +6,22 @@ void exeCMD() {
       while (1) {}
       break;
 
-
-
     case 1:
       switch (commands[1]) {
         case 0:
-          disableMotor(false);
+          motorStatus();
           break;
         case 1:
-          enableMotor(false);
-          break;
-        case 2:
-          setDir(false);
+          dirUpdate();
           break;
         case 3:
           setMotor(false);
           break;
-        case 4:
-          break;
 
         default:
           break;
       }
       break;
-
-
-
-    case 2:
-      switch (commands[1]) {
-        case 0:
-          disableMotor(true);
-          break;
-        case 1:
-          enableMotor(true);
-          break;
-        case 2:
-          setDir(true);
-          break;
-        case 3:
-          setMotor(true);
-          break;
-        case 4:
-          break;
-
-        default:
-          break;
-      }
-      break;
-
-
 
     case 3:
       switch (commands[1]) {

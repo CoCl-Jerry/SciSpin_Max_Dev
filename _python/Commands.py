@@ -48,67 +48,46 @@ def IR_toggle(self):
     Settings.sendCMD(current_CMD)
 
 
-def frame_toggle(self):
-    if Settings.LINKED and not Settings.frame_enabled:
-        Settings.sendCMD("1~1")
-        Settings.sendCMD("2~1")
-
-        Settings.frame_enabled = True
-        Settings.core_enabled = True
-    elif Settings.LINKED and Settings.frame_enabled:
-        Settings.sendCMD("1~0")
-        Settings.sendCMD("2~0")
-
-        Settings.frame_enabled = False
-        Settings.core_enabled = False
-    elif not Settings.LINKED and not Settings.frame_enabled:
-        Settings.sendCMD("1~1")
-        Settings.frame_enabled = True
-
+def motor_toggle(self, mot):
+    if not mot:
+        if Settings.LINKED and not Settings.frame_enabled:
+            Settings.frame_enabled = True
+            Settings.core_enabled = True
+        elif Settings.LINKED and Settings.frame_enabled:
+            Settings.frame_enabled = False
+            Settings.core_enabled = False
+        elif not Settings.LINKED and not Settings.frame_enabled:
+            Settings.frame_enabled = True
+        else:
+            Settings.frame_enabled = False
     else:
-        Settings.sendCMD("1~0")
-        Settings.frame_enabled = False
+        if Settings.LINKED and not Settings.core_enabled:
+            Settings.frame_enabled = True
+            Settings.core_enabled = True
+        elif Settings.LINKED and Settings.core_enabled:
+            Settings.frame_enabled = False
+            Settings.core_enabled = False
+        elif not Settings.LINKED and not Settings.core_enabled:
+            Settings.core_enabled = True
+        else:
+            Settings.core_enabled = False
+    current_CMD = ("1~0~" + str(int(Settings.frame_enabled)) +
+                   "~" + str(int(Settings.core_enabled)))
     UI_Update.motor_update(self)
 
 
-def core_toggle(self):
-    if Settings.LINKED and not Settings.core_enabled:
-        Settings.sendCMD("1~1")
-        Settings.sendCMD("2~1")
-
-        Settings.frame_enabled = True
-        Settings.core_enabled = True
-    elif Settings.LINKED and Settings.core_enabled:
-        Settings.sendCMD("1~0")
-        Settings.sendCMD("2~0")
-
-        Settings.frame_enabled = False
-        Settings.core_enabled = False
-    elif not Settings.LINKED and not Settings.core_enabled:
-        Settings.sendCMD("2~1")
-        Settings.core_enabled = True
-
-    else:
-        Settings.sendCMD("2~0")
-        Settings.core_enabled = False
-    UI_Update.motor_update(self)
-
-
-def reverse_motor(motor, self):
+def reverse_motor(self, mot):
     if Settings.LINKED:
         Settings.frame_dir = not Settings.frame_dir
         Settings.core_dir = not Settings.core_dir
-        Settings.sendCMD("1~2~" + str(int(Settings.frame_dir)))
-        Settings.sendCMD("2~2~" + str(int(Settings.core_dir)))
-
     else:
         if not motor:
             Settings.frame_dir = not Settings.frame_dir
-            Settings.sendCMD("1~2~" + str(int(Settings.frame_dir)))
 
         else:
             Settings.core_dir = not Settings.core_dir
-            Settings.sendCMD("2~2~" + str(int(Settings.core_dir)))
+    current_CMD = ("1~1~" + str(int(Settings.frame_dir)) +
+                   "~" + str(int(Settings.frame_dir)))
     UI_Update.dir(self)
 
 

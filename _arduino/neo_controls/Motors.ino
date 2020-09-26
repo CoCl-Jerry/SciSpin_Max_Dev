@@ -1,15 +1,11 @@
-void enableMotor(bool mot) {
-  if (mot)
-    digitalWrite(EN_PIN_2, LOW);
-  else
-    digitalWrite(EN_PIN_1, LOW);
+void motorStatus() {
+  digitalWrite(EN_PIN_1, commands[2]);
+  digitalWrite(EN_PIN_2, commands[3]);
 }
 
-void disableMotor(bool mot) {
-  if (mot)
-    digitalWrite(EN_PIN_2, HIGH);
-  else
-    digitalWrite(EN_PIN_1, HIGH);
+void dirUpdate() {
+  digitalWrite(DIR_PIN_1, commands[2]);
+  digitalWrite(DIR_PIN_2, commands[3]);
 }
 
 void setDir(bool mot) {
@@ -23,7 +19,7 @@ void setMotor(bool mot) {
   if (mot) {
     microstep_2 = commands[2];
     interval_2 = commands[3];
-    ms_change_2 =true;
+    ms_change_2 = true;
   }
 
 
