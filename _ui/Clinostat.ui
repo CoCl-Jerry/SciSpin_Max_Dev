@@ -689,7 +689,7 @@
      </widget>
      <widget class="QDoubleSpinBox" name="frame_spinBox">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -726,7 +726,7 @@
      </widget>
      <widget class="QDoubleSpinBox" name="core_spinBox">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>

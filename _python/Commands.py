@@ -101,22 +101,28 @@ def spin_change(mot, self):
 
     if Settings.LINKED:
         if not mot:
-            Settings.frame_RPM = self.frame_spinBox.value()
-            Settings.core_RPM = Settings.frame_RPM
+            if int(decimal.Decimal(str(self.frame_spinBox.value())) * 100) in speed_dict:
+                Settings.frame_RPM = self.frame_spinBox.value()
+                Settings.core_RPM = Settings.frame_RPM
 
-            self.frame_verticalSlider.setValue(Settings.frame_RPM * 20)
-            self.core_verticalSlider.setValue(Settings.core_RPM * 20)
+                self.frame_verticalSlider.setValue(Settings.frame_RPM * 20)
+                self.core_verticalSlider.setValue(Settings.core_RPM * 20)
 
-            self.core_spinBox.setValue(Settings.core_RPM)
+                self.core_spinBox.setValue(Settings.core_RPM)
+            else:
+                Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 20
 
         else:
-            Settings.core_RPM = self.core_spinBox.value()
-            Settings.frame_RPM = Settings.core_RPM
+            if int(decimal.Decimal(str(self.core_spinBox.value())) * 100) in speed_dict:
+                Settings.core_RPM = self.core_spinBox.value()
+                Settings.frame_RPM = Settings.core_RPM
 
-            self.frame_verticalSlider.setValue(Settings.frame_RPM * 20)
-            self.core_verticalSlider.setValue(Settings.core_RPM * 20)
+                self.frame_verticalSlider.setValue(Settings.frame_RPM * 20)
+                self.core_verticalSlider.setValue(Settings.core_RPM * 20)
 
-            self.frame_spinBox.setValue(Settings.frame_RPM)
+                self.frame_spinBox.setValue(Settings.frame_RPM)
+            else:
+                Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 20
     else:
         if not mot:
             Settings.frame_RPM = self.frame_spinBox.value()
@@ -145,20 +151,14 @@ def slider_change(mot, self):
         if not mot:
             Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 20
             Settings.core_RPM = Settings.frame_RPM
-
-            self.frame_spinBox.setValue(Settings.frame_RPM)
-            self.core_spinBox.setValue(Settings.core_RPM)
-
             self.core_verticalSlider.setValue(Settings.core_RPM * 20)
 
         else:
             Settings.core_RPM = self.core_verticalSlider.sliderPosition() / 20
             Settings.frame_RPM = Settings.core_RPM
-
-            self.frame_spinBox.setValue(Settings.frame_RPM)
-            self.core_spinBox.setValue(Settings.core_RPM)
-
             self.frame_verticalSlider.setValue(Settings.frame_RPM * 20)
+        self.frame_spinBox.setValue(Settings.frame_RPM)
+        self.core_spinBox.setValue(Settings.core_RPM)
     else:
         if not mot:
             Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 20
