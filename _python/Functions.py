@@ -90,34 +90,6 @@ def sample_change(self):
     Settings.sample_time = self.sample_doubleSpinBox.value()
 
 
-def frame_slider_select(self):
-    if Settings.LINKED:
-        Commands.linked_slider_change(self)
-    else:
-        Commands.frame_slider_change(self)
-
-
-def core_slider_select(self):
-    if Settings.LINKED:
-        Commands.linked_slider_change(self)
-    else:
-        Commands.core_slider_change(self)
-
-
-def frame_spin_select(self):
-    if Settings.LINKED:
-        Commands.linked_spin_change(self)
-    else:
-        Commands.frame_spin_select(self)
-
-
-def core_spin_select(self):
-    if Settings.LINKED:
-        Commands.linked_spin_change(self)
-    else:
-        Commands.core_spin_select(self)
-
-
 def sensor_log(self):
     Settings.log_start_time = timeit.default_timer()
     Settings.log_sensor = True

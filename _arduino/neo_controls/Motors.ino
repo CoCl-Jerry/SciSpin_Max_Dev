@@ -15,17 +15,13 @@ void setDir(bool mot) {
     digitalWrite(DIR_PIN_1, commands[2]);
 }
 
-void setMotor(bool mot) {
-  if (mot) {
-    microstep_2 = commands[2];
-    interval_2 = commands[3];
-    ms_change_2 = true;
-  }
+void setMotor() {
+  microstep_1 = commands[2];
+  interval_1 = commands[3];
+  
+  microstep_2 = commands[4];
+  interval_2 = commands[5];
+  
+  ms_change = true;
 
-
-  else {
-    microstep_1 = commands[2];
-    interval_1 = commands[3];
-    ms_change_1 = true;
-  }
 }

@@ -33,14 +33,14 @@ int interval_1 = 1892;
 int currentLimit_1 = 500;
 int microstep_1 = 256;
 boolean dir_1 = true;
-boolean ms_change_1 = false;
 
 int MotorSpeed_2 = 10;
 int interval_2 = 1892;
 int currentLimit_2 = 500;
 int microstep_2 = 256;
 boolean dir_2 = true;
-boolean ms_change_2 = false;
+
+boolean ms_change = false;
 
 unsigned long NextTime_1 = 0;
 unsigned long NextTime_2 = 0;
@@ -108,12 +108,7 @@ void setup() {
 }
 
 void loop() {
-  if (micros() < NextTime_1)
-    NextTime_1 = micros();
-  if (micros() < NextTime_2)
-    NextTime_2 = micros();
-
-  if (ms_change_1)
+  if (ms_change)
   {
     Motor_1.microsteps(microstep_1);
     Serial.print(microstep_1);
@@ -126,6 +121,11 @@ void loop() {
     Serial.print(microstep_2);
     ms_change_2=false;
   }
+
+    if (micros() < NextTime_1)
+    NextTime_1 = micros();
+  if (micros() < NextTime_2)
+    NextTime_2 = micros();
 
 
   if (micros() - NextTime_1 > interval_1) {

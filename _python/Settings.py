@@ -44,6 +44,18 @@ def init():
     global core_enabled
     core_enabled = True
 
+    global frame_microstep
+    frame_microstep = 256
+
+    global core_microstep
+    core_microstep = 256
+
+    global frame_interval
+    frame_interval = 1126
+
+    global core_interval
+    core_interval = 1126
+
     global acc_attached
     acc_attached = False
 

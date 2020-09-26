@@ -53,14 +53,14 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.Cycle_Change(self))
 
         self.frame_spinBox.valueChanged.connect(
-            lambda: Functions.frame_spin_select(self))
+            lambda: Commands.spin_change(0, self))
         self.core_spinBox.valueChanged.connect(
-            lambda: Functions.core_spin_select(self))
+            lambda: Commands.spin_change(1, self))
 
         self.frame_verticalSlider.valueChanged.connect(
-            lambda: Functions.frame_slider_select(self))
+            lambda: Commands.slider_change(0, self))
         self.core_verticalSlider.valueChanged.connect(
-            lambda: Functions.core_slider_select(self))
+            lambda: Commands.slider_change(1, self))
 
         self.sample_doubleSpinBox.valueChanged.connect(
             lambda: Functions.sample_change(self))
