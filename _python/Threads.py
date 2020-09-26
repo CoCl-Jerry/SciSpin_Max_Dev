@@ -4,6 +4,7 @@ import board
 import busio
 import os
 import timeit
+import time
 import Commands
 import adafruit_mma8451
 import adafruit_bme280
