@@ -39,7 +39,6 @@ def clear_lights():
 
 def IR_toggle(self):
     if not Settings.IR_stat:
-        -
         self.IR_pushButton.setText("IR STATUS:ON")
         CMD = "4~1"
     else:
