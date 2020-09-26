@@ -99,6 +99,7 @@ void setup() {
   Motor_2.DRV_STATUS(&data);
 
   Serial.begin(9600);
+  Wire.setClock(400000);
   Wire.begin(SLAVE_ADDRESS);
   Wire.onReceive(receiveData);
 

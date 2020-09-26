@@ -209,7 +209,7 @@ class Ui_MainWindow(object):
         self.frame_label.setObjectName("frame_label")
         self.verticalLayout_20.addWidget(self.frame_label)
         self.frame_verticalSlider = QtWidgets.QSlider(self.verticalLayoutWidget_6)
-        self.frame_verticalSlider.setMinimum(1)
+        self.frame_verticalSlider.setMinimum(2)
         self.frame_verticalSlider.setMaximum(60)
         self.frame_verticalSlider.setSingleStep(1)
         self.frame_verticalSlider.setPageStep(2)
@@ -231,7 +231,7 @@ class Ui_MainWindow(object):
         self.core_label.setObjectName("core_label")
         self.verticalLayout_22.addWidget(self.core_label)
         self.core_verticalSlider = QtWidgets.QSlider(self.verticalLayoutWidget_8)
-        self.core_verticalSlider.setMinimum(1)
+        self.core_verticalSlider.setMinimum(2)
         self.core_verticalSlider.setMaximum(60)
         self.core_verticalSlider.setSingleStep(1)
         self.core_verticalSlider.setPageStep(2)
@@ -669,7 +669,7 @@ class Ui_MainWindow(object):
         self.actionCreate_Timelapse.setObjectName("actionCreate_Timelapse")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         self.Sensor_tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 

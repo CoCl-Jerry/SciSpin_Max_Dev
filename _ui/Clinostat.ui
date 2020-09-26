@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -585,7 +585,7 @@
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="frame_verticalSlider">
          <property name="minimum">
-          <number>1</number>
+          <number>2</number>
          </property>
          <property name="maximum">
           <number>60</number>
@@ -638,7 +638,7 @@
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="core_verticalSlider">
          <property name="minimum">
-          <number>1</number>
+          <number>2</number>
          </property>
          <property name="maximum">
           <number>60</number>
