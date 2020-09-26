@@ -14,10 +14,10 @@ void exeCMD() {
         case 1:
           dirUpdate();
           break;
-        case 3:
-          setMotor(false);
+        case 2:
+          setMotor();
           break;
-
+          
         default:
           break;
       }

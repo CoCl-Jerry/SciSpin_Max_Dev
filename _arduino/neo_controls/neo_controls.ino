@@ -111,18 +111,11 @@ void loop() {
   if (ms_change)
   {
     Motor_1.microsteps(microstep_1);
-    Serial.print(microstep_1);
-    ms_change_1=false;
+    Motor_1.microsteps(microstep_2);
+    ms_change = false;
   }
 
-  if (ms_change_2)
-  {
-    Motor_2.microsteps(microstep_2);
-    Serial.print(microstep_2);
-    ms_change_2=false;
-  }
-
-    if (micros() < NextTime_1)
+  if (micros() < NextTime_1)
     NextTime_1 = micros();
   if (micros() < NextTime_2)
     NextTime_2 = micros();
