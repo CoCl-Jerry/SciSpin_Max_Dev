@@ -104,7 +104,7 @@ void setup() {
   Wire.onReceive(receiveData);
 
   startup();
-  analogWrite(FAN_PIN, 100);
+//  analogWrite(FAN_PIN, 100);
   digitalWrite(IR_PIN, LOW);
 }
 
