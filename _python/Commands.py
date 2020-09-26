@@ -40,12 +40,12 @@ def clear_lights():
 def IR_toggle(self):
     if not Settings.IR_stat:
         self.IR_pushButton.setText("IR STATUS:ON")
-        current_CMD = "4~1"
+        CMD = "4~1"
     else:
         self.IR_pushButton.setText("IR STATUS:OFF")
-        current_CMD = "4~0"
+        CMD = "4~0"
     Settings.IR_stat = not Settings.IR_stat
-    Settings.sendCMD(current_CMD)
+    Settings.sendCMD(CMD)
 
 
 def motor_toggle(mot, self):
@@ -71,8 +71,9 @@ def motor_toggle(mot, self):
             Settings.core_enabled = True
         else:
             Settings.core_enabled = False
-    current_CMD = ("1~0~" + str(int(Settings.frame_enabled)) +
-                   "~" + str(int(Settings.core_enabled)))
+    CMD = ("1~0~" + str(int(Settings.frame_enabled)) +
+           "~" + str(int(Settings.core_enabled)))
+    Settings.sendCMD(CMD)
     UI_Update.motor_update(self)
 
 
@@ -86,8 +87,9 @@ def reverse_motor(mot, self):
 
         else:
             Settings.core_dir = not Settings.core_dir
-    current_CMD = ("1~1~" + str(int(Settings.frame_dir)) +
-                   "~" + str(int(Settings.frame_dir)))
+    CMD = ("1~1~" + str(int(Settings.frame_dir)) +
+           "~" + str(int(Settings.frame_dir)))
+    Settings.sendCMD(CMD)
     UI_Update.dir(self)
 
 
