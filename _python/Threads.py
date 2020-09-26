@@ -172,8 +172,7 @@ class Sensor(QThread):
                     Settings.ACC_X_text = "{0:.2f}".format(accel_x)
                     Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
                     Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
-                elif Settings.tag_index == 1 and Settings.temp_attached:
-                    accel_x, accel_y, accel_z = sensor.acceleration
+                elif Settings.temp_attached:
                     Settings.TEMP_text = "{0:.2f}".format(bme280.temperature)
                     Settings.HUD_text = "{0:.2f}".format(bme280.humidity)
                     Settings.PR_text = "{0:.2f}".format(bme280.pressure)
