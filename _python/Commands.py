@@ -135,10 +135,10 @@ def linked_spin_change(self):
 
     try:
         CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 20) + "~" + \
-            str(Settings.speed_dict[int(Settings.frame_RPM * 20)])
+            str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
         Settings.sendCMD(CMD)
         CMD = "2~3~" + getMicrostep(Settings.core_RPM * 20) + "~" + \
-            str(Settings.speed_dict[int(Settings.core_RPM * 20)])
+            str(Settings.speed_dict[int(Settings.core_RPM * 100)])
         Settings.sendCMD(CMD)
     except Exception as e:
         print(e)
@@ -157,7 +157,7 @@ def frame_spin_select(self):
     self.frame_verticalSlider.blockSignals(False)
     try:
         CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 20) + "~" + \
-            str(Settings.speed_dict[int(Settings.frame_RPM * 20)])
+            str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
         Settings.sendCMD(CMD)
     except Exception as e:
         print(e)
@@ -171,7 +171,7 @@ def core_spin_select(self):
     self.core_verticalSlider.blockSignals(False)
     try:
         CMD = "2~3~" + getMicrostep(Settings.core_RPM * 20) + "~" + \
-            str(Settings.speed_dict[int(Settings.core_RPM * 20)])
+            str(Settings.speed_dict[int(Settings.core_RPM * 100)])
         Settings.sendCMD(CMD)
     except Exception as e:
         print(e)
@@ -208,10 +208,10 @@ def linked_slider_change(self):
 
     try:
         CMD = "1~3~" + getMicrostep(Settings.frame_RPM * 20) + "~" + \
-            str(Settings.speed_dict[int(Settings.frame_RPM * 20)])
+            str(Settings.speed_dict[int(Settings.frame_RPM * 100)])
         Settings.sendCMD(CMD)
         CMD = "2~3~" + getMicrostep(Settings.core_RPM * 20) + "~" + \
-            str(Settings.speed_dict[int(Settings.core_RPM * 20)])
+            str(Settings.speed_dict[int(Settings.core_RPM * 100)])
         Settings.sendCMD(CMD)
     except Exception as e:
         print(e)
