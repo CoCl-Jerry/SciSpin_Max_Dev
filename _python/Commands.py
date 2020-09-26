@@ -82,7 +82,7 @@ def reverse_motor(mot, self):
         Settings.frame_dir = not Settings.frame_dir
         Settings.core_dir = not Settings.core_dir
     else:
-        if not motor:
+        if not mot:
             Settings.frame_dir = not Settings.frame_dir
 
         else:
