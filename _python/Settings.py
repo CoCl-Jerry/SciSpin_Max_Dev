@@ -33,10 +33,10 @@ def init():
     log_duration = 1
 
     global frame_RPM
-    frame_RPM = 0.3
+    frame_RPM = 10
 
     global core_RPM
-    core_RPM = 0.3
+    core_RPM = 10
 
     global frame_enabled
     frame_enabled = True
