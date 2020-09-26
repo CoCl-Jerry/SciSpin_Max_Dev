@@ -101,7 +101,7 @@ def spin_change(mot, self):
 
     if Settings.LINKED:
         if not mot:
-            if int(decimal.Decimal(str(self.frame_spinBox.value())) * 100) in speed_dict:
+            if int(decimal.Decimal(str(self.frame_spinBox.value())) * 100) in Settings.speed_dict:
                 Settings.frame_RPM = self.frame_spinBox.value()
                 Settings.core_RPM = Settings.frame_RPM
 
@@ -113,7 +113,7 @@ def spin_change(mot, self):
                 Settings.frame_RPM = self.frame_verticalSlider.sliderPosition() / 20
 
         else:
-            if int(decimal.Decimal(str(self.core_spinBox.value())) * 100) in speed_dict:
+            if int(decimal.Decimal(str(self.core_spinBox.value())) * 100) in Settings.speed_dict:
                 Settings.core_RPM = self.core_spinBox.value()
                 Settings.frame_RPM = Settings.core_RPM
 
