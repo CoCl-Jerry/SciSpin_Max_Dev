@@ -48,7 +48,7 @@ def IR_toggle(self):
     Settings.sendCMD(current_CMD)
 
 
-def motor_toggle(self, mot):
+def motor_toggle(mot, self):
     if not mot:
         if Settings.LINKED and not Settings.frame_enabled:
             Settings.frame_enabled = True
@@ -76,7 +76,7 @@ def motor_toggle(self, mot):
     UI_Update.motor_update(self)
 
 
-def reverse_motor(self, mot):
+def reverse_motor(mot, self):
     if Settings.LINKED:
         Settings.frame_dir = not Settings.frame_dir
         Settings.core_dir = not Settings.core_dir

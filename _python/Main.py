@@ -28,9 +28,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.printci(self))
 
         self.frameErgz_pushButton.clicked.connect(
-            lambda: Commands.motor_toggle(self))
+            lambda: Commands.motor_toggle(0, self))
         self.coreErgz_pushButton.clicked.connect(
-            lambda: Commands.motor_toggle(self))
+            lambda: Commands.motor_toggle(1, self))
 
         self.frameReverse_pushButton.clicked.connect(
             lambda: Commands.reverse_motor(0, self))
