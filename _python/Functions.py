@@ -19,7 +19,7 @@ def IST_Edit(self):
 
     if Settings.date not in Settings.sequence_name:
         self.addDate_pushButton.setEnabled(True)
-    if(len(Settings.sequence_name) == 0):
+    if len(Settings.sequence_name) == 0:
         self.addDate_pushButton.setEnabled(False)
     UI_Update.validate_input(self)
 
@@ -49,7 +49,7 @@ def ISD_Change(self):
 def select_directory(self):
     m_directory = str(QFileDialog.getExistingDirectory(
         self, "Select Directory", '/media/pi'))
-    if(len(m_directory) != 0):
+    if len(m_directory) != 0:
         Settings.full_dir = m_directory + "/" + Settings.sequence_name
         self.directory_label.setText(Settings.full_dir)
     UI_Update.validate_input(self)
@@ -91,28 +91,28 @@ def sample_change(self):
 
 
 def frame_slider_select(self):
-    if(Settings.LINKED):
+    if Settings.LINKED:
         Commands.linked_slider_change(self)
     else:
         Commands.frame_slider_change(self)
 
 
 def core_slider_select(self):
-    if(Settings.LINKED):
+    if Settings.LINKED:
         Commands.linked_slider_change(self)
     else:
         Commands.core_slider_change(self)
 
 
 def frame_spin_select(self):
-    if(Settings.LINKED):
+    if Settings.LINKED:
         Commands.linked_spin_change(self)
     else:
         Commands.frame_spin_select(self)
 
 
 def core_spin_select(self):
-    if(Settings.LINKED):
+    if Settings.LINKED:
         Commands.linked_spin_change(self)
     else:
         Commands.core_spin_select(self)

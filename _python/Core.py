@@ -19,19 +19,19 @@ while True:
 
             CMD = recieved.split('~', 9)
 
-            if(CMD[0] == 'A'):
+            if CMD[0] == 'A':
                 with PiCamera() as camera:
                     camera.resolution = (int(CMD[1]), int(CMD[2]))
                     camera._set_rotation(90 * int(CMD[3]))
                     camera.zoom = (
                         int(CMD[4]) / 100, int(CMD[5]) / 100, int(CMD[6]) / 100, int(CMD[7]) / 100)
                     sleep(2)
-                    if(int(CMD[8]) == 1):
+                    if int(CMD[8]) == 1:
                         camera.capture("out.jpg")
                     else:
                         camera.capture("out.png")
 
-                if(int(CMD[8]) == 1):
+                if int(CMD[8]) == 1:
                     f = open("out.jpg", "rb")
                 else:
                     f = open("out.png", "rb")

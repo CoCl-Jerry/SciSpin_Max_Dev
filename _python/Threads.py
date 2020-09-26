@@ -22,7 +22,7 @@ class Cycle(QThread):
         self._running = False
 
     def run(self):
-        if(Settings.IR_STAT):
+        if Settings.IR_STAT:
             Settings.sendCMD(Settings.lighting_addr, "3~")
         Commands.clear_lights()
         sleep(1)
@@ -31,7 +31,7 @@ class Cycle(QThread):
             Settings.sendCMD(Settings.lighting_addr, cmd)
             sleep(0.1)
         Settings.sendCMD(Settings.lighting_addr, "5~")
-        if(Settings.IR_STAT):
+        if Settings.IR_STAT:
             sleep(0.1)
             Settings.sendCMD(Settings.lighting_addr, "3~")
         on_stat = True
@@ -44,8 +44,8 @@ class Cycle(QThread):
                     on_stat = False
                     break
 
-            if(on_stat):
-                if(Settings.IR_STAT):
+            if on_stat:
+                if Settings.IR_STAT:
                     Settings.sendCMD(Settings.lighting_addr, "3~")
                 Commands.clear_lights()
                 on_stat = False
@@ -55,7 +55,7 @@ class Cycle(QThread):
                     Settings.sendCMD(Settings.lighting_addr, cmd)
                     sleep(0.1)
                 Settings.sendCMD(Settings.lighting_addr, "5~")
-                if(Settings.IR_STAT):
+                if Settings.IR_STAT:
                     sleep(0.1)
                     Settings.sendCMD(Settings.lighting_addr, "3~")
                 on_stat = True
@@ -123,7 +123,7 @@ class Preview(QThread):
         start_time = timeit.default_timer()
         sock.sendall(cmd.encode())
 
-        if(Settings.imaging_mode == 1):
+        if Settings.imaging_mode == 1:
             with open('../_temp/preview.jpg', 'wb') as f:
                 while True:
                     data = sock.recv(5)
@@ -180,19 +180,19 @@ class Sensor(QThread):
                 sleep(Settings.sample_time)
 
                 if Settings.log_sensor:
-                    if(not Settings.sensor_flag):
+                    if not Settings.sensor_flag:
                         self.logstart.emit()
-                        if(not os.path.isdir(Settings.prelog_dir)):
+                        if not os.path.isdir(Settings.prelog_dir):
                             os.umask(0)
                             os.mkdir(Settings.prelog_dir)
-                        if(not os.path.isdir(Settings.log_dir)):
+                        if not os.path.isdir(Settings.log_dir):
                             os.umask(0)
                             os.mkdir(Settings.log_dir)
                         log_file = open(Settings.log_dir + "/log.txt", "w")
                         Settings.sensor_flag = True
                         os.chmod(Settings.log_dir + "/log.txt", 0o777)
 
-                    if(Settings.tag_index == 0):
+                    if Settings.tag_index == 0:
 
                         log_file.write(Settings.ACC_X_text + "\t" +
                                        Settings.ACC_Y_text + "\t" + Settings.ACC_Z_text + "\r\n")
@@ -202,7 +202,7 @@ class Sensor(QThread):
                                        Settings.HUD_text + "\t" + Settings.PR_text + "\r\n")
 
                     print(int(timeit.default_timer() - Settings.log_start_time))
-                    if(int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration)):
+                    if int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration):
                         Settings.log_sensor = False
                         Settings.sensor_flag = False
                         log_file.close()
@@ -224,14 +224,14 @@ class Timelapse(QThread):
 
     def run(self):
         try:
-            if(not os.path.isdir(Settings.full_dir)):
+            if not os.path.isdir(Settings.full_dir):
                 os.umask(0)
                 os.mkdir(Settings.full_dir)
 
             for i in range(Settings.total):
                 start_time = timeit.default_timer()
                 Settings.current = i
-                if(Settings.imaging_mode == 1):
+                if Settings.imaging_mode == 1:
                     Settings.current_image = Settings.full_dir + \
                         "/" + Settings.sequence_name + "_%04d.jpg" % i
                 else:
@@ -265,7 +265,7 @@ class Timelapse(QThread):
                 self.captured.emit()
                 elapsed = int(timeit.default_timer() - start_time)
 
-                if(elapsed < Settings.interval * 60):
+                if elapsed < Settings.interval * 60:
                     for x in range(Settings.interval * 60 - elapsed):
                         sleep(1)
                         if not Settings.timelapse_running:

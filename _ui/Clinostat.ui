@@ -585,10 +585,10 @@
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="frame_verticalSlider">
          <property name="minimum">
-          <number>10</number>
+          <number>1</number>
          </property>
          <property name="maximum">
-          <number>350</number>
+          <number>60</number>
          </property>
          <property name="singleStep">
           <number>5</number>
@@ -597,10 +597,10 @@
           <number>10</number>
          </property>
          <property name="value">
-          <number>50</number>
+          <number>10</number>
          </property>
          <property name="sliderPosition">
-          <number>50</number>
+          <number>10</number>
          </property>
          <property name="tracking">
           <bool>true</bool>
@@ -612,7 +612,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>5</number>
+          <number>1</number>
          </property>
         </widget>
        </item>
@@ -638,19 +638,19 @@
        <item alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="core_verticalSlider">
          <property name="minimum">
-          <number>10</number>
+          <number>1</number>
          </property>
          <property name="maximum">
-          <number>350</number>
+          <number>60</number>
          </property>
          <property name="singleStep">
           <number>5</number>
          </property>
          <property name="value">
-          <number>50</number>
+          <number>10</number>
          </property>
          <property name="sliderPosition">
-          <number>50</number>
+          <number>10</number>
          </property>
          <property name="tracking">
           <bool>true</bool>
@@ -662,7 +662,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>5</number>
+          <number>1</number>
          </property>
         </widget>
        </item>

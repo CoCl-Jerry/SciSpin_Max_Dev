@@ -33,7 +33,7 @@ def snap_complete(self):
 def preview_complete(self):
     self.core_status_label.setText(
         "Time Taken " + str(Settings.time_elipsed) + "s")
-    if(Settings.imaging_mode == 1):
+    if Settings.imaging_mode == 1:
         preview_img = QImage("../_temp/preview.jpg")
         self.Image_Frame.setPixmap(QPixmap(preview_img))
         os.system("gpicview ../_temp/preview.jpg")
@@ -66,12 +66,12 @@ def lightingPreset_update(self):
 
 def sensor_update(self):
 
-    if(Settings.tag_index == 0):
+    if Settings.tag_index == 0:
         self.ACC_X_text_label.setText(Settings.ACC_X_text)
         self.ACC_Y_text_label.setText(Settings.ACC_Y_text)
         self.ACC_Z_text_label.setText(Settings.ACC_Z_text)
 
-    elif(Settings.tag_index == 1):
+    elif Settings.tag_index == 1:
         self.TEMP_text_label.setText(Settings.TEMP_text)
         self.HUM_text_label.setText(Settings.HUD_text)
 
@@ -80,7 +80,7 @@ def sensor_update(self):
 
 
 def LED_validate(self):
-    if(self.Start_spinBox.value() >= self.End_spinBox.value()):
+    if self.Start_spinBox.value() >= self.End_spinBox.value():
         self.light_Confirm_pushButton.setEnabled(False)
     else:
         self.light_Confirm_pushButton.setEnabled(True)
@@ -109,7 +109,7 @@ def dir(self):
 
 def validate_input(self):
     Settings.total = int(Settings.duration / Settings.interval)
-    if(Settings.total > 0 and len(Settings.sequence_name) != 0):
+    if Settings.total > 0 and len(Settings.sequence_name) != 0:
         self.startImaging_pushButton.setEnabled(True)
     else:
         self.startImaging_pushButton.setEnabled(False)
