@@ -39,6 +39,7 @@ def clear_lights():
 
 def IR_toggle(self):
     if not Settings.IR_stat:
+        -
         self.IR_pushButton.setText("IR STATUS:ON")
         CMD = "4~1"
     else:
@@ -178,9 +179,15 @@ def slider_change(mot, self):
     self.core_verticalSlider.blockSignals(False)
     self.frame_verticalSlider.blockSignals(False)
 
-    CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-        Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-            Settings.core_RPM)) * 100)])
+    # CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
+    #     Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
+    #         Settings.core_RPM)) * 100)])
+    # Settings.sendCMD(CMD)
+
+
+def slider_Released():
+    CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(
+        Settings.core_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(Settings.core_RPM)) * 100)])
     Settings.sendCMD(CMD)
 
 

@@ -267,7 +267,7 @@ def sendCMD(cont):
     print(temp)
     try:
         if Settings.busy:
-            time.sleep(0.01)
+            time.sleep(0.02)
 
         Settings.busy = True
         bus = smbus.SMBus(1)
@@ -275,7 +275,7 @@ def sendCMD(cont):
         for b in temp:
             converted.append(ord(b))
         bus.write_i2c_block_data(0x08, i2c_cmd, converted)
-        time.sleep(0.01)
+        time.sleep(0.02)
         Settings.busy = False
     except Exception as e:
         print(e)
