@@ -88,7 +88,7 @@ def reverse_motor(mot, self):
         else:
             Settings.core_dir = not Settings.core_dir
     CMD = ("1~1~" + str(int(Settings.frame_dir)) +
-           "~" + str(int(Settings.frame_dir)))
+           "~" + str(int(Settings.core_dir)))
     Settings.sendCMD(CMD)
     UI_Update.dir(self)
 
