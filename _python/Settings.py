@@ -263,7 +263,7 @@ def init():
 
 
 def sendCMD(cont):
-    print("sending command..." + cont)
+    print("sending command...\n" + cont)
     temp = cont + "\n"
     try:
         if Settings.busy:
