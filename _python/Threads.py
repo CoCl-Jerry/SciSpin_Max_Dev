@@ -243,12 +243,12 @@ class Timelapse(QThread):
             ip_address = "10.0.5.1"
             skip = False
             server_address = (ip_address, 23456)
-               try:
-                    sock.connect(server_address)
-                except Exception as e:
-                    print(e, ': socket connection failed, please reboot device')
-                    skip = True
-                    break
+            try:
+                sock.connect(server_address)
+            except Exception as e:
+                print(e, ': socket connection failed, please reboot device')
+                skip = True
+                break
 
             cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
                 str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
