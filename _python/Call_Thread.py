@@ -8,35 +8,28 @@ import os
 
 
 def start_snapshot(self):
-    try:
-        self.Snap_Thread = Threads.Snap()
-        self.Snap_Thread.transmit.connect(
-            lambda: UI_Update.transmit_update(self))
-        self.Snap_Thread.started.connect(
-            lambda: UI_Update.snap_start(self))
-        self.Snap_Thread.finished.connect(
-            lambda: UI_Update.snap_complete(self))
+    self.Snap_Thread = Threads.Snap()
+    self.Snap_Thread.transmit.connect(
+        lambda: UI_Update.transmit_update(self))
+    self.Snap_Thread.started.connect(
+        lambda: UI_Update.snap_start(self))
+    self.Snap_Thread.finished.connect(
+        lambda: UI_Update.snap_complete(self))
 
-        self.Snap_Thread.start()
-
-    except Exception as e:
-        print(e)
+    self.Snap_Thread.start()
 
 
 def start_preview(self):
-    try:
-        self.Preview_Thread = Threads.Preview()
-        self.Preview_Thread.transmit.connect(
-            lambda: UI_Update.transmit_update(self))
-        self.Preview_Thread.started.connect(
-            lambda: UI_Update.snap_start(self))
-        self.Preview_Thread.finished.connect(
-            lambda: UI_Update.preview_complete(self))
 
-        self.Preview_Thread.start()
+    self.Preview_Thread = Threads.Preview()
+    self.Preview_Thread.transmit.connect(
+        lambda: UI_Update.transmit_update(self))
+    self.Preview_Thread.started.connect(
+        lambda: UI_Update.snap_start(self))
+    self.Preview_Thread.finished.connect(
+        lambda: UI_Update.preview_complete(self))
 
-    except Exception as e:
-        print(e)
+    self.Preview_Thread.start()
 
 
 def start_cycle(self):
@@ -57,28 +50,26 @@ def start_cycle(self):
 
 
 def start_timelapse(self):
-    try:
-        if not Settings.timelapse_running:
-            self.Timelapse_Thread = Threads.Timelapse()
-            self.Timelapse_Thread.transmit.connect(
-                lambda: UI_Update.transmit_update(self))
 
-            self.Timelapse_Thread.started.connect(
-                lambda: UI_Update.timelapse_start(self))
-            self.Timelapse_Thread.captured.connect(
-                lambda: UI_Update.image_captured(self))
-            self.Timelapse_Thread.transmitstart.connect(
-                lambda: UI_Update.transmitst(self))
-            self.Timelapse_Thread.finished.connect(
-                lambda: UI_Update.timelapse_end(self))
+    if not Settings.timelapse_running:
+        self.Timelapse_Thread = Threads.Timelapse()
+        self.Timelapse_Thread.transmit.connect(
+            lambda: UI_Update.transmit_update(self))
 
-            self.Timelapse_Thread.start()
+        self.Timelapse_Thread.started.connect(
+            lambda: UI_Update.timelapse_start(self))
+        self.Timelapse_Thread.captured.connect(
+            lambda: UI_Update.image_captured(self))
+        self.Timelapse_Thread.transmitstart.connect(
+            lambda: UI_Update.transmitst(self))
+        self.Timelapse_Thread.finished.connect(
+            lambda: UI_Update.timelapse_end(self))
 
-        else:
-            Settings.timelapse_running = False
-            self.Progress_Bar.setValue(Settings.current + 1)
-    except Exception as e:
-        print(e)
+        self.Timelapse_Thread.start()
+
+    else:
+        Settings.timelapse_running = False
+        self.Progress_Bar.setValue(Settings.current + 1)
 
 
 def sensor_init(self):

@@ -17,7 +17,7 @@ void exeCMD() {
         case 2:
           setMotor();
           break;
-          
+
         default:
           break;
       }
@@ -49,10 +49,10 @@ void exeCMD() {
     case 4:
       switch (commands[1]) {
         case 0:
-          digitalWrite(IR_PIN, LOW);
+          infraOff();
           break;
         case 1:
-          digitalWrite(IR_PIN, HIGH);
+          infraOn();
           break;
         default:
           break;
