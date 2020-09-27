@@ -8,7 +8,6 @@ import time
 import Commands
 import adafruit_mma8451
 import adafruit_bme280
-import select
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
@@ -241,6 +240,7 @@ class Timelapse(QThread):
                         "/" + Settings.sequence_name + "_%04d.png" % i
 
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock.settimeout(20)
                 ip_address = "10.0.5.1"
                 server_address = (ip_address, 23456)
                 sock.connect(server_address)
@@ -256,15 +256,15 @@ class Timelapse(QThread):
                 with open(Settings.current_image, 'wb') as f:
                     self.transmitstart.emit()
                     while True:
-                        readable, writable, exceptional = select.select(
-                            [sock], [], [], 5)
-                        if readable:
+                        try:
                             data = sock.recv(5)
-                        if not (readable or writable or exceptional):
+                            if not data:
+                                break
+                            f.write(data)
+                            self.transmit.emit()
+                        except sock.timeout as e:
+                            print(e, ': no connections after 5 seconds...')
                             break
-                        f.write(data)
-                        self.transmit.emit()
-
                 sock.close()
 
                 self.captured.emit()
