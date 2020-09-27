@@ -74,8 +74,7 @@ def start_timelapse(self):
 
 def sensor_init(self):
 
-    os.system("ip addr show > ../_temp/output.txt")
-    if 'peer' in open('../_temp/output.txt').read():
+    if check_connection():
         self.core_status_label.setText("Core Status: Online")
     else:
         error = PyQt5.QtGui.QImage("../_image/Error.png")

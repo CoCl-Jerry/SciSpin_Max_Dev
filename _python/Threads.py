@@ -1,4 +1,5 @@
 import Settings
+import Functions
 import socket
 import board
 import busio
@@ -246,48 +247,48 @@ class Timelapse(QThread):
             ip_address = "10.0.5.1"
             skip = False
             server_address = (ip_address, 23456)
-            try:
-                sock.connect(server_address)
-            except Exception as e:
-                print(e, ': socket connection failed, please reboot device')
-                skip = True
-            if Settings.IR_imaging:
-                Commands.extract_lights()
-                Settings.sendCMD("4~1")
+            if Functions.check_connection():
+                try:
+                    sock.connect(server_address)
+                except Exception as e:
+                    print(e, ': socket connection failed, please reboot device')
+                    skip = True
+                if Settings.IR_imaging:
+                    Commands.extract_lights()
+                    Settings.sendCMD("4~1")
 
-            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
-                str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-                str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-                "~" + str(int(Settings.AOI_H * 100)) + \
-                "~" + str(int(Settings.imaging_mode))
-            if not skip:
-                sock.sendall(cmd.encode())
+                cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
+                    str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+                    str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+                    "~" + str(int(Settings.AOI_H * 100)) + \
+                    "~" + str(int(Settings.imaging_mode))
+                if not skip:
+                    sock.sendall(cmd.encode())
 
-                with open(Settings.current_image, 'wb') as f:
-                    self.transmitstart.emit()
-                    while True:
-                        try:
-                            data = sock.recv(5)
-                        except Exception as e:
-                            print(
-                                e, ': no connection for 20 seconds... retaking image')
-                            if Settings.IR_imaging:
-                                Settings.sendCMD("4~0")
-                                Commands.deploy_lights()
-                            break
-                        if not data:
-                            Settings.current += 1
-                            print("image capture and transmission succesful")
-                            if Settings.IR_imaging:
-                                Settings.sendCMD("4~0")
-                                Commands.deploy_lights()
-                            break
-                        f.write(data)
-                        self.transmit.emit()
-                sock.close()
-
-                self.captured.emit()
-            elapsed = int(timeit.default_timer() - start_time)
+                    with open(Settings.current_image, 'wb') as f:
+                        self.transmitstart.emit()
+                        while True:
+                            try:
+                                data = sock.recv(5)
+                            except Exception as e:
+                                print(
+                                    e, ': no connection for 20 seconds... retaking image')
+                                if Settings.IR_imaging:
+                                    Settings.sendCMD("4~0")
+                                    Commands.deploy_lights()
+                                break
+                            if not data:
+                                Settings.current += 1
+                                print("image capture and transmission succesful")
+                                if Settings.IR_imaging:
+                                    Settings.sendCMD("4~0")
+                                    Commands.deploy_lights()
+                                break
+                            f.write(data)
+                            self.transmit.emit()
+                        sock.close()
+                        self.captured.emit()
+                elapsed = int(timeit.default_timer() - start_time)
 
             if elapsed < Settings.interval * 60:
                 for x in range(Settings.interval * 60 - elapsed):

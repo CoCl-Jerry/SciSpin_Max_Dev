@@ -3,6 +3,7 @@ import Commands
 import UI_Update
 import timeit
 import Call_Thread
+import os
 
 from PyQt5.QtWidgets import QFileDialog
 
@@ -80,6 +81,14 @@ def update_mode(self):
 
 def IR_mode(self):
     Settings.IR_imaging = self.infraredImaging_checkBox.isChecked()
+
+
+def check_connection():
+    os.system("ip addr show > ../_temp/output.txt")
+    if 'peer' in open('../_temp/output.txt').read():
+        return True
+    else
+    return False
 
 
 def printci(self):
