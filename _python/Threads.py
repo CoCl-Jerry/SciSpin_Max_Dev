@@ -89,14 +89,14 @@ class Snap(QThread):
                     try:
                         data = sock.recv(5)
                     except Exception as e:
-                        print(e, ': no connection for 20 seconds... retaking image')
+                        print(e, 'timeout after 20 seconds... retaking image')
                     if not data:
                         break
                     f.write(data)
                     self.transmit.emit()
             sock.close()
         except Exception as e:
-            print(e)
+            print(e, "snapshot failure,contact Jerry for support")
 
 
 class Preview(QThread):
@@ -166,9 +166,11 @@ class Sensor(QThread):
         if Settings.temp_attached:
             bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, 0x76)
 
+        bump = 1
+
         while True:
             try:
-                if Settings.tag_index == 0 and Settings.acc_attached:
+                if Settings.tag_index == 0 and Settings.acc_attached and bump < 100:
                     accel_x, accel_y, accel_z = sensor.acceleration
                     Settings.ACC_X_text = "{0:.2f}".format(accel_x)
                     Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
@@ -203,14 +205,14 @@ class Sensor(QThread):
                         log_file.write(Settings.TEMP_text + "\t" +
                                        Settings.HUD_text + "\t" + Settings.PR_text + "\r\n")
 
-                    print(int(timeit.default_timer() - Settings.log_start_time))
                     if int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration):
                         Settings.log_sensor = False
                         Settings.sensor_flag = False
                         log_file.close()
                         self.logdone.emit()
             except Exception as e:
-                pass
+                bump += 1
+                print("sensor read failure")
 
 
 class Timelapse(QThread):

@@ -44,7 +44,7 @@ def start_cycle(self):
             self.Cycle_Thread.start()
 
         except Exception as e:
-            print(e)
+            print(e, "cycle failure, please contact Jerry for support")
     else:
         Settings.cycle_running = False
 
