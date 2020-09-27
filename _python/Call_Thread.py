@@ -1,4 +1,5 @@
 import Settings
+import Functions
 import UI_Update
 import Threads
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -74,7 +75,7 @@ def start_timelapse(self):
 
 def sensor_init(self):
 
-    if check_connection():
+    if Functions.check_connection():
         self.core_status_label.setText("Core Status: Online")
     else:
         error = PyQt5.QtGui.QImage("../_image/Error.png")
