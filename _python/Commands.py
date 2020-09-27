@@ -59,7 +59,7 @@ def deploy_lights():
 
 def extract_lights():
     Settings.sendCMD("4~0")
-    Commands.clear_lights()
+    clear_lights()
 
 
 def motor_toggle(mot, self):
