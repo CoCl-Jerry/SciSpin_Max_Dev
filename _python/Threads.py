@@ -258,13 +258,14 @@ class Timelapse(QThread):
                     while True:
                         try:
                             data = sock.recv(5)
-                            if not data:
-                                break
-                            f.write(data)
-                            self.transmit.emit()
                         except Exception as e:
                             print(e, ': no connections after 5 seconds...')
                             break
+                        if not data:
+                            break
+                        f.write(data)
+                        self.transmit.emit()
+
                 sock.close()
 
                 self.captured.emit()
