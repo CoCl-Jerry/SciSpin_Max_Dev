@@ -19,3 +19,11 @@ void stripClear() {
 void stripShow() {
   strip.show();
 }
+
+void infraOn() {
+  digitalWrite(IR_PIN, HIGH);
+}
+
+void infraOff() {
+  digitalWrite(IR_PIN, LOW);
+}
