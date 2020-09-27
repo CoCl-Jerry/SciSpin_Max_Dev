@@ -9,6 +9,11 @@ def cycle_start(self):
     Settings.cycle_running = True
 
 
+def imaging_error(self):
+    error = QImage("../_image/Error.png")
+    self.Image_Frame.setPixmap(QPixmap(error))
+
+
 def cycle_end(self):
     self.confirmCycle_pushButton.setText("CONFIRM")
     Settings.cycle_running = False
