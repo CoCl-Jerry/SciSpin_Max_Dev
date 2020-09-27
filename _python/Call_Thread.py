@@ -8,15 +8,19 @@ import os
 
 
 def start_snapshot(self):
-    self.Snap_Thread = Threads.Snap()
-    self.Snap_Thread.transmit.connect(
-        lambda: UI_Update.transmit_update(self))
-    self.Snap_Thread.started.connect(
-        lambda: UI_Update.snap_start(self))
-    self.Snap_Thread.finished.connect(
-        lambda: UI_Update.snap_complete(self))
+    try:
+        self.Snap_Thread = Threads.Snap()
+        self.Snap_Thread.transmit.connect(
+            lambda: UI_Update.transmit_update(self))
+        self.Snap_Thread.started.connect(
+            lambda: UI_Update.snap_start(self))
+        self.Snap_Thread.finished.connect(
+            lambda: UI_Update.snap_complete(self))
 
-    self.Snap_Thread.start()
+        self.Snap_Thread.start()
+
+    except Exception as e:
+        print(e)
 
 
 def start_preview(self):
@@ -32,6 +36,7 @@ def start_preview(self):
         self.Preview_Thread.start()
 
     except Exception as e:
+        print(e)
 
 
 def start_cycle(self):
@@ -46,7 +51,7 @@ def start_cycle(self):
             self.Cycle_Thread.start()
 
         except Exception as e:
-            print(e, "start cycle function failed")
+            print(e)
     else:
         Settings.cycle_running = False
 
@@ -73,7 +78,7 @@ def start_timelapse(self):
             Settings.timelapse_running = False
             self.Progress_Bar.setValue(Settings.current + 1)
     except Exception as e:
-        print(e, "start timelapse function failed")
+        print(e)
 
 
 def sensor_init(self):
@@ -82,7 +87,8 @@ def sensor_init(self):
     if 'peer' in open('../_temp/output.txt').read():
         self.core_status_label.setText("Core Status: Online")
     else:
-        UI_Update.imaging_error(self)
+        error = PyQt5.QtGui.QImage("../_image/Error.png")
+        self.Image_Frame.setPixmap(QtGui.QPixmap(error))
 
     os.system("i2cdetect -y 1 > ../_temp/output.txt")
 
