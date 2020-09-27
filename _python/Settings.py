@@ -278,4 +278,4 @@ def sendCMD(cont):
         time.sleep(0.02)
         Settings.busy = False
     except Exception as e:
-        print(e."command send failure,contact Jerry for support")
+        print(e, "command send failure,contact Jerry for support")
