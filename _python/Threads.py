@@ -209,8 +209,7 @@ class Sensor(QThread):
                         log_file.close()
                         self.logdone.emit()
             except Exception as e:
-                print("sensor")
-                print(e)
+                pass
 
 
 class Timelapse(QThread):
