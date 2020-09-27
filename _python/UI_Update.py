@@ -195,12 +195,12 @@ def timelapse_end(self):
 
 
 def motor_update(self):
-    if Settings.frame_enabled:
+    if not Settings.frame_enabled:
         self.frameErgz_pushButton.setText("DISABLE MOTOR")
     else:
         self.frameErgz_pushButton.setText("ENABLE MOTOR")
 
-    if Settings.core_enabled:
+    if not Settings.core_enabled:
         self.coreErgz_pushButton.setText("DISABLE MOTOR")
     else:
         self.coreErgz_pushButton.setText("ENABLE MOTOR")
