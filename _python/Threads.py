@@ -209,6 +209,7 @@ class Sensor(QThread):
                         log_file.close()
                         self.logdone.emit()
             except Exception as e:
+                print("sensor")
                 print(e)
 
 
@@ -267,6 +268,7 @@ class Timelapse(QThread):
                         self.transmit.emit()
 
                 sock.close()
+                print("socket closed")
 
                 self.captured.emit()
                 elapsed = int(timeit.default_timer() - start_time)
@@ -278,6 +280,7 @@ class Timelapse(QThread):
                             break
                 if not Settings.timelapse_running:
                     break
+                print("loop")
         except Exception as e:
             print(e)
             print("general")
