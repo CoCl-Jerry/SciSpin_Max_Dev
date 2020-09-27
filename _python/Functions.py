@@ -86,9 +86,11 @@ def IR_mode(self):
 def check_connection():
     os.system("ip addr show > ../_temp/output.txt")
     if 'peer' in open('../_temp/output.txt').read():
+        print("peer connected")
         return True
-    else
-    return False
+    else:
+        print("peer unconnected")
+        return False
 
 
 def printci(self):
