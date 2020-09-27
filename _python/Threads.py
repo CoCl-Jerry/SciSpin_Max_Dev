@@ -62,7 +62,6 @@ class Snap(QThread):
             Commands.extract_lights()
             Settings.sendCMD("4~1")
         try:
-
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             ip_address = "10.0.5.1"
             server_address = (ip_address, 23456)
@@ -102,42 +101,52 @@ class Preview(QThread):
         self._running = False
 
     def run(self):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        ip_address = "10.0.5.1"
-        server_address = (ip_address, 23456)
-        sock.connect(server_address)
-        cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
-            str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-            str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-            "~" + str(int(Settings.AOI_H * 100)) + \
-            "~" + str(int(Settings.imaging_mode))
+        if Settings.IR_imaging:
+            Commands.extract_lights()
+            Settings.sendCMD("4~1")
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            ip_address = "10.0.5.1"
+            server_address = (ip_address, 23456)
+            sock.connect(server_address)
+            cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
+                str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+                str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+                "~" + str(int(Settings.AOI_H * 100)) + \
+                "~" + str(int(Settings.imaging_mode))
 
-        start_time = timeit.default_timer()
-        sock.sendall(cmd.encode())
+            start_time = timeit.default_timer()
+            sock.sendall(cmd.encode())
 
-        if Settings.imaging_mode == 1:
-            with open('../_temp/preview.jpg', 'wb') as f:
-                while True:
-                    try:
+            if Settings.imaging_mode == 1:
+                with open('../_temp/preview.jpg', 'wb') as f:
+                    while True:
+                        try:
+                            data = sock.recv(5)
+                        except Exception as e:
+                            print(
+                                e, ': no connection for 20 seconds... retaking image')
+                        if not data:
+                            break
+                        f.write(data)
+                        self.transmit.emit()
+                sock.close()
+
+            else:
+                with open('../_temp/preview.png', 'wb') as f:
+                    while True:
                         data = sock.recv(5)
-                    except Exception as e:
-                        print(e, ': no connection for 20 seconds... retaking image')
-                    if not data:
-                        break
-                    f.write(data)
-                    self.transmit.emit()
-            sock.close()
-
-        else:
-            with open('../_temp/preview.png', 'wb') as f:
-                while True:
-                    data = sock.recv(5)
-                    if not data:
-                        break
-                    f.write(data)
-                    self.transmit.emit()
-            sock.close()
+                        if not data:
+                            break
+                        f.write(data)
+                        self.transmit.emit()
+                sock.close()
+        except Exception as e:
+            print(e, "preview failure,contact Jerry for support")
         Settings.time_elipsed = int(timeit.default_timer() - start_time)
+        if Settings.IR_imaging:
+            Settings.sendCMD("4~0")
+            Commands.deploy_lights()
 
 
 class Sensor(QThread):
@@ -223,6 +232,7 @@ class Timelapse(QThread):
 
         Settings.current = 0
         while Settings.current < Settings.total:
+
             start_time = timeit.default_timer()
             if Settings.imaging_mode == 1:
                 Settings.current_image = Settings.full_dir + \
@@ -242,6 +252,9 @@ class Timelapse(QThread):
                 print(e, ': socket connection failed, please reboot device')
                 skip = True
                 break
+            if Settings.IR_imaging:
+                Commands.extract_lights()
+                Settings.sendCMD("4~1")
 
             cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
                 str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
@@ -259,10 +272,16 @@ class Timelapse(QThread):
                         except Exception as e:
                             print(
                                 e, ': no connection for 20 seconds... retaking image')
+                            if Settings.IR_imaging:
+                                Settings.sendCMD("4~0")
+                                Commands.deploy_lights()
                             break
                         if not data:
                             Settings.current += 1
                             print("image capture and transmission succesful")
+                            if Settings.IR_imaging:
+                                Settings.sendCMD("4~0")
+                                Commands.deploy_lights()
                             break
                         f.write(data)
                         self.transmit.emit()
