@@ -166,11 +166,9 @@ class Sensor(QThread):
         if Settings.temp_attached:
             bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, 0x76)
 
-        bump = 1
-
         while True:
             try:
-                if Settings.tag_index == 0 and Settings.acc_attached and bump < 100:
+                if Settings.tag_index == 0 and Settings.acc_attached:
                     accel_x, accel_y, accel_z = sensor.acceleration
                     Settings.ACC_X_text = "{0:.2f}".format(accel_x)
                     Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
@@ -211,8 +209,7 @@ class Sensor(QThread):
                         log_file.close()
                         self.logdone.emit()
             except Exception as e:
-                bump += 1
-                print("sensor read failure")
+                pass
 
 
 class Timelapse(QThread):
@@ -245,7 +242,11 @@ class Timelapse(QThread):
             sock.settimeout(20)
             ip_address = "10.0.5.1"
             server_address = (ip_address, 23456)
-            sock.connect(server_address)
+            try:
+                sock.connect(server_address)
+            except Exception as e:
+                print(e, ': socket connection failed, please reboot device')
+                break
 
             cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
                 str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
