@@ -256,10 +256,11 @@ class Timelapse(QThread):
                 with open(Settings.current_image, 'wb') as f:
                     self.transmitstart.emit()
                     while True:
-                        ready = select.select([sock], [], [], 5)
-                        if ready[0]:
+                        readable, writable, exceptional = select.select(
+                            [sock], [], [], 5)
+                        if readable:
                             data = sock.recv(5)
-                        if not data:
+                        if not (readable or writable or exceptional):
                             break
                         f.write(data)
                         self.transmit.emit()
