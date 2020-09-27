@@ -280,3 +280,4 @@ class Timelapse(QThread):
                     break
         except Exception as e:
             print(e)
+            print("general")
