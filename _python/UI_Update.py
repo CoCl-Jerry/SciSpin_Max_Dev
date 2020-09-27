@@ -52,8 +52,8 @@ def image_captured(self):
     Settings.trasmitted = 0
     self.core_status_label.setText("Core Status: IDLE")
     self.Progress_Label.setText(
-        "Progress: " + str(Settings.current + 1) + "/" + str(Settings.total))
-    self.Progress_Bar.setValue(Settings.current + 1)
+        "Progress: " + str(Settings.current) + "/" + str(Settings.total))
+    self.Progress_Bar.setValue(Settings.current)
     self.startImaging_pushButton.setEnabled(True)
 
 

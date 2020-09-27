@@ -29,13 +29,13 @@ char data[50];
 int commands[COMMANDSIZE];
 
 int MotorSpeed_1 = 10;
-int interval_1 = 1892;
+int interval_1 = 1126;
 int currentLimit_1 = 500;
 int microstep_1 = 256;
 boolean dir_1 = true;
 
 int MotorSpeed_2 = 10;
-int interval_2 = 1892;
+int interval_2 = 1126;
 int currentLimit_2 = 500;
 int microstep_2 = 256;
 boolean dir_2 = true;
@@ -66,7 +66,7 @@ void setup() {
   pinMode(STEP_PIN_2, OUTPUT);
   pinMode(EN_PIN_2, OUTPUT);
 
-  strip.setBrightness(50);
+  strip.setBrightness(100);
   strip.begin();
   strip.show();
 
@@ -111,7 +111,8 @@ void loop() {
   if (ms_change)
   {
     Motor_1.microsteps(microstep_1);
-    Motor_1.microsteps(microstep_2);
+    delay(10);
+    Motor_2.microsteps(microstep_2);
     ms_change = false;
   }
 

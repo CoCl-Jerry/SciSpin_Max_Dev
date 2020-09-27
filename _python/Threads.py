@@ -23,16 +23,10 @@ class Cycle(QThread):
         self._running = False
 
     def run(self):
-        Settings.sendCMD("4~0")
-        Commands.clear_lights()
+        Commands.extract_lights()
         on_stat = False
         sleep(5)
-        for x in Settings.commands_list:
-            CMD = "3~2~" + x
-            Settings.sendCMD(CMD)
-            sleep(0.1)
-        Settings.sendCMD("3~3")
-        Settings.sendCMD("4~" + str(int(Settings.IR_stat)))
+        Commands.deploy_lights()
         on_stat = True
 
         while True:
@@ -44,16 +38,10 @@ class Cycle(QThread):
                     break
 
             if on_stat:
-                Settings.sendCMD("4~0")
-                Commands.clear_lights()
+                Commands.extract_lights()
                 on_stat = False
             else:
-                for x in Settings.commands_list:
-                    CMD = "3~2~" + x
-                    Settings.sendCMD(CMD)
-                    sleep(0.1)
-                Settings.sendCMD("3~3")
-                Settings.sendCMD("4~" + str(int(Settings.IR_stat)))
+                Commands.deploy_lights()
                 on_stat = True
             if not Settings.cycle_running:
                 break
@@ -70,9 +58,10 @@ class Snap(QThread):
         self._running = False
 
     def run(self):
+        if Settings.IR_imaging:
+            Commands.extract_lights()
+            Settings.sendCMD("4~1")
         try:
-            if Settings.IR_imaging:
-                Commands.IR_Imaging_trigger()
 
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             ip_address = "10.0.5.1"
@@ -95,8 +84,12 @@ class Snap(QThread):
                     f.write(data)
                     self.transmit.emit()
             sock.close()
+
         except Exception as e:
             print(e, "snapshot failure,contact Jerry for support")
+        if Settings.IR_imaging:
+            Settings.sendCMD("4~0")
+            deploy_lights()
 
 
 class Preview(QThread):

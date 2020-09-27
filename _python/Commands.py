@@ -48,6 +48,20 @@ def IR_toggle(self):
     Settings.sendCMD(CMD)
 
 
+def deploy_lights():
+    for x in Settings.commands_list:
+        CMD = "3~2~" + x
+        Settings.sendCMD(CMD)
+        sleep(0.1)
+    Settings.sendCMD("3~3")
+    Settings.sendCMD("4~" + str(int(Settings.IR_stat)))
+
+
+def extract_lights():
+    Settings.sendCMD("4~0")
+    Commands.clear_lights()
+
+
 def motor_toggle(mot, self):
     if not mot:
         if Settings.LINKED and not Settings.frame_enabled:
@@ -142,7 +156,7 @@ def spin_change(mot, self):
     self.frame_verticalSlider.blockSignals(False)
 
     CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-        Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
+        Settings.frame_RPM)) * 100)]) + "~" + str(getMicrostep(Settings.core_RPM * 100)) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
             Settings.core_RPM)) * 100)])
     Settings.sendCMD(CMD)
 
@@ -177,11 +191,6 @@ def slider_change(mot, self):
     self.frame_spinBox.blockSignals(False)
     self.core_verticalSlider.blockSignals(False)
     self.frame_verticalSlider.blockSignals(False)
-
-    # CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-    #     Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(Settings.core_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-    #         Settings.core_RPM)) * 100)])
-    # Settings.sendCMD(CMD)
 
 
 def slider_Released():

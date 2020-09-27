@@ -170,7 +170,7 @@ class Ui_MainWindow(object):
         self.IR_pushButton.setGeometry(QtCore.QRect(450, 380, 141, 51))
         self.IR_pushButton.setObjectName("IR_pushButton")
         self.infraredImaging_checkBox = QtWidgets.QCheckBox(self.Lighting_tab)
-        self.infraredImaging_checkBox.setEnabled(False)
+        self.infraredImaging_checkBox.setEnabled(True)
         self.infraredImaging_checkBox.setGeometry(QtCore.QRect(450, 440, 161, 41))
         self.infraredImaging_checkBox.setObjectName("infraredImaging_checkBox")
         self.tabWidget.addTab(self.Lighting_tab, "")
@@ -673,7 +673,7 @@ class Ui_MainWindow(object):
         self.actionCreate_Timelapse.setObjectName("actionCreate_Timelapse")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.Sensor_tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
