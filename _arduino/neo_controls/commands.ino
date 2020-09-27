@@ -49,10 +49,10 @@ void exeCMD() {
     case 4:
       switch (commands[1]) {
         case 0:
-          infraOff();
+          digitalWrite(IR_PIN, LOW);
           break;
         case 1:
-          infraOn();
+          digitalWrite(IR_PIN, HIGH);
           break;
         default:
           break;
