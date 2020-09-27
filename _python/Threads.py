@@ -262,7 +262,7 @@ class Timelapse(QThread):
                                 break
                             f.write(data)
                             self.transmit.emit()
-                        except sock.timeout as e:
+                        except Exception as e:
                             print(e, ': no connections after 5 seconds...')
                             break
                 sock.close()
