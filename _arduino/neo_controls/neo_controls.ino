@@ -79,7 +79,7 @@ void setup() {
   Motor_1.toff(2);               // Enable driver in software
   Motor_1.mstep_reg_select(true);
   Motor_1.microsteps(microstep_1);
-  Motor_1.intpol(true);
+  //Motor_1.intpol(true);
   Motor_1.dedge(true);
 
   Motor_2.pdn_disable(true);     // Use PDN/UART pin for communication
@@ -88,7 +88,7 @@ void setup() {
   Motor_2.toff(2);               // Enable driver in software
   Motor_2.mstep_reg_select(true);
   Motor_2.microsteps(microstep_2);
-  Motor_2.intpol(true);
+  //Motor_2.intpol(true);
   Motor_2.dedge(true);
 
   //  digitalWrite(EN_PIN_1, LOW);   // Disable driver in hardware

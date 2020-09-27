@@ -251,7 +251,6 @@ class Timelapse(QThread):
             except Exception as e:
                 print(e, ': socket connection failed, please reboot device')
                 skip = True
-                break
             if Settings.IR_imaging:
                 Commands.extract_lights()
                 Settings.sendCMD("4~1")
