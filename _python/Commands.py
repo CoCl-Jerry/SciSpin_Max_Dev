@@ -85,8 +85,8 @@ def motor_toggle(mot, self):
             Settings.core_enabled = True
         else:
             Settings.core_enabled = False
-    CMD = ("1~0~" + str(int(not Settings.frame_enabled)) +
-           "~" + str(int(not Settings.core_enabled)))
+    CMD = ("1~0~" + str(int(Settings.frame_enabled)) +
+           "~" + str(int(Settings.core_enabled)))
     Settings.sendCMD(CMD)
     UI_Update.motor_update(self)
 
