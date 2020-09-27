@@ -39,10 +39,10 @@ def init():
     core_RPM = 0.3
 
     global frame_enabled
-    frame_enabled = False
+    frame_enabled = True
 
     global core_enabled
-    core_enabled = False
+    core_enabled = True
 
     global frame_microstep
     frame_microstep = 256
