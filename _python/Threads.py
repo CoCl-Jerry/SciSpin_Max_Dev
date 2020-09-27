@@ -89,7 +89,7 @@ class Snap(QThread):
             print(e, "snapshot failure,contact Jerry for support")
         if Settings.IR_imaging:
             Settings.sendCMD("4~0")
-            deploy_lights()
+            Commands.deploy_lights()
 
 
 class Preview(QThread):
