@@ -32,7 +32,7 @@ class Cycle(QThread):
             Settings.sendCMD(CMD)
             sleep(0.1)
         Settings.sendCMD("3~3")
-        Settings.sendCMD("4~" + int(Settings.IR_stat))
+        Settings.sendCMD("4~" + str(int(Settings.IR_stat)))
         on_stat = True
 
         while True:
@@ -53,7 +53,7 @@ class Cycle(QThread):
                     Settings.sendCMD(CMD)
                     sleep(0.1)
                 Settings.sendCMD("3~3")
-                Settings.sendCMD("4~" + int(Settings.IR_stat))
+                Settings.sendCMD("4~" + str(int(Settings.IR_stat)))
                 on_stat = True
             if not Settings.cycle_running:
                 break
