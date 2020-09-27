@@ -8,6 +8,7 @@ import time
 import Commands
 import adafruit_mma8451
 import adafruit_bme280
+import select
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
@@ -255,7 +256,9 @@ class Timelapse(QThread):
                 with open(Settings.current_image, 'wb') as f:
                     self.transmitstart.emit()
                     while True:
-                        data = sock.recv(5)
+                        ready = select.select([sock], [], [], 5)
+                        if ready[0]:
+                            data = sock.recv(5)
                         if not data:
                             break
                         f.write(data)
