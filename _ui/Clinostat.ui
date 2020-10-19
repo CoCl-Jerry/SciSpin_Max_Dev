@@ -18,7 +18,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../_image/icon.ico</normaloff>../_image/icon.ico</iconset>
+    <normaloff>../_image/logo.ico</normaloff>../_image/logo.ico</iconset>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -588,7 +588,7 @@
           <number>2</number>
          </property>
          <property name="maximum">
-          <number>60</number>
+          <number>200</number>
          </property>
          <property name="singleStep">
           <number>1</number>
@@ -612,7 +612,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>1</number>
+          <number>4</number>
          </property>
         </widget>
        </item>
@@ -641,7 +641,7 @@
           <number>2</number>
          </property>
          <property name="maximum">
-          <number>60</number>
+          <number>200</number>
          </property>
          <property name="singleStep">
           <number>1</number>
@@ -665,7 +665,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>1</number>
+          <number>4</number>
          </property>
         </widget>
        </item>
@@ -715,7 +715,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="maximum">
-       <double>3.500000000000000</double>
+       <double>10.000000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.050000000000000</double>
@@ -749,7 +749,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="maximum">
-       <double>3.500000000000000</double>
+       <double>10.000000000000000</double>
       </property>
       <property name="singleStep">
        <double>0.050000000000000</double>
