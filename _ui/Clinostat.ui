@@ -1050,14 +1050,14 @@
        </attribute>
        <widget class="QFrame" name="Cyverse_frame">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>10</y>
+          <y>0</y>
           <width>571</width>
-          <height>111</height>
+          <height>131</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -1070,16 +1070,16 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>10</y>
            <width>561</width>
-           <height>106</height>
+           <height>111</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_19" stretch="0,0,0,0">
           <item>
            <widget class="QLineEdit" name="cyverseUsername_lineEdit">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="placeholderText">
              <string>Cyverse Username</string>
