@@ -151,6 +151,20 @@ def sensor_logdone(self):
     self.log_spinBox.setEnabled(True)
 
 
+def validate_storage(self):
+    if Settings.connection_test():
+        self.Cyverse_frame.setEnabled(True)
+    else:
+        self.Cyverse_frame.setEnabled(False)
+
+    if self.storage_tabWidget.currentIndex() == 1 and Settings.cyverse_authenticated:
+        Settings.storage_mode = 1
+        self.startRoutines_pushButton.setText("START CLOUD TIMELAPSE")
+    else:
+        Settings.storage_mode = 0
+        self.startRoutines_pushButton.setText("START LOCAL TIMELAPSE")
+
+
 def timelapse_start(self):
     Settings.timelapse_running = True
     self.snapshot_pushButton.setEnabled(False)
@@ -204,3 +218,19 @@ def motor_update(self):
         self.coreErgz_pushButton.setText("DISABLE MOTOR")
     else:
         self.coreErgz_pushButton.setText("ENABLE MOTOR")
+
+
+def CV_authenticating(self):
+    self.storage_tabWidget.setEnabled(False)
+    self.cyverseConfirm_pushButton.setText(
+        "Authenticating CyVerse Credentials...")
+
+
+def CV_authenticated(self):
+    self.storage_tabWidget.setEnabled(True)
+    if Settings.cyverse_authenticated:
+        self.cyverseConfirm_pushButton.setText(
+            "CyVerse Credentials Authentication Successful")
+    else:
+        self.cyverseConfirm_pushButton.setText(
+            "CyVerse Credentials Authentication Failed")

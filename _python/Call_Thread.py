@@ -70,7 +70,33 @@ def start_timelapse(self):
 
     else:
         Settings.timelapse_running = False
+        Settings.cyverse_running = False
         self.Progress_Bar.setValue(Settings.current + 1)
+
+    if Settings.storage_mode and Settings.cyverse_authenticated:
+        try:
+            if Settings.cyverse_authenticated:
+                print("Starting Cyverse Sync Thread")
+                self.Cyverse_Thread = Threads.Cyverse()
+                self.Cyverse_Thread.start()
+
+        except Exception as e:
+            print(e)
+
+
+def CV_authenticate(self):
+    Settings.cyverseUsername = self.cyverseUsername_lineEdit.text()
+    Settings.cyversePassword = self.cyversePassword_lineEdit.text()
+    try:
+        self.Auth_Thread = Threads.Auth()
+        self.Auth_Thread.started.connect(
+            lambda: UI_Update.CV_authenticating(self))
+        self.Auth_Thread.finished.connect(
+            lambda: UI_Update.CV_authenticated(self))
+        self.Auth_Thread.start()
+
+    except Exception as e:
+        print(e)
 
 
 def sensor_init(self):

@@ -101,6 +101,9 @@ def init():
     global log_dir
     log_dir = "/home/pi/Desktop/sensor_log/" + date
 
+    global cyverse_data_path
+    cyverse_data_path = "../_temp/.cyverse_data.txt"
+
     global AOI_X
     AOI_X = 0
     global AOI_Y
@@ -151,6 +154,24 @@ def init():
 
     global cycle_running
     cycle_running = False
+
+    global cyverse_authenticated
+    cyverse_authenticated = False
+
+    global cyverse_running
+    cyverse_running = False
+
+    global cyverseUsername
+    cyverseUsername = ""
+
+    global cyversePassword
+    cyversePassword = ""
+
+    global storage_mode
+    storage_mode = 0
+
+    global file_list
+    file_list = []
 
     global cycle_time
     cycle_time = 60
@@ -390,9 +411,16 @@ def init():
         990: 714,
         995: 713,
         1000: 710,
-
-
     }
+
+
+def connection_test():
+    try:
+        socket.create_connection(("1.1.1.1", 53))
+        return True
+    except OSError:
+        pass
+    return False
 
 
 def sendCMD(cont):

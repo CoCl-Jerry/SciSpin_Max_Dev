@@ -58,10 +58,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>631</width>
-      <height>551</height>
+      <x>5</x>
+      <y>5</y>
+      <width>630</width>
+      <height>560</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -130,47 +130,20 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>112</y>
+          <y>104</y>
           <width>351</width>
-          <height>71</height>
+          <height>81</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="1" column="3">
-          <widget class="QSpinBox" name="W_spinBox">
-           <property name="toolTip">
-            <string>Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs</string>
-           </property>
-           <property name="suffix">
-            <string> %</string>
-           </property>
-           <property name="maximum">
-            <number>100</number>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
+         <item row="2" column="2">
           <widget class="QLabel" name="W_label">
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;W White:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="R_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Red:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="B_label">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Blue:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
+         <item row="2" column="1">
           <widget class="QSpinBox" name="B_spinBox">
            <property name="toolTip">
             <string>Blue Color Intensity</string>
@@ -183,7 +156,20 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
+         <item row="2" column="3">
+          <widget class="QSpinBox" name="W_spinBox">
+           <property name="toolTip">
+            <string>Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs</string>
+           </property>
+           <property name="suffix">
+            <string> %</string>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
           <widget class="QSpinBox" name="R_spinBox">
            <property name="toolTip">
             <string>Red Color Intensity</string>
@@ -199,14 +185,48 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="2">
+         <item row="1" column="4">
+          <widget class="QPushButton" name="light_Reset_pushButton">
+           <property name="toolTip">
+            <string>Turn off all LEDs and restore settings to default.</string>
+           </property>
+           <property name="text">
+            <string>RESET</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="R_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Red:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="B_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Blue:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QPushButton" name="light_Confirm_pushButton">
+           <property name="toolTip">
+            <string>Confirm current light settings.</string>
+           </property>
+           <property name="text">
+            <string>CONFIRM</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
           <widget class="QLabel" name="G_label">
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Green:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="3">
+         <item row="1" column="3">
           <widget class="QSpinBox" name="G_spinBox">
            <property name="toolTip">
             <string>Green Color Intensity</string>
@@ -219,23 +239,10 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="4">
-          <widget class="QPushButton" name="light_Confirm_pushButton">
-           <property name="toolTip">
-            <string>Confirm current light settings.</string>
-           </property>
+         <item row="0" column="2">
+          <widget class="QLabel" name="color_label">
            <property name="text">
-            <string>CONFIRM</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QPushButton" name="light_Reset_pushButton">
-           <property name="toolTip">
-            <string>Turn off all LEDs and restore settings to default.</string>
-           </property>
-           <property name="text">
-            <string>RESET</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -347,19 +354,6 @@
           </widget>
          </item>
         </layout>
-       </widget>
-       <widget class="QLabel" name="color_label">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>100</y>
-          <width>79</width>
-          <height>13</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
        </widget>
       </widget>
      </widget>
@@ -856,9 +850,9 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>480</y>
+        <y>460</y>
         <width>611</width>
-        <height>41</height>
+        <height>51</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -881,13 +875,264 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="layoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>581</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="Image_Title">
+         <property name="text">
+          <string>Image Sequence Title</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLineEdit" name="title_lineEdit">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addDate_pushButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Add Date</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="Image_Interval">
+         <property name="text">
+          <string>Image Capture Interval</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="ICI_spinBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="suffix">
+          <string> min</string>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>99999999</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="Image_Duration">
+         <property name="text">
+          <string>Image Sequence Duration</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="ISD_spinBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="suffix">
+          <string> min</string>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>99999999</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QTabWidget" name="storage_tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>609</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="local_tab">
+       <attribute name="title">
+        <string>Local Storage</string>
+       </attribute>
+       <widget class="QWidget" name="verticalLayoutWidget_14">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>571</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_16">
+         <item>
+          <widget class="QLabel" name="directory_label">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <property name="text">
+            <string>Sequence Title Required</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="directory_pushButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Change Storage Directory</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="cloud_tab_2">
+       <attribute name="title">
+        <string>CyVerse Cloud Storage</string>
+       </attribute>
+       <widget class="QFrame" name="Cyverse_frame">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>571</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget_12">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>571</width>
+           <height>106</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_19" stretch="0,0,0,0">
+          <item>
+           <widget class="QLineEdit" name="cyverseUsername_lineEdit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="placeholderText">
+             <string>Cyverse Username</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="cyversePassword_lineEdit">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string>Cyverse Password</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="cyverseConfirm_pushButton">
+            <property name="text">
+             <string>Authenticate CyVerse Credentials</string>
+            </property>
+            <property name="autoRepeatDelay">
+             <number>300</number>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="cyverseDefault_pushButton">
+            <property name="text">
+             <string>Save As Default</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>IMAGING SETTINGS</string>
+     </attribute>
      <widget class="QFrame" name="frame_3">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>320</y>
-        <width>611</width>
-        <height>161</height>
+        <y>20</y>
+        <width>601</width>
+        <height>151</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -902,7 +1147,7 @@
          <x>10</x>
          <y>10</y>
          <width>591</width>
-         <height>141</height>
+         <height>134</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
@@ -923,7 +1168,7 @@
         <item row="0" column="2">
          <widget class="QLabel" name="resolution_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resulution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -1120,240 +1365,6 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="layoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>611</width>
-        <height>301</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QLabel" name="Image_Title">
-         <property name="text">
-          <string>Image Sequence Title</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLineEdit" name="title_lineEdit">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="toolTip">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="addDate_pushButton">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string>Add Date</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="Image_Interval">
-         <property name="text">
-          <string>Image Capture Interval</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="ICI_spinBox">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="suffix">
-          <string> min</string>
-         </property>
-         <property name="minimum">
-          <number>2</number>
-         </property>
-         <property name="maximum">
-          <number>99999999</number>
-         </property>
-         <property name="value">
-          <number>2</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Image_Duration">
-         <property name="text">
-          <string>Image Sequence Duration</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="ISD_spinBox">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="suffix">
-          <string> min</string>
-         </property>
-         <property name="minimum">
-          <number>2</number>
-         </property>
-         <property name="maximum">
-          <number>99999999</number>
-         </property>
-         <property name="value">
-          <number>2</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="Line" name="line_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QTabWidget" name="storage_tabWidget">
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <widget class="QWidget" name="local_tab_2">
-          <attribute name="title">
-           <string>Local</string>
-          </attribute>
-          <widget class="QWidget" name="verticalLayoutWidget_14">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>581</width>
-             <height>81</height>
-            </rect>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_16">
-            <item>
-             <widget class="QLabel" name="directory_label">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <property name="text">
-               <string>Sequence Title Required</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="directory_pushButton">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="text">
-               <string>Change Storage Directory</string>
-              </property>
-              <property name="checkable">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-         <widget class="QWidget" name="cloud_tab_2">
-          <attribute name="title">
-           <string>CyVerse</string>
-          </attribute>
-          <widget class="QFrame" name="Cyverse_frame_2">
-           <property name="geometry">
-            <rect>
-             <x>9</x>
-             <y>10</y>
-             <width>581</width>
-             <height>111</height>
-            </rect>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <widget class="QWidget" name="verticalLayoutWidget_12">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>581</width>
-              <height>106</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_19" stretch="0,0,0,0">
-             <item>
-              <widget class="QLineEdit" name="cyverseUsername_lineEdit_2">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="placeholderText">
-                <string>Cyverse Username</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="cyversePassword_lineEdit_2">
-               <property name="echoMode">
-                <enum>QLineEdit::Password</enum>
-               </property>
-               <property name="placeholderText">
-                <string>Cyverse Password</string>
-               </property>
-               <property name="clearButtonEnabled">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="cyverseConfirm_pushButton_2">
-               <property name="text">
-                <string>Authenticate CyVerse Credentials</string>
-               </property>
-               <property name="autoRepeatDelay">
-                <number>300</number>
-               </property>
-               <property name="default">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="cyverseDefault_pushButton_2">
-               <property name="text">
-                <string>Save As Default</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-         </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
     </widget>
    </widget>
    <widget class="QTabWidget" name="Sensor_tabWidget">
@@ -1369,7 +1380,7 @@
      <string>9-DOF Sensor - FXOS8700 + FXAS21002</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ACC_tab">
      <attribute name="title">
@@ -1747,7 +1758,7 @@
       <string/>
      </property>
      <property name="text">
-      <string>START TIMELAPSE</string>
+      <string>START LOCAL TIMELAPSE</string>
      </property>
     </widget>
    </widget>

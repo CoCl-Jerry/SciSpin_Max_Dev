@@ -105,3 +105,12 @@ def sensor_log(self):
     Settings.log_start_time = timeit.default_timer()
     Settings.log_sensor = True
     Settings.log_duration = self.log_spinBox.value() * 60
+
+
+def Cyverse_Save(self):
+    # open("../_temp/.cyverse_data.txt", "w").close()  # Is this really necessary?
+    file = open(Settings.cyverse_data_path, "w")
+    file.write(self.cyverseUsername_lineEdit.text() + '\n')
+    # Not the smartest idea to store this in cleartext, but will need to edit this in the future to encrypt the password, or not save it
+    file.write(self.cyversePassword_lineEdit.text())
+    file.close()
