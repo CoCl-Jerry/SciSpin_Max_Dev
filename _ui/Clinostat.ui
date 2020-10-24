@@ -56,9 +56,6 @@
     </property>
    </widget>
    <widget class="QTabWidget" name="tabWidget">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>5</x>
@@ -1071,7 +1068,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>561</width>
+           <width>571</width>
            <height>106</height>
           </rect>
          </property>
