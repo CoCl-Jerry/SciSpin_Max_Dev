@@ -730,8 +730,8 @@ class Ui_MainWindow(object):
         self.actionCreate_Timelapse.setObjectName("actionCreate_Timelapse")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
-        self.storage_tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
+        self.storage_tabWidget.setCurrentIndex(1)
         self.Sensor_tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -804,7 +804,7 @@ class Ui_MainWindow(object):
         self.cyverseConfirm_pushButton.setText(_translate("MainWindow", "Authenticate CyVerse Credentials"))
         self.cyverseDefault_pushButton.setText(_translate("MainWindow", "Save As Default"))
         self.storage_tabWidget.setTabText(self.storage_tabWidget.indexOf(self.cloud_tab_2), _translate("MainWindow", "CyVerse Cloud Storage"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Imaging_tab), _translate("MainWindow", "IMAGING"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Imaging_tab), _translate("MainWindow", "IMAGING PARAMETERS"))
         self.CoreCtr_label_6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.yAxis_label.setText(_translate("MainWindow", "Zoom Axis B: 1.00"))
         self.resolution_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Imaging Resolution</span></p></body></html>"))

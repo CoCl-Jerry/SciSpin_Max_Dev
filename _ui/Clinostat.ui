@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Lighting_tab">
      <attribute name="title">
@@ -844,7 +844,7 @@
     </widget>
     <widget class="QWidget" name="Imaging_tab">
      <attribute name="title">
-      <string>IMAGING</string>
+      <string>IMAGING PARAMETERS</string>
      </attribute>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
@@ -990,7 +990,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="local_tab">
        <attribute name="title">
