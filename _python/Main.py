@@ -26,8 +26,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.Sensor_tabWidget.currentChanged.connect(
             lambda: Functions.printci(self))
-        self.storage_tabWidget.currentChanged.connect(
-            lambda: UI_Update.validate_storage(self))
 
         self.frameErgz_pushButton.clicked.connect(
             lambda: Commands.motor_toggle(0, self))
@@ -120,21 +118,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.update_mode(self))
         self.infraredImaging_checkBox.stateChanged.connect(
             lambda: Functions.IR_mode(self))
-
-        self.cyverseDefault_pushButton.clicked.connect(
-            lambda: Functions.Cyverse_Save(self))
-        self.cyverseConfirm_pushButton.clicked.connect(
-            lambda: Call_Thread.CV_authenticate(self))
-
-        try:
-            with open(Settings.cyverse_data_path, "r") as fh:
-                self.cyverseUsername_lineEdit.setText(
-                    fh.readline().strip('\n'))
-                self.cyversePassword_lineEdit.setText(
-                    fh.readline().strip('\n'))
-            fh.close()
-        except FileNotFoundError:
-            pass
 
 
 def main():

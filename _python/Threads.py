@@ -9,9 +9,7 @@ import time
 import Commands
 import adafruit_mma8451
 import adafruit_bme280
-import requests
 
-from requests.auth import HTTPBasicAuth
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
 from picamera import PiCamera
@@ -48,33 +46,6 @@ class Cycle(QThread):
                 on_stat = True
             if not Settings.cycle_running:
                 break
-
-
-class Auth(QThread):
-
-    def __init__(self):
-        QThread.__init__(self)
-
-    def __del__(self):
-        self._running = False
-
-    def run(self):
-        uri = "https://data.cyverse.org/dav/iplant/home/" + \
-            Settings.cyverseUsername
-        print(uri)
-        auth = HTTPBasicAuth(Settings.cyverseUsername,
-                             Settings.cyversePassword)
-        print(auth.__dict__)
-        r = requests.get(uri, auth=auth)
-        if(r.status_code != 200):
-            # Put actual logic in place to trigger a popup or some error message that flashes
-            print("ERR: Failed authentication!")
-            print(r)
-            Settings.cyverse_authenticated = False
-        else:
-            # Put actual logic in place to trigger a popup or some error message that flashes
-            print("Authentication success")
-            Settings.cyverse_authenticated = True
 
 
 class Snap(QThread):
@@ -308,7 +279,7 @@ class Timelapse(QThread):
                                 break
                             if not data:
                                 Settings.current += 1
-                                print("image capture and transmission successful")
+                                print("image capture and transmission succesful")
                                 if Settings.IR_imaging:
                                     Settings.sendCMD("4~0")
                                     Commands.deploy_lights()
@@ -317,8 +288,6 @@ class Timelapse(QThread):
                             self.transmit.emit()
                         sock.close()
                         self.captured.emit()
-                if Settings.storage_mode:
-                    Settings.file_list.append(Settings.current_image)
                 elapsed = int(timeit.default_timer() - start_time)
 
             if elapsed < Settings.interval * 60:
@@ -328,44 +297,3 @@ class Timelapse(QThread):
                         break
             if not Settings.timelapse_running:
                 break
-
-
-class Cyverse(QThread):
-    def __init__(self):
-        QThread.__init__(self)
-        Settings.cyverse_running = True
-
-    def __del__(self):
-        self._running = False
-
-    def run(self):
-        base_uri = "https://data.cyverse.org/dav/iplant/home/"
-        uri = base_uri + Settings.cyverseUsername + "/" + 'FlashLapse'
-        headers = {'Content-Type': 'image/jpeg'}
-
-        auth = HTTPBasicAuth(Settings.cyverseUsername,
-                             Settings.cyversePassword)
-        requests.request(method='MKCOL', url=uri, auth=auth)
-        uri = uri + '/' + Settings.date
-        requests.request(method='MKCOL', url=uri, auth=auth)
-        uri = uri + '/' + Settings.cpuserial
-        requests.request(method='MKCOL', url=uri, auth=auth)
-        uri = uri + '/' + Settings.sequence_name
-        requests.request(method='MKCOL', url=uri, auth=auth)
-        count = 0
-        while (count < Settings.total):
-            if (len(Settings.file_list) > 0):
-                print("Cyverse Thread: File " + Settings.file_list[0])
-                fh = open(Settings.file_list[0], 'rb')
-                requests.put(url=uri + '/' + os.path.basename(Settings.file_list[0]),
-                             headers=headers,
-                             auth=auth,
-                             data=fh)
-                fh.close()
-                #os.system("rm " + Settings.file_list[0])
-                del Settings.file_list[0]
-                count += 1
-            if not Settings.cyverse_running:
-                break
-        Settings.cyverse_running = False
-        return
