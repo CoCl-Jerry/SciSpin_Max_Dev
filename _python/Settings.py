@@ -1,6 +1,7 @@
 import smbus
 import time
 import Settings
+import socket
 from PyQt5 import QtGui
 
 i2c_cmd = 0x5E
