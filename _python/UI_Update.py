@@ -159,10 +159,10 @@ def validate_storage(self):
 
     if self.storage_tabWidget.currentIndex() == 1 and Settings.cyverse_authenticated:
         Settings.storage_mode = 1
-        self.startRoutines_pushButton.setText("START CLOUD TIMELAPSE")
+        self.startImaging_pushButton.setText("START CLOUD TIMELAPSE")
     else:
         Settings.storage_mode = 0
-        self.startRoutines_pushButton.setText("START LOCAL TIMELAPSE")
+        self.startImaging_pushButton.setText("START LOCAL TIMELAPSE")
 
 
 def timelapse_start(self):
