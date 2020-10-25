@@ -121,6 +121,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.fanSpeed_horizontalSlider.sliderReleased.connect(
             lambda: Functions.fanspeed_update(self))
+        self.fanSpeed_horizontalSlider.valueChanged.connect(
+            lambda: UI_Update.fanlabel_update(self))
 
 
 def main():

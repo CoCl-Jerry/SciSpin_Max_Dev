@@ -204,3 +204,8 @@ def motor_update(self):
         self.coreErgz_pushButton.setText("DISABLE MOTOR")
     else:
         self.coreErgz_pushButton.setText("ENABLE MOTOR")
+
+
+def fanlabel_update(self):
+    self.fanSpeed_label.setText(
+        "Speed: " + str(self.fanSpeed_horizontalSlider.sliderPosition()) + "%")

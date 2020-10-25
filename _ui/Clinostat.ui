@@ -442,7 +442,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="fanSpeed_label">
+         <widget class="QLabel" name="fanSpeedName_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Core Fan Speed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -462,7 +462,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="fanSpeed__label">
+         <widget class="QLabel" name="fanSpeed_label">
           <property name="text">
            <string>Speed: 50%</string>
           </property>
