@@ -3,6 +3,7 @@ import Commands
 import UI_Update
 import timeit
 import Call_Thread
+import socket
 import os
 
 from PyQt5.QtWidgets import QFileDialog
@@ -77,6 +78,20 @@ def camera_update(self):
 
 def update_mode(self):
     Settings.imaging_mode = self.JPG_radioButton.isChecked()
+
+
+def fanspeed_update(self):
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        ip_address = "10.0.5.1"
+        server_address = (ip_address, 23456)
+        sock.connect(server_address)
+        cmd = "B~" + str(self.fanSpeed_horizontalSlider.sliderPosition())
+        sock.sendall(cmd.encode())
+        sock.close()
+
+    except Exception as e:
+        print(e, "Fan failure,contact Jerry for support")
 
 
 def IR_mode(self):

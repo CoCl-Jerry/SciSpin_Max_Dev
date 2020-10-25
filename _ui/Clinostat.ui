@@ -369,7 +369,7 @@
         <x>420</x>
         <y>120</y>
         <width>191</width>
-        <height>121</height>
+        <height>201</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -384,7 +384,7 @@
          <x>9</x>
          <y>10</y>
          <width>171</width>
-         <height>101</height>
+         <height>181</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -419,6 +419,16 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="confirmCycle_pushButton">
+          <property name="toolTip">
+           <string>All LEDs are toggled at the end of each cycle</string>
+          </property>
+          <property name="text">
+           <string>CONFIRM</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -432,12 +442,29 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="confirmCycle_pushButton">
-          <property name="toolTip">
-           <string>All LEDs are toggled at the end of each cycle</string>
-          </property>
+         <widget class="QLabel" name="fanSpeed_label">
           <property name="text">
-           <string>CONFIRM</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Core Fan Speed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="fanSpeed_horizontalSlider">
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="fanSpeed__label">
+          <property name="text">
+           <string>Speed: 50%</string>
           </property>
          </widget>
         </item>
@@ -1051,7 +1078,7 @@
        <item row="0" column="2">
         <widget class="QLabel" name="resolution_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resulution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
