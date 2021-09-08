@@ -49,7 +49,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.confirmCycle_pushButton.clicked.connect(
             lambda: Call_Thread.start_cycle(self))
-        self.powerCycle_spinBox.valueChanged.connect(
+        self.onCycle_spinBox.valueChanged.connect(
+            lambda: Functions.Cycle_Change(self))
+        self.offCycle_spinBox.valueChanged.connect(
             lambda: Functions.Cycle_Change(self))
 
         self.frame_spinBox.valueChanged.connect(

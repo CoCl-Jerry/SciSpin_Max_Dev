@@ -30,13 +30,13 @@ int commands[COMMANDSIZE];
 
 int MotorSpeed_1 = 10;
 int interval_1 = 1126;
-int currentLimit_1 = 500;
+int currentLimit_1 = 400;
 int microstep_1 = 256;
 boolean dir_1 = true;
 
 int MotorSpeed_2 = 10;
 int interval_2 = 1126;
-int currentLimit_2 = 500;
+int currentLimit_2 = 400;
 int microstep_2 = 256;
 boolean dir_2 = true;
 
@@ -103,7 +103,8 @@ void setup() {
   Wire.onReceive(receiveData);
 
   startup();
-  analogWrite(FAN_PIN, 50);
+  //  analogWrite(FAN_PIN, 30);
+  digitalWrite(FAN_PIN, HIGH);
   digitalWrite(IR_PIN, LOW);
 }
 

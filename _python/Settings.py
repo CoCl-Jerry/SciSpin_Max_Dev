@@ -152,8 +152,11 @@ def init():
     global cycle_running
     cycle_running = False
 
-    global cycle_time
-    cycle_time = 60
+    global on_time
+    on_time = 60
+
+    global off_time
+    off_time = 60
 
     global time_elipsed
     time_elipsed = 0

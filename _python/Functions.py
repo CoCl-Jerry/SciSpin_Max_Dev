@@ -40,7 +40,8 @@ def ICI_Change(self):
 
 
 def Cycle_Change(self):
-    Settings.cycle_time = self.powerCycle_spinBox.value()
+    Settings.on_time = self.onCycle_spinBox.value()
+    Settings.off_time = self.offCycle_spinBox.value()
 
 
 def ISD_Change(self):
