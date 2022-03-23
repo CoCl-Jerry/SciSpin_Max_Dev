@@ -152,6 +152,12 @@ def init():
     global cycle_running
     cycle_running = False
 
+    global interval_running
+    interval_running = False
+
+    global interval_time
+    interval_time = 5
+
     global on_time
     on_time = 60
 

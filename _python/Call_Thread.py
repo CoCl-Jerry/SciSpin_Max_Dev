@@ -50,6 +50,22 @@ def start_cycle(self):
         Settings.cycle_running = False
 
 
+def start_interval(self):
+    if not Settings.interval_running:
+        try:
+            self.Interval_Thread = Threads.Interval()
+            self.Interval_Thread.started.connect(
+                lambda: UI_Update.interval_start(self))
+            self.Interval_Thread.finished.connect(
+                lambda: UI_Update.interval_end(self))
+
+            self.Interval_Thread.start()
+
+        except Exception as e:
+            print(e, "interval failure, please contact Jerry for support")
+    else:
+        Settings.Interval_running = False
+
 def start_timelapse(self):
 
     if not Settings.timelapse_running:

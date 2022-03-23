@@ -43,13 +43,37 @@ class Cycle(QThread):
             else:
                 for x in range(Settings.off_time * 60):
                     sleep(1)
-                    
+
                     if not Settings.cycle_running:
                         on_stat = False
                         break
                 Commands.deploy_lights()
                 on_stat = True
             if not Settings.cycle_running:
+                break
+
+class Interval(QThread):
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        while True:
+            for x in range(Settings.interval_time):
+                sleep(1)
+                if not Settings.interval_running:
+                    break
+            Settings.frame_dir = not Settings.frame_dir
+            Settings.core_dir = not Settings.core_dir
+
+            CMD = ("1~1~" + str(int(Settings.frame_dir)) +
+                   "~" + str(int(Settings.core_dir)))
+            Settings.sendCMD(CMD)
+
+            if not Settings.interval_running:
                 break
 
 

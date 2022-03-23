@@ -13,6 +13,14 @@ def cycle_end(self):
     self.confirmCycle_pushButton.setText("CONFIRM")
     Settings.cycle_running = False
 
+def interval_start(self):
+    self.startInterval_pushButton.setText("TERMINATE SEQUENCE")
+    Settings.interval_running = True
+
+def interval_end(self):
+    self.startInterval_pushButton.setText("START SEQUENCE")
+    Settings.interval_running = False
+
 
 def snap_start(self):
     self.core_status_label.setText("Core Status: IMAGING")

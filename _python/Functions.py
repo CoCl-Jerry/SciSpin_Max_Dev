@@ -43,6 +43,9 @@ def Cycle_Change(self):
     Settings.on_time = self.onCycle_spinBox.value()
     Settings.off_time = self.offCycle_spinBox.value()
 
+def interval_Change(self):
+    Settings.interval_time = self.Interval_spinBox.value()
+
 
 def ISD_Change(self):
     Settings.duration = self.ISD_spinBox.value()

@@ -47,6 +47,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.rotate_pushButton.clicked.connect(
             lambda: Functions.rotate_image(self))
 
+        self.startInterval_pushButton.clicked.connect(
+            lambda: Call_Thread.start_interval(self))
+        self.Interval_spinBox.valueChanged.connect(
+            lambda: Functions.interval_Change(self))
+
         self.confirmCycle_pushButton.clicked.connect(
             lambda: Call_Thread.start_cycle(self))
         self.onCycle_spinBox.valueChanged.connect(
