@@ -64,7 +64,7 @@ def start_interval(self):
         except Exception as e:
             print(e, "interval failure, please contact Jerry for support")
     else:
-        Settings.Interval_running = False
+        Settings.interval_running = False
 
 def start_timelapse(self):
 
