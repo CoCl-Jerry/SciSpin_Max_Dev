@@ -15,6 +15,7 @@ def cycle_end(self):
 
 def interval_start(self):
     self.startInterval_pushButton.setText("TERMINATE SEQUENCE")
+    Settings.interval_running = True
 
 def interval_end(self):
     self.startInterval_pushButton.setText("START SEQUENCE")
