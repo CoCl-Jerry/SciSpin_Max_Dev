@@ -1,7 +1,29 @@
+import General
+
 import os
+import subprocess
 import Settings
 import Commands
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
+from PyQt5.QtGui import
+
+
+def init(self):
+    # -------------------------- check camera connection ------------------------- #
+    output = subprocess.check_output(["ip", "addr", "show"])
+    if "peer" in str(output):
+        General.camera_status = True
+        self.camera_status_value_label.setText()
+    else:
+        General.camera_status = False
+
+    filesystem = os.statvfs("/")
+    free_space = filesystem.f_bsize * filesystem.f_bavail
+    free_space_mb = free_space / (1024 * 1024)
+    if free_space_mb < 500:
+        General.storage_critical_error = True
+        error_UI_update(self)
+        print("remaining storage space:" + str(free_space_mb))
 
 
 # def cycle_start(self):
