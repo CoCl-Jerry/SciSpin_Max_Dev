@@ -12,7 +12,6 @@ import adafruit_bme280
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
-from picamera import PiCamera
 
 
 # class Cycle(QThread):

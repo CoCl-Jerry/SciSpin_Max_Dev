@@ -5,7 +5,6 @@ import subprocess
 import Settings
 import Commands
 from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
-from PyQt5.QtGui import
 
 
 def init(self):
