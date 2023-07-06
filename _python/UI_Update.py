@@ -13,6 +13,9 @@ from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
 
 
 def system_status_check(self):
+    self.main_update_status_pushButton.setEnabled(
+        False)  # Disable update button
+
     # --------------------------- check core connection -------------------------- #
     if Functions.check_ip_connection(General.core_address):
         self.main_core_status_value_label.setPalette(General.palette_green)
@@ -58,6 +61,8 @@ def system_status_check(self):
         self.main_drive_capacity_value_label.setPalette(General.palette_green)
         self.main_drive_capacity_value_label.setText(
             formatted_free_space + "GB")
+
+    self.main_update_status_pushButton.setEnabled(True)  # Enable update button
 
 # def init(self):
 #     # --------------------------- check core connection -------------------------- #
