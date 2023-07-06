@@ -24,7 +24,7 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="main_image_label">
+   <widget class="QLabel" name="Main_image_label">
     <property name="geometry">
      <rect>
       <x>659</x>
@@ -67,11 +67,11 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="Lighting_tab">
+    <widget class="QWidget" name="main_lighting_tab">
      <attribute name="title">
       <string>LIGHTING</string>
      </attribute>
-     <widget class="QFrame" name="frame_2">
+     <widget class="QFrame" name="lighting_MISC_frame">
       <property name="geometry">
        <rect>
         <x>430</x>
@@ -97,21 +97,21 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_18">
         <item>
-         <widget class="QLabel" name="power_cycle_texy_label">
+         <widget class="QLabel" name="lighting_power_cycle_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Power Cycle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Power Cycle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="on_duration_text_label">
+         <widget class="QLabel" name="lighting_on_duration_text_label">
           <property name="text">
            <string>On Duration:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="on_duration_value_spinBox">
+         <widget class="QSpinBox" name="lighting_on_duration_value_spinBox">
           <property name="suffix">
            <string> min</string>
           </property>
@@ -127,14 +127,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="off_duration_text_label">
+         <widget class="QLabel" name="lighting_off_duration_text_label">
           <property name="text">
            <string>Off Duration:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="off_duration_value_spinBox">
+         <widget class="QSpinBox" name="lighting_off_duration_value_spinBox">
           <property name="suffix">
            <string> min</string>
           </property>
@@ -150,7 +150,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="confirm_cycle_pushButton">
+         <widget class="QPushButton" name="lighting_confirm_cycle_pushButton">
           <property name="toolTip">
            <string>All LEDs are toggled at the end of each cycle</string>
           </property>
@@ -173,14 +173,14 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="fan_speed_text_label">
+         <widget class="QLabel" name="lighting_core_fan_speed_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Core Fan Speed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Core Fan Speed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="fan_speed_horizontalSlider">
+         <widget class="QSlider" name="lighting_core_fan_speed_horizontalSlider">
           <property name="maximum">
            <number>100</number>
           </property>
@@ -193,21 +193,21 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="fan_speed_value_label">
+         <widget class="QLabel" name="lighting_core_fan_speed_value_label">
           <property name="text">
            <string>Speed: 50%</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="fan_speed_text_label_2">
+         <widget class="QLabel" name="lighting_controller_fan_speed_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Controller Fan Speed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Controller Fan Speed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="fan_speed_horizontalSlider_2">
+         <widget class="QSlider" name="lighting_controller_fan_speed_horizontalSlider">
           <property name="maximum">
            <number>100</number>
           </property>
@@ -220,7 +220,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="fan_speed_value_label_2">
+         <widget class="QLabel" name="lighting_controller_fan_speed_value_label">
           <property name="text">
            <string>Speed: 50%</string>
           </property>
@@ -240,7 +240,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="IR_status_pushButton">
+         <widget class="QPushButton" name="lighting_IR_toggle_pushButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -256,7 +256,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="infrared_imaging_checkBox">
+         <widget class="QCheckBox" name="lighting_automatic_IR_imaging_checkBox">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -270,14 +270,14 @@
            <string>Briefly switch off all visible light LEDs and toggle on infrared LEDs during imaging, light is restored afterwards (coming soon...)</string>
           </property>
           <property name="text">
-           <string>Auto IR Imaging</string>
+           <string>Automatic IR Imaging</string>
           </property>
          </widget>
         </item>
        </layout>
       </widget>
      </widget>
-     <widget class="QTabWidget" name="tabWidget_2">
+     <widget class="QTabWidget" name="lighting_source_tabWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -289,11 +289,11 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="tab_3">
+      <widget class="QWidget" name="lighting_halo_tab">
        <attribute name="title">
         <string>HALO</string>
        </attribute>
-       <widget class="QLabel" name="core_image_label">
+       <widget class="QLabel" name="lighting_halo_image_label">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -319,13 +319,13 @@
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_4">
+      <widget class="QWidget" name="lighting_ring_tab">
        <attribute name="title">
         <string>RING</string>
        </attribute>
       </widget>
      </widget>
-     <widget class="QFrame" name="LED_frame">
+     <widget class="QFrame" name="lighting_LED_frame">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -351,7 +351,7 @@
        </property>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="7" column="1">
-         <widget class="QSpinBox" name="red_value_spinBox">
+         <widget class="QSpinBox" name="lighting_red_value_spinBox">
           <property name="toolTip">
            <string>Red Color Intensity</string>
           </property>
@@ -367,21 +367,21 @@
          </widget>
         </item>
         <item row="2" column="0" colspan="2">
-         <widget class="QLabel" name="start_LED_text_label">
+         <widget class="QLabel" name="lighting_start_LED_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Start LED&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="6" column="0" colspan="5">
-         <widget class="QLabel" name="color_settings_text_label">
+         <widget class="QLabel" name="lighting_color_settings_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Color Settings: [0,255]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="8" column="3">
-         <widget class="QSpinBox" name="white_value_spinBox">
+         <widget class="QSpinBox" name="lighting_white_value_spinBox">
           <property name="toolTip">
            <string>Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs</string>
           </property>
@@ -394,7 +394,7 @@
          </widget>
         </item>
         <item row="7" column="3">
-         <widget class="QSpinBox" name="green_value_spinBox">
+         <widget class="QSpinBox" name="lighting_green_value_spinBox">
           <property name="toolTip">
            <string>Green Color Intensity</string>
           </property>
@@ -407,28 +407,28 @@
          </widget>
         </item>
         <item row="8" column="0">
-         <widget class="QLabel" name="blue_text_label">
+         <widget class="QLabel" name="lighting_blue_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Blue:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="0" column="0" rowspan="2" colspan="5">
-         <widget class="QLabel" name="LED_settings_text_label">
+         <widget class="QLabel" name="lighting_LED_settings_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;LED Settings: [1,130]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="2" column="2" colspan="2">
-         <widget class="QLabel" name="end_LED_text_label">
+         <widget class="QLabel" name="lighting_end_LED_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;End LED&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="3" column="0" rowspan="2" colspan="2">
-         <widget class="QSpinBox" name="start_LED_value_spinBox">
+         <widget class="QSpinBox" name="lighting_start_LED_value_spinBox">
           <property name="toolTip">
            <string>The first LED that you wish to control [1,85]</string>
           </property>
@@ -444,7 +444,7 @@
          </widget>
         </item>
         <item row="8" column="4">
-         <widget class="QPushButton" name="LED_confirm_pushButton">
+         <widget class="QPushButton" name="lighting_LED_confirm_pushButton">
           <property name="toolTip">
            <string>Confirm current light settings.</string>
           </property>
@@ -454,7 +454,7 @@
          </widget>
         </item>
         <item row="7" column="0">
-         <widget class="QLabel" name="red_text_label">
+         <widget class="QLabel" name="lighting_red_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Red:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -468,7 +468,7 @@
          </widget>
         </item>
         <item row="7" column="4">
-         <widget class="QPushButton" name="LED_reset_pushButton">
+         <widget class="QPushButton" name="lighting_LED_reset_pushButton">
           <property name="toolTip">
            <string>Turn off all LEDs and restore settings to default.</string>
           </property>
@@ -478,28 +478,28 @@
          </widget>
         </item>
         <item row="7" column="2">
-         <widget class="QLabel" name="green_text_label">
+         <widget class="QLabel" name="lighting_green_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Green:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="2" column="4">
-         <widget class="QLabel" name="power_output_text_label">
+         <widget class="QLabel" name="lighting_brightness_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Power Output&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Brightness&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="8" column="2">
-         <widget class="QLabel" name="White_text_label">
+         <widget class="QLabel" name="lighting_white_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;White:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="3" column="2" rowspan="2" colspan="2">
-         <widget class="QSpinBox" name="end_LED_value_spinBox">
+         <widget class="QSpinBox" name="lighting_end_LED_value_spinBox">
           <property name="toolTip">
            <string>The Last LED that you wish to control [2,86]</string>
           </property>
@@ -518,7 +518,7 @@
          </widget>
         </item>
         <item row="8" column="1">
-         <widget class="QSpinBox" name="blue_value_spinBox">
+         <widget class="QSpinBox" name="lighting_blue_value_spinBox">
           <property name="toolTip">
            <string>Blue Color Intensity</string>
           </property>
@@ -531,21 +531,24 @@
          </widget>
         </item>
         <item row="3" column="4" rowspan="2">
-         <widget class="QSpinBox" name="power_output_value_spinBox">
+         <widget class="QSpinBox" name="lighting_brightness_value_spinBox">
           <property name="toolTip">
            <string>Power output of all visible light LEDs, internal temperature may rise if both the number of LEDs and the brightness are set high</string>
           </property>
           <property name="suffix">
+           <string> %</string>
+          </property>
+          <property name="prefix">
            <string/>
           </property>
           <property name="minimum">
            <number>0</number>
           </property>
           <property name="maximum">
-           <number>255</number>
+           <number>100</number>
           </property>
           <property name="value">
-           <number>100</number>
+           <number>80</number>
           </property>
          </widget>
         </item>
@@ -553,7 +556,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="Frame_tab">
+    <widget class="QWidget" name="main_motion_tab">
      <attribute name="title">
       <string>MOTION</string>
      </attribute>
@@ -568,7 +571,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_10">
        <item row="4" column="0">
-        <widget class="QPushButton" name="motor1_reverse_pushButton">
+        <widget class="QPushButton" name="motion_frame_motor_reverse_pushButton">
          <property name="toolTip">
           <string>Reverse rotation direction</string>
          </property>
@@ -588,7 +591,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QDoubleSpinBox" name="motor1_value_spinBox">
+        <widget class="QDoubleSpinBox" name="motion_frame_motor_value_spinBox">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -625,14 +628,14 @@
         </widget>
        </item>
        <item row="0" column="0" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="Motor1_text_label">
+        <widget class="QLabel" name="motion_frame_motor_text_label">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Frame Motor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item row="2" column="2" rowspan="3">
-        <widget class="QPushButton" name="link_pushButton">
+        <widget class="QPushButton" name="motion_link_toggle_pushButton">
          <property name="toolTip">
           <string>Sync or desync motor controls</string>
          </property>
@@ -655,7 +658,7 @@
         </widget>
        </item>
        <item row="4" column="4">
-        <widget class="QPushButton" name="motor2_reverse_pushButton">
+        <widget class="QPushButton" name="motion_core_motor_reverse_pushButton">
          <property name="toolTip">
           <string>Reverse rotation direction</string>
          </property>
@@ -675,7 +678,7 @@
         </widget>
        </item>
        <item row="1" column="0" alignment="Qt::AlignHCenter">
-        <widget class="QSlider" name="motor1_verticalSlider">
+        <widget class="QSlider" name="motion_frame_motor_value_verticalSlider">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -715,7 +718,7 @@
         </widget>
        </item>
        <item row="1" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QSlider" name="motor2_verticalSlider">
+        <widget class="QSlider" name="motion_core_motor_value_verticalSlider">
          <property name="minimum">
           <number>2</number>
          </property>
@@ -749,7 +752,7 @@
         </widget>
        </item>
        <item row="3" column="4">
-        <widget class="QPushButton" name="motor2_value_spinBox_2">
+        <widget class="QPushButton" name="motion_core_motor_enable_pushButton">
          <property name="toolTip">
           <string>Enable or disable motor driver</string>
          </property>
@@ -759,14 +762,14 @@
         </widget>
        </item>
        <item row="0" column="4">
-        <widget class="QLabel" name="motor2_label">
+        <widget class="QLabel" name="motion_core_motor_text_label">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Core Motor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QPushButton" name="motor1_enable_pushButton">
+        <widget class="QPushButton" name="motion_frame_motor_enable_pushButton">
          <property name="toolTip">
           <string>Enable or disable motor driver</string>
          </property>
@@ -776,7 +779,7 @@
         </widget>
        </item>
        <item row="2" column="4">
-        <widget class="QDoubleSpinBox" name="motor2_value_spinBox">
+        <widget class="QDoubleSpinBox" name="motion_core_motor_value_spinBox">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -851,7 +854,7 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="Imaging_tab">
+    <widget class="QWidget" name="main_imaging_tab">
      <attribute name="title">
       <string>IMAGING</string>
      </attribute>
@@ -861,7 +864,7 @@
         <x>10</x>
         <y>280</y>
         <width>601</width>
-        <height>171</height>
+        <height>151</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -876,10 +879,17 @@
          <x>10</x>
          <y>10</y>
          <width>581</width>
-         <height>151</height>
+         <height>131</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
+        <item row="6" column="3" colspan="2">
+         <widget class="QRadioButton" name="imaging_PNG_radioButton">
+          <property name="text">
+           <string>.PNG</string>
+          </property>
+         </widget>
+        </item>
         <item row="2" column="3" colspan="2">
          <widget class="Line" name="line_9">
           <property name="orientation">
@@ -887,24 +897,22 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="3">
-         <widget class="QSpinBox" name="y_resolution_value_spinBox">
-          <property name="suffix">
-           <string> px</string>
+        <item row="0" column="2">
+         <widget class="QLabel" name="imaging_image_resolution_text_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
-          <property name="minimum">
-           <number>50</number>
-          </property>
-          <property name="maximum">
-           <number>2464</number>
-          </property>
-          <property name="value">
-           <number>2464</number>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="imaging_xAxis_value_label">
+          <property name="text">
+           <string>Zoom Axis A: 0.00</string>
           </property>
          </widget>
         </item>
         <item row="6" column="0" colspan="2">
-         <widget class="QRadioButton" name="JPG_radioButton">
+         <widget class="QRadioButton" name="imaging_JPG_radioButton">
           <property name="text">
            <string>.JPG</string>
           </property>
@@ -913,48 +921,25 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="2">
-         <widget class="QLabel" name="CoreCtr_label_6">
+        <item row="1" column="4">
+         <widget class="QLabel" name="imaging_y_resolution_range_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QSpinBox" name="x_resolution_value_spinBox">
-          <property name="suffix">
-           <string> px</string>
-          </property>
-          <property name="minimum">
-           <number>50</number>
-          </property>
-          <property name="maximum">
-           <number>3240</number>
-          </property>
-          <property name="value">
-           <number>2464</number>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="x_resolution_range_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 3240 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2464 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="4" column="3" rowspan="2" colspan="2">
-         <widget class="Line" name="line_11">
+        <item row="2" column="0" colspan="2">
+         <widget class="Line" name="line_5">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item row="3" column="3">
-         <widget class="QSlider" name="yAxis_value_horizontalSlider">
+         <widget class="QSlider" name="imaging_yAxis_value_horizontalSlider">
           <property name="toolTip">
            <string>Zoom controls, snapshot is taken when released, useful during focusing</string>
           </property>
@@ -981,36 +966,60 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="2">
-         <widget class="QLabel" name="zoom_comtrol_label">
+        <item row="3" column="4">
+         <widget class="QLabel" name="imaging_yAxis_value_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zoom Control&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Zoom Axis B: 1.00</string>
           </property>
          </widget>
         </item>
-        <item row="6" column="3" colspan="2">
-         <widget class="QRadioButton" name="PNG_radioButton">
+        <item row="1" column="1">
+         <widget class="QLabel" name="imaging_x_resolution_range_text_label">
           <property name="text">
-           <string>.PNG</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 3240 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="4" column="0" rowspan="2" colspan="2">
-         <widget class="Line" name="line_10">
+        <item row="0" column="3" colspan="2">
+         <widget class="Line" name="line_19">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="xAxis_value_label">
+        <item row="2" column="2">
+         <widget class="QLabel" name="imaging_zoom_control_text_label">
           <property name="text">
-           <string>Zoom Axis A: 0.00</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Zoom Control&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2" rowspan="2">
+         <widget class="QLabel" name="imaging_file_format_text_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;File Format&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3" rowspan="2" colspan="2">
+         <widget class="Line" name="line_11">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="CoreCtr_label_6">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item row="3" column="0">
-         <widget class="QSlider" name="xAxis_value_horizontalSlider">
+         <widget class="QSlider" name="imaging_xAxis_value_horizontalSlider">
           <property name="toolTip">
            <string>Zoom controls, snapshot is taken when released, useful during focusing</string>
           </property>
@@ -1025,37 +1034,6 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="0" colspan="2">
-         <widget class="Line" name="line_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <widget class="QLabel" name="y_resolution_range_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2464 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="4">
-         <widget class="QLabel" name="yAxis_value_label">
-          <property name="text">
-           <string>Zoom Axis B: 1.00</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="2" rowspan="2">
-         <widget class="QLabel" name="file_format_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;File Format&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0" colspan="2">
          <widget class="Line" name="line_6">
           <property name="orientation">
@@ -1063,19 +1041,57 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="3" colspan="2">
-         <widget class="Line" name="line_19">
+        <item row="1" column="3">
+         <widget class="QSpinBox" name="imaging_y_resolution_value_spinBox">
+          <property name="suffix">
+           <string> px</string>
+          </property>
+          <property name="minimum">
+           <number>50</number>
+          </property>
+          <property name="maximum">
+           <number>2464</number>
+          </property>
+          <property name="value">
+           <number>2464</number>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0" rowspan="2" colspan="2">
+         <widget class="Line" name="line_10">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="imaging_resolution_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <item row="1" column="0">
+         <widget class="QSpinBox" name="imaging_x_resolution_value_spinBox">
+          <property name="suffix">
+           <string> px</string>
+          </property>
+          <property name="minimum">
+           <number>50</number>
+          </property>
+          <property name="maximum">
+           <number>3240</number>
+          </property>
+          <property name="value">
+           <number>2464</number>
           </property>
          </widget>
+        </item>
+        <item row="7" column="0" colspan="5">
+         <spacer name="verticalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
@@ -1091,7 +1107,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="10" column="0" colspan="2">
-        <widget class="QPushButton" name="selectr_directory_pushButton">
+        <widget class="QPushButton" name="imaging_select_directory_pushButton">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -1104,7 +1120,7 @@
         </widget>
        </item>
        <item row="3" column="0" colspan="2">
-        <widget class="QSpinBox" name="image_capture_interval_value_spinBox">
+        <widget class="QSpinBox" name="imaging_image_capture_interval_value_spinBox">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -1123,7 +1139,7 @@
         </widget>
        </item>
        <item row="5" column="0" colspan="2">
-        <widget class="QSpinBox" name="image_sequence_duration_spinBox">
+        <widget class="QSpinBox" name="imaging_image_sequence_duration_value_spinBox">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -1155,7 +1171,7 @@
         </spacer>
        </item>
        <item row="1" column="0">
-        <widget class="QLineEdit" name="image_sequence_title_value_lineEdit">
+        <widget class="QLineEdit" name="imaging_image_sequence_title_value_lineEdit">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -1185,7 +1201,7 @@
         </widget>
        </item>
        <item row="9" column="0" colspan="2">
-        <widget class="QLabel" name="directory_text_label">
+        <widget class="QLabel" name="imaging_directory_value_label">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -1210,28 +1226,28 @@
         </widget>
        </item>
        <item row="4" column="0" colspan="2">
-        <widget class="QLabel" name="image_sequence_duration_text_label">
+        <widget class="QLabel" name="imaging_image_sequence_duration_text_label">
          <property name="text">
           <string>Image Sequence Duration</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="image_sequence_title_text_label">
+        <widget class="QLabel" name="imaging_image_sequence_title_text_label">
          <property name="text">
           <string>Image Sequence Title</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0" colspan="2">
-        <widget class="QLabel" name="image_capture_interval_text_label">
+        <widget class="QLabel" name="imaging_image_capture_interval_text_label">
          <property name="text">
           <string>Image Capture Interval</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QPushButton" name="add_date_pushButton">
+        <widget class="QPushButton" name="imaging_add_date_pushButton">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1246,60 +1262,86 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>460</y>
+        <y>440</y>
         <width>601</width>
-        <height>51</height>
+        <height>71</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_9">
-       <item row="0" column="0" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="progress_value_Label">
-         <property name="text">
-          <string>Progress: 0 / 1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="next_image_value_label">
-         <property name="text">
-          <string>Next Image: N/A s</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="2">
-        <widget class="QProgressBar" name="progress_progressBar">
+       <item row="2" column="0" colspan="2">
+        <widget class="QProgressBar" name="imaging_progress_progressBar">
          <property name="enabled">
           <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
          <property name="value">
           <number>0</number>
          </property>
         </widget>
        </item>
+       <item row="0" column="1" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="imaging_next_image_value_label">
+         <property name="text">
+          <string>Next Image: N/A s</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="imaging_progress_value_label">
+         <property name="text">
+          <string>Progress: 0 / 1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="imaging_average_file_size_value_label">
+         <property name="text">
+          <string>Average File Size: N/A</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="imaging_calculated_remaining_capacity_value_label">
+         <property name="text">
+          <string>Calculated Remaining Capacity: N/A</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="main_ambient_sensor_tab">
      <attribute name="title">
-      <string>ENVIRONMENT SENSORS</string>
+      <string>AMBIENT SENSORS</string>
      </attribute>
      <widget class="QTabWidget" name="ambient_sensors_tabWidget">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>10</y>
-        <width>591</width>
+        <width>601</width>
         <height>441</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
-      <widget class="QWidget" name="tab_11">
+      <widget class="QWidget" name="ambient_temperature_tab">
        <attribute name="title">
         <string>Temperature Sensor</string>
        </attribute>
-       <widget class="PlotWidget" name="temperature_graphWidget" native="true">
+       <widget class="PlotWidget" name="ambient_temperature_graphWidget" native="true">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1342,7 +1384,7 @@
            </widget>
           </item>
           <item row="0" column="5">
-           <widget class="QDoubleSpinBox" name="temperature_offset_doubleSpinBox">
+           <widget class="QDoubleSpinBox" name="ambient_temperature_offset_value_doubleSpinBox">
             <property name="suffix">
              <string> °C</string>
             </property>
@@ -1354,35 +1396,22 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1" rowspan="2">
-           <widget class="QLabel" name="temperture_text_label">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Current Reading:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="5">
-           <widget class="QPushButton" name="confrim_temperature_offset_pushButton">
+           <widget class="QPushButton" name="ambient_confirm_temperature_offset_pushButton">
             <property name="text">
              <string>Confirm Offset</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2" rowspan="2">
-           <widget class="QLabel" name="temperture_value_label">
+           <widget class="QLabel" name="ambient_temperture_value_label">
             <property name="text">
              <string>N/A °C</string>
             </property>
            </widget>
           </item>
           <item row="0" column="4" rowspan="2">
-           <widget class="QLabel" name="temperture_offset_text_label">
+           <widget class="QLabel" name="ambient_temperture_offset_text_label">
             <property name="minimumSize">
              <size>
               <width>180</width>
@@ -1394,15 +1423,28 @@
             </property>
            </widget>
           </item>
+          <item row="0" column="0" rowspan="2" colspan="2">
+           <widget class="QLabel" name="ambient_temperture_text_label">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Current Reading:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_10">
+      <widget class="QWidget" name="ambient_humidity_tab">
        <attribute name="title">
         <string>Humidity Sensor</string>
        </attribute>
-       <widget class="PlotWidget" name="humidity_graphWidget" native="true">
+       <widget class="PlotWidget" name="ambient_humidity_graphWidget" native="true">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1445,7 +1487,7 @@
            </widget>
           </item>
           <item row="0" column="5">
-           <widget class="QDoubleSpinBox" name="humidity_offset_doubleSpinBox">
+           <widget class="QDoubleSpinBox" name="ambient_humidity_offset_value_doubleSpinBox">
             <property name="suffix">
              <string> %</string>
             </property>
@@ -1457,35 +1499,22 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1" rowspan="2">
-           <widget class="QLabel" name="humidity_text_label">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Current Reading:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="5">
-           <widget class="QPushButton" name="confirm_humidity_offset_pushButton">
+           <widget class="QPushButton" name="ambient_confirm_humidity_offset_pushButton">
             <property name="text">
              <string>Confirm Offset</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2" rowspan="2">
-           <widget class="QLabel" name="humidity_value_label">
+           <widget class="QLabel" name="ambient_humidity_value_label">
             <property name="text">
              <string>N/A %</string>
             </property>
            </widget>
           </item>
           <item row="0" column="4" rowspan="2">
-           <widget class="QLabel" name="humidity_offset_text_label">
+           <widget class="QLabel" name="ambient_humidity_offset_text_label">
             <property name="minimumSize">
              <size>
               <width>180</width>
@@ -1497,15 +1526,28 @@
             </property>
            </widget>
           </item>
+          <item row="0" column="0" rowspan="2" colspan="2">
+           <widget class="QLabel" name="ambient_humidity_text_label">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Current Reading:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_7">
+      <widget class="QWidget" name="ambient_pressure_tab">
        <attribute name="title">
         <string>Pressure Sensor</string>
        </attribute>
-       <widget class="PlotWidget" name="pressure_graphWidget" native="true">
+       <widget class="PlotWidget" name="ambient_pressure_graphWidget" native="true">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1541,21 +1583,21 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="1" column="5">
-           <widget class="QPushButton" name="confirm_pressure_offset_pushButton">
+           <widget class="QPushButton" name="ambient_confirm_pressure_offset_pushButton">
             <property name="text">
              <string>Confirm Offset</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2" rowspan="2">
-           <widget class="QLabel" name="pressure_value_label">
+           <widget class="QLabel" name="ambient_pressure_value_label">
             <property name="text">
              <string>N/A hPa</string>
             </property>
            </widget>
           </item>
           <item row="0" column="4" rowspan="2">
-           <widget class="QLabel" name="pressure_offset_text_label">
+           <widget class="QLabel" name="ambient_pressure_offset_text_label">
             <property name="minimumSize">
              <size>
               <width>180</width>
@@ -1568,7 +1610,7 @@
            </widget>
           </item>
           <item row="0" column="5">
-           <widget class="QDoubleSpinBox" name="pressure_offset_doubleSpinBox">
+           <widget class="QDoubleSpinBox" name="ambient_pressure_offset_value_doubleSpinBox">
             <property name="suffix">
              <string> hPa</string>
             </property>
@@ -1587,8 +1629,8 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1" rowspan="2">
-           <widget class="QLabel" name="pressure_label">
+          <item row="0" column="0" rowspan="2" colspan="2">
+           <widget class="QLabel" name="ambient_pressure_text_label">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1608,15 +1650,15 @@
      <widget class="QWidget" name="gridLayoutWidget_11">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>460</y>
-        <width>591</width>
+        <width>601</width>
         <height>56</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_11">
        <item row="0" column="1">
-        <widget class="QPushButton" name="start_sensors_pushButton">
+        <widget class="QPushButton" name="ambient_start_sensors_pushButton">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -1635,7 +1677,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QPushButton" name="export_sensor_CSV_pushButton">
+        <widget class="QPushButton" name="ambient_export_sensor_CSV_pushButton">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1648,7 +1690,7 @@
         </widget>
        </item>
        <item row="0" column="0" rowspan="2">
-        <widget class="QSpinBox" name="sensor_rate_spinBox">
+        <widget class="QSpinBox" name="ambient_sensor_rate_value_spinBox">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1672,196 +1714,213 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="main_motion_sensor_tab">
      <attribute name="title">
       <string>MOTION SENSORS</string>
      </attribute>
-     <widget class="PlotWidget" name="accelerometer_graphWidget" native="true">
+     <widget class="QTabWidget" name="motion_sensors_tabWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>10</y>
         <width>601</width>
-        <height>381</height>
+        <height>511</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QFrame" name="ambient_o2_frame">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>400</y>
-        <width>601</width>
-        <height>111</height>
-       </rect>
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QWidget" name="gridLayoutWidget_8">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>581</width>
-         <height>91</height>
-        </rect>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_8">
-        <item row="1" column="0">
-         <widget class="QLabel" name="y_axis_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Y Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="4">
-         <widget class="QPushButton" name="export_accelerometer_CSV_pushButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Export CSV File</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="z_axis_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Z Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QLabel" name="z_axis_units_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <widget class="QSpinBox" name="accelerometer_rate_spinBox">
-          <property name="suffix">
-           <string> Samples/min</string>
-          </property>
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>6000</number>
-          </property>
-          <property name="value">
-           <number>600</number>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="x_axis_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;X Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="z_axis_value_label">
-          <property name="text">
-           <string>offline</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QLabel" name="y_axis_units_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="x_axis_value_label">
-          <property name="text">
-           <string>offline</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="x_axis_units_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <widget class="QPushButton" name="start_accelerometer_pushButton">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="toolTip">
-           <string>Start collecting data from soil sensor</string>
-          </property>
-          <property name="text">
-           <string>Start Motion Sensors</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="y_axis_value_label">
-          <property name="text">
-           <string>offline</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3" rowspan="3">
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
+      <widget class="QWidget" name="motion_accelerometer_tab">
+       <attribute name="title">
+        <string>Accelerometer</string>
+       </attribute>
+       <widget class="PlotWidget" name="motion_accelerometer_graphWidget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>581</width>
+          <height>371</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_8">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>390</y>
+          <width>581</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="1" column="0">
+          <widget class="QLabel" name="y_axis_text_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Y Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QPushButton" name="export_accelerometer_CSV_pushButton">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Export CSV File</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="z_axis_text_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Z Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="z_axis_units_text_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QSpinBox" name="accelerometer_rate_spinBox">
+           <property name="suffix">
+            <string> Samples/min</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>6000</number>
+           </property>
+           <property name="value">
+            <number>600</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="x_axis_text_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;X Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="z_axis_value_label">
+           <property name="text">
+            <string>offline</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="y_axis_units_text_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="x_axis_value_label">
+           <property name="text">
+            <string>offline</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="x_axis_units_text_label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="start_accelerometer_pushButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>Start collecting data from soil sensor</string>
+           </property>
+           <property name="text">
+            <string>Start Motion Sensors</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="y_axis_value_label">
+           <property name="text">
+            <string>offline</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" rowspan="3">
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="motion_gyroscope_tab">
+       <attribute name="title">
+        <string>Gyroscope</string>
+       </attribute>
+       <widget class="PlotWidget" name="motion_gyroscope_graphWidget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>581</width>
+          <height>341</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
    </widget>
-   <widget class="QFrame" name="main_camera_frame">
+   <widget class="QFrame" name="main_imaging_frame">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -1890,7 +1949,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_17">
       <item>
-       <widget class="QPushButton" name="snapshot_pushButton">
+       <widget class="QPushButton" name="main_snapshot_pushButton">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -1903,7 +1962,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="preview_pushButton">
+       <widget class="QPushButton" name="main_preview_pushButton">
         <property name="toolTip">
          <string>Takes a image with current settings</string>
         </property>
@@ -1913,7 +1972,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="rotate_pushButton">
+       <widget class="QPushButton" name="main_rotate_pushButton">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -1926,7 +1985,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="start_timelapse_pushButton">
+       <widget class="QPushButton" name="main_start_timelapse_pushButton">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -1990,7 +2049,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="main_MMA8451_status_text_label">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;MMA8451 Status:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Motion Sensor Status:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -2030,7 +2089,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLabel" name="main_BME280_status_value_text_label">
+       <widget class="QLabel" name="main_BME280_status_value_label">
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Offline&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
@@ -2053,7 +2112,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="main_BME280_status_text_label">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;BME280 Status:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Ambient Sensor Status:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
