@@ -39,7 +39,7 @@ def get_remaining_storage():
     disk_usage = psutil.disk_usage('/')
     remaining_bytes = disk_usage.free
     # return remaining_bytes / (1024 ** 3)  # Convert bytes to gigabytes
-    return 3
+    return 1
 
 # def rotate_image(self):
 #     Settings.rotation += 1
