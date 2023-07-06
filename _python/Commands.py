@@ -10,7 +10,7 @@ def reset_MCU():
     Communication.sendCMD("0~")
 
 
-def light_confirm(self):
+def lighting_confirm(self):
     curr_cmd = str(self.lighting_start_LED_value_spinBox.value() - 1) + "~" + str(self.lighting_end_LED_value_spinBox.value()) + "~" + str(self.lighting_red_value_spinBox.value()) + \
         "~" + str(self.lighting_green_value_spinBox.value()) + "~" + \
         str(self.lighting_blue_value_spinBox.value()) + "~" + str(self.lighting_white_value_spinBox.value()) + \
@@ -20,7 +20,7 @@ def light_confirm(self):
     Communication.sendCMD("3~1~" + curr_cmd)
 
 
-def light_reset(self):
+def lighting_reset(self):
     Communication.sendCMD("3~0")
     Communication.sendCMD("3~4~50")
 
