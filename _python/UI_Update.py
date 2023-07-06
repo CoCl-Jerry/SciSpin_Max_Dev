@@ -49,12 +49,12 @@ def system_status_check(self):
     free_space = Functions.get_remaining_storage()
     if free_space < 2:
         self.main_drive_capacity_value_label.setPalette(General.palette_red)
-        self.main_drive_capacity_value_label.setText(free_space + "GB")
+        self.main_drive_capacity_value_label.setText(str(free_space) + "GB")
         self.main_image_label.setPixmap(
             QPixmap(General.storage_critical_error_image))
     else:
         self.main_drive_capacity_value_label.setPalette(General.palette_green)
-        self.main_drive_capacity_value_label.setText(free_space + "GB")
+        self.main_drive_capacity_value_label.setText(str(free_space) + "GB")
 
 # def init(self):
 #     # --------------------------- check core connection -------------------------- #
