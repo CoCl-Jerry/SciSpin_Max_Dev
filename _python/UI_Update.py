@@ -62,7 +62,7 @@ def system_status_check(self):
         self.main_drive_capacity_value_label.setText(
             formatted_free_space + "GB")
 
-    self.main_update_status_pushButton.setEnabled(True)  # Enable update button
+    # self.main_update_status_pushButton.setEnabled(True)  # Enable update button
 
 # def init(self):
 #     # --------------------------- check core connection -------------------------- #
