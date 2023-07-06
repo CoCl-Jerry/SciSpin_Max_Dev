@@ -627,7 +627,7 @@
        <item row="0" column="0" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="Motor1_text_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Motor 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Frame Motor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -761,7 +761,7 @@
        <item row="0" column="4">
         <widget class="QLabel" name="motor2_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Motor 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Core Motor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -859,9 +859,9 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>310</y>
+        <y>280</y>
         <width>601</width>
-        <height>141</height>
+        <height>171</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -876,7 +876,7 @@
          <x>10</x>
          <y>10</y>
          <width>581</width>
-         <height>121</height>
+         <height>151</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
@@ -900,13 +900,6 @@
           </property>
           <property name="value">
            <number>2464</number>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3" colspan="2">
-         <widget class="Line" name="line_19">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
@@ -995,13 +988,6 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="imaging_resolution_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
         <item row="6" column="3" colspan="2">
          <widget class="QRadioButton" name="PNG_radioButton">
           <property name="text">
@@ -1077,6 +1063,20 @@
           </property>
          </widget>
         </item>
+        <item row="0" column="3" colspan="2">
+         <widget class="Line" name="line_19">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="imaging_resolution_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Imaging Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -1086,11 +1086,11 @@
         <x>10</x>
         <y>10</y>
         <width>601</width>
-        <height>291</height>
+        <height>261</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="8" column="0" colspan="2">
+       <item row="10" column="0" colspan="2">
         <widget class="QPushButton" name="selectr_directory_pushButton">
          <property name="enabled">
           <bool>true</bool>
@@ -1100,92 +1100,6 @@
          </property>
          <property name="checkable">
           <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="image_sequence_title_text_label">
-         <property name="text">
-          <string>Image Sequence Title</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" colspan="2">
-        <widget class="Line" name="line_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="2">
-        <widget class="QLabel" name="image_capture_interval_text_label">
-         <property name="text">
-          <string>Image Capture Interval</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="image_sequence_title_value_lineEdit">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="2">
-        <widget class="QSpinBox" name="image_sequence_duration_spinBox">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="suffix">
-          <string> min</string>
-         </property>
-         <property name="minimum">
-          <number>2</number>
-         </property>
-         <property name="maximum">
-          <number>99999999</number>
-         </property>
-         <property name="value">
-          <number>2</number>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0" colspan="2">
-        <widget class="QLabel" name="image_sequence_duration_text_label">
-         <property name="text">
-          <string>Image Sequence Duration</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="add_date_pushButton">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Add Date</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0" colspan="2">
-        <widget class="QLabel" name="directory_text_label">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <property name="text">
-          <string>Sequence Title Required</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -1208,7 +1122,33 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="0" colspan="2">
+       <item row="5" column="0" colspan="2">
+        <widget class="QSpinBox" name="image_sequence_duration_spinBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="suffix">
+          <string> min</string>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>99999999</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0" colspan="2">
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0" colspan="2">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -1220,6 +1160,86 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="image_sequence_title_value_lineEdit">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0" colspan="2">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="7" column="0" colspan="2">
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="2">
+        <widget class="QLabel" name="directory_text_label">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="text">
+          <string>Sequence Title Required</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QLabel" name="image_sequence_duration_text_label">
+         <property name="text">
+          <string>Image Sequence Duration</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="image_sequence_title_text_label">
+         <property name="text">
+          <string>Image Sequence Title</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QLabel" name="image_capture_interval_text_label">
+         <property name="text">
+          <string>Image Capture Interval</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="add_date_pushButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Add Date</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -1274,7 +1294,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -1848,9 +1868,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>870</x>
       <y>370</y>
-      <width>171</width>
+      <width>141</width>
       <height>191</height>
      </rect>
     </property>
@@ -1865,7 +1885,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>151</width>
+       <width>121</width>
        <height>171</height>
       </rect>
      </property>
@@ -1936,7 +1956,7 @@
      <rect>
       <x>660</x>
       <y>370</y>
-      <width>171</width>
+      <width>201</width>
       <height>191</height>
      </rect>
     </property>
@@ -1951,7 +1971,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>151</width>
+       <width>181</width>
        <height>171</height>
       </rect>
      </property>
