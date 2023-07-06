@@ -1293,7 +1293,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -1610,7 +1610,7 @@
        <rect>
         <x>20</x>
         <y>460</y>
-        <width>571</width>
+        <width>591</width>
         <height>56</height>
        </rect>
       </property>
@@ -1682,7 +1682,7 @@
         <x>10</x>
         <y>10</y>
         <width>601</width>
-        <height>391</height>
+        <height>381</height>
        </rect>
       </property>
      </widget>
@@ -1690,7 +1690,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>410</y>
+        <y>400</y>
         <width>601</width>
         <height>111</height>
        </rect>
@@ -1826,7 +1826,7 @@
            <string>Start collecting data from soil sensor</string>
           </property>
           <property name="text">
-           <string>Start Accelerometer</string>
+           <string>Start Motion Sensors</string>
           </property>
          </widget>
         </item>
