@@ -4,25 +4,71 @@ import os
 import subprocess
 import Settings
 import Commands
+import Functions
 from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
 
+# ---------------------------------------------------------------------------- #
+#                              system status check                             #
+# ---------------------------------------------------------------------------- #
 
-def init(self):
-    # -------------------------- check camera connection ------------------------- #
-    output = subprocess.check_output(["ip", "addr", "show"])
-    if "peer" in str(output):
-        General.camera_status = True
-        self.camera_status_value_label.setText()
+
+def system_status_check(self):
+    # --------------------------- check core connection -------------------------- #
+    if Functions.check_ip_connection(General.core_address):
+        self.core_status_value_label.setPalette(General.palette_green)
+        self.core_status_value_label.setText("Online")
     else:
-        General.camera_status = False
+        self.core_status_value_label.setPalette(General.palette_red)
+        self.core_status_value_label.setText("Offline")
+    # --------------------------- check MCU connection --------------------------- #
+    if Functions.check_i2c_device(General.MCU_address):
+        self.MCU_status_value_label.setPalette(General.palette_green)
+        self.MCU_status_value_label.setText("Online")
+    else:
+        self.MCU_status_value_label.setPalette(General.palette_red)
+        self.MCU_status_value_label.setText("Offline")
+    # --------------------------- check ambient sensor connection ---------------- #
+    if Functions.check_i2c_device(General.ambient_sensor_address):
+        self.ambient_sensor_status_value_label.setPalette(
+            General.palette_green)
+        self.ambient_sensor_status_value_label.setText("Online")
+    else:
+        self.ambient_sensor_status_value_label.setPalette(General.palette_red)
+        self.ambient_sensor_status_value_label.setText("Offline")
+    # --------------------------- check motion sensor connection ----------------- #
+    if Functions.check_i2c_device(General.motion_sensor_address):
+        self.motion_sensor_status_value_label.setPalette(General.palette_green)
+        self.motion_sensor_status_value_label.setText("Online")
+    else:
+        self.motion_sensor_status_value_label.setPalette(General.palette_red)
+        self.motion_sensor_status_value_label.setText("Offline")
+    # --------------------------- check storage space ---------------------------- #
+    free_space = Functions.get_remaining_storage()
+    if free_space < 2:
+        self.storage_status_value_label.setPalette(General.palette_red)
+        self.storage_status_value_label.setText(free_space + "GB")
+        self.main_image_label.setPixmap(
+            QPixmap(General.storage_critical_error_image))
+    else:
+        self.storage_status_value_label.setPalette(General.palette_green)
+        self.storage_status_value_label.setText(free_space + "GB")
 
-    filesystem = os.statvfs("/")
-    free_space = filesystem.f_bsize * filesystem.f_bavail
-    free_space_mb = free_space / (1024 * 1024)
-    if free_space_mb < 500:
-        General.storage_critical_error = True
-        error_UI_update(self)
-        print("remaining storage space:" + str(free_space_mb))
+# def init(self):
+#     # --------------------------- check core connection -------------------------- #
+#     output = subprocess.check_output(["ip", "addr", "show"])
+#     if "peer" in str(output):
+#         General.camera_status = True
+#         self.camera_status_value_label.setText()
+#     else:
+#         General.camera_status = False
+
+#     filesystem = os.statvfs("/")
+#     free_space = filesystem.f_bsize * filesystem.f_bavail
+#     free_space_mb = free_space / (1024 * 1024)
+#     if free_space_mb < 500:
+#         General.storage_critical_error = True
+#         error_UI_update(self)
+#         print("remaining storage space:" + str(free_space_mb))
 
 
 # def cycle_start(self):

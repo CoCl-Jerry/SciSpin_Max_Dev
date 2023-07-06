@@ -5,9 +5,40 @@ import timeit
 import Call_Thread
 import socket
 import os
+import psutil
+import subprocess
+import smbus
 
 from PyQt5.QtWidgets import QFileDialog
 
+
+def check_ip_connection(ip_address):
+    # Send a ping request to the IP address
+    result = subprocess.call(['ping', '-c', '1', '-W', '1', ip_address],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    # Check the result of the ping command
+    if result == 0:
+        return True
+    else:
+        return False
+
+
+def check_i2c_device(address):
+    # Define the I2C bus number (typically 1 for Raspberry Pi)
+    bus = smbus.SMBus(1)
+
+    try:
+        bus.read_byte(address)  # Try to read a byte from the device address
+        return True
+    except IOError:
+        return False
+
+
+def get_remaining_storage():
+    disk_usage = psutil.disk_usage('/')
+    remaining_bytes = disk_usage.free
+    return remaining_bytes / (1024 ** 3)  # Convert bytes to gigabytes
 
 # def rotate_image(self):
 #     Settings.rotation += 1
