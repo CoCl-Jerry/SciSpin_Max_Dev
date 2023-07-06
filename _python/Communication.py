@@ -1,4 +1,4 @@
-import smbus  # type: ignore
+import smbus
 
 # ------------------ for sending i2c commands to the arduino ----------------- #
 # def sendCMD(cont):
@@ -46,10 +46,6 @@ def sendCMD(cont):
     except Exception as e:
         # General.communication_error = True
         print("An unexpected error occurred:", e)
-
-
-# Example usage
-sendCMD("Hello, World!")
 
 
 def reset_arduino():
