@@ -1,4 +1,4 @@
-import Settings
+import General
 import Commands
 import Threads
 import UI_Update
@@ -24,8 +24,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #                                 initialzation                                #
 # ---------------------------------------------------------------------------- #
 
-
-        Settings.init()
+        UI_Update.system_status_check(self)
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
 

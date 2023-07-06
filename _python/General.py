@@ -17,18 +17,8 @@ camera_error_image = QImage("../_image/camera_error.png")
 storage_critical_error_image = QImage("../_image/storage_critical_error.png")
 
 # ---------------------------------------------------------------------------- #
-#                      start of system status declarations                     #
+#                      system status address declarations                      #
 # ---------------------------------------------------------------------------- #
-core_status = False
-
-MCU_status = False
-
-ambient_sensor_status = False
-
-motion_sensor_status = False
-
-storage_remaining = "N/A"
-
 core_address = '10.0.5.1'
 
 MCU_address = 0x08
