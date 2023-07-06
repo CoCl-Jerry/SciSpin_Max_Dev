@@ -15,43 +15,46 @@ from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
 def system_status_check(self):
     # --------------------------- check core connection -------------------------- #
     if Functions.check_ip_connection(General.core_address):
-        self.core_status_value_label.setPalette(General.palette_green)
-        self.core_status_value_label.setText("Online")
+        self.main_core_status_value_label.setPalette(General.palette_green)
+        self.main_core_status_value_label.setText("Online")
     else:
-        self.core_status_value_label.setPalette(General.palette_red)
-        self.core_status_value_label.setText("Offline")
+        self.main_core_status_value_label.setPalette(General.palette_red)
+        self.main_core_status_value_label.setText("Offline")
     # --------------------------- check MCU connection --------------------------- #
     if Functions.check_i2c_device(General.MCU_address):
-        self.MCU_status_value_label.setPalette(General.palette_green)
-        self.MCU_status_value_label.setText("Online")
+        self.main_MCU_status_value_label.setPalette(General.palette_green)
+        self.main_MCU_status_value_label.setText("Online")
     else:
-        self.MCU_status_value_label.setPalette(General.palette_red)
-        self.MCU_status_value_label.setText("Offline")
+        self.main_MCU_status_value_label.setPalette(General.palette_red)
+        self.main_MCU_status_value_label.setText("Offline")
     # --------------------------- check ambient sensor connection ---------------- #
     if Functions.check_i2c_device(General.ambient_sensor_address):
-        self.ambient_sensor_status_value_label.setPalette(
+        self.main_ambient_sensor_status_value_label.setPalette(
             General.palette_green)
-        self.ambient_sensor_status_value_label.setText("Online")
+        self.main_ambient_sensor_status_value_label.setText("Online")
     else:
-        self.ambient_sensor_status_value_label.setPalette(General.palette_red)
-        self.ambient_sensor_status_value_label.setText("Offline")
+        self.main_ambient_sensor_status_value_label.setPalette(
+            General.palette_red)
+        self.main_ambient_sensor_status_value_label.setText("Offline")
     # --------------------------- check motion sensor connection ----------------- #
     if Functions.check_i2c_device(General.motion_sensor_address):
-        self.motion_sensor_status_value_label.setPalette(General.palette_green)
-        self.motion_sensor_status_value_label.setText("Online")
+        self.main_motion_sensor_status_value_label.setPalette(
+            General.palette_green)
+        self.main_motion_sensor_status_value_label.setText("Online")
     else:
-        self.motion_sensor_status_value_label.setPalette(General.palette_red)
-        self.motion_sensor_status_value_label.setText("Offline")
+        self.main_motion_sensor_status_value_label.setPalette(
+            General.palette_red)
+        self.main_motion_sensor_status_value_label.setText("Offline")
     # --------------------------- check storage space ---------------------------- #
     free_space = Functions.get_remaining_storage()
     if free_space < 2:
-        self.storage_status_value_label.setPalette(General.palette_red)
-        self.storage_status_value_label.setText(free_space + "GB")
+        self.main_drive_capacity_value_label.setPalette(General.palette_red)
+        self.main_drive_capacity_value_label.setText(free_space + "GB")
         self.main_image_label.setPixmap(
             QPixmap(General.storage_critical_error_image))
     else:
-        self.storage_status_value_label.setPalette(General.palette_green)
-        self.storage_status_value_label.setText(free_space + "GB")
+        self.main_drive_capacity_value_label.setPalette(General.palette_green)
+        self.main_drive_capacity_value_label.setText(free_space + "GB")
 
 # def init(self):
 #     # --------------------------- check core connection -------------------------- #
