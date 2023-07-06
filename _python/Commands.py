@@ -1,22 +1,23 @@
-import Settings
+import General
+import Communication
 import socket
 import UI_Update
 import decimal
 from time import sleep
 
 
-# def init():
-#     Settings.sendCMD("0~")
+def reset_MCU():
+    Communication.sendCMD("0~")
 
 
-# def light_confirm(self):
-#     curr_cmd = str(self.Start_spinBox.value() - 1) + "~" + str(self.End_spinBox.value() - 1) + "~" + str(self.R_spinBox.value()) + \
-#         "~" + str(self.G_spinBox.value()) + "~" + \
-#         str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value()) + \
-#         "~" + str(self.BRT_spinBox.value()) + "\n"
-#     Settings.commands_list.append(curr_cmd)
+def light_confirm(self):
+    curr_cmd = str(self.lighting_start_LED_value_spinBox.value() - 1) + "~" + str(self.lighting_end_LED_value_spinBox.value() - 1) + "~" + str(self.lighting_red_value_spinBox.value()) + \
+        "~" + str(self.lighting_green_value_spinBox.value()) + "~" + \
+        str(self.lighting_blue_value_spinBox.value()) + "~" + str(self.lighting_white_value_spinBox.value()) + \
+        "~" + str(self.lighting_brightness_value_spinBox.value()) + "\n"
+    General.commands_list.append(curr_cmd)
 
-#     Settings.sendCMD("3~1~" + curr_cmd)
+    Communication.sendCMD("3~1~" + curr_cmd)
 
 
 # def light_reset(self):

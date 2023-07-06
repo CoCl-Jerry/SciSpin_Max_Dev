@@ -510,10 +510,10 @@
            <number>2</number>
           </property>
           <property name="maximum">
-           <number>86</number>
+           <number>130</number>
           </property>
           <property name="value">
-           <number>86</number>
+           <number>130</number>
           </property>
          </widget>
         </item>
@@ -1228,21 +1228,21 @@
        <item row="4" column="0" colspan="2">
         <widget class="QLabel" name="imaging_image_sequence_duration_text_label">
          <property name="text">
-          <string>Image Sequence Duration</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Sequence Duration&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="imaging_image_sequence_title_text_label">
          <property name="text">
-          <string>Image Sequence Title</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Sequence Title&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0" colspan="2">
         <widget class="QLabel" name="imaging_image_capture_interval_text_label">
          <property name="text">
-          <string>Image Capture Interval</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Capture Interval&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>

@@ -143,9 +143,6 @@ def init():
     global trasmitted
     trasmitted = 0
 
-    global commands_list
-    commands_list = []
-
     global timelapse_running
     timelapse_running = False
 
