@@ -219,7 +219,7 @@ class Ui_MainWindow(object):
         self.lighting_brightness_value_spinBox.setPrefix("")
         self.lighting_brightness_value_spinBox.setMinimum(0)
         self.lighting_brightness_value_spinBox.setMaximum(100)
-        self.lighting_brightness_value_spinBox.setProperty("value", 80)
+        self.lighting_brightness_value_spinBox.setProperty("value", 50)
         self.lighting_brightness_value_spinBox.setObjectName("lighting_brightness_value_spinBox")
         self.gridLayout_3.addWidget(self.lighting_brightness_value_spinBox, 3, 4, 2, 1)
         self.main_tabWidget.addTab(self.main_lighting_tab, "")

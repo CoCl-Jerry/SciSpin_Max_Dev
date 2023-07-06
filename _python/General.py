@@ -7,7 +7,7 @@ palette_red = QPalette()
 palette_red.setColor(QPalette.WindowText, QColor(255, 0, 0))
 
 palette_green = QPalette()
-palette_green.setColor(QPalette.WindowText, QColor(0, 255, 0))
+palette_green.setColor(QPalette.WindowText, QColor(0, 100, 0))
 
 # ---------------------------------------------------------------------------- #
 #                       start of error image declarations                      #

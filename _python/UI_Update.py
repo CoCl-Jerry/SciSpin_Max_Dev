@@ -2,7 +2,6 @@ import General
 
 import os
 import subprocess
-import Settings
 import Commands
 import Functions
 from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
@@ -63,6 +62,22 @@ def system_status_check(self):
             formatted_free_space + "GB")
 
     self.main_update_status_pushButton.setEnabled(True)  # Enable update button
+
+# ---------------------------------------------------------------------------- #
+#                           lighting UI manipulations                          #
+# ---------------------------------------------------------------------------- #
+
+
+def lighting_reset(self):
+    self.lighting_start_LED_value_spinBox.setValue(1)
+    self.lighting_end_LED_value_spinBox.setValue(130)
+    self.lighting_brightness_value_spinBox.setValue(50)
+
+    self.lighting_red_value_spinBox.setValue(100)
+    self.lighting_green_value_spinBox.setValue(0)
+    self.lighting_blue_value_spinBox.setValue(0)
+    self.lighting_white_value_spinBox.setValue(0)
+    General.commands_list.clear()
 
 # def init(self):
 #     # --------------------------- check core connection -------------------------- #
