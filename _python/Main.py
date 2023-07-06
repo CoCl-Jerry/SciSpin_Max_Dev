@@ -10,7 +10,6 @@ import time
 import sys
 
 from PyQt5.QtWidgets import QMainWindow, QApplication
-from PyQt5.QtCore import QTimer
 
 import Clinostat_UI
 
@@ -24,8 +23,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 # ---------------------------------------------------------------------------- #
 #                                 initialzation                                #
 # ---------------------------------------------------------------------------- #
-        QTimer.singleShot(500, UI_Update.system_status_check(self))
-        # UI_Update.system_status_check(self)
+        UI_Update.system_status_check(self)
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
 
