@@ -24,7 +24,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         UI_Update.system_status_check(self)
 # ------------------------------ Main UI signals ----------------------------- #
         self.main_update_status_pushButton.clicked.connect(
-            UI_Update.system_status_check(self))
+            lambda: UI_Update.system_status_check(self))
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
 
