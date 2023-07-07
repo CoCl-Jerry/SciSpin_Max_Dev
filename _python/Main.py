@@ -19,10 +19,10 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
     def __init__(self):
         super(self.__class__, self).__init__()
         self.setupUi(self)
-        Commands.reset_MCU()
 
 # ------------------------------- initialzation ------------------------------ #
         UI_Update.system_status_check(self)
+        Commands.reset_MCU()
 # ------------------------------ Main UI signals ----------------------------- #
         self.main_update_status_pushButton.clicked.connect(
             lambda: UI_Update.system_status_check(self))
@@ -33,6 +33,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Commands.lighting_confirm(self))
         self.lighting_LED_reset_pushButton.clicked.connect(
             lambda: Commands.lighting_reset(self))
+        self.lighting_source_tabWidget.currentChanged.connect(
+            lambda: UI_Update.lighting_source_update(self))
 
 
 #         Call_Thread.sensor_init(self)

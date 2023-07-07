@@ -79,6 +79,14 @@ def lighting_reset(self):
     self.lighting_white_value_spinBox.setValue(0)
     General.commands_list.clear()
 
+def lighting_source_update(self):
+    Commands.lighting_reset(self)
+    if self.lighting_source_tabWidget.currentIndex() == 0:
+        self.lighting_LED_settings_text_label.setText("<html><head/><body><p align="center"><span style=" font-weight:700;">LED Settings: [1,90]</span></p></body></html>")
+    else:
+        self.lighting_LED_settings_text_label.setText("<html><head/><body><p align="center"><span style=" font-weight:700;">LED Settings: [1,40]</span></p></body></html>")
+
+
 # def init(self):
 #     # --------------------------- check core connection -------------------------- #
 #     output = subprocess.check_output(["ip", "addr", "show"])
