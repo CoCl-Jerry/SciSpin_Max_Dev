@@ -69,23 +69,35 @@ def system_status_check(self):
 
 
 def lighting_reset(self):
-    self.lighting_start_LED_value_spinBox.setValue(1)
-    self.lighting_end_LED_value_spinBox.setValue(130)
     self.lighting_brightness_value_spinBox.setValue(50)
 
     self.lighting_red_value_spinBox.setValue(100)
     self.lighting_green_value_spinBox.setValue(0)
     self.lighting_blue_value_spinBox.setValue(0)
     self.lighting_white_value_spinBox.setValue(0)
+
     General.commands_list.clear()
 
 
 def lighting_source_update(self):
     Commands.lighting_reset(self)
+    lighting_reset(self)
     if self.lighting_source_tabWidget.currentIndex() == 0:
+        self.lighting_start_LED_value_spinBox.setMaximum(89)
+        self.lighting_end_LED_value_spinBox.setMaximum(90)
+
+        self.lighting_start_LED_value_spinBox.setValue(1)
+        self.lighting_end_LED_value_spinBox.setValue(90)
+
         self.lighting_LED_settings_text_label.setText(
             "<html><head/><body><p align="'center'"><span style="' font-weight:700;'">LED Settings: [1,90]</span></p></body></html>")
     else:
+        self.lighting_start_LED_value_spinBox.setMaximum(39)
+        self.lighting_end_LED_value_spinBox.setMaximum(40)
+
+        self.lighting_start_LED_value_spinBox.setValue(1)
+        self.lighting_end_LED_value_spinBox.setValue(40)
+
         self.lighting_LED_settings_text_label.setText(
             "<html><head/><body><p align="'center'"><span style="' font-weight:700;'">LED Settings: [1,40]</span></p></body></html>")
 
