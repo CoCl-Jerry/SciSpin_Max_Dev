@@ -1,4 +1,4 @@
-import Settings
+import General
 import Functions
 import UI_Update
 import Threads
@@ -6,6 +6,26 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import PyQt5
 
 import os
+
+
+def start_cycle(self):
+    General.on_duration = self.lighting_on_duration_value_spinBox.value()
+    General.off_duration = self.lighting_off_duration_value_spinBox.value()
+
+    if not General.cycle_running:
+        try:
+            self.Cycle_Thread = Threads.Cycle()
+            self.Cycle_Thread.started.connect(
+                lambda: UI_Update.cycle_start(self))
+            self.Cycle_Thread.finished.connect(
+                lambda: UI_Update.cycle_end(self))
+
+            self.Cycle_Thread.start()
+
+        except Exception as e:
+            print(e, "cycle failure, please contact Jerry for support")
+    else:
+        General.cycle_running = False
 
 
 # def start_snapshot(self):
@@ -31,23 +51,6 @@ import os
 #         lambda: UI_Update.preview_complete(self))
 
 #     self.Preview_Thread.start()
-
-
-# def start_cycle(self):
-#     if not Settings.cycle_running:
-#         try:
-#             self.Cycle_Thread = Threads.Cycle()
-#             self.Cycle_Thread.started.connect(
-#                 lambda: UI_Update.cycle_start(self))
-#             self.Cycle_Thread.finished.connect(
-#                 lambda: UI_Update.cycle_end(self))
-
-#             self.Cycle_Thread.start()
-
-#         except Exception as e:
-#             print(e, "cycle failure, please contact Jerry for support")
-#     else:
-#         Settings.cycle_running = False
 
 
 # def start_timelapse(self):

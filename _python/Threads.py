@@ -14,42 +14,42 @@ from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
 
 
-# class Cycle(QThread):
+class Cycle(QThread):
 
-#     def __init__(self):
-#         QThread.__init__(self)
+    def __init__(self):
+        QThread.__init__(self)
 
-#     def __del__(self):
-#         self._running = False
+    def __del__(self):
+        self._running = False
 
-#     def run(self):
-#         Commands.extract_lights()
-#         on_stat = False
-#         sleep(5)
-#         Commands.deploy_lights()
-#         on_stat = True
+    def run(self):
+        Commands.extract_lights()
+        on_stat = False
+        sleep(5)
+        Commands.deploy_lights()
+        on_stat = True
 
-#         while True:
-#             if on_stat:
-#                 for x in range(Settings.on_time * 60):
-#                     sleep(1)
+        while True:
+            if on_stat:
+                for x in range(Settings.on_time * 60):
+                    sleep(1)
 
-#                     if not Settings.cycle_running:
-#                         on_stat = False
-#                         break
-#                 Commands.extract_lights()
-#                 on_stat = False
-#             else:
-#                 for x in range(Settings.off_time * 60):
-#                     sleep(1)
+                    if not Settings.cycle_running:
+                        on_stat = False
+                        break
+                Commands.extract_lights()
+                on_stat = False
+            else:
+                for x in range(Settings.off_time * 60):
+                    sleep(1)
 
-#                     if not Settings.cycle_running:
-#                         on_stat = False
-#                         break
-#                 Commands.deploy_lights()
-#                 on_stat = True
-#             if not Settings.cycle_running:
-#                 break
+                    if not Settings.cycle_running:
+                        on_stat = False
+                        break
+                Commands.deploy_lights()
+                on_stat = True
+            if not Settings.cycle_running:
+                break
 
 
 # class Snap(QThread):

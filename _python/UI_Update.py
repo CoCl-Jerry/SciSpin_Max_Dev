@@ -64,7 +64,7 @@ def system_status_check(self):
     self.main_update_status_pushButton.setEnabled(True)  # Enable update button
 
 # ---------------------------------------------------------------------------- #
-#                           lighting UI manipulations                          #
+#                           lighting UI updates                                #
 # ---------------------------------------------------------------------------- #
 
 
@@ -98,33 +98,29 @@ def lighting_source_update(self):
             "<html><head/><body><p align="'center'"><span style="' font-weight:700;'">LED Settings: [1,40]</span></p></body></html>")
 
 
-# def init(self):
-#     # --------------------------- check core connection -------------------------- #
-#     output = subprocess.check_output(["ip", "addr", "show"])
-#     if "peer" in str(output):
-#         General.camera_status = True
-#         self.camera_status_value_label.setText()
-#     else:
-#         General.camera_status = False
+def IR_lighting_update(self):
+    if not General.IR_stat:
+        self.lighting_IR_toggle_pushButton.setText("IR STATUS:ON")
+        CMD = "4~1"
+    else:
+        self.lighting_IR_toggle_pushButton.setText("IR STATUS:OFF")
+        CMD = "4~0"
+    General.IR_stat = not General.IR_stat
+    Commands.IR_toggle()
 
-#     filesystem = os.statvfs("/")
-#     free_space = filesystem.f_bsize * filesystem.f_bavail
-#     free_space_mb = free_space / (1024 * 1024)
-#     if free_space_mb < 500:
-#         General.storage_critical_error = True
-#         error_UI_update(self)
-#         print("remaining storage space:" + str(free_space_mb))
+# ---------------------------------------------------------------------------- #
+#                         power cycle thread UI updates                        #
+# ---------------------------------------------------------------------------- #
 
 
-# def cycle_start(self):
-#     self.confirmCycle_pushButton.setText("TERMINATE CYCLE")
-#     Settings.cycle_running = True
+def cycle_start(self):
+    self.lighting_confirm_cycle_pushButton.setText("TERMINATE CYCLE")
+    General.cycle_running = True
 
 
-# def cycle_end(self):
-#     self.confirmCycle_pushButton.setText("CONFIRM")
-#     Settings.cycle_running = False
-
+def cycle_end(self):
+    self.lighting_confirm_cycle_pushButton.setText("CONFIRM CYCLE")
+    General.cycle_running = False
 
 # def snap_start(self):
 #     self.core_status_label.setText("Core Status: IMAGING")

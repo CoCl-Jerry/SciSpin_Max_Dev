@@ -146,15 +146,6 @@ def init():
     global timelapse_running
     timelapse_running = False
 
-    global cycle_running
-    cycle_running = False
-
-    global on_time
-    on_time = 60
-
-    global off_time
-    off_time = 60
-
     global time_elipsed
     time_elipsed = 0
 

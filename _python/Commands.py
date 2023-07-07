@@ -9,6 +9,10 @@ from time import sleep
 def reset_MCU():
     Communication.sendCMD("0~")
 
+# ---------------------------------------------------------------------------- #
+#                             commands for lighting                            #
+# ---------------------------------------------------------------------------- #
+
 
 def lighting_confirm(self):
     if self.lighting_source_tabWidget.currentIndex() == 0:
@@ -17,7 +21,7 @@ def lighting_confirm(self):
             str(self.lighting_blue_value_spinBox.value()) + "~" + str(self.lighting_white_value_spinBox.value()) + \
             "~" + str(self.lighting_brightness_value_spinBox.value()) + "\n"
     else:
-        curr_cmd = str(self.lighting_start_LED_value_spinBox.value() + 90) + "~" + str(self.lighting_end_LED_value_spinBox.value()+90) + "~" + str(self.lighting_red_value_spinBox.value()) + \
+        curr_cmd = str(self.lighting_start_LED_value_spinBox.value() + 89) + "~" + str(self.lighting_end_LED_value_spinBox.value()+90) + "~" + str(self.lighting_red_value_spinBox.value()) + \
             "~" + str(self.lighting_green_value_spinBox.value()) + "~" + \
             str(self.lighting_blue_value_spinBox.value()) + "~" + str(self.lighting_white_value_spinBox.value()) + \
             "~" + str(self.lighting_brightness_value_spinBox.value()) + "\n"
@@ -32,33 +36,32 @@ def lighting_reset():
     Communication.sendCMD("3~4~50")
 
 
-# def clear_lights():
-#     Settings.sendCMD("3~0")
+def clear_lights():
+    Communication.sendCMD("3~0")
 
 
-# def IR_toggle(self):
-#     if not Settings.IR_stat:
-#         self.IR_pushButton.setText("IR STATUS:ON")
-#         CMD = "4~1"
-#     else:
-#         self.IR_pushButton.setText("IR STATUS:OFF")
-#         CMD = "4~0"
-#     Settings.IR_stat = not Settings.IR_stat
-#     Settings.sendCMD(CMD)
+def IR_toggle():
+    if General.IR_stat:
+        General.sendCMD("4~1")
+    else:
+        General.sendCMD("4~0")
+
+# ---------------------------------------------------------------------------- #
+#                           commands for power cycle                           #
+# ---------------------------------------------------------------------------- #
 
 
-# def deploy_lights():
-#     for x in Settings.commands_list:
-#         CMD = "3~2~" + x
-#         Settings.sendCMD(CMD)
-#         sleep(0.1)
-#     Settings.sendCMD("3~3")
-#     Settings.sendCMD("4~" + str(int(Settings.IR_stat)))
+def extract_lights():
+    Communication.sendCMD("4~0")
+    Communication.sendCMD("3~0")
 
 
-# def extract_lights():
-#     Settings.sendCMD("4~0")
-#     clear_lights()
+def deploy_lights():
+    for x in General.commands_list:
+        CMD = "3~2~" + x
+        Communication.sendCMD(CMD)
+    Communication.sendCMD("3~3")
+    Communication.sendCMD("4~" + str(int(General.IR_stat)))
 
 
 # def motor_toggle(mot, self):

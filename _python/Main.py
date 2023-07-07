@@ -27,8 +27,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.main_update_status_pushButton.clicked.connect(
             lambda: UI_Update.system_status_check(self))
 
-
-# ----------------------------- lighting signals ----------------------------- #
+# ------------------------- RGB LED lighting signals ------------------------- #
         self.lighting_LED_confirm_pushButton.clicked.connect(
             lambda: Commands.lighting_confirm(self))
         self.lighting_LED_reset_pushButton.clicked.connect(
@@ -36,6 +35,13 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.lighting_source_tabWidget.currentChanged.connect(
             lambda: UI_Update.lighting_source_update(self))
 
+# --------------------------- Power cycle signals ---------------------------- #
+        self.lighting_confirm_cycle_pushButton.clicked.connect(
+            lambda: Call_Thread.start_cycle(self))
+
+# -------------------------- IR LED lighting signals ------------------------- #
+        self.lighting_IR_toggle_pushButton.clicked.connect(
+            lambda: Commands.IR_toggle(self))
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
@@ -63,12 +69,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.rotate_pushButton.clicked.connect(
 #             lambda: Functions.rotate_image(self))
 
-#         self.confirmCycle_pushButton.clicked.connect(
-#             lambda: Call_Thread.start_cycle(self))
-#         self.onCycle_spinBox.valueChanged.connect(
-#             lambda: Functions.Cycle_Change(self))
-#         self.offCycle_spinBox.valueChanged.connect(
-#             lambda: Functions.Cycle_Change(self))
 
 #         self.frame_spinBox.valueChanged.connect(
 #             lambda: Commands.spin_change(0, self))
@@ -95,7 +95,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.End_spinBox.valueChanged.connect(
 #             lambda: UI_Update.LED_validate(self))
 
-#         self.IR_pushButton.clicked.connect(lambda: Commands.IR_toggle(self))
 
 #         self.log_pushButton.clicked.connect(
 #             lambda: Functions.sensor_log(self))
