@@ -32,7 +32,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.lighting_LED_confirm_pushButton.clicked.connect(
             lambda: Commands.lighting_confirm(self))
         self.lighting_LED_reset_pushButton.clicked.connect(
-            lambda: Commands.lighting_reset(self))
+            lambda: UI_Update.lighting_source_update(self))
         self.lighting_source_tabWidget.currentChanged.connect(
             lambda: UI_Update.lighting_source_update(self))
 

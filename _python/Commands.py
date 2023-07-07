@@ -20,10 +20,9 @@ def lighting_confirm(self):
     Communication.sendCMD("3~1~" + curr_cmd)
 
 
-def lighting_reset(self):
+def lighting_reset():
     Communication.sendCMD("3~0")
     Communication.sendCMD("3~4~50")
-    UI_Update.lighting_source_update(self)
 
 
 # def clear_lights():
