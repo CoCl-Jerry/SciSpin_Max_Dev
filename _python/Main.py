@@ -41,7 +41,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
 # -------------------------- IR LED lighting signals ------------------------- #
         self.lighting_IR_toggle_pushButton.clicked.connect(
-            lambda: Commands.IR_toggle(self))
+            lambda: UI_Update.IR_lighting_update(self))
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
