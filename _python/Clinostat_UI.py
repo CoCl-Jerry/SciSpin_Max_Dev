@@ -932,7 +932,7 @@ class Ui_MainWindow(object):
         self.lighting_white_value_spinBox.setToolTip(_translate("MainWindow", "Warm White Color Intensity, note that at high brightnesses  warm white LEDs consume a considerable more amount of power than the other color LEDs"))
         self.lighting_green_value_spinBox.setToolTip(_translate("MainWindow", "Green Color Intensity"))
         self.lighting_blue_text_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Blue:</p></body></html>"))
-        self.lighting_LED_settings_text_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">LED Settings: [1,130]</span></p></body></html>"))
+        self.lighting_LED_settings_text_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">LED Settings: [1,90]</span></p></body></html>"))
         self.lighting_end_LED_text_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">End LED</span></p></body></html>"))
         self.lighting_start_LED_value_spinBox.setToolTip(_translate("MainWindow", "The first LED that you wish to control [1,85]"))
         self.lighting_start_LED_value_spinBox.setPrefix(_translate("MainWindow", "# "))
