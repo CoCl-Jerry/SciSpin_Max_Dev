@@ -11,10 +11,17 @@ def reset_MCU():
 
 
 def lighting_confirm(self):
-    curr_cmd = str(self.lighting_start_LED_value_spinBox.value() - 1) + "~" + str(self.lighting_end_LED_value_spinBox.value()) + "~" + str(self.lighting_red_value_spinBox.value()) + \
-        "~" + str(self.lighting_green_value_spinBox.value()) + "~" + \
-        str(self.lighting_blue_value_spinBox.value()) + "~" + str(self.lighting_white_value_spinBox.value()) + \
-        "~" + str(self.lighting_brightness_value_spinBox.value()) + "\n"
+    if self.lighting_source_tabWidget.currentIndex() == 0:
+        curr_cmd = str(self.lighting_start_LED_value_spinBox.value() - 1) + "~" + str(self.lighting_end_LED_value_spinBox.value()) + "~" + str(self.lighting_red_value_spinBox.value()) + \
+            "~" + str(self.lighting_green_value_spinBox.value()) + "~" + \
+            str(self.lighting_blue_value_spinBox.value()) + "~" + str(self.lighting_white_value_spinBox.value()) + \
+            "~" + str(self.lighting_brightness_value_spinBox.value()) + "\n"
+    else:
+        curr_cmd = str(self.lighting_start_LED_value_spinBox.value() + 90) + "~" + str(self.lighting_end_LED_value_spinBox.value()+90) + "~" + str(self.lighting_red_value_spinBox.value()) + \
+            "~" + str(self.lighting_green_value_spinBox.value()) + "~" + \
+            str(self.lighting_blue_value_spinBox.value()) + "~" + str(self.lighting_white_value_spinBox.value()) + \
+            "~" + str(self.lighting_brightness_value_spinBox.value()) + "\n"
+
     General.commands_list.append(curr_cmd)
 
     Communication.sendCMD("3~1~" + curr_cmd)
