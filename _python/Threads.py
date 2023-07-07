@@ -1,4 +1,4 @@
-import Settings
+import General
 import Functions
 import socket
 import board
@@ -25,30 +25,30 @@ class Cycle(QThread):
     def run(self):
         Commands.extract_lights()
         on_stat = False
-        sleep(5)
+        sleep(2)
         Commands.deploy_lights()
         on_stat = True
 
         while True:
             if on_stat:
-                for x in range(Settings.on_time * 60):
+                for x in range(General.on_time * 1):
                     sleep(1)
 
-                    if not Settings.cycle_running:
+                    if not General.cycle_running:
                         on_stat = False
                         break
                 Commands.extract_lights()
                 on_stat = False
             else:
-                for x in range(Settings.off_time * 60):
+                for x in range(General.off_time * 1):
                     sleep(1)
 
-                    if not Settings.cycle_running:
+                    if not General.cycle_running:
                         on_stat = False
                         break
                 Commands.deploy_lights()
                 on_stat = True
-            if not Settings.cycle_running:
+            if not General.cycle_running:
                 break
 
 
