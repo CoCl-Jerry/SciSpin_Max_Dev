@@ -42,9 +42,9 @@ def clear_lights():
 
 def IR_toggle():
     if General.IR_stat:
-        General.sendCMD("4~1")
+        Communication.sendCMD("4~1")
     else:
-        General.sendCMD("4~0")
+        Communication.sendCMD("4~0")
 
 # ---------------------------------------------------------------------------- #
 #                           commands for power cycle                           #
