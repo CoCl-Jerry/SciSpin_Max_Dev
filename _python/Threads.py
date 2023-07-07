@@ -31,7 +31,7 @@ class Cycle(QThread):
 
         while True:
             if on_stat:
-                for x in range(General.on_time * 1):
+                for x in range(General.on_duration * 1):
                     sleep(1)
 
                     if not General.cycle_running:
@@ -40,7 +40,7 @@ class Cycle(QThread):
                 Commands.extract_lights()
                 on_stat = False
             else:
-                for x in range(General.off_time * 1):
+                for x in range(General.off_duration * 1):
                     sleep(1)
 
                     if not General.cycle_running:
