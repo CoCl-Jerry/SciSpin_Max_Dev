@@ -281,7 +281,7 @@ class Ui_MainWindow(object):
         self.motion_frame_motor_value_verticalSlider.setSizePolicy(sizePolicy)
         self.motion_frame_motor_value_verticalSlider.setMinimum(5)
         self.motion_frame_motor_value_verticalSlider.setMaximum(1500)
-        self.motion_frame_motor_value_verticalSlider.setSingleStep(5)
+        self.motion_frame_motor_value_verticalSlider.setSingleStep(50)
         self.motion_frame_motor_value_verticalSlider.setPageStep(5)
         self.motion_frame_motor_value_verticalSlider.setProperty("value", 100)
         self.motion_frame_motor_value_verticalSlider.setSliderPosition(100)
