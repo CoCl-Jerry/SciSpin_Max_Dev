@@ -713,14 +713,14 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>100</number>
+          <number>50</number>
          </property>
         </widget>
        </item>
        <item row="1" column="4" alignment="Qt::AlignHCenter">
         <widget class="QSlider" name="motion_core_motor_value_verticalSlider">
          <property name="minimum">
-          <number>1</number>
+          <number>5</number>
          </property>
          <property name="maximum">
           <number>1500</number>
@@ -747,7 +747,7 @@
           <enum>QSlider::TicksBothSides</enum>
          </property>
          <property name="tickInterval">
-          <number>100</number>
+          <number>50</number>
          </property>
         </widget>
        </item>
