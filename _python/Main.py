@@ -44,6 +44,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: UI_Update.IR_lighting_update(self))
 
 # ------------------------------- motor signals ------------------------------ #
+        self.motion_link_toggle_pushButton.clicked.connect(
+            lambda: UI_Update.link_update(self))
+
         self.motion_frame_motor_value_spinBox.valueChanged.connect(
             lambda: UI_Update.motor_spinbox_changed(1, self))
         self.motion_core_motor_value_spinBox.valueChanged.connect(
@@ -90,7 +93,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.sample_doubleSpinBox.valueChanged.connect(
 #             lambda: Functions.sample_change(self))
 
-#         self.link_pushButton.clicked.connect(lambda: UI_Update.link(self))
 
 #         self.Start_spinBox.valueChanged.connect(
 #             lambda: UI_Update.LED_validate(self))

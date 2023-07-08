@@ -112,6 +112,15 @@ def IR_lighting_update(self):
 # ---------------------------------------------------------------------------- #
 #                               motor UI updates                               #
 # ---------------------------------------------------------------------------- #
+
+def link_update(self):
+    if General.motors_linked:
+        self.motion_link_toggle_pushButton.setIcon(General.broken)
+    else:
+        self.motion_link_toggle_pushButton.setIcon(General.linked)
+    General.motors_linked = not General.motors_linked
+
+
 def motor_spinbox_changed(frame_motor, self):
 
     block_motor_signals(self)
@@ -159,14 +168,14 @@ def motor_slider_change(frame_motor, self):
 
     block_motor_signals(self)
     if General.motors_linked:
-        if frame_motor and not self.motion_frame_motor_value_verticalSlider.sliderPosition() % 5:
+        if frame_motor:
             General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
                 100
             General.core_RPM = General.frame_RPM
             self.motion_core_motor_value_verticalSlider.setValue(
                 General.core_RPM * 100)
 
-        elif not frame_motor and not self.motion_core_motor_value_verticalSlider.sliderPosition() % 5:
+        else:
             General.core_RPM = self.motion_core_motor_value_verticalSlider.sliderPosition() / \
                 100
             General.frame_RPM = General.core_RPM
@@ -283,15 +292,6 @@ def cycle_end(self):
 #         self.light_Confirm_pushButton.setEnabled(False)
 #     else:
 #         self.light_Confirm_pushButton.setEnabled(True)
-
-
-# def link(self):
-#     if Settings.LINKED:
-#         Settings.LINKED = False
-#         self.link_pushButton.setIcon(Settings.broken)
-#     else:
-#         Settings.LINKED = True
-#         self.link_pushButton.setIcon(Settings.linked)
 
 
 # def dir(self):

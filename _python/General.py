@@ -1,4 +1,4 @@
-from PyQt5.QtGui import QPalette, QColor, QImage
+from PyQt5.QtGui import QPalette, QColor, QImage, QIcon, QPixmap
 # ---------------------------------------------------------------------------- #
 #                           UI pallette declarations                           #
 # ---------------------------------------------------------------------------- #
@@ -60,3 +60,14 @@ motor_steps = 200
 gear_ratio = 10
 
 microstepping_options = [2, 4, 8, 16, 32, 64, 128, 256]
+
+# ---------------------------------------------------------------------------- #
+#                               icon declarations                              #
+# ---------------------------------------------------------------------------- #
+linked = QIcon()
+linked.addPixmap(QPixmap("../_image/Link.png"),
+                 QIcon.Normal, QIcon.Off)
+
+broken = QIcon()
+broken.addPixmap(QPixmap("../_image/Broken_Link.png"),
+                 QIcon.Normal, QIcon.Off)
