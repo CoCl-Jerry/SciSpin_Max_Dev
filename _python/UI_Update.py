@@ -158,8 +158,11 @@ def motor_spinbox_changed(frame_motor, self):
 def motor_slider_change(frame_motor, self):
 
     block_motor_signals(self)
+    print(self.motion_frame_motor_value_verticalSlider.sliderPosition())
     if General.motors_linked:
         if frame_motor and self.motion_frame_motor_value_verticalSlider.sliderPosition() % 5:
+
+            print(self.motion_frame_motor_value_verticalSlider.sliderPosition() % 5)
             General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
                 100
             General.core_RPM = General.frame_RPM
