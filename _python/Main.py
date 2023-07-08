@@ -43,6 +43,16 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.lighting_IR_toggle_pushButton.clicked.connect(
             lambda: UI_Update.IR_lighting_update(self))
 
+# ------------------------------- motor signals ------------------------------ #
+        self.frame_spinBox.valueChanged.connect(
+            lambda: UI_Update.motor_spinbox_changed(1, self))
+        self.core_spinBox.valueChanged.connect(
+            lambda: UI_Update.motor_spinbox_changed(0, self))
+
+        self.frame_verticalSlider.valueChanged.connect(
+            lambda: Commands.slider_change(0, self))
+        self.core_verticalSlider.valueChanged.connect(
+            lambda: Commands.slider_change(1, self))
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
 
@@ -69,16 +79,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.rotate_pushButton.clicked.connect(
 #             lambda: Functions.rotate_image(self))
 
-
-#         self.frame_spinBox.valueChanged.connect(
-#             lambda: Commands.spin_change(0, self))
-#         self.core_spinBox.valueChanged.connect(
-#             lambda: Commands.spin_change(1, self))
-
-#         self.frame_verticalSlider.valueChanged.connect(
-#             lambda: Commands.slider_change(0, self))
-#         self.core_verticalSlider.valueChanged.connect(
-#             lambda: Commands.slider_change(1, self))
 
 #         self.frame_verticalSlider.sliderReleased.connect(
 #             lambda: Commands.slider_Released())

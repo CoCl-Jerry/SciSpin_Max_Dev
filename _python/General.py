@@ -44,3 +44,19 @@ cycle_running = False
 on_duration = 60
 
 off_duration = 60
+
+# ---------------------------------------------------------------------------- #
+#                          motor settings declarations                         #
+# ---------------------------------------------------------------------------- #
+
+motors_linked = True
+
+frame_RPM = 1
+
+core_RPM = 1
+
+motor_steps = 200
+
+gear_ratio = 10
+
+microstepping_options = [2, 4, 8, 16, 32, 64, 128, 256]
