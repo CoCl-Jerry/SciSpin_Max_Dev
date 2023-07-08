@@ -160,8 +160,9 @@ def motor_slider_change(frame_motor, self):
     block_motor_signals(self)
     if General.motors_linked:
         if frame_motor:
-            General.frame_RPM = round(self.motion_frame_motor_value_verticalSlider.sliderPosition()) / \
+            General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
                 100
+            print(General.frame_RPM)
             General.core_RPM = General.frame_RPM
             self.motion_core_motor_value_verticalSlider.setValue(
                 General.core_RPM * 100)
