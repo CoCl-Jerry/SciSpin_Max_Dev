@@ -155,7 +155,7 @@ def motor_spinbox_changed(frame_motor, self):
     # Settings.sendCMD(CMD)
 
 
-def slider_change(frame_motor, self):
+def motor_slider_change(frame_motor, self):
 
     block_motor_signals(self)
     if General.motors_linked:
