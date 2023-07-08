@@ -44,15 +44,17 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: UI_Update.IR_lighting_update(self))
 
 # ------------------------------- motor signals ------------------------------ #
-        self.frame_spinBox.valueChanged.connect(
+        self.motion_frame_motor_value_spinBox.valueChanged.connect(
             lambda: UI_Update.motor_spinbox_changed(1, self))
-        self.core_spinBox.valueChanged.connect(
+        self.motion_core_motor_value_spinBox.valueChanged.connect(
             lambda: UI_Update.motor_spinbox_changed(0, self))
 
-        self.frame_verticalSlider.valueChanged.connect(
-            lambda: Commands.slider_change(0, self))
-        self.core_verticalSlider.valueChanged.connect(
-            lambda: Commands.slider_change(1, self))
+        # self.frame_verticalSlider.valueChanged.connect(
+        #     lambda: Commands.slider_change(1, self))
+        # self.core_verticalSlider.valueChanged.connect(
+        #     lambda: Commands.slider_change(0, self))
+
+
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
 
