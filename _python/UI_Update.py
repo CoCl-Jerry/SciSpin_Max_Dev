@@ -113,20 +113,17 @@ def IR_lighting_update(self):
 #                               motor UI updates                               #
 # ---------------------------------------------------------------------------- #
 def motor_spinbox_changed(frame_motor, self):
-    self.motion_frame_motor_value_spinBox.blockSignals(True)
-    self.motion_core_motor_value_spinBox.blockSignals(True)
-    self.motion_frame_motor_value_verticalSlider.blockSignals(True)
-    self.motion_core_motor_value_verticalSlider.blockSignals(True)
 
+    block_motor_signals(self)
     if General.motors_linked:
         if frame_motor:
             General.frame_RPM = self.motion_frame_motor_value_spinBox.value()
             General.core_RPM = General.frame_RPM
 
             self.motion_frame_motor_value_verticalSlider.setValue(
-                General.frame_RPM * 1000)
+                General.frame_RPM * 100)
             self.motion_core_motor_value_verticalSlider.setValue(
-                General.core_RPM * 1000)
+                General.core_RPM * 100)
 
             self.motion_core_motor_value_spinBox.setValue(General.core_RPM)
 
@@ -135,30 +132,73 @@ def motor_spinbox_changed(frame_motor, self):
             General.frame_RPM = General.core_RPM
 
             self.motion_frame_motor_value_verticalSlider.setValue(
-                General.frame_RPM * 1000)
+                General.frame_RPM * 100)
             self.motion_core_motor_value_verticalSlider.setValue(
-                General.core_RPM * 1000)
+                General.core_RPM * 100)
 
             self.motion_frame_motor_value_spinBox.setValue(General.frame_RPM)
     else:
         if frame_motor:
             General.frame_RPM = self.motion_frame_motor_value_spinBox.value()
             self.motion_frame_motor_value_verticalSlider.setValue(
-                General.frame_RPM * 1000)
+                General.frame_RPM * 100)
         else:
             General.core_RPM = self.motion_core_motor_value_spinBox.value()
             self.motion_core_motor_value_verticalSlider.setValue(
-                General.core_RPM * 1000)
+                General.core_RPM * 100)
 
-    self.motion_frame_motor_value_spinBox.blockSignals(False)
-    self.motion_core_motor_value_spinBox.blockSignals(False)
-    self.motion_frame_motor_value_verticalSlider.blockSignals(False)
-    self.motion_core_motor_value_verticalSlider.blockSignals(False)
+    unblock_motor_signals(self)
 
     # CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
     #     Settings.frame_RPM)) * 100)]) + "~" + str(getMicrostep(Settings.core_RPM * 100)) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
     #         Settings.core_RPM)) * 100)])
     # Settings.sendCMD(CMD)
+
+
+def slider_change(frame_motor, self):
+
+    block_motor_signals(self)
+    if General.motors_linked:
+        if frame_motor:
+            General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
+                100
+            General.core_RPM = General.frame_RPM
+            self.motion_core_motor_value_verticalSlider.setValue(
+                General.core_RPM * 100)
+
+        else:
+            General.core_RPM = self.motion_core_motor_value_verticalSlider.sliderPosition() / \
+                100
+            General.frame_RPM = General.core_RPM
+            self.motion_frame_motor_value_verticalSlider.setValue(
+                General.frame_RPM * 100)
+        self.motion_frame_motor_value_spinBox.setValue(General.frame_RPM)
+        self.motion_core_motor_value_spinBox.setValue(General.core_RPM)
+    else:
+        if frame_motor:
+            General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
+                100
+            self.motion_frame_motor_value_spinBox.setValue(General.frame_RPM)
+        else:
+            General.core_RPM = self.motion_core_motor_value_verticalSlider.sliderPosition() / \
+                100
+            self.motion_core_motor_value_spinBox.setValue(General.core_RPM)
+    unblock_motor_signals(self)
+
+
+def block_motor_signals(self):
+    self.motion_frame_motor_value_spinBox.blockSignals(True)
+    self.motion_core_motor_value_spinBox.blockSignals(True)
+    self.motion_frame_motor_value_verticalSlider.blockSignals(True)
+    self.motion_core_motor_value_verticalSlider.blockSignals(True)
+
+
+def unblock_motor_signals(self):
+    self.motion_frame_motor_value_spinBox.blockSignals(False)
+    self.motion_core_motor_value_spinBox.blockSignals(False)
+    self.motion_frame_motor_value_verticalSlider.blockSignals(False)
+    self.motion_core_motor_value_verticalSlider.blockSignals(False)
+
 # ---------------------------------------------------------------------------- #
 #                         power cycle thread UI updates                        #
 # ---------------------------------------------------------------------------- #
