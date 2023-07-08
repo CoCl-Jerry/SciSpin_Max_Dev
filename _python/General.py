@@ -3,10 +3,10 @@ from PyQt5.QtGui import QPalette, QColor, QImage
 #                           UI pallette declarations                           #
 # ---------------------------------------------------------------------------- #
 palette_red = QPalette()
-palette_red.setColor(QPalette.WindowText, QColor(255, 0, 0))
+palette_red.setColor(QPalette.WindowText, QColor(150, 0, 0))
 
 palette_green = QPalette()
-palette_green.setColor(QPalette.WindowText, QColor(0, 100, 0))
+palette_green.setColor(QPalette.WindowText, QColor(0, 150, 0))
 # ---------------------------------------------------------------------------- #
 #                           error image declarations                           #
 # ---------------------------------------------------------------------------- #

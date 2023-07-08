@@ -159,17 +159,14 @@ def motor_slider_change(frame_motor, self):
 
     block_motor_signals(self)
     if General.motors_linked:
-        if frame_motor:
-            print(self.motion_frame_motor_value_verticalSlider.sliderPosition() % 5)
-            if self.motion_frame_motor_value_verticalSlider.sliderPosition() % 5:
-                return
+        if frame_motor and self.motion_frame_motor_value_verticalSlider.sliderPosition() % 5:
             General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
                 100
             General.core_RPM = General.frame_RPM
             self.motion_core_motor_value_verticalSlider.setValue(
                 General.core_RPM * 100)
 
-        else:
+        elif not frame_motor and self.motion_core_motor_value_verticalSlider.sliderPosition() % 5:
             General.core_RPM = self.motion_core_motor_value_verticalSlider.sliderPosition() / \
                 100
             General.frame_RPM = General.core_RPM
