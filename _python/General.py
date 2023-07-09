@@ -1,5 +1,4 @@
 from PyQt5.QtGui import QPalette, QColor, QImage, QIcon, QPixmap
-from PyQt5 import QtGui
 # ---------------------------------------------------------------------------- #
 #                           UI pallette declarations                           #
 # ---------------------------------------------------------------------------- #
@@ -66,11 +65,12 @@ microstepping_options = [2, 4, 8, 16, 32, 64, 128, 256]
 #                               icon declarations                              #
 # ---------------------------------------------------------------------------- #
 
-linked = QtGui.QIcon()
-linked.addPixmap(QtGui.QPixmap("../_image/Link.png"),
-                 QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
+def initialize_icons():
+    linked = QIcon()
+    linked.addPixmap(QPixmap("../_image/Link.png"),
+                     QIcon.Normal, QIcon.Off)
 
-broken = QtGui.QIcon()
-broken.addPixmap(QtGui.QPixmap("../_image/Broken_Link.png"),
-                 QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    broken = QIcon()
+    broken.addPixmap(QPixmap("../_image/Broken_Link.png"),
+                     QIcon.Normal, QIcon.Off)
