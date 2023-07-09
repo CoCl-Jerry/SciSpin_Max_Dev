@@ -139,6 +139,7 @@ def motor_enable(frame_motor, self):
         self.motion_core_motor_enable_pushButton.setText("DISABLE MOTOR")
     else:
         self.motion_core_motor_enable_pushButton.setText("ENABLE MOTOR")
+    Commands.motor_enable()
 
 
 def reverse_motor(frame_motor, self):
