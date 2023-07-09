@@ -124,7 +124,7 @@ def link_update(self):
 def motor_enable(frame_motor, self):
     if General.motors_linked:
         General.frame_enabled = not General.frame_enabled
-        General.core_enabled = not General.core_address
+        General.core_enabled = not General.core_enabled
     else:
         if frame_motor:
             General.frame_enabled = not General.frame_enabled

@@ -80,30 +80,6 @@ def set_speed():
                           "~" + str(General.core_SPS*1000*General.core_direction) + "~" + str(General.core_microstepping))
 
 
-# def motor_toggle(mot, self):
-#     if not mot:
-#         if Settings.LINKED and not Settings.frame_enabled:
-#             Settings.frame_enabled = True
-#             Settings.core_enabled = True
-#         elif Settings.LINKED and Settings.frame_enabled:
-#             Settings.frame_enabled = False
-#             Settings.core_enabled = False
-#         elif not Settings.LINKED and not Settings.frame_enabled:
-#             Settings.frame_enabled = True
-#         else:
-#             Settings.frame_enabled = False
-#     else:
-#         if Settings.LINKED and not Settings.core_enabled:
-#             Settings.frame_enabled = True
-#             Settings.core_enabled = True
-#         elif Settings.LINKED and Settings.core_enabled:
-#             Settings.frame_enabled = False
-#             Settings.core_enabled = False
-#         elif not Settings.LINKED and not Settings.core_enabled:
-#             Settings.core_enabled = True
-#         else:
-#             Settings.core_enabled = False
-#     CMD = ("1~0~" + str(int(Settings.frame_enabled)) +
-#            "~" + str(int(Settings.core_enabled)))
-#     Settings.sendCMD(CMD)
-#     UI_Update.motor_update(self)
+def motor_enable():
+    Communication.sendCMD(
+        "1~0~"+str(int(General.frame_enabled)) + "~"+str(int(General.core_enabled)))
