@@ -121,6 +121,26 @@ def link_update(self):
     General.motors_linked = not General.motors_linked
 
 
+def motor_enable(frame_motor, self):
+    if General.motors_linked:
+        General.frame_enabled = not General.frame_enabled
+        General.core_enabled = not General.core_address
+    else:
+        if frame_motor:
+            General.frame_enabled = not General.frame_enabled
+        else:
+            General.core_enabled = not General.core_enabled
+    if General.frame_enabled:
+        self.motion_frame_motor_enable_pushButton.setText("DISABLE MOTOR")
+    else:
+        self.motion_frame_motor_enable_pushButton.setText("ENABLE MOTOR")
+
+    if General.core_enabled:
+        self.motion_core_motor_enable_pushButton.setText("DISABLE MOTOR")
+    else:
+        self.motion_core_motor_enable_pushButton.setText("ENABLE MOTOR")
+
+
 def reverse_motor(frame_motor, self):
 
     if General.motors_linked:

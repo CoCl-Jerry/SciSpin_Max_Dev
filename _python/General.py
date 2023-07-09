@@ -51,11 +51,13 @@ off_duration = 60
 
 motors_linked = True
 
+frame_enabled = False
 frame_RPM = None
 frame_SPS = None
 frame_microstepping = None
 frame_direction = 1
 
+core_enabled = False
 core_RPM = None
 core_SPS = None
 core_microstepping = None

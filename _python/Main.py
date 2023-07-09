@@ -45,6 +45,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: UI_Update.IR_lighting_update(self))
 
 # ------------------------------- motor signals ------------------------------ #
+        self.motion_frame_motor_enable_pushButton.clicked.connect(
+            lambda: UI_Update.motor_enable(1, self))
+        self.motion_core_motor_enable_pushButton.clicked.connect(
+            lambda: UI_Update.motor_enable(1, self))
+
         self.motion_link_toggle_pushButton.clicked.connect(
             lambda: UI_Update.link_update(self))
 
@@ -73,11 +78,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
 #         self.Sensor_tabWidget.currentChanged.connect(
 #             lambda: Functions.printci(self))
-
-#         self.frameErgz_pushButton.clicked.connect(
-#             lambda: Commands.motor_toggle(0, self))
-#         self.coreErgz_pushButton.clicked.connect(
-#             lambda: Commands.motor_toggle(1, self))
 
 
 #         self.snapshot_pushButton.clicked.connect(
