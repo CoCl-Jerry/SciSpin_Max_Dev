@@ -123,8 +123,12 @@ def link_update(self):
 
 def motor_enable(frame_motor, self):
     if General.motors_linked:
-        General.frame_enabled = not General.frame_enabled
-        General.core_enabled = not General.core_enabled
+        if frame_motor:
+            General.frame_enabled = not General.frame_enabled
+            General.core_enabled = General.frame_enabled
+        else:
+            General.core_enabled = not General.core_enabled
+            General.frame_enabled = General.core_enabled
     else:
         if frame_motor:
             General.frame_enabled = not General.frame_enabled
@@ -145,8 +149,12 @@ def motor_enable(frame_motor, self):
 def reverse_motor(frame_motor, self):
 
     if General.motors_linked:
-        General.frame_direction *= -1
-        General.core_direction *= -1
+        if frame_motor:
+            General.frame_direction *= -1
+            General.core_direction = General.frame_direction
+        else:
+            General.core_direction *= -1
+            General.frame_direction = General.core_direction
     else:
         if frame_motor:
             General.frame_direction *= -1
