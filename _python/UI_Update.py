@@ -126,7 +126,8 @@ def motor_spinbox_changed(frame_motor, self):
     block_motor_signals(self)
     if General.motors_linked:
         if frame_motor:
-            General.frame_RPM = self.motion_frame_motor_value_spinBox.value()
+            General.frame_RPM = round(
+                self.motion_frame_motor_value_spinBox.value(), 2)
             General.core_RPM = General.frame_RPM
 
             self.motion_frame_motor_value_verticalSlider.setValue(
@@ -137,7 +138,8 @@ def motor_spinbox_changed(frame_motor, self):
             self.motion_core_motor_value_spinBox.setValue(General.core_RPM)
 
         else:
-            General.core_RPM = self.motion_core_motor_value_spinBox.value()
+            General.core_RPM = round(
+                self.motion_core_motor_value_spinBox.value(), 2)
             General.frame_RPM = General.core_RPM
 
             self.motion_frame_motor_value_verticalSlider.setValue(
@@ -148,11 +150,13 @@ def motor_spinbox_changed(frame_motor, self):
             self.motion_frame_motor_value_spinBox.setValue(General.frame_RPM)
     else:
         if frame_motor:
-            General.frame_RPM = self.motion_frame_motor_value_spinBox.value()
+            General.frame_RPM = round(
+                self.motion_frame_motor_value_spinBox.value(), 2)
             self.motion_frame_motor_value_verticalSlider.setValue(
                 General.frame_RPM * 100)
         else:
-            General.core_RPM = self.motion_core_motor_value_spinBox.value()
+            General.core_RPM = round(
+                self.motion_core_motor_value_spinBox.value(), 2)
             self.motion_core_motor_value_verticalSlider.setValue(
                 General.core_RPM * 100)
 
