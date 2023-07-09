@@ -157,11 +157,8 @@ def motor_spinbox_changed(frame_motor, self):
                 General.core_RPM * 100)
 
     unblock_motor_signals(self)
-
-    # CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-    #     Settings.frame_RPM)) * 100)]) + "~" + str(getMicrostep(Settings.core_RPM * 100)) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(
-    #         Settings.core_RPM)) * 100)])
-    # Settings.sendCMD(CMD)
+    Functions.calculate_speed()
+    Commands.set_speed()
 
 
 def motor_slider_change(frame_motor, self):

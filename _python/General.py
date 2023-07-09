@@ -51,9 +51,13 @@ off_duration = 60
 
 motors_linked = True
 
-frame_RPM = 1
+frame_RPM = None
+frame_SPS = None
+frame_microstepping = None
 
-core_RPM = 1
+core_RPM = None
+core_SPS = None
+core_microstepping = None
 
 motor_steps = 200
 

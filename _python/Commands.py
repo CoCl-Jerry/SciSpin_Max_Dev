@@ -64,6 +64,19 @@ def deploy_lights():
     Communication.sendCMD("4~" + str(int(General.IR_stat)))
 
 
+# ---------------------------------------------------------------------------- #
+#                              cammands for motors                             #
+# ---------------------------------------------------------------------------- #
+
+def set_speed():
+    print("Frame Target Speed: "+str(General.frame_RPM))
+    print("Frame SPS: "+str(General.frame_SPS))
+    print("Frame Microstepping: "+str(General.frame_microstepping))
+    print("Core Target Speed: "+str(General.core_RPM))
+    print("Core SPS: "+str(General.core_SPS))
+    print("Core Microstepping: "+str(General.core_microstepping))
+
+
 # def motor_toggle(mot, self):
 #     if not mot:
 #         if Settings.LINKED and not Settings.frame_enabled:

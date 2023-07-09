@@ -41,22 +41,31 @@ def get_remaining_storage():
     return remaining_bytes / (1024 ** 3)  # Convert bytes to gigabytes
 
 
-def calculate_speed(target_speed):
+def calculate_speed():
 
     best_sps = None
-    best_microstepping = None
 
     for microstepping in General.microstepping_options:
         # Calculate effective steps per rotation with microstepping
         steps_per_rotation_with_microstepping = General.motor_steps * \
             General.gear_ratio * microstepping
         # Calculate SPS for the given RPM
-        sps = (target_speed * steps_per_rotation_with_microstepping) / 60
+        sps = (General.frame_RPM * steps_per_rotation_with_microstepping) / 60
         # Check if SPS is within the desired range
         if 500 <= sps <= 1000 and (best_sps is None or sps < best_sps):
-            best_sps = sps
-            best_microstepping = microstepping
-    return best_sps, best_microstepping
+            General.frame_SPS = sps
+            General.frame_microstepping = microstepping
+
+    for microstepping in General.microstepping_options:
+        # Calculate effective steps per rotation with microstepping
+        steps_per_rotation_with_microstepping = General.motor_steps * \
+            General.gear_ratio * microstepping
+        # Calculate SPS for the given RPM
+        sps = (General.core_RPM * steps_per_rotation_with_microstepping) / 60
+        # Check if SPS is within the desired range
+        if 500 <= sps <= 1000 and (best_sps is None or sps < best_sps):
+            General.core_SPS = sps
+            General.core_microstepping = microstepping
 
 
 # def rotate_image(self):
