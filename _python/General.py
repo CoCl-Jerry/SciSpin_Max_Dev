@@ -67,10 +67,12 @@ microstepping_options = [2, 4, 8, 16, 32, 64, 128, 256]
 
 
 def initialize_icons():
+    global linked
     linked = QIcon()
     linked.addPixmap(QPixmap("../_image/Link.png"),
                      QIcon.Normal, QIcon.Off)
 
+    global broken
     broken = QIcon()
     broken.addPixmap(QPixmap("../_image/Broken_Link.png"),
                      QIcon.Normal, QIcon.Off)
