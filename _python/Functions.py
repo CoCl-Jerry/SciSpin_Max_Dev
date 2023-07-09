@@ -50,7 +50,8 @@ def calculate_speed():
         steps_per_rotation_with_microstepping = General.motor_steps * \
             General.gear_ratio * microstepping
         # Calculate SPS for the given RPM
-        sps = (General.frame_RPM * steps_per_rotation_with_microstepping) / 60
+        sps = round(
+            (General.frame_RPM * steps_per_rotation_with_microstepping) / 60, 3)
         # Check if SPS is within the desired range
         if 400 <= sps <= 1000 and (best_sps is None or sps < best_sps):
             General.frame_SPS = sps
@@ -61,7 +62,8 @@ def calculate_speed():
         steps_per_rotation_with_microstepping = General.motor_steps * \
             General.gear_ratio * microstepping
         # Calculate SPS for the given RPM
-        sps = (General.core_RPM * steps_per_rotation_with_microstepping) / 60
+        sps = round(
+            (General.core_RPM * steps_per_rotation_with_microstepping) / 60, 3)
         # Check if SPS is within the desired range
         if 400 <= sps <= 1000 and (best_sps is None or sps < best_sps):
             General.core_SPS = sps
