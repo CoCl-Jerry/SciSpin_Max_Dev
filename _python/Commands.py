@@ -75,6 +75,9 @@ def set_speed():
     print("Core Target Speed: "+str(General.core_RPM))
     print("Core SPS: "+str(General.core_SPS))
     print("Core Microstepping: "+str(General.core_microstepping))
+    print()
+    Communication.sendCMD("1~2~" + str(General.frame_SPS) + "~" + str(General.frame_microstepping) +
+                          "~" + str(General.core_SPS) + "~" + str(General.core_microstepping))
 
 
 # def motor_toggle(mot, self):
