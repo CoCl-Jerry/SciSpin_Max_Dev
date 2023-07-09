@@ -58,6 +58,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.motion_core_motor_value_verticalSlider.valueChanged.connect(
             lambda: UI_Update.motor_slider_change(0, self))
 
+        self.motion_frame_motor_value_verticalSlider.sliderReleased.connect(
+            lambda: Functions.calculate_speed())
+        self.motion_core_motor_value_verticalSlider.sliderReleased.connect(
+            lambda: Functions.calculate_speed())
+
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
@@ -84,12 +89,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
 #         self.rotate_pushButton.clicked.connect(
 #             lambda: Functions.rotate_image(self))
-
-
-#         self.frame_verticalSlider.sliderReleased.connect(
-#             lambda: Commands.slider_Released())
-#         self.core_verticalSlider.sliderReleased.connect(
-#             lambda: Commands.slider_Released())
 
 #         self.sample_doubleSpinBox.valueChanged.connect(
 #             lambda: Functions.sample_change(self))

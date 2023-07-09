@@ -162,7 +162,6 @@ def motor_spinbox_changed(frame_motor, self):
 
     unblock_motor_signals(self)
     Functions.calculate_speed()
-    Commands.set_speed()
 
 
 def motor_slider_change(frame_motor, self):

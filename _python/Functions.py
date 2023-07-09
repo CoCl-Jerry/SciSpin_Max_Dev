@@ -68,6 +68,7 @@ def calculate_speed():
         if 400 <= sps <= 1000 and (best_sps is None or sps < best_sps):
             General.core_SPS = sps
             General.core_microstepping = microstepping
+    Commands.set_speed()
 
 
 # def rotate_image(self):

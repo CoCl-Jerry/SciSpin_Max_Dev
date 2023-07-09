@@ -120,9 +120,3 @@ def set_speed():
 #            "~" + str(int(Settings.core_dir)))
 #     Settings.sendCMD(CMD)
 #     UI_Update.dir(self)
-
-
-# def slider_Released():
-#     CMD = "1~2~" + getMicrostep(Settings.frame_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(Settings.frame_RPM)) * 100)]) + "~" + getMicrostep(
-#         Settings.core_RPM * 100) + "~" + str(Settings.speed_dict[int(decimal.Decimal(str(Settings.core_RPM)) * 100)])
-#     Settings.sendCMD(CMD)
