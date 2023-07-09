@@ -76,8 +76,8 @@ def set_speed():
     print("Core SPS: "+str(General.core_SPS))
     print("Core Microstepping: "+str(General.core_microstepping))
     print()
-    Communication.sendCMD("1~2~" + str(General.frame_SPS*1000) + "~" + str(General.frame_microstepping) +
-                          "~" + str(General.core_SPS*1000) + "~" + str(General.core_microstepping))
+    Communication.sendCMD("1~2~" + str(General.frame_SPS*1000*General.frame_direction) + "~" + str(General.frame_microstepping) +
+                          "~" + str(General.core_SPS*1000*General.core_direction) + "~" + str(General.core_microstepping))
 
 
 # def motor_toggle(mot, self):
@@ -107,19 +107,3 @@ def set_speed():
 #            "~" + str(int(Settings.core_enabled)))
 #     Settings.sendCMD(CMD)
 #     UI_Update.motor_update(self)
-
-
-# def reverse_motor(mot, self):
-#     if Settings.LINKED:
-#         Settings.frame_dir = not Settings.frame_dir
-#         Settings.core_dir = not Settings.core_dir
-#     else:
-#         if not mot:
-#             Settings.frame_dir = not Settings.frame_dir
-
-#         else:
-#             Settings.core_dir = not Settings.core_dir
-#     CMD = ("1~1~" + str(int(Settings.frame_dir)) +
-#            "~" + str(int(Settings.core_dir)))
-#     Settings.sendCMD(CMD)
-#     UI_Update.dir(self)

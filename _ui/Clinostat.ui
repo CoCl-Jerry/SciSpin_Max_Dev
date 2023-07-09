@@ -580,7 +580,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../_image/forward.png</normaloff>../_image/forward.png</iconset>
+           <normaloff>../_image/Clockwise.png</normaloff>../_image/Clockwise.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -667,7 +667,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../_image/forward.png</normaloff>../_image/forward.png</iconset>
+           <normaloff>../_image/Clockwise.png</normaloff>../_image/Clockwise.png</iconset>
          </property>
          <property name="iconSize">
           <size>

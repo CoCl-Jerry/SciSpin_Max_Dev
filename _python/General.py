@@ -54,10 +54,12 @@ motors_linked = True
 frame_RPM = None
 frame_SPS = None
 frame_microstepping = None
+frame_direction = 1
 
 core_RPM = None
 core_SPS = None
 core_microstepping = None
+core_direction = 1
 
 motor_steps = 200
 
@@ -80,3 +82,13 @@ def initialize_icons():
     broken = QIcon()
     broken.addPixmap(QPixmap("../_image/Broken_Link.png"),
                      QIcon.Normal, QIcon.Off)
+
+    global clockwise
+    clockwise = QIcon()
+    clockwise.addPixmap(QPixmap("../_image/Clockwise.png"),
+                        QIcon.Normal, QIcon.Off)
+
+    global counter_clockwise
+    counter_clockwise = QIcon()
+    counter_clockwise.addPixmap(QPixmap("../_image/Counter_Clockwise.png"),
+                                QIcon.Normal, QIcon.Off)

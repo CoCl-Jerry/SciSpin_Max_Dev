@@ -63,6 +63,10 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.motion_core_motor_value_verticalSlider.sliderReleased.connect(
             lambda: Functions.calculate_speed())
 
+        self.motion_frame_motor_reverse_pushButton.clicked.connect(
+            lambda: UI_Update.reverse_motor(1, self))
+        self.motion_core_motor_reverse_pushButton.clicked.connect(
+            lambda: UI_Update.reverse_motor(0, self))
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
@@ -75,10 +79,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.coreErgz_pushButton.clicked.connect(
 #             lambda: Commands.motor_toggle(1, self))
 
-#         self.frameReverse_pushButton.clicked.connect(
-#             lambda: Commands.reverse_motor(0, self))
-#         self.coreReverse_pushButton.clicked.connect(
-#             lambda: Commands.reverse_motor(1, self))
 
 #         self.snapshot_pushButton.clicked.connect(
 #             lambda: Call_Thread.start_snapshot(self))

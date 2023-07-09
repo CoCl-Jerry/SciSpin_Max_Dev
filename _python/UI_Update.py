@@ -121,6 +121,31 @@ def link_update(self):
     General.motors_linked = not General.motors_linked
 
 
+def reverse_motor(frame_motor, self):
+
+    if General.motors_linked:
+        General.frame_direction *= -1
+        General.core_direction *= -1
+    else:
+        if frame_motor:
+            General.frame_direction *= -1
+        else:
+            General.core_direction *= -1
+
+    if General.frame_direction == 1:
+        self.motion_frame_motor_reverse_pushButton.setIcon(General.clockwise)
+    else:
+        self.motion_frame_motor_reverse_pushButton.setIcon(
+            General.counter_clockwise)
+
+    if General.core_direction == 1:
+        self.motion_core_motor_reverse_pushButton.setIcon(General.clockwise)
+    else:
+        self.motion_core_motor_reverse_pushButton.setIcon(
+            General.counter_clockwise)
+    Functions.calculate_speed()
+
+
 def motor_spinbox_changed(frame_motor, self):
 
     block_motor_signals(self)
@@ -292,18 +317,6 @@ def cycle_end(self):
 #         self.light_Confirm_pushButton.setEnabled(False)
 #     else:
 #         self.light_Confirm_pushButton.setEnabled(True)
-
-
-# def dir(self):
-#     if Settings.frame_dir:
-#         self.frameReverse_pushButton.setIcon(Settings.reverse)
-#     else:
-#         self.frameReverse_pushButton.setIcon(Settings.forward)
-
-#     if Settings.core_dir:
-#         self.coreReverse_pushButton.setIcon(Settings.reverse)
-#     else:
-#         self.coreReverse_pushButton.setIcon(Settings.forward)
 
 
 # def validate_input(self):

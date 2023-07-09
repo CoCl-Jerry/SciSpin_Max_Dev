@@ -234,7 +234,7 @@ class Ui_MainWindow(object):
         self.motion_frame_motor_reverse_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_10)
         self.motion_frame_motor_reverse_pushButton.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../_image/forward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("../_image/Clockwise.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.motion_frame_motor_reverse_pushButton.setIcon(icon1)
         self.motion_frame_motor_reverse_pushButton.setIconSize(QtCore.QSize(20, 20))
         self.motion_frame_motor_reverse_pushButton.setObjectName("motion_frame_motor_reverse_pushButton")
