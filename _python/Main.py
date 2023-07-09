@@ -48,7 +48,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.motion_frame_motor_enable_pushButton.clicked.connect(
             lambda: UI_Update.motor_enable(1, self))
         self.motion_core_motor_enable_pushButton.clicked.connect(
-            lambda: UI_Update.motor_enable(1, self))
+            lambda: UI_Update.motor_enable(0, self))
 
         self.motion_link_toggle_pushButton.clicked.connect(
             lambda: UI_Update.link_update(self))
