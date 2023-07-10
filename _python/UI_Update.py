@@ -14,6 +14,7 @@ from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
 def system_status_check(self):
     self.main_update_status_pushButton.setEnabled(
         False)  # Disable update button
+    self.main_update_status_pushButton.repaint()
 
     # --------------------------- check core connection -------------------------- #
     if Functions.check_ip_connection(General.core_address):
