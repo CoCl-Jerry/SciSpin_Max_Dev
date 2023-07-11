@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="main_lighting_tab">
      <attribute name="title">
@@ -1268,7 +1268,14 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_9">
-       <item row="2" column="0" colspan="2">
+       <item row="0" column="1" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="imaging_next_image_value_label">
+         <property name="text">
+          <string>Next Image: N/A s</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
         <widget class="QProgressBar" name="imaging_progress_progressBar">
          <property name="enabled">
           <bool>false</bool>
@@ -1284,37 +1291,10 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="imaging_next_image_value_label">
-         <property name="text">
-          <string>Next Image: N/A s</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="imaging_progress_value_label">
          <property name="text">
           <string>Progress: 0 / 1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="imaging_average_file_size_value_label">
-         <property name="text">
-          <string>Average File Size: N/A</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="imaging_calculated_remaining_capacity_value_label">
-         <property name="text">
-          <string>Calculated Remaining Capacity: N/A</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>

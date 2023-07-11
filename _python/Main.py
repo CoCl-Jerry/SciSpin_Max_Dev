@@ -73,6 +73,19 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.motion_core_motor_reverse_pushButton.clicked.connect(
             lambda: UI_Update.reverse_motor(0, self))
 
+# ------------------------------ imaging signals ----------------------------- #
+
+        self.imaging_image_sequence_title_value_lineEdit.textChanged.connect(
+            lambda: UI_Update.imaging_UI_update(self))
+        self.imaging_add_date_pushButton.clicked.connect(
+            lambda: UI_Update.image_sequence_title_add_date(self))
+
+        self.imaging_image_capture_interval_value_spinBox.valueChanged.connect(
+            lambda: UI_Update.imaging_UI_update(self))
+        self.imaging_image_sequence_duration_value_spinBox.valueChanged.connect(
+            lambda: UI_Update.imaging_UI_update(self))
+        self.imaging_select_directory_pushButton.clicked.connect(
+            lambda: Functions.select_directory(self))
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
 
@@ -103,18 +116,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.log_pushButton.clicked.connect(
 #             lambda: Functions.sensor_log(self))
 
-
-#         self.title_lineEdit.textChanged.connect(
-#             lambda: Functions.IST_Edit(self))
-#         self.addDate_pushButton.clicked.connect(
-#             lambda: Functions.add_date(self))
-
-#         self.ICI_spinBox.valueChanged.connect(
-#             lambda: Functions.ICI_Change(self))
-#         self.ISD_spinBox.valueChanged.connect(
-#             lambda: Functions.ISD_Change(self))
-#         self.directory_pushButton.clicked.connect(
-#             lambda: Functions.select_directory(self))
 
 #         self.x_resolution_spinBox.valueChanged.connect(
 #             lambda: Functions.camera_update(self))

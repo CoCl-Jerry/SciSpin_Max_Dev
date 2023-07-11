@@ -59,35 +59,7 @@ def init():
     global tag_index
     tag_index = 0
 
-    global ACC_X_text
-    ACC_X_text = "offline"
-    global ACC_Y_text
-    ACC_Y_text = "offline"
-    global ACC_Z_text
-    ACC_Z_text = "offline"
-
-    global TEMP_text
-    TEMP_text = "offline"
-    global HUD_text
-    HUD_text = "offline"
-
-    global PR_text
-    PR_text = "offline"
-
-    global sequence_name
-    sequence_name = ""
-
-    global current_image
-    current_image = ""
-
-    global default_dir
-    default_dir = "/home/pi/Desktop"
-
-    global full_dir
-    full_dir = ""
-
     global date
-    date = time.strftime('%m_%d_%Y')
 
     global prelog_dir
     prelog_dir = "/home/pi/Desktop/sensor_log/"
@@ -103,18 +75,6 @@ def init():
     AOI_W = 1
     global AOI_H
     AOI_H = 1
-
-    global interval
-    interval = 2
-
-    global duration
-    duration = 2
-
-    global total
-    total = 1
-
-    global current
-    current = 0
 
     global rotation
     rotation = 0

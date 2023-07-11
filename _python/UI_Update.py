@@ -14,7 +14,7 @@ from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
 def system_status_check(self):
     self.main_update_status_pushButton.setEnabled(
         False)  # Disable update button
-    self.main_update_status_pushButton.repaint()
+    # self.main_update_status_pushButton.repaint()
 
     # --------------------------- check core connection -------------------------- #
     if Functions.check_ip_connection(General.core_address):
@@ -263,6 +263,43 @@ def unblock_motor_signals(self):
     self.motion_frame_motor_value_verticalSlider.blockSignals(False)
     self.motion_core_motor_value_verticalSlider.blockSignals(False)
 
+
+# ---------------------------------------------------------------------------- #
+#                              imaging UI updates                              #
+# ---------------------------------------------------------------------------- #
+def imaging_UI_update(self):
+    General.sequence_name = self.imaging_image_sequence_title_value_lineEdit.text()
+    General.imaging_interval = self.imaging_image_capture_interval_value_spinBox.value()
+    General.imaging_duration = self.imaging_image_sequence_duration_value_spinBox.value()
+    General.imaging_total = int(
+        General.imaging_duration / General.imaging_interval)
+
+    if General.imaging_total > 0 and len(General.sequence_name) != 0:
+        self.main_start_timelapse_pushButton.setEnabled(True)
+    else:
+        self.main_start_timelapse_pushButton.setEnabled(False)
+    self.imaging_progress_value_label.setText(
+        "Progress: " + str(General.imaging_current) + "/" + str(General.imaging_total))
+
+    if General.date not in General.sequence_name:
+        self.addDate_pushButton.setEnabled(True)
+    else:
+        self.addDate_pushButton.setEnabled(False)
+
+    if len(General.sequence_name) == 0:
+        self.addDate_pushButton.setEnabled(False)
+
+    if General.custom_directory == None:
+        General.full_directory = General.default_directory + "/" + General.sequence_name
+    else:
+        General.full_directory = General.custom_directory + "/" + General.sequence_name
+    self.imaging_directory_value_label.setText(General.full_directory)
+
+
+def image_sequence_title_add_date(self):
+    General.sequence_name = General.sequence_name + "_" + General.date
+    self.imaging_image_sequence_title_value_lineEdit.setText(
+        General.sequence_name)
 # ---------------------------------------------------------------------------- #
 #                         power cycle thread UI updates                        #
 # ---------------------------------------------------------------------------- #
@@ -347,16 +384,6 @@ def cycle_end(self):
 #         self.light_Confirm_pushButton.setEnabled(False)
 #     else:
 #         self.light_Confirm_pushButton.setEnabled(True)
-
-
-# def validate_input(self):
-#     Settings.total = int(Settings.duration / Settings.interval)
-#     if Settings.total > 0 and len(Settings.sequence_name) != 0:
-#         self.startImaging_pushButton.setEnabled(True)
-#     else:
-#         self.startImaging_pushButton.setEnabled(False)
-#     self.Progress_Label.setText(
-#         "Progress: " + str(Settings.current) + "/" + str(Settings.total))
 
 
 # def update_imaging(self):

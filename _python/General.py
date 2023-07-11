@@ -1,4 +1,6 @@
 from PyQt5.QtGui import QPalette, QColor, QImage, QIcon, QPixmap
+import time
+
 # ---------------------------------------------------------------------------- #
 #                           UI pallette declarations                           #
 # ---------------------------------------------------------------------------- #
@@ -69,6 +71,29 @@ gear_ratio = 10
 
 microstepping_options = [2, 4, 8, 16, 32, 64, 128, 256]
 
+# ---------------------------------------------------------------------------- #
+#                         imaging settings declarations                        #
+# ---------------------------------------------------------------------------- #
+
+date = time.strftime('%m_%d_%Y')
+
+imaging_interval = 2
+
+imaging_duration = 2
+
+imaging_total = 1
+
+imaging_current = 0
+
+default_directory = "/home/pi/Desktop"
+
+custom_directory = None
+
+full_directory = None
+
+sequence_name = None
+
+current_image = None
 # ---------------------------------------------------------------------------- #
 #                               icon declarations                              #
 # ---------------------------------------------------------------------------- #

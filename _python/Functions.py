@@ -70,55 +70,22 @@ def calculate_speed():
             General.core_microstepping = microstepping
     Commands.set_speed()
 
+# ---------------------------------------------------------------------------- #
+#                               imaging functions                              #
+# ---------------------------------------------------------------------------- #
+
+
+def select_directory(self):
+    m_directory = str(QFileDialog.getExistingDirectory(
+        self, "Select Directory", '/media/pi'))
+    if len(m_directory) != 0:
+        General.custom_directory = m_directory
+    UI_Update.imaging_UI_update(self)
+
 
 # def rotate_image(self):
 #     Settings.rotation += 1
 #     Call_Thread.start_snapshot(self)
-
-
-# def IST_Edit(self):
-#     Settings.sequence_name = self.title_lineEdit.text()
-#     Settings.full_dir = Settings.default_dir + "/" + Settings.sequence_name
-#     self.directory_label.setText(Settings.full_dir)
-
-#     if Settings.date not in Settings.sequence_name:
-#         self.addDate_pushButton.setEnabled(True)
-#     if len(Settings.sequence_name) == 0:
-#         self.addDate_pushButton.setEnabled(False)
-#     UI_Update.validate_input(self)
-
-
-# def add_date(self):
-#     Settings.sequence_name = Settings.sequence_name + "_" + Settings.date
-#     self.title_lineEdit.setText(Settings.sequence_name)
-#     Settings.full_dir = Settings.default_dir + "/" + Settings.sequence_name
-#     self.directory_label.setText(Settings.full_dir)
-#     self.addDate_pushButton.setEnabled(False)
-
-
-# def ICI_Change(self):
-#     Settings.interval = self.ICI_spinBox.value()
-#     UI_Update.validate_input(self)
-
-
-# def Cycle_Change(self):
-#     Settings.on_time = self.onCycle_spinBox.value()
-#     Settings.off_time = self.offCycle_spinBox.value()
-
-
-# def ISD_Change(self):
-#     Settings.duration = self.ISD_spinBox.value()
-#     UI_Update.validate_input(self)
-
-
-# def select_directory(self):
-#     m_directory = str(QFileDialog.getExistingDirectory(
-#         self, "Select Directory", '/media/pi'))
-#     if len(m_directory) != 0:
-#         Settings.full_dir = m_directory + "/" + Settings.sequence_name
-#         self.directory_label.setText(Settings.full_dir)
-#     UI_Update.validate_input(self)
-
 
 # def camera_update(self):
 #     Settings.AOI_X = self.xAxis_horizontalSlider.sliderPosition() / 100
