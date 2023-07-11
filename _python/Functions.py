@@ -83,6 +83,31 @@ def select_directory(self):
     UI_Update.imaging_UI_update(self)
 
 
+def auto_focus():
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    ip_address = "10.0.5.1"
+    server_address = (ip_address, 23456)
+    sock.connect(server_address)
+    cmd = "A~300~300~1~0~0"
+    sock.sendall(cmd.encode())
+
+    response = sock.recv(1024).decode("utf-8")
+    print("Received response:", response)
+
+    with open('../_temp/snapshot.jpg', 'wb') as f:
+        while True:
+            try:
+                data = sock.recv(5)
+            except Exception as e:
+                print(e, 'timeout after 20 seconds... retaking image')
+            if not data:
+                break
+            f.write(data)
+            print("Writing image data")
+    sock.close()
+
+
 # def rotate_image(self):
 #     Settings.rotation += 1
 #     Call_Thread.start_snapshot(self)

@@ -86,6 +86,10 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: UI_Update.imaging_UI_update(self))
         self.imaging_select_directory_pushButton.clicked.connect(
             lambda: Functions.select_directory(self))
+        self.main_autofocus_pushButton.clicked.connect(
+            lambda: Functions.auto_focus())
+
+
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
 

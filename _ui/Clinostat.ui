@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="main_lighting_tab">
      <attribute name="title">
@@ -924,7 +924,7 @@
         <item row="1" column="4">
          <widget class="QLabel" name="imaging_y_resolution_range_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2464 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -976,7 +976,7 @@
         <item row="1" column="1">
          <widget class="QLabel" name="imaging_x_resolution_range_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 3240 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 4608 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1050,10 +1050,10 @@
            <number>50</number>
           </property>
           <property name="maximum">
-           <number>2464</number>
+           <number>2592</number>
           </property>
           <property name="value">
-           <number>2464</number>
+           <number>2592</number>
           </property>
          </widget>
         </item>
@@ -1076,7 +1076,7 @@
            <number>3240</number>
           </property>
           <property name="value">
-           <number>2464</number>
+           <number>2592</number>
           </property>
          </widget>
         </item>
@@ -1928,23 +1928,16 @@
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_12">
-      <item row="2" column="1">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>▲</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QPushButton" name="main_snapshot_pushButton">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="toolTip">
-         <string>Takes a quick snapshot</string>
+      <item row="2" column="0" rowspan="2">
+       <widget class="QPushButton" name="main_autofocus_pushButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
         <property name="text">
-         <string>SNAPSHOT</string>
+         <string>FOCUS</string>
         </property>
        </widget>
       </item>
@@ -1952,29 +1945,6 @@
        <widget class="QPushButton" name="pushButton_2">
         <property name="text">
          <string>▼</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" rowspan="2">
-       <widget class="QPushButton" name="main_autofocus_pushButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>AUTOFOCUS</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QPushButton" name="main_preview_pushButton">
-        <property name="toolTip">
-         <string>Takes a image with current settings</string>
-        </property>
-        <property name="text">
-         <string>PREVIEW</string>
         </property>
        </widget>
       </item>
@@ -2019,6 +1989,42 @@
         </property>
         <property name="flat">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QPushButton" name="main_snapshot_pushButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string>Takes a quick snapshot</string>
+        </property>
+        <property name="text">
+         <string>SNAPSHOT</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="main_preview_pushButton">
+        <property name="toolTip">
+         <string>Takes a image with current settings</string>
+        </property>
+        <property name="text">
+         <string>PREVIEW</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>▲</string>
         </property>
        </widget>
       </item>
