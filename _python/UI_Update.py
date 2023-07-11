@@ -282,12 +282,12 @@ def imaging_UI_update(self):
         "Progress: " + str(General.imaging_current) + "/" + str(General.imaging_total))
 
     if General.date not in General.sequence_name:
-        self.addDate_pushButton.setEnabled(True)
+        self.imaging_add_date_pushButton.setEnabled(True)
     else:
-        self.addDate_pushButton.setEnabled(False)
+        self.imaging_add_date_pushButton.setEnabled(False)
 
     if len(General.sequence_name) == 0:
-        self.addDate_pushButton.setEnabled(False)
+        self.imaging_add_date_pushButton.setEnabled(False)
 
     if General.custom_directory == None:
         General.full_directory = General.default_directory + "/" + General.sequence_name
