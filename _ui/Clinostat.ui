@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="main_lighting_tab">
      <attribute name="title">
@@ -1315,7 +1315,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ambient_temperature_tab">
        <attribute name="title">
@@ -1918,17 +1918,24 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="verticalLayoutWidget_4">
+    <widget class="QWidget" name="gridLayoutWidget_12">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>134</width>
+       <width>131</width>
        <height>171</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_17">
-      <item>
+     <layout class="QGridLayout" name="gridLayout_12">
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>▲</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
        <widget class="QPushButton" name="main_snapshot_pushButton">
         <property name="enabled">
          <bool>true</bool>
@@ -1941,7 +1948,27 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>▼</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" rowspan="2">
+       <widget class="QPushButton" name="main_autofocus_pushButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>AUTOFOCUS</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
        <widget class="QPushButton" name="main_preview_pushButton">
         <property name="toolTip">
          <string>Takes a image with current settings</string>
@@ -1951,7 +1978,7 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="4" column="0" colspan="2">
        <widget class="QPushButton" name="main_rotate_pushButton">
         <property name="enabled">
          <bool>true</bool>
@@ -1964,7 +1991,7 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="5" column="0" colspan="2">
        <widget class="QPushButton" name="main_start_timelapse_pushButton">
         <property name="enabled">
          <bool>false</bool>
@@ -2026,48 +2053,10 @@
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
-      <item row="6" column="1">
-       <widget class="QLabel" name="main_motion_sensor_status_value_label">
+      <item row="4" column="0">
+       <widget class="QLabel" name="main_ambient_sensor_status_text_label">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Offline&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0" colspan="2">
-       <widget class="Line" name="line_8">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLabel" name="main_MCU_status_value_label">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Offline&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="QLabel" name="main_drive_capacity_value_label">
-        <property name="text">
-         <string>N/A GB</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0" colspan="2">
-       <widget class="QPushButton" name="main_update_status_pushButton">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>Update Status</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="main_drive_capacity_text_label">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Drive Capacity:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Ambient Sensors:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -2078,45 +2067,17 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="main_motion_sensor_status_text_label">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Motion Sensors:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="Line" name="line_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="Line" name="line_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0" colspan="2">
-       <widget class="Line" name="line_7">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="main_ambient_sensor_status_text_label">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Ambient Sensors:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLabel" name="main_ambient_sensor_status_value_label">
+      <item row="2" column="1">
+       <widget class="QLabel" name="main_MCU_status_value_label">
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Offline&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="main_drive_capacity_text_label">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Drive Capacity:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -2134,10 +2095,76 @@
         </property>
        </widget>
       </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="main_motion_sensor_status_value_label">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Offline&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
       <item row="9" column="0" colspan="2">
        <widget class="Line" name="line_16">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLabel" name="main_drive_capacity_value_label">
+        <property name="text">
+         <string>N/A GB</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0" colspan="2">
+       <widget class="QPushButton" name="main_update_status_pushButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>Update Status</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="Line" name="line_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="main_ambient_sensor_status_value_label">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Offline&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0" colspan="2">
+       <widget class="Line" name="line_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="main_motion_sensor_status_text_label">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Motion Sensors:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
