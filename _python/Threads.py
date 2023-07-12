@@ -86,16 +86,16 @@ class Focus(QThread):
             except socket.timeout:
                 print("No response from server, timed out")
 
-            # with open('../_temp/snapshot.jpg', 'wb') as f:
-            #     while True:
-            #         try:
-            #             data = sock.recv(5)
-            #         except Exception as e:
-            #             print(e, 'timeout after 20 seconds... retaking image')
-            #         if not data:
-            #             break
-            #         f.write(data)
-            #         self.transmit.emit()
+            with open('../_temp/snapshot.jpg', 'wb') as f:
+                while True:
+                    try:
+                        data = sock.recv(5)
+                    except Exception as e:
+                        print(e, 'timeout after 20 seconds... retaking image')
+                    if not data:
+                        break
+                    f.write(data)
+                    self.transmit.emit()
             sock.close()
 
         except Exception as e:
