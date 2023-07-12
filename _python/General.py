@@ -85,6 +85,8 @@ imaging_total = 1
 
 imaging_current = 0
 
+received_packets = 0
+
 default_directory = "/home/pi/Desktop"
 
 custom_directory = None
@@ -94,6 +96,8 @@ full_directory = None
 sequence_name = None
 
 current_image = None
+
+core_busy = False
 # ---------------------------------------------------------------------------- #
 #                               icon declarations                              #
 # ---------------------------------------------------------------------------- #

@@ -300,6 +300,36 @@ def image_sequence_title_add_date(self):
     General.sequence_name = General.sequence_name + "_" + General.date
     self.imaging_image_sequence_title_value_lineEdit.setText(
         General.sequence_name)
+
+
+def update_imaging_frames(self):
+    if General.core_busy:
+        self.main_imaging_frame.setEnabled(False)
+    else:
+        self.Capture_frame.setEnabled(True)
+        system_status_check(self)
+
+
+def transmit_update(self):
+    General.received_packets += 1
+    self.main_core_status_value_label.setText(str(General.received_packets))
+
+# ---------------------------- focusing UI updates --------------------------- #
+
+
+def focus_start(self):
+    self.main_core_status_value_label.setText("Focusing...")
+    General.core_busy = True
+    update_imaging_frames(self)
+
+
+def focus_complete(self):
+    snap_img = QImage("../_temp/snapshot.jpg")
+    self.main_image_label.setPixmap(QPixmap(snap_img))
+    General.core_busy = False
+    General.received_packets = 0
+    update_imaging_frames(self)
+
 # ---------------------------------------------------------------------------- #
 #                         power cycle thread UI updates                        #
 # ---------------------------------------------------------------------------- #
@@ -384,24 +414,6 @@ def cycle_end(self):
 #         self.light_Confirm_pushButton.setEnabled(False)
 #     else:
 #         self.light_Confirm_pushButton.setEnabled(True)
-
-
-# def update_imaging(self):
-#     if Settings.imaging:
-#         self.Capture_frame.setEnabled(False)
-#         self.tabWidget.setEnabled(False)
-
-#     else:
-#         self.Capture_frame.setEnabled(True)
-#         self.tabWidget.setEnabled(True)
-
-#         validate_input(self)
-
-
-# def transmit_update(self):
-#     Settings.trasmitted += 1
-#     self.core_status_label.setText(
-#         "Recieving Packets: " + str(Settings.trasmitted))
 
 
 # def transmitst(self):

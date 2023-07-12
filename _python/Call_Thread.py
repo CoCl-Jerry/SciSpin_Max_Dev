@@ -28,6 +28,18 @@ def start_cycle(self):
         General.cycle_running = False
 
 
+def start_autofocus(self):
+    self.Focus_Thread = Threads.Focus()
+    self.Focus_Thread.transmit.connect(
+        lambda: UI_Update.transmit_update(self))
+    self.Focus_Thread.started.connect(
+        lambda: UI_Update.focus_start(self))
+    self.Focus_Thread.finished.connect(
+        lambda: UI_Update.focus_complete(self))
+
+    self.Focus_Thread.start()
+
+
 # def start_snapshot(self):
 #     self.Snap_Thread = Threads.Snap()
 #     self.Snap_Thread.transmit.connect(

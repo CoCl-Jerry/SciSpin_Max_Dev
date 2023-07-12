@@ -52,6 +52,83 @@ class Cycle(QThread):
                 break
 
 
+class Focus(QThread):
+
+    transmit = pyqtSignal()
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        # if Settings.IR_imaging:
+        #     Commands.extract_lights()
+        #     Settings.sendCMD("4~1")
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(5.0)
+            ip_address = "10.0.5.1"
+            server_address = (ip_address, 23456)
+            sock.connect(server_address)
+            cmd = "A~300~300~1~0~0"
+            # cmd = "A~" + str(350) + "~" + str(350) + "~" + \
+            #     str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
+            #     str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
+            #     "~" + str(int(Settings.AOI_H * 100)) + "~1"
+            sock.sendall(cmd.encode())
+
+            try:
+                response = sock.recv(1024).decode("utf-8")
+                print("Received response:", response)
+            except socket.timeout:
+                print("No response from server, timed out")
+
+            # with open('../_temp/snapshot.jpg', 'wb') as f:
+            #     while True:
+            #         try:
+            #             data = sock.recv(5)
+            #         except Exception as e:
+            #             print(e, 'timeout after 20 seconds... retaking image')
+            #         if not data:
+            #             break
+            #         f.write(data)
+            #         self.transmit.emit()
+            sock.close()
+
+        except Exception as e:
+            print(e, "snapshot failure,contact Jerry for support")
+        # if Settings.IR_imaging:
+        #     Settings.sendCMD("4~0")
+        #     Commands.deploy_lights()
+
+
+def auto_focus():
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    ip_address = "10.0.5.1"
+    server_address = (ip_address, 23456)
+    sock.connect(server_address)
+    cmd = "A~300~300~1~0~0"
+    sock.sendall(cmd.encode())
+
+    response = sock.recv(1024).decode("utf-8")
+    print("Received response:", response)
+
+    with open('../_temp/snapshot.jpg', 'wb') as f:
+        while True:
+            try:
+                data = sock.recv(5)
+            except Exception as e:
+                print(e, 'timeout after 20 seconds... retaking image')
+            if not data:
+                break
+            f.write(data)
+            print("Writing image data")
+    sock.close()
+
+
 # class Snap(QThread):
 
 #     transmit = pyqtSignal()
