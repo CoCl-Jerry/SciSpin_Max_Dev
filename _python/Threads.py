@@ -67,17 +67,20 @@ class Focus(QThread):
         #     Commands.extract_lights()
         #     Settings.sendCMD("4~1")
         try:
+            core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            core_socket.settimeout(General.socket_timeout)
+            core_socket.connect(General.server_address)
 
-            cmd = "A~300~300~1~0~0"
+            cmd = "A~2592~2592~1~0~0"
             # cmd = "A~" + str(350) + "~" + str(350) + "~" + \
             #     str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
             #     str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
             #     "~" + str(int(Settings.AOI_H * 100)) + "~1"
-            General.core_socket.sendall(cmd.encode())
+            core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
 
             try:
-                response = General.core_socket.recv(1024).decode("utf-8")
+                response = core_socket.recv(1024).decode("utf-8")
                 print("Received response:", response)
             except socket.timeout:
                 print("No response from server, timed out")
@@ -85,14 +88,14 @@ class Focus(QThread):
             with open('../_temp/snapshot.jpg', 'wb') as f:
                 while True:
                     try:
-                        data = General.core_socket.recv(5)
+                        data = core_socket.recv(5)
                     except Exception as e:
                         print(e, 'timeout after 20 seconds... retaking image')
                     if not data:
                         break
                     f.write(data)
                     self.transmit.emit()
-            General.core_socket.close()
+            core_socket.close()
 
         except Exception as e:
             print(e, "snapshot failure,contact Jerry for support")

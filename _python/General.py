@@ -30,13 +30,8 @@ ambient_sensor_address = 0x76
 
 motion_sensor_address = 0x6A
 
-core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-core_socket.settimeout(socket_timeout)
-
 server_address = (core_address, 23456)
 
-core_socket.connect(server_address)
 
 # ---------------------------------------------------------------------------- #
 #                             lighting declarations                            #
