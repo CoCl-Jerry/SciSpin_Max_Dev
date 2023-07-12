@@ -1,5 +1,6 @@
 from PyQt5.QtGui import QPalette, QColor, QImage, QIcon, QPixmap
 import time
+import socket
 
 # ---------------------------------------------------------------------------- #
 #                           UI pallette declarations                           #
@@ -17,15 +18,25 @@ camera_error_image = QImage("../_image/camera_error.png")
 storage_critical_error_image = QImage("../_image/storage_critical_error.png")
 
 # ---------------------------------------------------------------------------- #
-#                      system status address declarations                      #
+#                          communication declarations                          #
 # ---------------------------------------------------------------------------- #
 core_address = '10.0.5.1'
+
+socket_timeout = 20
 
 MCU_address = 0x08
 
 ambient_sensor_address = 0x76
 
 motion_sensor_address = 0x6A
+
+core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+core_socket.settimeout(socket_timeout)
+
+server_address = (core_address, 23456)
+
+core_socket.connect(server_address)
 
 # ---------------------------------------------------------------------------- #
 #                             lighting declarations                            #
@@ -88,6 +99,8 @@ imaging_current = 0
 received_packets = 0
 
 default_directory = "/home/pi/Desktop"
+
+lens_position = None
 
 custom_directory = None
 
