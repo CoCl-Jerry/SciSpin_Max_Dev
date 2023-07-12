@@ -306,7 +306,7 @@ def update_imaging_frames(self):
     if General.core_busy:
         self.main_imaging_frame.setEnabled(False)
     else:
-        self.Capture_frame.setEnabled(True)
+        self.main_imaging_frame.setEnabled(True)
         system_status_check(self)
 
 
