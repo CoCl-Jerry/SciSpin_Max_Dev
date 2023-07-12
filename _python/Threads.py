@@ -68,7 +68,7 @@ class Focus(QThread):
         #     Settings.sendCMD("4~1")
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(15.0)
+            sock.settimeout(20.0)
             ip_address = "10.0.5.1"
             server_address = (ip_address, 23456)
             sock.connect(server_address)
@@ -78,6 +78,7 @@ class Focus(QThread):
             #     str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
             #     "~" + str(int(Settings.AOI_H * 100)) + "~1"
             sock.sendall(cmd.encode())
+            print("Command sent", cmd)
 
             try:
                 response = sock.recv(1024).decode("utf-8")
