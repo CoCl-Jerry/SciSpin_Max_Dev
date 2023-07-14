@@ -79,6 +79,7 @@ class Capture(QThread):
             elif General.capture_mode == 3:
                 cmd = "A~350~350~0~0~0"
 
+            print("Sending command", cmd)
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
 
