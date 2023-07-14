@@ -73,9 +73,9 @@ class Focus(QThread):
             if General.autofocus_mode == 0:
                 cmd = "A~350~350~1~0~0"
             elif General.autofocus_mode == 1:
-                cmd = "A~350~350~0~1~1"
-            else:
                 cmd = "A~350~350~0~1~-1"
+            else:
+                cmd = "A~350~350~0~1~1"
 
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
