@@ -46,6 +46,14 @@ def IR_toggle():
     else:
         Communication.sendCMD("4~0")
 
+
+def IR_imaging_toggle(state):
+    if state:
+        extract_lights()
+        Communication.sendCMD("4~1")
+    else:
+        Communication.sendCMD("4~0")
+        deploy_lights()
 # ---------------------------------------------------------------------------- #
 #                           commands for power cycle                           #
 # ---------------------------------------------------------------------------- #

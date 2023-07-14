@@ -63,9 +63,8 @@ class Focus(QThread):
         self._running = False
 
     def run(self):
-        # if Settings.IR_imaging:
-        #     Commands.extract_lights()
-        #     Settings.sendCMD("4~1")
+        if General.IR_imaging:
+            Commands.IR_imaging_toggle(1)
         try:
             core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             core_socket.settimeout(General.socket_timeout)
@@ -80,15 +79,16 @@ class Focus(QThread):
             print("Command sent", cmd)
 
             try:
-                response = core_socket.recv(1024).decode("utf-8")
-                print("Received response:", response)
+                General.lens_position = 1/(core_socket.recv(
+                    128).decode("utf-8").split('~', 2)[1])
+                print("Lens Position:", General.lens_position)
             except socket.timeout:
                 print("No response from server, timed out")
 
             with open('../_temp/snapshot.jpg', 'wb') as f:
                 while True:
                     try:
-                        data = core_socket.recv(5)
+                        data = core_socket.recv(128)
                     except Exception as e:
                         print(e, 'timeout after 20 seconds... retaking image')
                     if not data:
@@ -99,35 +99,8 @@ class Focus(QThread):
 
         except Exception as e:
             print(e, "snapshot failure,contact Jerry for support")
-        # if Settings.IR_imaging:
-        #     Settings.sendCMD("4~0")
-        #     Commands.deploy_lights()
-
-
-def auto_focus():
-
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    ip_address = "10.0.5.1"
-    server_address = (ip_address, 23456)
-    sock.connect(server_address)
-    cmd = "A~300~300~1~0~0"
-    sock.sendall(cmd.encode())
-
-    response = sock.recv(1024).decode("utf-8")
-    print("Received response:", response)
-
-    with open('../_temp/snapshot.jpg', 'wb') as f:
-        while True:
-            try:
-                data = sock.recv(5)
-            except Exception as e:
-                print(e, 'timeout after 20 seconds... retaking image')
-            if not data:
-                break
-            f.write(data)
-            print("Writing image data")
-    sock.close()
-
+        if General.IR_imaging:
+            Commands.IR_imaging_toggle(1)
 
 # class Snap(QThread):
 

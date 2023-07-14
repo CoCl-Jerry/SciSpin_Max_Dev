@@ -1921,16 +1921,29 @@
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_12">
-      <item row="2" column="0" rowspan="2">
-       <widget class="QPushButton" name="main_autofocus_pushButton">
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="text">
-         <string>FOCUS</string>
+         <string>▲</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="main_preview_pushButton">
+        <property name="toolTip">
+         <string>Takes a image with current settings</string>
+        </property>
+        <property name="text">
+         <string>PREVIEW</string>
         </property>
        </widget>
       </item>
@@ -1945,19 +1958,6 @@
        </widget>
       </item>
       <item row="4" column="0" colspan="2">
-       <widget class="QPushButton" name="main_rotate_pushButton">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="toolTip">
-         <string>Rotate image 90 degrees</string>
-        </property>
-        <property name="text">
-         <string>ROTATE IMAGE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0" colspan="2">
        <widget class="QPushButton" name="main_start_timelapse_pushButton">
         <property name="enabled">
          <bool>false</bool>
@@ -1988,6 +1988,19 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0" rowspan="2">
+       <widget class="QPushButton" name="main_autofocus_pushButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>FOCUS</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0" colspan="2">
        <widget class="QPushButton" name="main_snapshot_pushButton">
         <property name="enabled">
@@ -1998,32 +2011,6 @@
         </property>
         <property name="text">
          <string>SNAPSHOT</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QPushButton" name="main_preview_pushButton">
-        <property name="toolTip">
-         <string>Takes a image with current settings</string>
-        </property>
-        <property name="text">
-         <string>PREVIEW</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="pushButton">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>▲</string>
         </property>
        </widget>
       </item>

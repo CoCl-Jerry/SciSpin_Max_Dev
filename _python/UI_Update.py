@@ -326,6 +326,7 @@ def focus_start(self):
 def focus_complete(self):
     snap_img = QImage("../_temp/snapshot.jpg")
     self.main_image_label.setPixmap(QPixmap(snap_img))
+    self.main_autofocus_pushButton.setText(General.lens_position)
     General.core_busy = False
     General.received_packets = 0
     update_imaging_frames(self)
