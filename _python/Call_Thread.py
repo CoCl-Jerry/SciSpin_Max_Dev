@@ -28,7 +28,14 @@ def start_cycle(self):
         General.cycle_running = False
 
 
-def start_autofocus(self):
+def start_autofocus(self, mode):
+    if mode == 0:
+        General.autofocus_mode = 0
+    elif mode == 1:
+        General.autofocus_mode = 1
+    else:
+        General.autofocus_mode = 2
+
     self.Focus_Thread = Threads.Focus()
     self.Focus_Thread.transmit.connect(
         lambda: UI_Update.transmit_update(self))

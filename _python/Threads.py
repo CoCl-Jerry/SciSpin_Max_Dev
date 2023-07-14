@@ -70,11 +70,13 @@ class Focus(QThread):
             core_socket.settimeout(General.socket_timeout)
             core_socket.connect(General.server_address)
 
-            cmd = "A~350~350~1~0~0"
-            # cmd = "A~" + str(350) + "~" + str(350) + "~" + \
-            #     str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-            #     str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-            #     "~" + str(int(Settings.AOI_H * 100)) + "~1"
+            if General.autofocus_mode == 0:
+                cmd = "A~350~350~1~0~0"
+            elif General.autofocus_mode == 1:
+                cmd = "A~350~350~0~1~1"
+            else:
+                cmd = "A~350~350~0~1~-1"
+
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
 

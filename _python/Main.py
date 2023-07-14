@@ -73,7 +73,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.motion_core_motor_reverse_pushButton.clicked.connect(
             lambda: UI_Update.reverse_motor(0, self))
 
-# ------------------------------ imaging signals ----------------------------- #
+# ---------------------------------------------------------------------------- #
+#                                imaging signals                               #
+# ---------------------------------------------------------------------------- #
 
         self.imaging_image_sequence_title_value_lineEdit.textChanged.connect(
             lambda: UI_Update.imaging_UI_update(self))
@@ -86,8 +88,14 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: UI_Update.imaging_UI_update(self))
         self.imaging_select_directory_pushButton.clicked.connect(
             lambda: Functions.select_directory(self))
+
+# ----------------------------- autofocus signals ---------------------------- #
         self.main_autofocus_pushButton.clicked.connect(
-            lambda: Call_Thread.start_autofocus(self))
+            lambda: Call_Thread.start_autofocus(self, 0))
+        self.main_increase_focus_pushButton.clicked.connect(
+            lambda: Call_Thread.start_autofocus(self, 1))
+        self.main_decrease_focus_pushButton.clicked.connect(
+            lambda: Call_Thread.start_autofocus(self, 2))
 
 
 #         Call_Thread.sensor_init(self)
