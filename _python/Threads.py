@@ -52,7 +52,7 @@ class Cycle(QThread):
                 break
 
 
-class Focus(QThread):
+class Capture(QThread):
 
     transmit = pyqtSignal()
 
@@ -74,8 +74,10 @@ class Focus(QThread):
                 cmd = "A~350~350~1~0~0"
             elif General.autofocus_mode == 1:
                 cmd = "A~350~350~0~1~-1"
-            else:
+            elif General.autofocus_mode == 2:
                 cmd = "A~350~350~0~1~1"
+            elif General.autofocus_mode == 3:
+                cmd = "A~350~350~0~0~0"
 
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)

@@ -317,13 +317,14 @@ def transmit_update(self):
 # ---------------------------- focusing UI updates --------------------------- #
 
 
-def focus_start(self):
-    self.main_core_status_value_label.setText("Focusing...")
+def capture_start(self):
+    if General.capture_mode != 3:
+        self.main_core_status_value_label.setText("Focusing...")
     General.core_busy = True
     update_imaging_frames(self)
 
 
-def focus_complete(self):
+def capture_complete(self):
     snap_img = QImage("../_temp/snapshot.jpg")
     self.main_image_label.setPixmap(QPixmap(snap_img))
     self.main_autofocus_pushButton.setText(General.lens_position)

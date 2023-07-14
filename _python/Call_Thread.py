@@ -28,23 +28,27 @@ def start_cycle(self):
         General.cycle_running = False
 
 
-def start_autofocus(self, mode):
+def start_capture(self, mode):
     if mode == 0:
-        General.autofocus_mode = 0
+        General.capture_mode = 0
     elif mode == 1:
-        General.autofocus_mode = 1
-    else:
-        General.autofocus_mode = 2
+        General.capture_mode = 1
+    elif mode == 2:
+        General.capture_mode = 2
+    elif mode == 3:
+        General.capture_mode = 3
+    elif mode == 4:
+        General.capture_mode = 4
 
-    self.Focus_Thread = Threads.Focus()
-    self.Focus_Thread.transmit.connect(
+    self.Capture_Thread = Threads.Capture()
+    self.Capture_Thread.transmit.connect(
         lambda: UI_Update.transmit_update(self))
-    self.Focus_Thread.started.connect(
-        lambda: UI_Update.focus_start(self))
-    self.Focus_Thread.finished.connect(
-        lambda: UI_Update.focus_complete(self))
+    self.Capture_Thread.started.connect(
+        lambda: UI_Update.capture_start(self))
+    self.Capture_Thread.finished.connect(
+        lambda: UI_Update.capture_complete(self))
 
-    self.Focus_Thread.start()
+    self.Capture_Thread.start()
 
 
 # def start_snapshot(self):

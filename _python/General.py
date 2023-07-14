@@ -97,10 +97,9 @@ received_packets = 0
 
 default_directory = "/home/pi/Desktop"
 
-# --------------------------------- autofocus -------------------------------- #
 lens_position = None
 
-autofocus_mode = None
+capture_mode = None
 
 custom_directory = None
 
