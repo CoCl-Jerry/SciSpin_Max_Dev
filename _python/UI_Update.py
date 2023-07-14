@@ -330,7 +330,7 @@ def focus_complete(self):
     General.core_busy = False
     General.received_packets = 0
 
-    if General.lens_position is not "∞":
+    if General.lens_position != "∞":
         self.main_increase_focus_pushButton.setEnabled(True)
         self.main_decrease_focus_pushButton.setEnabled(True)
     update_imaging_frames(self)
