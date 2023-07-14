@@ -70,13 +70,13 @@ class Capture(QThread):
             core_socket.settimeout(General.socket_timeout)
             core_socket.connect(General.server_address)
 
-            if General.autofocus_mode == 0:
+            if General.capture_mode == 0:
                 cmd = "A~350~350~1~0~0"
-            elif General.autofocus_mode == 1:
+            elif General.capture_mode == 1:
                 cmd = "A~350~350~0~1~-1"
-            elif General.autofocus_mode == 2:
+            elif General.capture_mode == 2:
                 cmd = "A~350~350~0~1~1"
-            elif General.autofocus_mode == 3:
+            elif General.capture_mode == 3:
                 cmd = "A~350~350~0~0~0"
 
             core_socket.sendall(cmd.encode())
