@@ -79,8 +79,12 @@ class Focus(QThread):
             print("Command sent", cmd)
 
             try:
-                General.lens_position = str(round((1/float((core_socket.recv(
-                    128).decode("utf-8").split('~', 2)[1]))*100), 2))+"mm"
+                response = core_socket.recv(128).decode("utf-8").split('~', 2)
+                if float(response[1]) > 0:
+                    General.lens_position = str(
+                        round(100/float(response[1]), 2))+"mm"
+                else:
+                    General.lens_position = "∞"
                 print("Lens Position:", General.lens_position)
             except socket.timeout:
                 print("No response from server, timed out")
