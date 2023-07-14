@@ -318,7 +318,8 @@ def transmit_update(self):
 
 
 def capture_start(self):
-    if General.capture_mode != 3:
+    print("capture start")
+    if General.capture_mode < 3:
         self.main_core_status_value_label.setText("Focusing...")
     General.core_busy = True
     update_imaging_frames(self)
