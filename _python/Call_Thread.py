@@ -51,18 +51,6 @@ def start_capture(self, mode):
     self.Capture_Thread.start()
 
 
-# def start_snapshot(self):
-#     self.Snap_Thread = Threads.Snap()
-#     self.Snap_Thread.transmit.connect(
-#         lambda: UI_Update.transmit_update(self))
-#     self.Snap_Thread.started.connect(
-#         lambda: UI_Update.snap_start(self))
-#     self.Snap_Thread.finished.connect(
-#         lambda: UI_Update.snap_complete(self))
-
-#     self.Snap_Thread.start()
-
-
 # def start_preview(self):
 
 #     self.Preview_Thread = Threads.Preview()

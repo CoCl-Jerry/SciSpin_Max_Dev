@@ -67,15 +67,6 @@ def init():
     global log_dir
     log_dir = "/home/pi/Desktop/sensor_log/" + date
 
-    global AOI_X
-    AOI_X = 0
-    global AOI_Y
-    AOI_Y = 0
-    global AOI_W
-    AOI_W = 1
-    global AOI_H
-    AOI_H = 1
-
     global rotation
     rotation = 0
 
@@ -84,15 +75,6 @@ def init():
 
     global core_dir
     core_dir = False
-
-    global x_resolution
-    x_resolution = 2464
-
-    global y_resolution
-    y_resolution = 2464
-
-    global imaging_mode
-    imaging_mode = 1
 
     global trasmitted
     trasmitted = 0

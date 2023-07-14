@@ -111,49 +111,6 @@ class Capture(QThread):
         if General.IR_imaging:
             Commands.IR_imaging_toggle(1)
 
-# class Snap(QThread):
-
-#     transmit = pyqtSignal()
-
-#     def __init__(self):
-#         QThread.__init__(self)
-
-#     def __del__(self):
-#         self._running = False
-
-#     def run(self):
-#         if Settings.IR_imaging:
-#             Commands.extract_lights()
-#             Settings.sendCMD("4~1")
-#         try:
-#             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#             ip_address = "10.0.5.1"
-#             server_address = (ip_address, 23456)
-#             sock.connect(server_address)
-#             cmd = "A~" + str(350) + "~" + str(350) + "~" + \
-#                 str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-#                 str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-#                 "~" + str(int(Settings.AOI_H * 100)) + "~1"
-#             sock.sendall(cmd.encode())
-
-#             with open('../_temp/snapshot.jpg', 'wb') as f:
-#                 while True:
-#                     try:
-#                         data = sock.recv(5)
-#                     except Exception as e:
-#                         print(e, 'timeout after 20 seconds... retaking image')
-#                     if not data:
-#                         break
-#                     f.write(data)
-#                     self.transmit.emit()
-#             sock.close()
-
-#         except Exception as e:
-#             print(e, "snapshot failure,contact Jerry for support")
-#         if Settings.IR_imaging:
-#             Settings.sendCMD("4~0")
-#             Commands.deploy_lights()
-
 
 # class Preview(QThread):
 #     transmit = pyqtSignal()

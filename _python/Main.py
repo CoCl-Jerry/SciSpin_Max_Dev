@@ -98,6 +98,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.main_snapshot_pushButton.clicked.connect(
             lambda: Call_Thread.start_capture(self, 3))
 
+        self.imaging_digital_zoom_horizontalSlider.valueChanged.connect(
+            lambda: UI_Update.digital_zoom_update(self))
+
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
@@ -105,9 +108,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.Sensor_tabWidget.currentChanged.connect(
 #             lambda: Functions.printci(self))
 
-
-#         self.snapshot_pushButton.clicked.connect(
-#             lambda: Call_Thread.start_snapshot(self))
 #         self.startImaging_pushButton.clicked.connect(
 #             lambda: Call_Thread.start_timelapse(self))
 #         self.preview_pushButton.clicked.connect(

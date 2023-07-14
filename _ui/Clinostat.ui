@@ -879,14 +879,17 @@
          <x>10</x>
          <y>10</y>
          <width>581</width>
-         <height>131</height>
+         <height>133</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="6" column="3" colspan="2">
-         <widget class="QRadioButton" name="imaging_PNG_radioButton">
+        <item row="7" column="0" colspan="2">
+         <widget class="QRadioButton" name="imaging_JPG_radioButton">
           <property name="text">
-           <string>.PNG</string>
+           <string>.JPG</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -897,37 +900,17 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="imaging_image_resolution_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <item row="0" column="0" colspan="2">
+         <widget class="Line" name="line_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="imaging_xAxis_value_label">
+        <item row="5" column="2" rowspan="2">
+         <widget class="QLabel" name="imaging_file_format_text_label">
           <property name="text">
-           <string>Zoom Axis A: 0.00</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0" colspan="2">
-         <widget class="QRadioButton" name="imaging_JPG_radioButton">
-          <property name="text">
-           <string>.JPG</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <widget class="QLabel" name="imaging_y_resolution_range_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;File Format&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -938,19 +921,37 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="3">
-         <widget class="QSlider" name="imaging_yAxis_value_horizontalSlider">
-          <property name="toolTip">
-           <string>Zoom controls, snapshot is taken when released, useful during focusing</string>
+        <item row="7" column="3" colspan="2">
+         <widget class="QRadioButton" name="imaging_PNG_radioButton">
+          <property name="text">
+           <string>.PNG</string>
           </property>
+         </widget>
+        </item>
+        <item row="5" column="3" rowspan="2" colspan="2">
+         <widget class="Line" name="line_11">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0" rowspan="2" colspan="2">
+         <widget class="Line" name="line_10">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="5">
+         <widget class="QSlider" name="imaging_digital_zoom_horizontalSlider">
           <property name="minimum">
-           <number>1</number>
+           <number>0</number>
           </property>
           <property name="maximum">
            <number>100</number>
           </property>
           <property name="value">
-           <number>100</number>
+           <number>0</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -959,17 +960,7 @@
            <bool>false</bool>
           </property>
           <property name="invertedControls">
-           <bool>false</bool>
-          </property>
-          <property name="tickPosition">
-           <enum>QSlider::NoTicks</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="4">
-         <widget class="QLabel" name="imaging_yAxis_value_label">
-          <property name="text">
-           <string>Zoom Axis B: 1.00</string>
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -983,6 +974,16 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="4">
+         <widget class="QLabel" name="imaging_y_resolution_range_text_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="3" colspan="2">
          <widget class="Line" name="line_19">
           <property name="orientation">
@@ -990,70 +991,10 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="2">
-         <widget class="QLabel" name="imaging_zoom_control_text_label">
+        <item row="0" column="2">
+         <widget class="QLabel" name="imaging_image_resolution_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Zoom Control&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="2" rowspan="2">
-         <widget class="QLabel" name="imaging_file_format_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;File Format&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="3" rowspan="2" colspan="2">
-         <widget class="Line" name="line_11">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QSlider" name="imaging_xAxis_value_horizontalSlider">
-          <property name="toolTip">
-           <string>Zoom controls, snapshot is taken when released, useful during focusing</string>
-          </property>
-          <property name="maximum">
-           <number>100</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="tickPosition">
-           <enum>QSlider::NoTicks</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" colspan="2">
-         <widget class="Line" name="line_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QSpinBox" name="imaging_y_resolution_value_spinBox">
-          <property name="suffix">
-           <string> px</string>
-          </property>
-          <property name="minimum">
-           <number>50</number>
-          </property>
-          <property name="maximum">
-           <number>2592</number>
-          </property>
-          <property name="value">
-           <number>2592</number>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0" rowspan="2" colspan="2">
-         <widget class="Line" name="line_10">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -1073,18 +1014,42 @@
           </property>
          </widget>
         </item>
-        <item row="7" column="0" colspan="5">
-         <spacer name="verticalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
+        <item row="1" column="3">
+         <widget class="QSpinBox" name="imaging_y_resolution_value_spinBox">
+          <property name="suffix">
+           <string> px</string>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
+          <property name="minimum">
+           <number>50</number>
           </property>
-         </spacer>
+          <property name="maximum">
+           <number>2592</number>
+          </property>
+          <property name="value">
+           <number>2592</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="imaging_digital_zoom_text_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Digital Zoom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="imaging_digital_zoom_value_text_label">
+          <property name="text">
+           <string>Zoom Level:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="imaging_digital_zoom_value_label">
+          <property name="text">
+           <string>0 %</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>

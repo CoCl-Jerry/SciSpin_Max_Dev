@@ -95,6 +95,14 @@ imaging_current = 0
 
 received_packets = 0
 
+digital_zoom = 0
+
+imaging_format = 0
+
+x_resolution = 2592
+
+y_resolution = 2592
+
 default_directory = "/home/pi/Desktop"
 
 lens_position = None

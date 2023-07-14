@@ -302,9 +302,14 @@ def image_sequence_title_add_date(self):
         General.sequence_name)
 
 
-def update_imaging_frames(self):
+def imaging_checkpoint(self):
     if General.core_busy:
         self.main_imaging_frame.setEnabled(False)
+        General.x_resolution = self.imaging_x_resolution_value_spinBox.value()
+        General.y_resolution = self.imaging_y_resolution_value_spinBox.value()
+
+        General.digital_zoom = self.imaging_digital_zoom_horizontalSlider.value()
+        General.imaging_format = not self.imaging_JPG_radioButton.isChecked()
     else:
         self.main_imaging_frame.setEnabled(True)
         system_status_check(self)
@@ -314,15 +319,19 @@ def transmit_update(self):
     General.received_packets += 1
     self.main_core_status_value_label.setText(str(General.received_packets))
 
+
+def digital_zoom_update(self):
+    self.imaging_digital_zoom_value_label.setText(
+        str(self.imaging_digital_zoom_horizontalSlider.value())+" %")
+
 # ---------------------------- focusing UI updates --------------------------- #
 
 
 def capture_start(self):
-    print("capture start")
     if General.capture_mode < 3:
         self.main_core_status_value_label.setText("Focusing...")
     General.core_busy = True
-    update_imaging_frames(self)
+    imaging_checkpoint(self)
 
 
 def capture_complete(self):
@@ -335,7 +344,22 @@ def capture_complete(self):
     if General.lens_position != "∞":
         self.main_increase_focus_pushButton.setEnabled(True)
         self.main_decrease_focus_pushButton.setEnabled(True)
-    update_imaging_frames(self)
+    imaging_checkpoint(self)
+
+# def preview_complete(self):
+#     self.core_status_label.setText(
+#         "Time Taken " + str(Settings.time_elipsed) + "s")
+#     if Settings.imaging_mode == 1:
+#         preview_img = QImage("../_temp/preview.jpg")
+#         self.Image_Frame.setPixmap(QPixmap(preview_img))
+#         os.system("gpicview ../_temp/preview.jpg")
+#     else:
+#         preview_img = QImage("../_temp/preview.png")
+#         self.Image_Frame.setPixmap(QPixmap(preview_img))
+#         os.system("gpicview ../_temp/preview.png")
+#     Settings.imaging = False
+#     Settings.trasmitted = 0
+#     update_imaging(self)
 
 # ---------------------------------------------------------------------------- #
 #                         power cycle thread UI updates                        #
@@ -362,22 +386,6 @@ def cycle_end(self):
 
 #     snap_img = QImage("../_temp/snapshot.jpg")
 #     self.Image_Frame.setPixmap(QPixmap(snap_img))
-#     Settings.imaging = False
-#     Settings.trasmitted = 0
-#     update_imaging(self)
-
-
-# def preview_complete(self):
-#     self.core_status_label.setText(
-#         "Time Taken " + str(Settings.time_elipsed) + "s")
-#     if Settings.imaging_mode == 1:
-#         preview_img = QImage("../_temp/preview.jpg")
-#         self.Image_Frame.setPixmap(QPixmap(preview_img))
-#         os.system("gpicview ../_temp/preview.jpg")
-#     else:
-#         preview_img = QImage("../_temp/preview.png")
-#         self.Image_Frame.setPixmap(QPixmap(preview_img))
-#         os.system("gpicview ../_temp/preview.png")
 #     Settings.imaging = False
 #     Settings.trasmitted = 0
 #     update_imaging(self)
