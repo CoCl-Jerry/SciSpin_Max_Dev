@@ -70,7 +70,7 @@ class Focus(QThread):
             core_socket.settimeout(General.socket_timeout)
             core_socket.connect(General.server_address)
 
-            cmd = "A~2592~2592~1~0~0"
+            cmd = "A~350~350~1~0~0"
             # cmd = "A~" + str(350) + "~" + str(350) + "~" + \
             #     str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
             #     str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
