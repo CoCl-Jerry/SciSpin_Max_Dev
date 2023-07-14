@@ -80,7 +80,7 @@ class Focus(QThread):
 
             try:
                 General.lens_position = str(round(1/float((core_socket.recv(
-                    128).decode("utf-8").split('~', 2)[1])), 2))
+                    128).decode("utf-8").split('~', 2)[1])), 2)*100)+"mm"
                 print("Lens Position:", General.lens_position)
             except socket.timeout:
                 print("No response from server, timed out")
