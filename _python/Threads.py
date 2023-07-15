@@ -78,8 +78,10 @@ class Capture(QThread):
                 cmd = "A~350~350~0~1~1~" + General.digital_zoom
             elif General.capture_mode == 3:
                 cmd = "A~350~350~0~0~0~" + General.digital_zoom
+            elif General.capture_mode == 4:
+                cmd = "A~"+General.x_resolution+"~" + \
+                    General.y_resolution+"~0~0~0~" + General.digital_zoom
 
-            print("Sending command", cmd)
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
 

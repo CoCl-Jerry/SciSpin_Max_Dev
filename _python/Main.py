@@ -101,6 +101,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.imaging_digital_zoom_horizontalSlider.valueChanged.connect(
             lambda: UI_Update.digital_zoom_update(self))
 
+        self.main_preview_pushButton.clicked.connect(
+            lambda: Call_Thread.start_capture(self, 4))
+
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
