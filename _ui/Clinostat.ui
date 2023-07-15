@@ -858,7 +858,7 @@
      <attribute name="title">
       <string>IMAGING</string>
      </attribute>
-     <widget class="QFrame" name="frame_3">
+     <widget class="QFrame" name="imaging_settings_frame">
       <property name="geometry">
        <rect>
         <x>10</x>

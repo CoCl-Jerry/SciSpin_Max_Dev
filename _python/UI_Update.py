@@ -305,13 +305,18 @@ def image_sequence_title_add_date(self):
 def imaging_checkpoint(self):
     if General.core_busy:
         self.main_imaging_frame.setEnabled(False)
-        General.x_resolution = self.imaging_x_resolution_value_spinBox.value()
-        General.y_resolution = self.imaging_y_resolution_value_spinBox.value()
+        self.imaging_settings_frame.setEnabled(False)
+        General.x_resolution = str(
+            self.imaging_x_resolution_value_spinBox.value())
+        General.y_resolution = str(
+            self.imaging_y_resolution_value_spinBox.value())
 
-        General.digital_zoom = self.imaging_digital_zoom_horizontalSlider.value()
+        General.digital_zoom = str(
+            self.imaging_digital_zoom_horizontalSlider.value())
         General.imaging_format = not self.imaging_JPG_radioButton.isChecked()
     else:
         self.main_imaging_frame.setEnabled(True)
+        self.imaging_settings_frame.setEnabled(True)
         system_status_check(self)
 
 

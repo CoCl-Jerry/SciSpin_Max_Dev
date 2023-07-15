@@ -71,13 +71,13 @@ class Capture(QThread):
             core_socket.connect(General.server_address)
 
             if General.capture_mode == 0:
-                cmd = "A~350~350~1~0~0"
+                cmd = "A~350~350~1~0~0~" + General.digital_zoom
             elif General.capture_mode == 1:
-                cmd = "A~350~350~0~1~-1"
+                cmd = "A~350~350~0~1~-1~" + General.digital_zoom
             elif General.capture_mode == 2:
-                cmd = "A~350~350~0~1~1"
+                cmd = "A~350~350~0~1~1~" + General.digital_zoom
             elif General.capture_mode == 3:
-                cmd = "A~350~350~0~0~0"
+                cmd = "A~350~350~0~0~0~" + General.digital_zoom
 
             print("Sending command", cmd)
             core_socket.sendall(cmd.encode())
