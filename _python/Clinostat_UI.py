@@ -394,7 +394,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.line_19, 0, 3, 1, 2)
         self.imaging_x_resolution_value_spinBox = QtWidgets.QSpinBox(self.gridLayoutWidget_2)
         self.imaging_x_resolution_value_spinBox.setMinimum(50)
-        self.imaging_x_resolution_value_spinBox.setMaximum(3240)
+        self.imaging_x_resolution_value_spinBox.setMaximum(4608)
         self.imaging_x_resolution_value_spinBox.setProperty("value", 2592)
         self.imaging_x_resolution_value_spinBox.setObjectName("imaging_x_resolution_value_spinBox")
         self.gridLayout_2.addWidget(self.imaging_x_resolution_value_spinBox, 1, 0, 1, 1)
