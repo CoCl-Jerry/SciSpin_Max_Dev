@@ -22,7 +22,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
 # ------------------------------- initialzation ------------------------------ #
         UI_Update.system_status_check(self)
-        UI_Update.graphing_setup(self)
+        UI_Update.graph_setup(self)
         Commands.reset_MCU()
         General.initialize_icons()
 # ------------------------------ Main UI signals ----------------------------- #
