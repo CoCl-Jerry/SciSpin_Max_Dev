@@ -127,7 +127,8 @@ class Ambient(QThread):
 
     def run(self):
         i2c = board.I2C()  # uses board.SCL and board.SDA
-        bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+        bme280 = adafruit_bme280.Adafruit_BME280_I2C(
+            i2c, General.ambient_sensor_address)
         General.ambient_sensor_initial_time = round(perf_counter(), 2)
 
         while General.ambient_thread_running:
