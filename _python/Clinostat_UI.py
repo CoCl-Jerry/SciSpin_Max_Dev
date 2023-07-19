@@ -781,7 +781,7 @@ class Ui_MainWindow(object):
         self.main_imaging_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.main_imaging_frame.setObjectName("main_imaging_frame")
         self.gridLayoutWidget_12 = QtWidgets.QWidget(self.main_imaging_frame)
-        self.gridLayoutWidget_12.setGeometry(QtCore.QRect(10, 10, 166, 171))
+        self.gridLayoutWidget_12.setGeometry(QtCore.QRect(10, 10, 151, 171))
         self.gridLayoutWidget_12.setObjectName("gridLayoutWidget_12")
         self.gridLayout_12 = QtWidgets.QGridLayout(self.gridLayoutWidget_12)
         self.gridLayout_12.setContentsMargins(0, 0, 0, 0)
@@ -910,7 +910,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.main_tabWidget.setCurrentIndex(3)
         self.lighting_source_tabWidget.setCurrentIndex(0)
-        self.ambient_sensors_tabWidget.setCurrentIndex(0)
+        self.ambient_sensors_tabWidget.setCurrentIndex(2)
         self.motion_sensors_tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 

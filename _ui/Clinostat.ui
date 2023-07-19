@@ -1308,7 +1308,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="ambient_temperature_tab">
        <attribute name="title">
@@ -1935,7 +1935,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>166</width>
+       <width>151</width>
        <height>171</height>
       </rect>
      </property>

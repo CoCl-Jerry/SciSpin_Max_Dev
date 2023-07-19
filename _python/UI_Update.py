@@ -89,7 +89,7 @@ def graph_setup(self):
     self.ambient_pressure_graphWidget.setBackground("#fbfbfb")
     self.ambient_pressure_graphWidget.showGrid(x=True, y=True)
     self.ambient_pressure_graphWidget.setLabel(
-        "left", "Humidity (%)", **General.styles)
+        "left", "Pressure (hPa)", **General.styles)
     self.ambient_pressure_graphWidget.setLabel(
         "bottom", "Time (s)", **General.styles)
 
