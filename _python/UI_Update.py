@@ -35,10 +35,12 @@ def system_status_check(self):
         self.main_ambient_sensor_status_value_label.setPalette(
             General.palette_green)
         self.main_ambient_sensor_status_value_label.setText("Online")
+        self.ambient_sensor_frame.setEnabled(True)
     else:
         self.main_ambient_sensor_status_value_label.setPalette(
             General.palette_red)
         self.main_ambient_sensor_status_value_label.setText("Offline")
+        self.ambient_sensor_frame.setEnabled(False)
     # --------------------------- check motion sensor connection ----------------- #
     if Functions.check_i2c_device(General.motion_sensor_address):
         self.main_motion_sensor_status_value_label.setPalette(
@@ -63,6 +65,44 @@ def system_status_check(self):
             formatted_free_space + "GB")
 
     self.main_update_status_pushButton.setEnabled(True)  # Enable update button
+
+# ---------------------------------------------------------------------------- #
+#                                graph UI setup                                #
+# ---------------------------------------------------------------------------- #
+
+
+def graph_setup(self):
+    self.ambient_temperature_graphWidget.setBackground("#fbfbfb")
+    self.ambient_temperature_graphWidget.showGrid(x=True, y=True)
+    self.ambient_temperature_graphWidget.setLabel(
+        "left", "Temperature (°C)", **General.styles)
+    self.ambient_temperature_graphWidget.setLabel(
+        "bottom", "Time (s)", **General.styles)
+
+    self.ambient_humidity_graphWidget.setBackground("#fbfbfb")
+    self.ambient_humidity_graphWidget.showGrid(x=True, y=True)
+    self.ambient_humidity_graphWidget.setLabel(
+        "left", "Humidity (%)", **General.styles)
+    self.ambient_humidity_graphWidget.setLabel(
+        "bottom", "Time (s)", **General.styles)
+
+    self.ambient_pressure_graphWidget.setBackground("#fbfbfb")
+    self.ambient_pressure_graphWidget.showGrid(x=True, y=True)
+    self.ambient_pressure_graphWidget.setLabel(
+        "left", "Humidity (%)", **General.styles)
+    self.ambient_pressure_graphWidget.setLabel(
+        "bottom", "Time (s)", **General.styles)
+
+    General.ambient_temperature_graph_ref = self.ambient_temperature_graphWidget.plot(
+        General.ambient_sensor_time_stamp, General.ambient_temperature, pen=General.pen
+    )
+    General.ambient_humidity_graph_ref = self.ambient_humidity_graphWidget.plot(
+        General.ambient_sensor_time_stamp, General.ambient_humidity, pen=General.pen
+    )
+    General.ambient_pressure_graph_ref = self.ambient_pressure_graphWidget.plot(
+        General.ambient_sensor_time_stamp, General.ambient_pressure, pen=General.pen
+    )
+
 
 # ---------------------------------------------------------------------------- #
 #                           lighting UI updates                                #
@@ -373,12 +413,71 @@ def capture_complete(self):
 
 def cycle_start(self):
     self.lighting_confirm_cycle_pushButton.setText("TERMINATE CYCLE")
-    General.cycle_running = True
+    General.cycle_thread_running = True
 
 
 def cycle_end(self):
     self.lighting_confirm_cycle_pushButton.setText("CONFIRM CYCLE")
-    General.cycle_running = False
+    General.cycle_thread_running = False
+
+# ---------------------------------------------------------------------------- #
+#                              graphing UI updates                             #
+# ---------------------------------------------------------------------------- #
+
+
+def ambient_UI_toggle(self):
+    if General.ambient_thread_running:
+        self.ambient_start_sensors_pushButton.setText("Stop Ambient Sensors")
+    else:
+        self.ambient_start_sensors_pushButton.setText("Start Ambient Sensors")
+        self.ambient_temperture_value_label.setText("N/A °C")
+        self.ambient_humidity_value_label.setText("N/A %")
+        self.ambient_pressure_value_label.setText("N/A hPa")
+
+
+def ambient_sensor_reset(self):
+    self.ambient_temperature_graphWidget.clear()
+    self.ambient_humidity_graphWidget.clear()
+    self.ambient_pressure_graphWidget.clear()
+
+    General.ambient_temperature = []
+    General.ambient_humidity = []
+    General.ambient_pressure = []
+
+    General.ambient_sensor_time_stamp = []
+
+
+def ambient_sensor_update(self):
+    ambient_sensor_graph_update(self)
+    ambient_update_labels(self)
+
+
+def ambient_sensor_graph_update(self):
+    if len(General.ambient_sensor_time_stamp) > 1:
+        if self.main_tabWidget.currentIndex() == 3:
+            if self.ambient_sensors_tabWidget.currentIndex() == 0:
+                General.ambient_temperature_graph_ref.setData(
+                    General.ambient_sensor_time_stamp, General.ambient_temperature
+                )
+            elif self.ambient_sensors_tabWidget.currentIndex() == 1:
+                General.ambient_humidity_graph_ref.setData(
+                    General.ambient_sensor_time_stamp, General.ambient_humidity
+                )
+            elif self.ambient_sensors_tabWidget.currentIndex() == 2:
+                General.ambient_pressure_graph_ref.setData(
+                    General.ambient_sensor_time_stamp, General.ambient_pressure
+                )
+
+
+def ambient_update_labels(self):
+    self.ambient_temperture_value_label.setText(
+        str(General.ambient_temperature[-1]) + " °C"
+    )
+    self.ambient_humidity_value_label.setText(
+        str(General.ambient_humidity[-1]) + " %")
+    self.ambient_pressure_value_label.setText(
+        str(General.ambient_pressure[-1]) + " hPa")
+
 
 # def snap_start(self):
 #     self.core_status_label.setText("Core Status: IMAGING")

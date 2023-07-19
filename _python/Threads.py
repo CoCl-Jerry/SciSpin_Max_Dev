@@ -5,10 +5,11 @@ import board
 import busio
 import os
 import timeit
-import time
+from time import sleep, perf_counter
 import Commands
 import adafruit_mma8451
-import adafruit_bme280
+
+from adafruit_bme280 import basic as adafruit_bme280
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
@@ -34,7 +35,7 @@ class Cycle(QThread):
                 for x in range(General.on_duration * 1):
                     sleep(1)
 
-                    if not General.cycle_running:
+                    if not General.cycle_thread_running:
                         on_stat = False
                         break
                 Commands.extract_lights()
@@ -43,12 +44,12 @@ class Cycle(QThread):
                 for x in range(General.off_duration * 1):
                     sleep(1)
 
-                    if not General.cycle_running:
+                    if not General.cycle_thread_running:
                         on_stat = False
                         break
                 Commands.deploy_lights()
                 on_stat = True
-            if not General.cycle_running:
+            if not General.cycle_thread_running:
                 break
 
 
@@ -114,6 +115,58 @@ class Capture(QThread):
             Commands.IR_imaging_toggle(1)
 
 
+class Ambient(QThread):
+    ambient_sensor_update = pyqtSignal()
+    initialized = pyqtSignal()
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        i2c = board.I2C()  # uses board.SCL and board.SDA
+        bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+        General.ambient_sensor_initial_time = round(perf_counter(), 2)
+
+        while General.ambient_thread_running:
+            if (
+                perf_counter()
+                - General.ambient_sensor_initial_time
+                - General.ambient_sensor_previous_time
+                > 5
+                or len(General.ambient_sensor_time_stamp) == 0
+            ):
+                General.ambient_sensor_time_stamp.append(
+                    round(perf_counter() -
+                          General.ambient_sensor_initial_time, 2)
+                )
+                General.ambient_sensor_previous_time = (
+                    General.ambient_sensor_time_stamp[-1]
+                )
+
+                General.ambient_temperature.append(
+                    round(bme280.temperature +
+                          General.ambient_temperature_offset, 2)
+                )
+                General.ambient_humidity.append(
+                    round(
+                        bme280.humidity + General.ambient_humidity_offset, 2
+                    )
+                )
+                General.ambient_pressure.append(
+                    round(
+                        bme280.pressure + General.ambient_pressure_offset, 2
+                    )
+                )
+
+                # if len(General.ambient_sensor_time_stamp) == 2:
+                #     self.initialized.emit()
+                # elif len(General.ambient_sensor_time_stamp) > 2:
+                self.ambient_sensor_update.emit()
+
+
 # class Preview(QThread):
 #     transmit = pyqtSignal()
 
@@ -170,71 +223,6 @@ class Capture(QThread):
 #         if Settings.IR_imaging:
 #             Settings.sendCMD("4~0")
 #             Commands.deploy_lights()
-
-
-# class Sensor(QThread):
-#     update = pyqtSignal()
-#     logstart = pyqtSignal()
-#     logdone = pyqtSignal()
-
-#     def __init__(self):
-#         QThread.__init__(self)
-
-#     def __del__(self):
-#         self._running = False
-
-#     def run(self):
-#         i2c = busio.I2C(board.SCL, board.SDA)
-#         time.sleep(1)
-#         if Settings.acc_attached:
-#             sensor = adafruit_mma8451.MMA8451(i2c)
-#         if Settings.temp_attached:
-#             bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, 0x76)
-
-#         while True:
-#             try:
-#                 if Settings.tag_index == 0 and Settings.acc_attached:
-#                     accel_x, accel_y, accel_z = sensor.acceleration
-#                     Settings.ACC_X_text = "{0:.2f}".format(accel_x)
-#                     Settings.ACC_Y_text = "{0:.2f}".format(accel_y)
-#                     Settings.ACC_Z_text = "{0:.2f}".format(accel_z)
-#                 elif Settings.temp_attached:
-#                     Settings.TEMP_text = "{0:.2f}".format(bme280.temperature)
-#                     Settings.HUD_text = "{0:.2f}".format(bme280.humidity)
-#                     Settings.PR_text = "{0:.2f}".format(bme280.pressure)
-
-#                 self.update.emit()
-#                 sleep(Settings.sample_time)
-
-#                 if Settings.log_sensor:
-#                     if not Settings.sensor_flag:
-#                         self.logstart.emit()
-#                         if not os.path.isdir(Settings.prelog_dir):
-#                             os.umask(0)
-#                             os.mkdir(Settings.prelog_dir)
-#                         if not os.path.isdir(Settings.log_dir):
-#                             os.umask(0)
-#                             os.mkdir(Settings.log_dir)
-#                         log_file = open(Settings.log_dir + "/log.txt", "w")
-#                         Settings.sensor_flag = True
-#                         os.chmod(Settings.log_dir + "/log.txt", 0o777)
-
-#                     if Settings.tag_index == 0:
-
-#                         log_file.write(Settings.ACC_X_text + "\t" +
-#                                        Settings.ACC_Y_text + "\t" + Settings.ACC_Z_text + "\r\n")
-#                     else:
-
-#                         log_file.write(Settings.TEMP_text + "\t" +
-#                                        Settings.HUD_text + "\t" + Settings.PR_text + "\r\n")
-
-#                     if int(timeit.default_timer() - Settings.log_start_time > Settings.log_duration):
-#                         Settings.log_sensor = False
-#                         Settings.sensor_flag = False
-#                         log_file.close()
-#                         self.logdone.emit()
-#             except Exception as e:
-#                 pass
 
 
 # class Timelapse(QThread):

@@ -1,4 +1,6 @@
 from PyQt5.QtGui import QPalette, QColor, QImage, QIcon, QPixmap
+from pyqtgraph import mkPen
+
 import time
 import socket
 
@@ -43,10 +45,11 @@ IR_stat = False
 IR_imaging = False
 
 # ---------------------------------------------------------------------------- #
-#                         Threads watchdog declarations                        #
+#                         Threads flag declarations                            #
 # ---------------------------------------------------------------------------- #
-cycle_running = False
+cycle_thread_running = False
 
+ambient_thread_running = False
 
 # ---------------------------------------------------------------------------- #
 #                           power cycle declarations                           #
@@ -118,6 +121,47 @@ sequence_name = None
 current_image = None
 
 core_busy = False
+
+# ---------------------------------------------------------------------------- #
+#                             graphing delarations                             #
+# ---------------------------------------------------------------------------- #
+styles = {"color": "r", "font-size": "15px"}
+
+pen = mkPen(color=(197, 5, 12), width=2)
+
+# ---------------------------------------------------------------------------- #
+#                          ambient sensor declarations                         #
+# ---------------------------------------------------------------------------- #
+
+ambient_temperature_graph_ref = ""
+
+ambient_humidity_graph_ref = ""
+
+ambient_pressure_graph_ref = ""
+
+ambient_sensor_time_stamp = []
+
+ambient_temperature = []
+
+ambient_humidity = []
+
+ambient_pressure = []
+
+ambient_sensor_initial_time = 0
+
+ambient_sensor_previous_time = 0
+
+ambient_temperature_offset = 0
+
+ambient_humidity_offset = 0
+
+ambient_pressure_offset = 0
+
+# ---------------------------------------------------------------------------- #
+#                          motion sensor declarations                          #
+# ---------------------------------------------------------------------------- #
+
+
 # ---------------------------------------------------------------------------- #
 #                               icon declarations                              #
 # ---------------------------------------------------------------------------- #

@@ -12,7 +12,7 @@ def start_cycle(self):
     General.on_duration = self.lighting_on_duration_value_spinBox.value()
     General.off_duration = self.lighting_off_duration_value_spinBox.value()
 
-    if not General.cycle_running:
+    if not General.cycle_thread_running:
         try:
             self.Cycle_Thread = Threads.Cycle()
             self.Cycle_Thread.started.connect(
@@ -25,7 +25,7 @@ def start_cycle(self):
         except Exception as e:
             print(e, "cycle failure, please contact Jerry for support")
     else:
-        General.cycle_running = False
+        General.cycle_thread_running = False
 
 
 def start_capture(self, mode):
@@ -51,17 +51,24 @@ def start_capture(self, mode):
     self.Capture_Thread.start()
 
 
-# def start_preview(self):
+def ambient_sensors(self):
+    if not General.ambient_thread_running:
+        self.Ambient_Thread = Threads.Ambient()
+        self.Ambient_Thread.started.connect(
+            lambda: UI_Update.ambient_UI_toggle(self))
+        self.Ambient_Thread.started.connect(
+            lambda: UI_Update.ambient_sensor_reset(self)
+        )
+        self.Ambient_Thread.finished.connect(
+            lambda: UI_Update.ambient_UI_toggle(self))
+        self.Ambient_Thread.ambient_sensor_update.connect(
+            lambda: UI_Update.ambient_sensor_update(self)
+        )
 
-#     self.Preview_Thread = Threads.Preview()
-#     self.Preview_Thread.transmit.connect(
-#         lambda: UI_Update.transmit_update(self))
-#     self.Preview_Thread.started.connect(
-#         lambda: UI_Update.snap_start(self))
-#     self.Preview_Thread.finished.connect(
-#         lambda: UI_Update.preview_complete(self))
-
-#     self.Preview_Thread.start()
+        General.ambient_thread_running = True
+        self.Ambient_Thread.start()
+    else:
+        General.ambient_thread_running = False
 
 
 # def start_timelapse(self):

@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="main_lighting_tab">
      <attribute name="title">
@@ -1296,6 +1296,9 @@
       <string>AMBIENT SENSORS</string>
      </attribute>
      <widget class="QTabWidget" name="ambient_sensors_tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1305,7 +1308,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="ambient_temperature_tab">
        <attribute name="title">
@@ -1316,7 +1319,7 @@
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>561</width>
+          <width>581</width>
           <height>301</height>
          </rect>
         </property>
@@ -1326,7 +1329,7 @@
          <rect>
           <x>10</x>
           <y>320</y>
-          <width>561</width>
+          <width>581</width>
           <height>81</height>
          </rect>
         </property>
@@ -1341,7 +1344,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>541</width>
+           <width>561</width>
            <height>61</height>
           </rect>
          </property>
@@ -1419,7 +1422,7 @@
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>561</width>
+          <width>581</width>
           <height>301</height>
          </rect>
         </property>
@@ -1429,7 +1432,7 @@
          <rect>
           <x>10</x>
           <y>320</y>
-          <width>561</width>
+          <width>581</width>
           <height>81</height>
          </rect>
         </property>
@@ -1444,7 +1447,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>541</width>
+           <width>561</width>
            <height>61</height>
           </rect>
          </property>
@@ -1522,7 +1525,7 @@
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>561</width>
+          <width>581</width>
           <height>301</height>
          </rect>
         </property>
@@ -1532,7 +1535,7 @@
          <rect>
           <x>10</x>
           <y>320</y>
-          <width>561</width>
+          <width>581</width>
           <height>81</height>
          </rect>
         </property>
@@ -1547,7 +1550,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>541</width>
+           <width>561</width>
            <height>61</height>
           </rect>
          </property>
@@ -1617,71 +1620,90 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QWidget" name="gridLayoutWidget_11">
+     <widget class="QFrame" name="ambient_sensor_frame">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>460</y>
+        <y>459</y>
         <width>601</width>
-        <height>56</height>
+        <height>61</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_11">
-       <item row="0" column="1">
-        <widget class="QPushButton" name="ambient_start_sensors_pushButton">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string>Start collecting data from ambient sensors</string>
-         </property>
-         <property name="text">
-          <string>Start Ambient Sensors</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="ambient_export_sensor_CSV_pushButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Export CSV File</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" rowspan="2">
-        <widget class="QSpinBox" name="ambient_sensor_rate_value_spinBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="suffix">
-          <string> Samples/min</string>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>600</number>
-         </property>
-         <property name="value">
-          <number>60</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget_11">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>581</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_11">
+        <item row="0" column="1">
+         <widget class="QPushButton" name="ambient_start_sensors_pushButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>Start collecting data from ambient sensors</string>
+          </property>
+          <property name="text">
+           <string>Start Ambient Sensors</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="ambient_export_sensor_CSV_pushButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Export CSV File</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="2">
+         <widget class="QSpinBox" name="ambient_sensor_rate_value_spinBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="suffix">
+           <string> Samples/min</string>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>600</number>
+          </property>
+          <property name="value">
+           <number>60</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="main_motion_sensor_tab">
@@ -1913,7 +1935,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>151</width>
+       <width>166</width>
        <height>171</height>
       </rect>
      </property>
