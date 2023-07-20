@@ -454,8 +454,12 @@ def ambient_sensor_update(self):
 
 def ambient_sensor_graph_update(self):
     if len(General.ambient_sensor_time_stamp) > 1:
+        print("maintab curent index: ", self.main_tabWidget.currentIndex())
         if self.main_tabWidget.currentIndex() == 3:
+            print("ambient tab index: ",
+                  self.ambient_sensors_tabWidget.currentIndex())
             if self.ambient_sensors_tabWidget.currentIndex() == 0:
+                print("graphing tempurature")
                 General.ambient_temperature_graph_ref.setData(
                     General.ambient_sensor_time_stamp, General.ambient_temperature
                 )
