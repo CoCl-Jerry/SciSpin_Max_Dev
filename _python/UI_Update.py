@@ -417,11 +417,16 @@ def cycle_end(self):
 def ambient_UI_toggle(self):
     if General.ambient_thread_running:
         self.ambient_start_sensors_pushButton.setText("Stop Ambient Sensors")
+        self.ambient_sensor_rate_value_spinBox.setEnabled(False)
+        General.ambient_sensor_interval = 60 / \
+            self.ambient_sensor_rate_value_spinBox.value()
+
     else:
         self.ambient_start_sensors_pushButton.setText("Start Ambient Sensors")
         self.ambient_temperture_value_label.setText("N/A °C")
         self.ambient_humidity_value_label.setText("N/A %")
         self.ambient_pressure_value_label.setText("N/A hPa")
+        self.ambient_sensor_rate_value_spinBox.setEnabled(True)
 
 
 def ambient_sensor_initialize(self):
@@ -455,12 +460,9 @@ def ambient_sensor_update(self):
 
 def ambient_sensor_graph_update(self):
     if len(General.ambient_sensor_time_stamp) > 1:
-        print("maintab curent index: ", self.main_tabWidget.currentIndex())
         if self.main_tabWidget.currentIndex() == 3:
-            print("ambient tab index: ",
-                  self.ambient_sensors_tabWidget.currentIndex())
+
             if self.ambient_sensors_tabWidget.currentIndex() == 0:
-                print("graphing tempurature")
                 General.ambient_temperature_graph_ref.setData(
                     General.ambient_sensor_time_stamp, General.ambient_temperature
                 )

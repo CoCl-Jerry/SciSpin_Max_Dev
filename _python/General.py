@@ -149,6 +149,8 @@ ambient_pressure = []
 
 ambient_sensor_initial_time = None
 
+ambient_sensor_interval = None
+
 ambient_sensor_previous_time = 0
 
 ambient_temperature_offset = 0
