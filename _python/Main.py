@@ -130,7 +130,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         )
 
         self.ambient_export_sensor_CSV_pushButton.clicked.connect(
-            lambda: Functions.ambient_sensor_pressure_offset(self)
+            lambda: Functions.sensor_export_data(self)
         )
 
 
