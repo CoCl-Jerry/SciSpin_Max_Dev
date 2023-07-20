@@ -61,6 +61,9 @@ def ambient_sensors(self):
         )
         self.Ambient_Thread.finished.connect(
             lambda: UI_Update.ambient_UI_toggle(self))
+        self.Ambient_Thread.initialized.connect(
+            lambda: UI_Update.ambient_sensor_initialize(self)
+        )
         self.Ambient_Thread.ambient_sensor_update.connect(
             lambda: UI_Update.ambient_sensor_update(self)
         )

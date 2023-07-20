@@ -93,17 +93,6 @@ def graph_setup(self):
     self.ambient_pressure_graphWidget.setLabel(
         "bottom", "Time (s)", **General.styles)
 
-    General.ambient_temperature_graph_ref = self.ambient_temperature_graphWidget.plot(
-        General.ambient_sensor_time_stamp, General.ambient_temperature, pen=General.pen
-    )
-    General.ambient_humidity_graph_ref = self.ambient_humidity_graphWidget.plot(
-        General.ambient_sensor_time_stamp, General.ambient_humidity, pen=General.pen
-    )
-    General.ambient_pressure_graph_ref = self.ambient_pressure_graphWidget.plot(
-        General.ambient_sensor_time_stamp, General.ambient_pressure, pen=General.pen
-    )
-
-
 # ---------------------------------------------------------------------------- #
 #                           lighting UI updates                                #
 # ---------------------------------------------------------------------------- #
@@ -433,6 +422,19 @@ def ambient_UI_toggle(self):
         self.ambient_temperture_value_label.setText("N/A °C")
         self.ambient_humidity_value_label.setText("N/A %")
         self.ambient_pressure_value_label.setText("N/A hPa")
+
+
+def ambient_sensor_initialize(self):
+    print("ambient sensor initialize")
+    General.ambient_temperature_graph_ref = self.ambient_temperature_graphWidget.plot(
+        General.ambient_sensor_time_stamp, General.ambient_temperature, pen=General.pen
+    )
+    General.ambient_humidity_graph_ref = self.ambient_humidity_graphWidget.plot(
+        General.ambient_sensor_time_stamp, General.ambient_humidity, pen=General.pen
+    )
+    General.ambient_pressure_graph_ref = self.ambient_pressure_graphWidget.plot(
+        General.ambient_sensor_time_stamp, General.ambient_pressure, pen=General.pen
+    )
 
 
 def ambient_sensor_reset(self):

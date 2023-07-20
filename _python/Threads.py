@@ -163,10 +163,10 @@ class Ambient(QThread):
                     )
                 )
 
-                # if len(General.ambient_sensor_time_stamp) == 2:
-                #     self.initialized.emit()
-                # elif len(General.ambient_sensor_time_stamp) > 2:
-                self.ambient_sensor_update.emit()
+                if len(General.ambient_sensor_time_stamp) == 2:
+                    self.initialized.emit()
+                elif len(General.ambient_sensor_time_stamp) > 2:
+                    self.ambient_sensor_update.emit()
 
 
 # class Preview(QThread):
