@@ -136,7 +136,7 @@ class Ambient(QThread):
                 perf_counter()
                 - General.ambient_sensor_initial_time
                 - General.ambient_sensor_previous_time
-                > 2
+                > General.ambient_sensor_interval
                 or len(General.ambient_sensor_time_stamp) == 0
             ):
                 General.ambient_sensor_time_stamp.append(
