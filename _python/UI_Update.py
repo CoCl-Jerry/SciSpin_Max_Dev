@@ -470,6 +470,7 @@ def ambient_sensor_graph_update(self):
 
 
 def ambient_update_labels(self):
+    print("setting labels")
     self.ambient_temperture_value_label.setText(
         str(General.ambient_temperature[-1]) + " °C"
     )
