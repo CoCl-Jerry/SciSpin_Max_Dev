@@ -670,7 +670,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.ambient_sensor_rate_value_spinBox.sizePolicy().hasHeightForWidth())
         self.ambient_sensor_rate_value_spinBox.setSizePolicy(sizePolicy)
         self.ambient_sensor_rate_value_spinBox.setMinimum(1)
-        self.ambient_sensor_rate_value_spinBox.setMaximum(60)
+        self.ambient_sensor_rate_value_spinBox.setMaximum(100)
         self.ambient_sensor_rate_value_spinBox.setProperty("value", 60)
         self.ambient_sensor_rate_value_spinBox.setObjectName("ambient_sensor_rate_value_spinBox")
         self.gridLayout_11.addWidget(self.ambient_sensor_rate_value_spinBox, 0, 0, 2, 1)
@@ -910,7 +910,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.main_tabWidget.setCurrentIndex(3)
         self.lighting_source_tabWidget.setCurrentIndex(0)
-        self.ambient_sensors_tabWidget.setCurrentIndex(0)
+        self.ambient_sensors_tabWidget.setCurrentIndex(1)
         self.motion_sensors_tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
