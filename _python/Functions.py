@@ -8,6 +8,7 @@ import os
 import psutil
 import subprocess
 import smbus
+import csv
 
 from PyQt5.QtWidgets import QFileDialog
 
@@ -82,6 +83,94 @@ def select_directory(self):
         General.custom_directory = m_directory
     UI_Update.imaging_UI_update(self)
 
+
+def ambient_sensor_temperature_offset(self):
+    General.ambient_temperature_offset = self.ambient_temperature_offset_value_doubleSpinBox.value()
+
+
+def ambient_sensor_humidity_offset(self):
+    General.ambient_humidity_offset = self.ambient_humidity_offset_value_doubleSpinBox.value()
+
+
+def ambient_sensor_pressure_offset(self):
+    General.ambient_pressure_offset = self.ambient_pressure_offset_value_doubleSpinBox.value()
+
+
+def sensor_export_data(self):
+    try:
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+
+        if self.main_tabWidget.currentIndex() == 3:
+            file_name, _ = QFileDialog.getSaveFileName(
+                self,
+                "Save CSV File",
+                General.default_directory
+                + "/ambient_sensor_data_"
+                + General.date
+                + ".csv",
+                "CSV Files (*.csv)",
+                options=options,
+            )
+            if file_name:
+                UI_Update.export_UI_update(self, 0)
+                export = list(
+                    zip(
+                        General.ambient_sensor_time_stamp,
+                        General.ambient_temperature,
+                        General.ambient_humidity,
+                        General.ambient_pressure,
+                    )
+                )
+                with open(file_name, "w", newline="") as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow(
+                        ["Time", "Temperature", "Humidity", "Pressure"])
+                    writer.writerows(export)
+                    UI_Update.export_UI_update(self, 1)
+        # elif self.mainwindow_tabWidget.currentIndex() == 4:
+        #     file_name, _ = QFileDialog.getSaveFileName(
+        #         self,
+        #         "Save CSV File",
+        #         General.default_directory
+        #         + "/motion_sensor_data_"
+        #         + General.date
+        #         + ".csv",
+        #         "CSV Files (*.csv)",
+        #         options=options,
+        #     )
+        #     if file_name:
+        #         UI_Update.export_UI_update(self, 0)
+        #         export = list(
+        #             zip(
+        #                 General.soil_sensor_time_stamp,
+        #                 General.soil_temperature,
+        #                 General.soil_water_content,
+        #                 General.soil_EC,
+        #                 General.soil_pH,
+        #                 General.soil_nitrogen,
+        #                 General.soil_phosphorus,
+        #                 General.soil_potassium,
+        #             )
+        #         )
+        #         with open(file_name, "w", newline="") as csvfile:
+        #             writer = csv.writer(csvfile)
+        #             writer.writerow(
+        #                 [
+        #                     "Time",
+        #                     "Temperature",
+        #                     "Water Content",
+        #                     "EC",
+        #                     "pH",
+        #                     "Nitrogen",
+        #                     "Phosphorus",
+        #                     "Potassium",
+        #                 ]
+        #             )
+        #             writer.writerows(export)
+        #             UI_Update.export_UI_update(self, 1)
+    except Exception as e:
+        print(e, "Export failure, contact Jerry for support")
 
 # def rotate_image(self):
 #     Settings.rotation += 1

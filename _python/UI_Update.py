@@ -425,7 +425,6 @@ def ambient_UI_toggle(self):
 
 
 def ambient_sensor_initialize(self):
-    print("ambient sensor initialize")
     General.ambient_temperature_graph_ref = self.ambient_temperature_graphWidget.plot(
         General.ambient_sensor_time_stamp, General.ambient_temperature, pen=General.pen
     )
@@ -476,7 +475,6 @@ def ambient_sensor_graph_update(self):
 
 
 def ambient_update_labels(self):
-    print("setting labels")
     self.ambient_temperture_value_label.setText(
         str(General.ambient_temperature[-1]) + " °C"
     )
@@ -484,6 +482,15 @@ def ambient_update_labels(self):
         str(General.ambient_humidity[-1]) + " %")
     self.ambient_pressure_value_label.setText(
         str(General.ambient_pressure[-1]) + " hPa")
+
+
+def export_UI_update(self, mode):
+    if mode == 0:
+        self.ambient_start_sensors_pushButton.setText("Exporting...")
+        self.ambient_start_sensors_pushButton.setEnabled(False)
+    elif mode == 1:
+        self.ambient_start_sensors_pushButton.setText("Export Complete")
+        self.ambient_start_sensors_pushButton.setEnabled(True)
 
 
 # def snap_start(self):

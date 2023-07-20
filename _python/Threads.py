@@ -139,7 +139,6 @@ class Ambient(QThread):
                 > 2
                 or len(General.ambient_sensor_time_stamp) == 0
             ):
-                print("ambient sensor measuring...")
                 General.ambient_sensor_time_stamp.append(
                     round(perf_counter() -
                           General.ambient_sensor_initial_time, 2)

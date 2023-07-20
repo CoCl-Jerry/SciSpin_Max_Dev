@@ -1648,6 +1648,28 @@
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_11">
+        <item row="0" column="0" rowspan="2">
+         <widget class="QSpinBox" name="ambient_sensor_rate_value_spinBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="suffix">
+           <string> Samples/min</string>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>600</number>
+          </property>
+          <property name="value">
+           <number>60</number>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="ambient_start_sensors_pushButton">
           <property name="enabled">
@@ -1677,28 +1699,6 @@
           </property>
           <property name="text">
            <string>Export CSV File</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" rowspan="2">
-         <widget class="QSpinBox" name="ambient_sensor_rate_value_spinBox">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="suffix">
-           <string> Samples/min</string>
-          </property>
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>600</number>
-          </property>
-          <property name="value">
-           <number>60</number>
           </property>
          </widget>
         </item>
@@ -1935,7 +1935,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>166</width>
+       <width>151</width>
        <height>171</height>
       </rect>
      </property>

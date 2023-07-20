@@ -117,6 +117,22 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.ambient_start_sensors_pushButton.clicked.connect(
             lambda: Call_Thread.ambient_sensors(self))
 
+        self.ambient_confirm_temperature_offset_pushButton.clicked.connect(
+            lambda: Functions.ambient_sensor_temperature_offset(self)
+        )
+
+        self.ambient_confirm_humidity_offset_pushButton.clicked.connect(
+            lambda: Functions.ambient_sensor_humidity_offset(self)
+        )
+
+        self.ambient_confirm_pressure_offset_pushButton.clicked.connect(
+            lambda: Functions.ambient_sensor_pressure_offset(self)
+        )
+
+        self.ambient_export_sensor_CSV_pushButton.clicked.connect(
+            lambda: Functions.ambient_sensor_pressure_offset(self)
+        )
+
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()
