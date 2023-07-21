@@ -185,8 +185,12 @@ class Motion(QThread):
         i2c = board.I2C()  # uses board.SCL and board.SDA
         motion_sensor = ISM330DHCX(i2c)
 
-        motion_sensor.accelerometer_data_rate = Rate.RATE_52_HZ
-        motion_sensor.gyro_data_rate = Rate.RATE_52_HZ
+        motion_sensor.accelerometer_data_rate = Rate.RATE_208_HZ
+        motion_sensor.gyro_data_rate = Rate.RATE_208_HZ
+
+        # LSM6DS_RATE_SHUTDOWN, LSM6DS_RATE_12_5_HZ, LSM6DS_RATE_26_HZ, LSM6DS_RATE_52_HZ,
+        # LSM6DS_RATE_104_HZ, LSM6DS_RATE_208_HZ, LSM6DS_RATE_416_HZ, LSM6DS_RATE_833_HZ,
+        # LSM6DS_RATE_1_66K_HZ, LSM6DS_RATE_3_33K_HZ, LSM6DS_RATE_6_66K_HZ
 
         General.motion_sensor_initial_time = round(perf_counter(), 2)
 
