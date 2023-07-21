@@ -2,6 +2,7 @@ import General
 import Functions
 import socket
 import board
+import math
 import busio
 import os
 import timeit
@@ -217,11 +218,14 @@ class Motion(QThread):
                     round(curent_acceleration[2], 2)
                 )
 
-                General.motion_gyroscope_x.append(round(current_gyro[0], 2))
+                General.motion_gyroscope_x.append(
+                    round(math.degrees(current_gyro[0]), 2))
 
-                General.motion_gyroscope_y.append(round(current_gyro[1], 2))
+                General.motion_gyroscope_y.append(
+                    round(math.degrees(current_gyro[1]), 2))
 
-                General.motion_gyroscope_z.append(round(current_gyro[2], 2))
+                General.motion_gyroscope_z.append(
+                    round(math.degrees(current_gyro[2]), 2))
 
                 General.motion_sensor_time_stamp.append(
                     round(perf_counter() -

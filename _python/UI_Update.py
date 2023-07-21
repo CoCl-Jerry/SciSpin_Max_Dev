@@ -103,7 +103,7 @@ def graph_setup(self):
     self.motion_gyroscope_graphWidget.setBackground("#fbfbfb")
     self.motion_gyroscope_graphWidget.showGrid(x=True, y=True)
     self.motion_gyroscope_graphWidget.setLabel(
-        "left", "Speed (radians/s)", **General.styles)
+        "left", "Speed (degrees/s)", **General.styles)
     self.motion_gyroscope_graphWidget.setLabel(
         "bottom", "Time (s)", **General.styles)
 
@@ -585,6 +585,13 @@ def motion_sensor_graph_update(self):
                 self.motion_z_axis_value_label.setText(
                     str(General.motion_acceleration_z[-1]))
 
+                self.x_axis_units_text_label.setText(
+                    "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
+                self.y_axis_units_text_label.setText(
+                    "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
+                self.z_axis_units_text_label.setText(
+                    "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
+
                 General.motion_accelerometer_x_graph_ref.setData(
                     General.motion_sensor_time_stamp, General.motion_acceleration_x
                 )
@@ -603,7 +610,12 @@ def motion_sensor_graph_update(self):
                     str(General.motion_gyroscope_y[-1]))
                 self.motion_z_axis_value_label.setText(
                     str(General.motion_gyroscope_z[-1]))
-
+                self.x_axis_units_text_label.setText(
+                    "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
+                self.y_axis_units_text_label.setText(
+                    "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
+                self.z_axis_units_text_label.setText(
+                    "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
                 General.motion_gyroscope_x_graph_ref.setData(
                     General.motion_sensor_time_stamp, General.motion_gyroscope_x
                 )
