@@ -51,6 +51,8 @@ cycle_thread_running = False
 
 ambient_thread_running = False
 
+motion_thread_running = False
+
 # ---------------------------------------------------------------------------- #
 #                           power cycle declarations                           #
 # ---------------------------------------------------------------------------- #
@@ -127,7 +129,11 @@ core_busy = False
 # ---------------------------------------------------------------------------- #
 styles = {"color": "r", "font-size": "15px"}
 
-pen = mkPen(color=(197, 5, 12), width=2)
+red_pen = mkPen(color=(204, 0, 0), width=2)
+
+green_pen = mkPen(color=(0, 204, 0), width=2)
+
+blue_pen = mkPen(color=(0, 0, 204), width=2)
 
 # ---------------------------------------------------------------------------- #
 #                          ambient sensor declarations                         #
@@ -163,6 +169,37 @@ ambient_pressure_offset = 0
 #                          motion sensor declarations                          #
 # ---------------------------------------------------------------------------- #
 
+motion_accelerometer_x_graph_ref = ""
+
+motion_accelerometer_y_graph_ref = ""
+
+motion_accelerometer_z_graph_ref = ""
+
+motion_gyroscope_x_graph_ref = ""
+
+motion_gyroscope_y_graph_ref = ""
+
+motion_gyroscope_z_graph_ref = ""
+
+motion_sensor_time_stamp = []
+
+motion_acceleration_x = []
+
+motion_acceleration_y = []
+
+motion_acceleration_z = []
+
+motion_gyroscope_x = []
+
+motion_gyroscope_y = []
+
+motion_gyroscope_z = []
+
+motion_sensor_initial_time = None
+
+motion_sensor_interval = None
+
+motion_sensor_previous_time = 0
 
 # ---------------------------------------------------------------------------- #
 #                               icon declarations                              #

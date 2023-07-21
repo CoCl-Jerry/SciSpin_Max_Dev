@@ -7,9 +7,9 @@ import os
 import timeit
 from time import sleep, perf_counter
 import Commands
-import adafruit_mma8451
 
 from adafruit_bme280 import basic as adafruit_bme280
+from adafruit_lsm6ds.ism330dhcx import ISM330DHCX
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
@@ -129,7 +129,6 @@ class Ambient(QThread):
         i2c = board.I2C()  # uses board.SCL and board.SDA
         bme280 = adafruit_bme280.Adafruit_BME280_I2C(
             i2c, General.ambient_sensor_address)
-        sleep(1)
         General.ambient_sensor_initial_time = round(perf_counter(), 2)
 
         while General.ambient_thread_running:
@@ -170,6 +169,57 @@ class Ambient(QThread):
                 elif len(General.ambient_sensor_time_stamp) > 2:
                     self.ambient_sensor_update.emit()
 
+
+class Motion(QThread):
+    motion_sensor_update = pyqtSignal()
+    initialized = pyqtSignal()
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        i2c = board.I2C()  # uses board.SCL and board.SDA
+        motion_sensor = ISM330DHCX(i2c)
+
+        General.motion_sensor_initial_time = round(perf_counter(), 2)
+
+        while General.motion_thread_running:
+            if (
+                perf_counter()
+                - General.motion_sensor_initial_time
+                - General.motion_sensor_previous_time
+                > General.motion_sensor_interval
+                or len(General.motion_sensor_time_stamp) == 0
+            ):
+
+                General.motion_acceleration_x.append(
+                    round(motion_sensor.acceleration[0], 2)
+                )
+
+                General.motion_acceleration_y.append(
+                    round(motion_sensor.acceleration[1], 2)
+                )
+
+                General.motion_acceleration_z.append(
+                    round(motion_sensor.acceleration[2], 2)
+                )
+
+                General.motion_sensor_time_stamp.append(
+                    round(perf_counter() -
+                          General.motion_sensor_initial_time, 2)
+                )
+
+                General.motion_sensor_previous_time = (
+                    General.motion_sensor_time_stamp[-1]
+                )
+
+                if len(General.motion_sensor_time_stamp) == 2:
+                    self.initialized.emit()
+                elif len(General.motion_sensor_time_stamp) > 2:
+                    self.motion_sensor_update.emit()
 
 # class Preview(QThread):
 #     transmit = pyqtSignal()

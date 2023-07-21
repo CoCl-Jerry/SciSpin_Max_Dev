@@ -104,9 +104,8 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.main_preview_pushButton.clicked.connect(
             lambda: Call_Thread.start_capture(self, 4))
-
 # ---------------------------------------------------------------------------- #
-#                                sensor signals                                #
+#                            ambient sensor signals                            #
 # ---------------------------------------------------------------------------- #
         self.ambient_sensors_tabWidget.currentChanged.connect(
             lambda: UI_Update.ambient_sensor_graph_update(self))
@@ -133,6 +132,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.sensor_export_data(self)
         )
 
+# ---------------------------------------------------------------------------- #
+#                             motion sensor signals                            #
+# ---------------------------------------------------------------------------- #
+        self.motion_start_sensors_pushButton.clicked.connect(
+            lambda: Call_Thread.motion_sensors(self))
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()

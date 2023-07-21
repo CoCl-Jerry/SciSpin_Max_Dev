@@ -93,6 +93,20 @@ def graph_setup(self):
     self.ambient_pressure_graphWidget.setLabel(
         "bottom", "Time (s)", **General.styles)
 
+    self.motion_accelerometer_graphWidget.setBackground("#fbfbfb")
+    self.motion_accelerometer_graphWidget.showGrid(x=True, y=True)
+    self.motion_accelerometer_graphWidget.setLabel(
+        "left", "Acceleration (m/s^2)", **General.styles)
+    self.motion_accelerometer_graphWidget.setLabel(
+        "bottom", "Time (s)", **General.styles)
+
+    self.motion_gyroscope_graphWidget.setBackground("#fbfbfb")
+    self.motion_gyroscope_graphWidget.showGrid(x=True, y=True)
+    self.motion_gyroscope_graphWidget.setLabel(
+        "left", "Speed (radians/s)", **General.styles)
+    self.motion_gyroscope_graphWidget.setLabel(
+        "bottom", "Time (s)", **General.styles)
+
 # ---------------------------------------------------------------------------- #
 #                           lighting UI updates                                #
 # ---------------------------------------------------------------------------- #
@@ -410,7 +424,7 @@ def cycle_end(self):
     General.cycle_thread_running = False
 
 # ---------------------------------------------------------------------------- #
-#                              graphing UI updates                             #
+#                          ambient graphing UI updates                         #
 # ---------------------------------------------------------------------------- #
 
 
@@ -431,13 +445,13 @@ def ambient_UI_toggle(self):
 
 def ambient_sensor_initialize(self):
     General.ambient_temperature_graph_ref = self.ambient_temperature_graphWidget.plot(
-        General.ambient_sensor_time_stamp, General.ambient_temperature, pen=General.pen
+        General.ambient_sensor_time_stamp, General.ambient_temperature, pen=General.red_pen
     )
     General.ambient_humidity_graph_ref = self.ambient_humidity_graphWidget.plot(
-        General.ambient_sensor_time_stamp, General.ambient_humidity, pen=General.pen
+        General.ambient_sensor_time_stamp, General.ambient_humidity, pen=General.red_pen
     )
     General.ambient_pressure_graph_ref = self.ambient_pressure_graphWidget.plot(
-        General.ambient_sensor_time_stamp, General.ambient_pressure, pen=General.pen
+        General.ambient_sensor_time_stamp, General.ambient_pressure, pen=General.red_pen
     )
 
 
@@ -493,6 +507,87 @@ def export_UI_update(self, mode):
     elif mode == 1:
         self.ambient_start_sensors_pushButton.setText("Export Complete")
         self.ambient_start_sensors_pushButton.setEnabled(True)
+
+
+# ---------------------------------------------------------------------------- #
+#                          motion graphing UI updates                          #
+# ---------------------------------------------------------------------------- #
+def motion_UI_toggle(self):
+    if General.motion_thread_running:
+        self.motion_start_sensors_pushButton.setText("Stop Motion Sensors")
+        self.motion_sensor_rate_value_spinBox.setEnabled(False)
+        General.motion_sensor_interval = 60 / \
+            self.motion_sensor_rate_value_spinBox.value()
+
+    else:
+        self.motion_start_sensors_pushButton.setText("Start Motion Sensors")
+        self.motion_x_axis_value_label.setText("N/A")
+        self.motion_x_axis_value_label.setText("N/A")
+        self.motion_x_axis_value_label.setText("N/A")
+        self.motion_sensor_rate_value_spinBox.setEnabled(True)
+
+
+def motion_sensor_initialize(self):
+    General.motion_accelerometer_x_graph_ref = self.motion_accelerometer_graphWidget.plot(
+        General.motion_sensor_time_stamp, General.motion_acceleration_x, pen=General.red_pen
+    )
+
+    General.motion_accelerometer_y_graph_ref = self.motion_accelerometer_graphWidget.plot(
+        General.motion_sensor_time_stamp, General.motion_acceleration_y, pen=General.green_pen
+    )
+
+    General.motion_accelerometer_z_graph_ref = self.motion_accelerometer_graphWidget.plot(
+        General.motion_sensor_time_stamp, General.motion_acceleration_z, pen=General.blue_pen
+    )
+
+
+def motion_sensor_reset(self):
+    self.motion_accelerometer_graphWidget.clear()
+    self.motion_gyroscope_graphWidget.clear()
+
+    General.motion_acceleration_x = []
+    General.motion_acceleration_y = []
+    General.motion_acceleration_z = []
+
+    General.motion_gyroscope_x = []
+    General.motion_gyroscope_y = []
+    General.motion_gyroscope_z = []
+
+    General.motion_sensor_time_stamp = []
+
+
+def motion_sensor_update(self):
+    motion_sensor_graph_update(self)
+
+
+def motion_sensor_graph_update(self):
+    if len(General.motion_sensor_time_stamp) > 1:
+        if self.main_tabWidget.currentIndex() == 4:
+
+            if self.motion_sensors_tabWidget.currentIndex() == 0:
+
+                self.motion_x_axis_value_label.setText(
+                    str(General.motion_acceleration_x[-1]))
+                self.motion_y_axis_value_label.setText(
+                    str(General.motion_acceleration_y[-1]))
+                self.motion_z_axis_value_label.setText(
+                    str(General.motion_acceleration_z[-1]))
+
+                General.motion_accelerometer_x_graph_ref.setData(
+                    General.motion_sensor_time_stamp, General.motion_acceleration_x
+                )
+
+                General.motion_accelerometer_y_graph_ref.setData(
+                    General.motion_sensor_time_stamp, General.motion_acceleration_y
+                )
+
+                General.motion_accelerometer_z_graph_ref.setData(
+                    General.motion_sensor_time_stamp, General.motion_acceleration_z
+                )
+            # elif self.motion_sensors_tabWidget.currentIndex() == 1:
+            #     General.ambient_humidity_graph_ref.setData(
+            #         General.ambient_sensor_time_stamp, General.ambient_humidity
+            #     )
 
 
 # def snap_start(self):

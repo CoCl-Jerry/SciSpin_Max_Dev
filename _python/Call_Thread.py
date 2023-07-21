@@ -74,6 +74,29 @@ def ambient_sensors(self):
         General.ambient_thread_running = False
 
 
+def motion_sensors(self):
+    if not General.motion_thread_running:
+        self.Motion_Thread = Threads.Motion()
+        self.Motion_Thread.started.connect(
+            lambda: UI_Update.motion_UI_toggle(self))
+        self.Motion_Thread.started.connect(
+            lambda: UI_Update.motion_sensor_reset(self)
+        )
+        self.Motion_Thread.finished.connect(
+            lambda: UI_Update.motion_UI_toggle(self))
+        self.Motion_Thread.initialized.connect(
+            lambda: UI_Update.motion_sensor_initialize(self)
+        )
+        self.Motion_Thread.motion_sensor_update.connect(
+            lambda: UI_Update.motion_sensor_update(self)
+        )
+
+        General.motion_thread_running = True
+        self.Motion_Thread.start()
+    else:
+        General.motion_thread_running = False
+
+
 # def start_timelapse(self):
 
 #     if not Settings.timelapse_running:
