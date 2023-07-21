@@ -502,11 +502,17 @@ def ambient_update_labels(self):
 
 def export_UI_update(self, mode):
     if mode == 0:
-        self.ambient_start_sensors_pushButton.setText("Exporting...")
-        self.ambient_start_sensors_pushButton.setEnabled(False)
+        self.ambient_sensor_export_CSV_pushButton.setText("Exporting...")
+        self.ambient_sensor_export_CSV_pushButton.setEnabled(False)
     elif mode == 1:
-        self.ambient_start_sensors_pushButton.setText("Export Complete")
-        self.ambient_start_sensors_pushButton.setEnabled(True)
+        self.ambient_sensor_export_CSV_pushButton.setText("Export Complete")
+        self.ambient_sensor_export_CSV_pushButton.setEnabled(True)
+    elif mode == 2:
+        self.motion_sensor_export_CSV_pushButton.setText("Exporting...")
+        self.motion_sensor_export_CSV_pushButton.setEnabled(False)
+    elif mode == 3:
+        self.motion_sensor_export_CSV_pushButton.setText("Export Complete")
+        self.motion_sensor_export_CSV_pushButton.setEnabled(True)
 
 
 # ---------------------------------------------------------------------------- #

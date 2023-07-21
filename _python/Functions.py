@@ -128,47 +128,45 @@ def sensor_export_data(self):
                         ["Time", "Temperature", "Humidity", "Pressure"])
                     writer.writerows(export)
                     UI_Update.export_UI_update(self, 1)
-        # elif self.mainwindow_tabWidget.currentIndex() == 4:
-        #     file_name, _ = QFileDialog.getSaveFileName(
-        #         self,
-        #         "Save CSV File",
-        #         General.default_directory
-        #         + "/motion_sensor_data_"
-        #         + General.date
-        #         + ".csv",
-        #         "CSV Files (*.csv)",
-        #         options=options,
-        #     )
-        #     if file_name:
-        #         UI_Update.export_UI_update(self, 0)
-        #         export = list(
-        #             zip(
-        #                 General.soil_sensor_time_stamp,
-        #                 General.soil_temperature,
-        #                 General.soil_water_content,
-        #                 General.soil_EC,
-        #                 General.soil_pH,
-        #                 General.soil_nitrogen,
-        #                 General.soil_phosphorus,
-        #                 General.soil_potassium,
-        #             )
-        #         )
-        #         with open(file_name, "w", newline="") as csvfile:
-        #             writer = csv.writer(csvfile)
-        #             writer.writerow(
-        #                 [
-        #                     "Time",
-        #                     "Temperature",
-        #                     "Water Content",
-        #                     "EC",
-        #                     "pH",
-        #                     "Nitrogen",
-        #                     "Phosphorus",
-        #                     "Potassium",
-        #                 ]
-        #             )
-        #             writer.writerows(export)
-        #             UI_Update.export_UI_update(self, 1)
+        elif self.main_tabWidget.currentIndex() == 4:
+            file_name, _ = QFileDialog.getSaveFileName(
+                self,
+                "Save CSV File",
+                General.default_directory
+                + "/motion_sensor_data_"
+                + General.date
+                + ".csv",
+                "CSV Files (*.csv)",
+                options=options,
+            )
+            if file_name:
+                UI_Update.export_UI_update(self, 2)
+                export = list(
+                    zip(
+                        General.motion_sensor_time_stamp,
+                        General.motion_acceleration_x,
+                        General.motion_acceleration_y,
+                        General.motion_acceleration_z,
+                        General.motion_gyroscope_x,
+                        General.motion_gyroscope_y,
+                        General.motion_gyroscope_z,
+                    )
+                )
+                with open(file_name, "w", newline="") as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow(
+                        [
+                            "Time",
+                            "acceleration_x",
+                            "acceleration_y",
+                            "acceleration_z",
+                            "gyroscope_x",
+                            "gyroscope_y",
+                            "gyroscope_z",
+                        ]
+                    )
+                    writer.writerows(export)
+                    UI_Update.export_UI_update(self, 1)
     except Exception as e:
         print(e, "Export failure, contact Jerry for support")
 

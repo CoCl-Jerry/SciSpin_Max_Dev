@@ -128,7 +128,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.ambient_sensor_pressure_offset(self)
         )
 
-        self.ambient_export_sensor_CSV_pushButton.clicked.connect(
+        self.ambient_sensor_export_CSV_pushButton.clicked.connect(
             lambda: Functions.sensor_export_data(self)
         )
 
@@ -139,6 +139,10 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: UI_Update.motion_sensor_graph_update(self))
         self.motion_start_sensors_pushButton.clicked.connect(
             lambda: Call_Thread.motion_sensors(self))
+
+        self.motion_sensor_export_CSV_pushButton.clicked.connect(
+            lambda: Functions.sensor_export_data(self)
+        )
 
 
 #         Call_Thread.sensor_init(self)
