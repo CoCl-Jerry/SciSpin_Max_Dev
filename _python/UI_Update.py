@@ -573,6 +573,22 @@ def motion_sensor_update(self):
 
 
 def motion_sensor_graph_update(self):
+    if self.main_tabWidget.currentIndex() == 4:
+        if self.motion_sensors_tabWidget.currentIndex() == 0:
+            self.x_axis_units_text_label.setText(
+                "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
+            self.y_axis_units_text_label.setText(
+                "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
+            self.z_axis_units_text_label.setText(
+                "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
+        else:
+            self.x_axis_units_text_label.setText(
+                "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
+            self.y_axis_units_text_label.setText(
+                "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
+            self.z_axis_units_text_label.setText(
+                "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
+
     if len(General.motion_sensor_time_stamp) > 1:
         if self.main_tabWidget.currentIndex() == 4:
 
@@ -584,13 +600,6 @@ def motion_sensor_graph_update(self):
                     str(General.motion_acceleration_y[-1]))
                 self.motion_z_axis_value_label.setText(
                     str(General.motion_acceleration_z[-1]))
-
-                self.x_axis_units_text_label.setText(
-                    "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
-                self.y_axis_units_text_label.setText(
-                    "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
-                self.z_axis_units_text_label.setText(
-                    "<html><head/><body><p><span style="" font-weight:700;"">m/s</span><span style="" font-weight:700; vertical-align:super;"">2</span></p></body></html"">")
 
                 General.motion_accelerometer_x_graph_ref.setData(
                     General.motion_sensor_time_stamp, General.motion_acceleration_x
@@ -610,12 +619,6 @@ def motion_sensor_graph_update(self):
                     str(General.motion_gyroscope_y[-1]))
                 self.motion_z_axis_value_label.setText(
                     str(General.motion_gyroscope_z[-1]))
-                self.x_axis_units_text_label.setText(
-                    "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
-                self.y_axis_units_text_label.setText(
-                    "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
-                self.z_axis_units_text_label.setText(
-                    "<html><head/><body><p><span style="" font-weight:700;"">degrees/s</span></p></body></html>")
                 General.motion_gyroscope_x_graph_ref.setData(
                     General.motion_sensor_time_stamp, General.motion_gyroscope_x
                 )

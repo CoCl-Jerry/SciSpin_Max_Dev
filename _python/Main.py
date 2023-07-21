@@ -135,8 +135,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 # ---------------------------------------------------------------------------- #
 #                             motion sensor signals                            #
 # ---------------------------------------------------------------------------- #
+        self.motion_sensors_tabWidget.currentChanged.connect(
+            lambda: UI_Update.motion_sensor_graph_update(self))
         self.motion_start_sensors_pushButton.clicked.connect(
             lambda: Call_Thread.motion_sensors(self))
+
 
 #         Call_Thread.sensor_init(self)
 #         Commands.init()

@@ -879,7 +879,7 @@
          <x>10</x>
          <y>10</y>
          <width>581</width>
-         <height>131</height>
+         <height>162</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1644,7 +1644,7 @@
          <x>10</x>
          <y>10</y>
          <width>581</width>
-         <height>42</height>
+         <height>56</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_11">
@@ -1720,7 +1720,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="motion_accelerometer_tab">
        <attribute name="title">
