@@ -540,6 +540,18 @@ def motion_sensor_initialize(self):
         General.motion_sensor_time_stamp, General.motion_acceleration_z, pen=General.blue_pen
     )
 
+    General.motion_gyroscope_x_graph_ref = self.motion_gyroscope_graphWidget.plot(
+        General.motion_sensor_time_stamp, General.motion_gyroscope_x, pen=General.red_pen
+    )
+
+    General.motion_gyroscope_y_graph_ref = self.motion_gyroscope_graphWidget.plot(
+        General.motion_sensor_time_stamp, General.motion_gyroscope_y, pen=General.green_pen
+    )
+
+    General.motion_gyroscope_z_graph_ref = self.motion_gyroscope_graphWidget.plot(
+        General.motion_sensor_time_stamp, General.motion_gyroscope_z, pen=General.blue_pen
+    )
+
 
 def motion_sensor_reset(self):
     self.motion_accelerometer_graphWidget.clear()
@@ -584,11 +596,25 @@ def motion_sensor_graph_update(self):
                 General.motion_accelerometer_z_graph_ref.setData(
                     General.motion_sensor_time_stamp, General.motion_acceleration_z
                 )
-            # elif self.motion_sensors_tabWidget.currentIndex() == 1:
-            #     General.ambient_humidity_graph_ref.setData(
-            #         General.ambient_sensor_time_stamp, General.ambient_humidity
-            #     )
+            else:
+                self.motion_x_axis_value_label.setText(
+                    str(General.motion_gyroscope_x[-1]))
+                self.motion_y_axis_value_label.setText(
+                    str(General.motion_gyroscope_y[-1]))
+                self.motion_z_axis_value_label.setText(
+                    str(General.motion_gyroscope_z[-1]))
 
+                General.motion_gyroscope_x_graph_ref.setData(
+                    General.motion_sensor_time_stamp, General.motion_gyroscope_x
+                )
+
+                General.motion_gyroscope_y_graph_ref.setData(
+                    General.motion_sensor_time_stamp, General.motion_gyroscope_y
+                )
+
+                General.motion_gyroscope_z_graph_ref.setData(
+                    General.motion_sensor_time_stamp, General.motion_gyroscope_z
+                )
 
 # def snap_start(self):
 #     self.core_status_label.setText("Core Status: IMAGING")

@@ -1720,7 +1720,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="motion_accelerometer_tab">
        <attribute name="title">
@@ -1811,7 +1811,7 @@
           <number>1</number>
          </property>
          <property name="maximum">
-          <number>6000</number>
+          <number>600</number>
          </property>
          <property name="value">
           <number>600</number>

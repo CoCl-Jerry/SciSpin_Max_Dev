@@ -10,7 +10,7 @@ import Commands
 
 from adafruit_bme280 import basic as adafruit_bme280
 from adafruit_lsm6ds.ism330dhcx import ISM330DHCX
-from adafruit_lsm6ds import Rate
+from adafruit_lsm6ds import Rate, AccelRange, GyroRange
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
@@ -185,8 +185,9 @@ class Motion(QThread):
         i2c = board.I2C()  # uses board.SCL and board.SDA
         motion_sensor = ISM330DHCX(i2c)
 
-        motion_sensor.accelerometer_data_rate = Rate.RATE_208_HZ
-        motion_sensor.gyro_data_rate = Rate.RATE_208_HZ
+        motion_sensor.accelerometer_data_rate = Rate.RATE_104_HZ
+        motion_sensor.accelerometer_range = AccelRange.RANGE_8G
+        motion_sensor.gyro_data_rate = Rate.RATE_104_HZ
 
         # LSM6DS_RATE_SHUTDOWN, LSM6DS_RATE_12_5_HZ, LSM6DS_RATE_26_HZ, LSM6DS_RATE_52_HZ,
         # LSM6DS_RATE_104_HZ, LSM6DS_RATE_208_HZ, LSM6DS_RATE_416_HZ, LSM6DS_RATE_833_HZ,
@@ -203,6 +204,7 @@ class Motion(QThread):
                 or len(General.motion_sensor_time_stamp) == 0
             ):
                 curent_acceleration = motion_sensor.acceleration
+                current_gyro = motion_sensor.gyro
                 General.motion_acceleration_x.append(
                     round(curent_acceleration[0], 2)
                 )
@@ -214,6 +216,12 @@ class Motion(QThread):
                 General.motion_acceleration_z.append(
                     round(curent_acceleration[2], 2)
                 )
+
+                General.motion_gyroscope_x.append(round(current_gyro[0], 2))
+
+                General.motion_gyroscope_y.append(round(current_gyro[1], 2))
+
+                General.motion_gyroscope_z.append(round(current_gyro[2], 2))
 
                 General.motion_sensor_time_stamp.append(
                     round(perf_counter() -

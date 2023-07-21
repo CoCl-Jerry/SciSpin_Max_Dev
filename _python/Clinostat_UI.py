@@ -734,7 +734,7 @@ class Ui_MainWindow(object):
         self.gridLayout_8.addWidget(self.motion_z_axis_value_label, 2, 1, 1, 1)
         self.motion_sensor_rate_value_spinBox = QtWidgets.QSpinBox(self.gridLayoutWidget_8)
         self.motion_sensor_rate_value_spinBox.setMinimum(1)
-        self.motion_sensor_rate_value_spinBox.setMaximum(6000)
+        self.motion_sensor_rate_value_spinBox.setMaximum(600)
         self.motion_sensor_rate_value_spinBox.setProperty("value", 600)
         self.motion_sensor_rate_value_spinBox.setObjectName("motion_sensor_rate_value_spinBox")
         self.gridLayout_8.addWidget(self.motion_sensor_rate_value_spinBox, 0, 4, 1, 1)
@@ -911,7 +911,7 @@ class Ui_MainWindow(object):
         self.main_tabWidget.setCurrentIndex(4)
         self.lighting_source_tabWidget.setCurrentIndex(0)
         self.ambient_sensors_tabWidget.setCurrentIndex(2)
-        self.motion_sensors_tabWidget.setCurrentIndex(0)
+        self.motion_sensors_tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
