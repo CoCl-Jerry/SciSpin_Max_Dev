@@ -10,6 +10,7 @@ import Commands
 
 from adafruit_bme280 import basic as adafruit_bme280
 from adafruit_lsm6ds.ism330dhcx import ISM330DHCX
+from adafruit_lsm6ds import Rate
 
 from time import sleep
 from PyQt5.QtCore import QThread, pyqtSignal
@@ -183,6 +184,9 @@ class Motion(QThread):
     def run(self):
         i2c = board.I2C()  # uses board.SCL and board.SDA
         motion_sensor = ISM330DHCX(i2c)
+
+        motion_sensor.accelerometer_data_rate = Rate.RATE_52_HZ
+        motion_sensor.gyro_data_rate = Rate.RATE_52_HZ
 
         General.motion_sensor_initial_time = round(perf_counter(), 2)
 
