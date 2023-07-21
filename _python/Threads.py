@@ -198,17 +198,17 @@ class Motion(QThread):
                 > General.motion_sensor_interval
                 or len(General.motion_sensor_time_stamp) == 0
             ):
-
+                curent_acceleration = motion_sensor.acceleration
                 General.motion_acceleration_x.append(
-                    round(motion_sensor.acceleration[0], 2)
+                    round(curent_acceleration[0], 2)
                 )
 
                 General.motion_acceleration_y.append(
-                    round(motion_sensor.acceleration[1], 2)
+                    round(curent_acceleration[1], 2)
                 )
 
                 General.motion_acceleration_z.append(
-                    round(motion_sensor.acceleration[2], 2)
+                    round(curent_acceleration[2], 2)
                 )
 
                 General.motion_sensor_time_stamp.append(
