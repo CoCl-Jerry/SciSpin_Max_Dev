@@ -89,7 +89,7 @@ class Capture(QThread):
             else:
                 cmd = "A~"+General.x_resolution+"~" + \
                     General.y_resolution+"~0~0~0~" + General.digital_zoom + \
-                    "~" + General.imaging_format
+                    "~" + str(General.imaging_format)
                 if General.imaging_format:
                     General.current_image = "../_temp/snapshot.jpg"
                 else:
@@ -274,7 +274,7 @@ class Timelapse(QThread):
         while General.imaging_current_count < General.imaging_total:
             target_time = datetime.datetime.now(
             ) + datetime.timedelta(minutes=General.imaging_interval)
-            if General.imaging_format == 1:
+            if General.imaging_format:
                 General.current_image = General.full_directory + \
                     "/" + General.sequence_name + "_%04d.jpg" % General.imaging_current_count
             else:
@@ -289,7 +289,7 @@ class Timelapse(QThread):
                 Commands.IR_imaging_toggle(1)
             cmd = "A~"+General.x_resolution+"~" + General.y_resolution + \
                 "~0~0~0~" + General.digital_zoom + \
-                "~" + General.imaging_format
+                "~" + str(General.imaging_format)
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
 
