@@ -323,7 +323,8 @@ def imaging_UI_update(self):
         self.main_start_timelapse_pushButton.setEnabled(False)
     self.imaging_progress_value_label.setText(
         "Progress: " + str(General.imaging_current) + "/" + str(General.imaging_total))
-
+    self.imaging_progress_progressBar.setMaximum(General.imaging_total)
+    
     if General.date not in General.sequence_name:
         self.imaging_add_date_pushButton.setEnabled(True)
     else:
@@ -349,6 +350,7 @@ def imaging_checkpoint(self):
     if General.core_busy:
         self.main_imaging_frame.setEnabled(False)
         self.imaging_settings_frame.setEnabled(False)
+        self.timelapse_setup_frame.setEnabled(False)
         General.x_resolution = str(
             self.imaging_x_resolution_value_spinBox.value())
         General.y_resolution = str(
@@ -360,6 +362,7 @@ def imaging_checkpoint(self):
     else:
         self.main_imaging_frame.setEnabled(True)
         self.imaging_settings_frame.setEnabled(True)
+        self.timelapse_setup_frame.setEnabled(True)
         system_status_check(self)
 
 
@@ -372,6 +375,33 @@ def digital_zoom_update(self):
     self.imaging_digital_zoom_value_label.setText(
         str(self.imaging_digital_zoom_horizontalSlider.value())+" %")
 
+def timelapse_toggle(self,mode):
+    if mode:
+        General.timelapse_thread_running = True
+        self.main_start_timelapse_pushButton.setText("TERMINATE TIMELAPSE")
+    else:
+        self.main_start_timelapse_pushButton.setText("START TIMELAPSE")
+    
+
+def timelapse_capture_toggle(self,mode):
+    if mode:
+        General.core_busy = True
+        imaging_checkpoint(self)
+
+    else:
+        General.core_busy = False
+        imaging_checkpoint(self)
+
+        capture_img = QImage(General.current_image)
+        self.main_image_label.setPixmap(QPixmap(capture_img))
+        General.received_packets = 0
+
+        self.imaging_progress_value_label.setText(
+            "Progress: " + str(General.imaging_current_count) + "/" + str(General.imaging_total))
+        self.imaging_progress_progressBar.setValue(General.imaging_current_count)
+
+def timelapse_countdown(self):
+    self.imaging_countdown_value_label.setText("Next Image: "+str(General.timelapse_countdown)+" s")
 
 def capture_start(self):
     if General.capture_mode < 3:
@@ -639,15 +669,7 @@ def motion_sensor_graph_update(self):
 #     update_imaging(self)
 
 
-# def image_captured(self):
-#     capture_img = QImage(Settings.current_image)
-#     self.Image_Frame.setPixmap(QPixmap(capture_img))
-#     Settings.trasmitted = 0
-#     self.core_status_label.setText("Core Status: IDLE")
-#     self.Progress_Label.setText(
-#         "Progress: " + str(Settings.current) + "/" + str(Settings.total))
-#     self.Progress_Bar.setValue(Settings.current)
-#     self.startImaging_pushButton.setEnabled(True)
+
 
 
 # def lightingPreset_update(self):
@@ -679,10 +701,6 @@ def motion_sensor_graph_update(self):
 #         self.light_Confirm_pushButton.setEnabled(True)
 
 
-# def transmitst(self):
-#     self.startImaging_pushButton.setEnabled(False)
-
-
 # def sensor_logstart(self):
 #     self.log_pushButton.setEnabled(False)
 #     self.sample_doubleSpinBox.setEnabled(False)
@@ -695,47 +713,10 @@ def motion_sensor_graph_update(self):
 #     self.log_spinBox.setEnabled(True)
 
 
-# def timelapse_start(self):
-#     Settings.timelapse_running = True
-#     self.snapshot_pushButton.setEnabled(False)
-#     self.preview_pushButton.setEnabled(False)
-#     self.rotate_pushButton.setEnabled(False)
-
-#     self.title_lineEdit.setEnabled(False)
-#     self.addDate_pushButton.setEnabled(False)
-#     self.ICI_spinBox.setEnabled(False)
-#     self.ISD_spinBox.setEnabled(False)
-#     self.directory_pushButton.setEnabled(False)
-#     self.x_resolution_spinBox.setEnabled(False)
-#     self.y_resolution_spinBox.setEnabled(False)
-#     self.PNG_radioButton.setEnabled(False)
-#     self.JPG_radioButton.setEnabled(False)
-
-#     self.startImaging_pushButton.setText("TERMINATE TIMELAPSE")
-
-#     self.core_status_label.setText("Core Status: IMAGING")
-#     self.Progress_Bar.setMaximum(Settings.total)
-#     self.Progress_Bar.setMinimum(0)
 
 
-# def timelapse_end(self):
-#     Settings.timelapse_running = True
-#     self.snapshot_pushButton.setEnabled(True)
-#     self.preview_pushButton.setEnabled(True)
-#     self.rotate_pushButton.setEnabled(True)
 
-#     self.title_lineEdit.setEnabled(True)
-#     self.addDate_pushButton.setEnabled(True)
-#     self.ICI_spinBox.setEnabled(True)
-#     self.ISD_spinBox.setEnabled(True)
-#     self.directory_pushButton.setEnabled(True)
-#     self.x_resolution_spinBox.setEnabled(True)
-#     self.y_resolution_spinBox.setEnabled(True)
-#     self.PNG_radioButton.setEnabled(True)
-#     self.JPG_radioButton.setEnabled(True)
-#     self.startImaging_pushButton.setText("START TIMELAPSE")
 
-#     self.core_status_label.setText("Core Status: IDLE")
 
 
 # def motor_update(self):

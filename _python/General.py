@@ -47,6 +47,8 @@ IR_imaging = False
 # ---------------------------------------------------------------------------- #
 #                         Threads flag declarations                            #
 # ---------------------------------------------------------------------------- #
+timelapse_thread_running = False
+
 cycle_thread_running = False
 
 ambient_thread_running = False
@@ -96,7 +98,7 @@ imaging_duration = 2
 
 imaging_total = 1
 
-imaging_current = 0
+imaging_current_count = 0
 
 received_packets = 0
 
@@ -109,6 +111,8 @@ x_resolution = 2592
 y_resolution = 2592
 
 default_directory = "/home/pi/Desktop"
+
+timelapse_countdown = None
 
 lens_position = None
 

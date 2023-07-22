@@ -6,6 +6,7 @@ import math
 import busio
 import os
 import timeit
+import datetime
 from time import sleep, perf_counter
 import Commands
 
@@ -251,143 +252,66 @@ class Motion(QThread):
                 elif len(General.motion_sensor_time_stamp) > 2:
                     self.motion_sensor_update.emit()
 
-# class Preview(QThread):
-#     transmit = pyqtSignal()
 
-#     def __init__(self):
-#         QThread.__init__(self)
+class Timelapse(QThread):
+    capturing = pyqtSignal()
+    transmit = pyqtSignal()
+    captured = pyqtSignal()
+    countdown = pyqtSignal()
 
-#     def __del__(self):
-#         self._running = False
+    def __init__(self):
+        QThread.__init__(self)
 
-#     def run(self):
-#         if Settings.IR_imaging:
-#             Commands.extract_lights()
-#             Settings.sendCMD("4~1")
-#         try:
-#             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#             ip_address = "10.0.5.1"
-#             server_address = (ip_address, 23456)
-#             sock.connect(server_address)
-#             cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
-#                 str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-#                 str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-#                 "~" + str(int(Settings.AOI_H * 100)) + \
-#                 "~" + str(int(Settings.imaging_mode))
+    def __del__(self):
+        self._running = False
 
-#             start_time = timeit.default_timer()
-#             sock.sendall(cmd.encode())
+    def run(self):
+        if not os.path.isdir(General.full_directory):
+            os.umask(0)
+            os.mkdir(General.full_directory)
 
-#             if Settings.imaging_mode == 1:
-#                 with open('../_temp/preview.jpg', 'wb') as f:
-#                     while True:
-#                         try:
-#                             data = sock.recv(5)
-#                         except Exception as e:
-#                             print(
-#                                 e, ': no connection for 20 seconds... retaking image')
-#                         if not data:
-#                             break
-#                         f.write(data)
-#                         self.transmit.emit()
-#                 sock.close()
+        General.imaging_current_count = 0
+        while General.imaging_current_count < General.imaging_total:
+            target_time = datetime.datetime.now() + datetime.timedelta(minutes=General.imaging_interval)
+            if General.imaging_format == 1:
+                General.current_image = General.full_directory + \
+                    "/" + General.sequence_name + "_%04d.jpg" % General.imaging_current_count
+            else:
+                General.current_image = General.full_directory + \
+                    "/" + General.sequence_name + "_%04d.png" % General.imaging_current_count
 
-#             else:
-#                 with open('../_temp/preview.png', 'wb') as f:
-#                     while True:
-#                         data = sock.recv(5)
-#                         if not data:
-#                             break
-#                         f.write(data)
-#                         self.transmit.emit()
-#                 sock.close()
-#         except Exception as e:
-#             print(e, "preview failure,contact Jerry for support")
-#         Settings.time_elipsed = int(timeit.default_timer() - start_time)
-#         if Settings.IR_imaging:
-#             Settings.sendCMD("4~0")
-#             Commands.deploy_lights()
+            core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            core_socket.settimeout(General.socket_timeout)
+            core_socket.connect(General.server_address)
 
+            if General.IR_imaging:
+                Commands.IR_imaging_toggle(1)
+            cmd = "A~"+General.x_resolution+"~" + General.y_resolution + \
+                "~0~0~0~" + General.digital_zoom + \
+                "~" + str(General.imaging_format)
+            core_socket.sendall(cmd.encode())
+            print("Command sent", cmd)
 
-# class Timelapse(QThread):
-#     captured = pyqtSignal()
-#     transmit = pyqtSignal()
-#     transmitstart = pyqtSignal()
+            with open(General.current_image, 'wb') as f:
+                while True:
+                    try:
+                        data = core_socket.recv(128)
+                    except Exception as e:
+                        print(e, 'timeout after 20 seconds... retaking image')
+                    if not data:
+                        break
+                    f.write(data)
+                    self.transmit.emit()
+                core_socket.close()
+            if General.IR_imaging:
+                Commands.IR_imaging_toggle(0)
+            self.captured.emit()
 
-#     def __init__(self):
-#         QThread.__init__(self)
-
-#     def __del__(self):
-#         self._running = False
-
-#     def run(self):
-#         if not os.path.isdir(Settings.full_dir):
-#             os.umask(0)
-#             os.mkdir(Settings.full_dir)
-
-#         Settings.current = 0
-#         while Settings.current < Settings.total:
-
-#             start_time = timeit.default_timer()
-#             if Settings.imaging_mode == 1:
-#                 Settings.current_image = Settings.full_dir + \
-#                     "/" + Settings.sequence_name + "_%04d.jpg" % Settings.current
-#             else:
-#                 Settings.current_image = Settings.full_dir + \
-#                     "/" + Settings.sequence_name + "_%04d.png" % Settings.current
-
-#             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#             sock.settimeout(20)
-#             ip_address = "10.0.5.1"
-#             skip = False
-#             server_address = (ip_address, 23456)
-#             if Functions.check_connection():
-#                 try:
-#                     sock.connect(server_address)
-#                 except Exception as e:
-#                     print(e, ': socket connection failed, please reboot device')
-#                     skip = True
-#                 if Settings.IR_imaging:
-#                     Commands.extract_lights()
-#                     Settings.sendCMD("4~1")
-
-#                 cmd = "A~" + str(Settings.x_resolution) + "~" + str(Settings.y_resolution) + "~" + \
-#                     str(Settings.rotation) + "~" + str(int(Settings.AOI_X * 100)) + "~" + \
-#                     str(int(Settings.AOI_Y * 100)) + "~" + str(int(Settings.AOI_W * 100)) + \
-#                     "~" + str(int(Settings.AOI_H * 100)) + \
-#                     "~" + str(int(Settings.imaging_mode))
-#                 if not skip:
-#                     sock.sendall(cmd.encode())
-
-#                     with open(Settings.current_image, 'wb') as f:
-#                         self.transmitstart.emit()
-#                         while True:
-#                             try:
-#                                 data = sock.recv(5)
-#                             except Exception as e:
-#                                 print(
-#                                     e, ': no connection for 20 seconds... retaking image')
-#                                 if Settings.IR_imaging:
-#                                     Settings.sendCMD("4~0")
-#                                     Commands.deploy_lights()
-#                                 break
-#                             if not data:
-#                                 Settings.current += 1
-#                                 print("image capture and transmission succesful")
-#                                 if Settings.IR_imaging:
-#                                     Settings.sendCMD("4~0")
-#                                     Commands.deploy_lights()
-#                                 break
-#                             f.write(data)
-#                             self.transmit.emit()
-#                         sock.close()
-#                         self.captured.emit()
-#                 elapsed = int(timeit.default_timer() - start_time)
-
-#             if elapsed < Settings.interval * 60:
-#                 for x in range(Settings.interval * 60 - elapsed):
-#                     sleep(1)
-#                     if not Settings.timelapse_running:
-#                         break
-#             if not Settings.timelapse_running:
-#                 break
+            while datetime.datetime.now() < target_time:
+                sleep(1)
+                self.countdown.emit()
+                General.timelapse_countdown = target_time - datetime.datetime.now()
+                if not General.timelapse_thread_running:
+                    break
+            if not General.timelapse_thread_running:
+                break

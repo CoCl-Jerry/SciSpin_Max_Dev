@@ -90,6 +90,9 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
         self.imaging_select_directory_pushButton.clicked.connect(
             lambda: Functions.select_directory(self))
 
+        self.main_start_timelapse_pushButton.clicked.connect(
+            lambda: Call_Thread.start_timelapse(self))
+        
         self.main_autofocus_pushButton.clicked.connect(
             lambda: Call_Thread.start_capture(self, 0))
         self.main_increase_focus_pushButton.clicked.connect(
@@ -150,8 +153,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #         self.Sensor_tabWidget.currentChanged.connect(
 #             lambda: Functions.printci(self))
 
-#         self.startImaging_pushButton.clicked.connect(
-#             lambda: Call_Thread.start_timelapse(self))
+
 #         self.preview_pushButton.clicked.connect(
 #             lambda: Call_Thread.start_preview(self))
 

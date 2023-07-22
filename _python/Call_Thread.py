@@ -87,24 +87,25 @@ def motion_sensors(self):
         General.motion_thread_running = False
 
 
-# def start_timelapse(self):
+def start_timelapse(self):
 
-#     if not Settings.timelapse_running:
-#         self.Timelapse_Thread = Threads.Timelapse()
-#         self.Timelapse_Thread.transmit.connect(
-#             lambda: UI_Update.transmit_update(self))
+    if not General.timelapse_thread_running:
+        self.Timelapse_Thread = Threads.Timelapse()
+        self.Timelapse_Thread.transmit.connect(
+            lambda: UI_Update.transmit_update(self))
+        self.Timelapse_Thread.capturing.connect(
+            lambda: UI_Update.timelapse_capture_toggle(self,1))
+        self.Timelapse_Thread.captured.connect(
+            lambda: UI_Update.timelapse_capture_toggle(self,0))
+        self.Timelapse_Thread.countdown.connect(
+            lambda: UI_Update.timelapse_countdown(self))
 
-#         self.Timelapse_Thread.started.connect(
-#             lambda: UI_Update.timelapse_start(self))
-#         self.Timelapse_Thread.captured.connect(
-#             lambda: UI_Update.image_captured(self))
-#         self.Timelapse_Thread.transmitstart.connect(
-#             lambda: UI_Update.transmitst(self))
-#         self.Timelapse_Thread.finished.connect(
-#             lambda: UI_Update.timelapse_end(self))
+        self.Timelapse_Thread.started.connect(
+            lambda: UI_Update.timelapse_toggle(self,1))
+        self.Timelapse_Thread.finished.connect(
+            lambda: UI_Update.timelapse_toggle(self,0))
 
-#         self.Timelapse_Thread.start()
+        self.Timelapse_Thread.start()
 
-#     else:
-#         Settings.timelapse_running = False
-#         self.Progress_Bar.setValue(Settings.current + 1)
+    else:
+        General.timelapse_thread_running = False

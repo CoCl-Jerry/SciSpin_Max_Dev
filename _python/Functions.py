@@ -214,17 +214,6 @@ def sensor_export_data(self):
 # def IR_mode(self):
 #     Settings.IR_imaging = self.infraredImaging_checkBox.isChecked()
 
-
-# def check_connection():
-#     os.system("ip addr show > ../_temp/output.txt")
-#     if 'peer' in open('../_temp/output.txt').read():
-#         print("peer connected")
-#         return True
-#     else:
-#         print("peer unconnected")
-#         return False
-
-
 # def printci(self):
 #     Settings.tag_index = self.Sensor_tabWidget.currentIndex()
 
