@@ -87,7 +87,8 @@ class Capture(QThread):
                 General.current_image = "../_temp/snapshot.jpg"
             else:
                 cmd = "A~"+General.x_resolution+"~" + \
-                    General.y_resolution+"~0~0~0~" + General.digital_zoom+"~"+General.imaging_format
+                    General.y_resolution+"~0~0~0~" + General.digital_zoom + \
+                    "~" + str(General.imaging_format)
                 if General.imaging_format:
                     General.current_image = "../_temp/snapshot.jpg"
                 else:
