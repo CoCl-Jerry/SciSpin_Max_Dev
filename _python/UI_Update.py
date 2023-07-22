@@ -358,7 +358,8 @@ def imaging_checkpoint(self):
 
         General.digital_zoom = str(
             self.imaging_digital_zoom_horizontalSlider.value())
-        General.imaging_format = int(self.imaging_JPG_radioButton.isChecked())
+        General.imaging_format = str(
+            int(self.imaging_JPG_radioButton.isChecked()))
     else:
         self.main_imaging_frame.setEnabled(True)
         self.imaging_settings_frame.setEnabled(True)
