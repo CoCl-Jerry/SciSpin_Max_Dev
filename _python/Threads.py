@@ -272,8 +272,12 @@ class Timelapse(QThread):
 
         General.imaging_current_count = 0
         while General.imaging_current_count < General.imaging_total:
+
+            self.capturing.emit()
+
             target_time = datetime.datetime.now(
             ) + datetime.timedelta(minutes=General.imaging_interval)
+
             if General.imaging_format:
                 General.current_image = General.full_directory + \
                     "/" + General.sequence_name + "_%04d.jpg" % General.imaging_current_count
