@@ -316,6 +316,14 @@ def imaging_UI_update(self):
     General.imaging_duration = self.imaging_image_sequence_duration_value_spinBox.value()
     General.imaging_total = int(
         General.imaging_duration / General.imaging_interval)
+    General.x_resolution = str(
+        self.imaging_x_resolution_value_spinBox.value())
+    General.y_resolution = str(
+        self.imaging_y_resolution_value_spinBox.value())
+
+    General.digital_zoom = str(
+        self.imaging_digital_zoom_horizontalSlider.value())
+    General.imaging_format = int(self.imaging_JPG_radioButton.isChecked())
 
     if General.imaging_total > 0 and len(General.sequence_name) != 0:
         self.main_start_timelapse_pushButton.setEnabled(True)
@@ -351,14 +359,7 @@ def imaging_checkpoint(self):
         self.main_imaging_frame.setEnabled(False)
         self.imaging_settings_frame.setEnabled(False)
         self.timelapse_setup_frame.setEnabled(False)
-        General.x_resolution = str(
-            self.imaging_x_resolution_value_spinBox.value())
-        General.y_resolution = str(
-            self.imaging_y_resolution_value_spinBox.value())
 
-        General.digital_zoom = str(
-            self.imaging_digital_zoom_horizontalSlider.value())
-        General.imaging_format = int(self.imaging_JPG_radioButton.isChecked())
     else:
         self.main_imaging_frame.setEnabled(True)
         self.imaging_settings_frame.setEnabled(True)
