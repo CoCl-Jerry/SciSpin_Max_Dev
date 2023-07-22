@@ -322,9 +322,9 @@ def imaging_UI_update(self):
     else:
         self.main_start_timelapse_pushButton.setEnabled(False)
     self.imaging_progress_value_label.setText(
-        "Progress: " + str(General.imaging_current) + "/" + str(General.imaging_total))
+        "Progress: " + str(General.imaging_current_count) + "/" + str(General.imaging_total))
     self.imaging_progress_progressBar.setMaximum(General.imaging_total)
-    
+
     if General.date not in General.sequence_name:
         self.imaging_add_date_pushButton.setEnabled(True)
     else:
@@ -375,15 +375,16 @@ def digital_zoom_update(self):
     self.imaging_digital_zoom_value_label.setText(
         str(self.imaging_digital_zoom_horizontalSlider.value())+" %")
 
-def timelapse_toggle(self,mode):
+
+def timelapse_toggle(self, mode):
     if mode:
         General.timelapse_thread_running = True
         self.main_start_timelapse_pushButton.setText("TERMINATE TIMELAPSE")
     else:
         self.main_start_timelapse_pushButton.setText("START TIMELAPSE")
-    
 
-def timelapse_capture_toggle(self,mode):
+
+def timelapse_capture_toggle(self, mode):
     if mode:
         General.core_busy = True
         imaging_checkpoint(self)
@@ -398,10 +399,14 @@ def timelapse_capture_toggle(self,mode):
 
         self.imaging_progress_value_label.setText(
             "Progress: " + str(General.imaging_current_count) + "/" + str(General.imaging_total))
-        self.imaging_progress_progressBar.setValue(General.imaging_current_count)
+        self.imaging_progress_progressBar.setValue(
+            General.imaging_current_count)
+
 
 def timelapse_countdown(self):
-    self.imaging_countdown_value_label.setText("Next Image: "+str(General.timelapse_countdown)+" s")
+    self.imaging_countdown_value_label.setText(
+        "Next Image: "+str(General.timelapse_countdown)+" s")
+
 
 def capture_start(self):
     if General.capture_mode < 3:
@@ -669,9 +674,6 @@ def motion_sensor_graph_update(self):
 #     update_imaging(self)
 
 
-
-
-
 # def lightingPreset_update(self):
 #     self.lightingPreset_tabWidget.setEnabled(
 #         not Settings.lightingPreset_running)
@@ -711,12 +713,6 @@ def motion_sensor_graph_update(self):
 #     self.log_pushButton.setEnabled(True)
 #     self.sample_doubleSpinBox.setEnabled(True)
 #     self.log_spinBox.setEnabled(True)
-
-
-
-
-
-
 
 
 # def motor_update(self):
