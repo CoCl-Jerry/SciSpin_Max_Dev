@@ -56,78 +56,6 @@ class Cycle(QThread):
                 break
 
 
-class Capture(QThread):
-
-    transmit = pyqtSignal()
-
-    def __init__(self):
-        QThread.__init__(self)
-
-    def __del__(self):
-        self._running = False
-
-    def run(self):
-        if General.IR_imaging:
-            Commands.IR_imaging_toggle(1)
-        try:
-            core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            core_socket.settimeout(General.socket_timeout)
-            core_socket.connect(General.server_address)
-
-            if General.capture_mode == 0:
-                cmd = "A~350~350~1~0~0~" + General.digital_zoom+"~1"
-                General.current_image = "../_temp/snapshot.jpg"
-            elif General.capture_mode == 1:
-                cmd = "A~350~350~0~1~-1~" + General.digital_zoom+"~1"
-                General.current_image = "../_temp/snapshot.jpg"
-            elif General.capture_mode == 2:
-                cmd = "A~350~350~0~1~1~" + General.digital_zoom+"~1"
-                General.current_image = "../_temp/snapshot.jpg"
-            elif General.capture_mode == 3:
-                cmd = "A~350~350~0~0~0~" + General.digital_zoom+"~1"
-                General.current_image = "../_temp/snapshot.jpg"
-            else:
-                cmd = "A~"+General.x_resolution+"~" + \
-                    General.y_resolution+"~0~0~0~" + General.digital_zoom + \
-                    "~" + str(General.imaging_format)
-                if General.imaging_format:
-                    General.current_image = "../_temp/snapshot.jpg"
-                else:
-                    General.current_image = "../_temp/snapshot.png"
-
-            core_socket.sendall(cmd.encode())
-            print("Command sent", cmd)
-
-            try:
-                response = core_socket.recv(128).decode("utf-8").split('~', 2)
-                if float(response[1]) > 0:
-                    General.lens_position = str(
-                        round(100/float(response[1]), 2))+"mm"
-                else:
-                    General.lens_position = "∞"
-                print("Lens Position:", General.lens_position)
-            except socket.timeout:
-                print("No response from server, timed out")
-
-            with open(General.current_image, 'wb') as f:
-
-                while True:
-                    try:
-                        data = core_socket.recv(128)
-                    except Exception as e:
-                        print(e, 'timeout after 20 seconds... retaking image')
-                    if not data:
-                        break
-                    f.write(data)
-                    self.transmit.emit()
-            core_socket.close()
-
-        except Exception as e:
-            print(e, "snapshot failure,contact Jerry for support")
-        if General.IR_imaging:
-            Commands.IR_imaging_toggle(0)
-
-
 class Ambient(QThread):
     ambient_sensor_update = pyqtSignal()
     initialized = pyqtSignal()
@@ -253,6 +181,83 @@ class Motion(QThread):
                     self.motion_sensor_update.emit()
 
 
+# ---------------------------------------------------------------------------- #
+#                                imaging thread                                #
+# ---------------------------------------------------------------------------- #
+class Capture(QThread):
+
+    transmit = pyqtSignal()
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        if General.IR_imaging:
+            Commands.IR_imaging_toggle(1)
+        try:
+            core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            core_socket.settimeout(General.socket_timeout)
+            core_socket.connect(General.server_address)
+
+            if General.capture_mode == 0:
+                cmd = "A~350~350~1~0~0~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
+            elif General.capture_mode == 1:
+                cmd = "A~350~350~0~1~-1~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
+            elif General.capture_mode == 2:
+                cmd = "A~350~350~0~1~1~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
+            elif General.capture_mode == 3:
+                cmd = "A~350~350~0~0~0~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
+            else:
+                cmd = "A~"+General.x_resolution+"~" + \
+                    General.y_resolution+"~0~0~0~" + General.digital_zoom + \
+                    "~" + str(General.imaging_format)
+                if General.imaging_format:
+                    General.current_image = "../_temp/snapshot.jpg"
+                else:
+                    General.current_image = "../_temp/snapshot.png"
+
+            core_socket.sendall(cmd.encode())
+            print("Command sent", cmd)
+
+            try:
+                response = core_socket.recv(128).decode("utf-8").split('~', 2)
+                if float(response[1]) > 0:
+                    General.lens_position = str(
+                        round(100/float(response[1]), 2))+"mm"
+                else:
+                    General.lens_position = "∞"
+                print("Lens Position:", General.lens_position)
+            except socket.timeout:
+                print("No response from server, timed out")
+
+            with open(General.current_image, 'wb') as f:
+
+                while True:
+                    try:
+                        data = core_socket.recv(128)
+                    except Exception as e:
+                        print(e, 'timeout after 20 seconds... retaking image')
+                    if not data:
+                        break
+                    f.write(data)
+                    self.transmit.emit()
+            core_socket.close()
+
+        except Exception as e:
+            print(e, "snapshot failure,contact Jerry for support")
+        if General.IR_imaging:
+            Commands.IR_imaging_toggle(0)
+
+# ------------------------- imaging timelapse thread ------------------------- #
+
+
 class Timelapse(QThread):
     capturing = pyqtSignal()
     transmit = pyqtSignal()
@@ -315,7 +320,8 @@ class Timelapse(QThread):
             while datetime.datetime.now() < target_time:
                 sleep(1)
                 self.countdown.emit()
-                General.timelapse_countdown = target_time - datetime.datetime.now()
+                General.timelapse_countdown = int(
+                    (target_time - datetime.datetime.now()).total_seconds())
                 if not General.timelapse_thread_running:
                     break
             if not General.timelapse_thread_running:
