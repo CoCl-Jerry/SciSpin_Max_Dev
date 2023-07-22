@@ -356,7 +356,7 @@ def imaging_checkpoint(self):
 
         General.digital_zoom = str(
             self.imaging_digital_zoom_horizontalSlider.value())
-        General.imaging_format = not self.imaging_JPG_radioButton.isChecked()
+        General.imaging_format = self.imaging_JPG_radioButton.isChecked()
     else:
         self.main_imaging_frame.setEnabled(True)
         self.imaging_settings_frame.setEnabled(True)
@@ -372,8 +372,6 @@ def digital_zoom_update(self):
     self.imaging_digital_zoom_value_label.setText(
         str(self.imaging_digital_zoom_horizontalSlider.value())+" %")
 
-# ---------------------------- focusing UI updates --------------------------- #
-
 
 def capture_start(self):
     if General.capture_mode < 3:
@@ -383,9 +381,12 @@ def capture_start(self):
 
 
 def capture_complete(self):
-    snap_img = QImage("../_temp/snapshot.jpg")
+    if General.capture_mode < 3:
+        self.main_autofocus_pushButton.setText(General.lens_position)
+    if General.capture_mode == 4:
+        os.system("gpicview " + General.current_image)
+    snap_img = QImage(General.current_image)
     self.main_image_label.setPixmap(QPixmap(snap_img))
-    self.main_autofocus_pushButton.setText(General.lens_position)
     General.core_busy = False
     General.received_packets = 0
 
@@ -393,21 +394,6 @@ def capture_complete(self):
         self.main_increase_focus_pushButton.setEnabled(True)
         self.main_decrease_focus_pushButton.setEnabled(True)
     imaging_checkpoint(self)
-
-# def preview_complete(self):
-#     self.core_status_label.setText(
-#         "Time Taken " + str(Settings.time_elipsed) + "s")
-#     if Settings.imaging_mode == 1:
-#         preview_img = QImage("../_temp/preview.jpg")
-#         self.Image_Frame.setPixmap(QPixmap(preview_img))
-#         os.system("gpicview ../_temp/preview.jpg")
-#     else:
-#         preview_img = QImage("../_temp/preview.png")
-#         self.Image_Frame.setPixmap(QPixmap(preview_img))
-#         os.system("gpicview ../_temp/preview.png")
-#     Settings.imaging = False
-#     Settings.trasmitted = 0
-#     update_imaging(self)
 
 # ---------------------------------------------------------------------------- #
 #                         power cycle thread UI updates                        #

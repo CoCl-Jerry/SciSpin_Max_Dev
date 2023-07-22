@@ -65,7 +65,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="main_lighting_tab">
      <attribute name="title">
@@ -617,7 +617,7 @@
           <double>0.050000000000000</double>
          </property>
          <property name="maximum">
-          <double>15.000000000000000</double>
+          <double>10.000000000000000</double>
          </property>
          <property name="singleStep">
           <double>0.050000000000000</double>
@@ -689,7 +689,7 @@
           <number>5</number>
          </property>
          <property name="maximum">
-          <number>1500</number>
+          <number>1000</number>
          </property>
          <property name="singleStep">
           <number>5</number>
@@ -723,7 +723,7 @@
           <number>5</number>
          </property>
          <property name="maximum">
-          <number>1500</number>
+          <number>1000</number>
          </property>
          <property name="singleStep">
           <number>5</number>
@@ -802,7 +802,7 @@
           <double>0.050000000000000</double>
          </property>
          <property name="maximum">
-          <double>15.000000000000000</double>
+          <double>10.000000000000000</double>
          </property>
          <property name="singleStep">
           <double>0.050000000000000</double>
@@ -879,10 +879,74 @@
          <x>10</x>
          <y>10</y>
          <width>581</width>
-         <height>162</height>
+         <height>131</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="3" colspan="2">
+         <widget class="Line" name="line_19">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QLabel" name="imaging_digital_zoom_value_label">
+          <property name="text">
+           <string>0 %</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="imaging_digital_zoom_text_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Digital Zoom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="2" rowspan="2">
+         <widget class="QLabel" name="imaging_file_format_text_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;File Format&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="3">
+         <widget class="QSpinBox" name="imaging_y_resolution_value_spinBox">
+          <property name="suffix">
+           <string> px</string>
+          </property>
+          <property name="minimum">
+           <number>50</number>
+          </property>
+          <property name="maximum">
+           <number>2592</number>
+          </property>
+          <property name="value">
+           <number>2592</number>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0" rowspan="2" colspan="2">
+         <widget class="Line" name="line_10">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="0" colspan="4">
          <widget class="QSlider" name="imaging_digital_zoom_horizontalSlider">
           <property name="minimum">
@@ -905,25 +969,22 @@
           </property>
          </widget>
         </item>
-        <item row="8" column="0" colspan="2">
-         <widget class="QRadioButton" name="imaging_JPG_radioButton">
+        <item row="8" column="3" colspan="2">
+         <widget class="QRadioButton" name="imaging_PNG_radioButton">
           <property name="text">
-           <string>.JPG</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
+           <string>.PNG</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="3" colspan="2">
-         <widget class="Line" name="line_9">
+        <item row="3" column="0" colspan="2">
+         <widget class="Line" name="line_5">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
-        <item row="9" column="2">
-         <spacer name="verticalSpacer_5">
+        <item row="5" column="2">
+         <spacer name="verticalSpacer_7">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -935,17 +996,13 @@
           </property>
          </spacer>
         </item>
-        <item row="0" column="0" colspan="2">
-         <widget class="Line" name="line_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="2" rowspan="2">
-         <widget class="QLabel" name="imaging_file_format_text_label">
+        <item row="8" column="0" colspan="2">
+         <widget class="QRadioButton" name="imaging_JPG_radioButton">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;File Format&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>.JPG</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -959,20 +1016,17 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="4">
-         <widget class="QLabel" name="imaging_y_resolution_range_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+        <item row="3" column="3" colspan="2">
+         <widget class="Line" name="line_9">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
-        <item row="0" column="3" colspan="2">
-         <widget class="Line" name="line_19">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+        <item row="0" column="2">
+         <widget class="QLabel" name="imaging_image_resolution_text_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -992,30 +1046,10 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="0" colspan="2">
-         <widget class="Line" name="line_5">
+        <item row="0" column="0" colspan="2">
+         <widget class="Line" name="line_6">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <spacer name="verticalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="8" column="3" colspan="2">
-         <widget class="QRadioButton" name="imaging_PNG_radioButton">
-          <property name="text">
-           <string>.PNG</string>
           </property>
          </widget>
         </item>
@@ -1026,62 +1060,15 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="0" rowspan="2" colspan="2">
-         <widget class="Line" name="line_10">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="4">
-         <widget class="QLabel" name="imaging_digital_zoom_value_label">
+        <item row="1" column="4">
+         <widget class="QLabel" name="imaging_y_resolution_range_text_label">
           <property name="text">
-           <string>0 %</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="imaging_image_resolution_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Image Resolution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QSpinBox" name="imaging_y_resolution_value_spinBox">
-          <property name="suffix">
-           <string> px</string>
-          </property>
-          <property name="minimum">
-           <number>50</number>
-          </property>
-          <property name="maximum">
-           <number>2592</number>
-          </property>
-          <property name="value">
-           <number>2592</number>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QLabel" name="imaging_digital_zoom_text_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Digital Zoom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="2">
-         <spacer name="verticalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>
@@ -1308,7 +1295,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ambient_temperature_tab">
        <attribute name="title">
@@ -1759,7 +1746,7 @@
         <x>10</x>
         <y>430</y>
         <width>601</width>
-        <height>91</height>
+        <height>81</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_8">
@@ -1956,7 +1943,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>166</width>
+       <width>151</width>
        <height>171</height>
       </rect>
      </property>

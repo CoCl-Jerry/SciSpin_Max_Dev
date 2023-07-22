@@ -29,17 +29,7 @@ def start_cycle(self):
 
 
 def start_capture(self, mode):
-    if mode == 0:
-        General.capture_mode = 0
-    elif mode == 1:
-        General.capture_mode = 1
-    elif mode == 2:
-        General.capture_mode = 2
-    elif mode == 3:
-        General.capture_mode = 3
-    elif mode == 4:
-        General.capture_mode = 4
-
+    General.capture_mode = mode
     self.Capture_Thread = Threads.Capture()
     self.Capture_Thread.transmit.connect(
         lambda: UI_Update.transmit_update(self))
@@ -118,29 +108,3 @@ def motion_sensors(self):
 #     else:
 #         Settings.timelapse_running = False
 #         self.Progress_Bar.setValue(Settings.current + 1)
-
-
-# def sensor_init(self):
-
-#     if Functions.check_connection():
-#         self.core_status_label.setText("Core Status: Online")
-#     else:
-#         error = PyQt5.QtGui.QImage("../_image/Error.png")
-#         self.Image_Frame.setPixmap(QtGui.QPixmap(error))
-
-#     os.system("i2cdetect -y 1 > ../_temp/output.txt")
-
-#     if '1d' in open('../_temp/output.txt').read():
-#         Settings.acc_attached = True
-#     if '76' in open('../_temp/output.txt').read():
-#         Settings.temp_attached = True
-
-#     if Settings.temp_attached or Settings.acc_attached:
-#         self.Sensor_Thread = Threads.Sensor()
-#         self.Sensor_Thread.update.connect(
-#             lambda: UI_Update.sensor_update(self))
-#         self.Sensor_Thread.logstart.connect(
-#             lambda: UI_Update.sensor_logstart(self))
-#         self.Sensor_Thread.logdone.connect(
-#             lambda: UI_Update.sensor_logdone(self))
-#         self.Sensor_Thread.start()

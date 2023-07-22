@@ -166,7 +166,7 @@ def sensor_export_data(self):
                         ]
                     )
                     writer.writerows(export)
-                    UI_Update.export_UI_update(self, 1)
+                    UI_Update.export_UI_update(self, 3)
     except Exception as e:
         print(e, "Export failure, contact Jerry for support")
 

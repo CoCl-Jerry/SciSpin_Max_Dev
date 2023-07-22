@@ -74,16 +74,24 @@ class Capture(QThread):
             core_socket.connect(General.server_address)
 
             if General.capture_mode == 0:
-                cmd = "A~350~350~1~0~0~" + General.digital_zoom
+                cmd = "A~350~350~1~0~0~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
             elif General.capture_mode == 1:
-                cmd = "A~350~350~0~1~-1~" + General.digital_zoom
+                cmd = "A~350~350~0~1~-1~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
             elif General.capture_mode == 2:
-                cmd = "A~350~350~0~1~1~" + General.digital_zoom
+                cmd = "A~350~350~0~1~1~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
             elif General.capture_mode == 3:
-                cmd = "A~350~350~0~0~0~" + General.digital_zoom
-            elif General.capture_mode == 4:
+                cmd = "A~350~350~0~0~0~" + General.digital_zoom+"~1"
+                General.current_image = "../_temp/snapshot.jpg"
+            else:
                 cmd = "A~"+General.x_resolution+"~" + \
-                    General.y_resolution+"~0~0~0~" + General.digital_zoom
+                    General.y_resolution+"~0~0~0~" + General.digital_zoom+"~"+General.imaging_format
+                if General.imaging_format:
+                    General.current_image = "../_temp/snapshot.jpg"
+                else:
+                    General.current_image = "../_temp/snapshot.png"
 
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
@@ -99,7 +107,8 @@ class Capture(QThread):
             except socket.timeout:
                 print("No response from server, timed out")
 
-            with open('../_temp/snapshot.jpg', 'wb') as f:
+            with open(General.current_image, 'wb') as f:
+
                 while True:
                     try:
                         data = core_socket.recv(128)
@@ -114,7 +123,7 @@ class Capture(QThread):
         except Exception as e:
             print(e, "snapshot failure,contact Jerry for support")
         if General.IR_imaging:
-            Commands.IR_imaging_toggle(1)
+            Commands.IR_imaging_toggle(0)
 
 
 class Ambient(QThread):

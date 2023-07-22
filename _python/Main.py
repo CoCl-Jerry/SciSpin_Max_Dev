@@ -98,12 +98,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Call_Thread.start_capture(self, 2))
         self.main_snapshot_pushButton.clicked.connect(
             lambda: Call_Thread.start_capture(self, 3))
+        self.main_preview_pushButton.clicked.connect(
+            lambda: Call_Thread.start_capture(self, 4))
 
         self.imaging_digital_zoom_horizontalSlider.valueChanged.connect(
             lambda: UI_Update.digital_zoom_update(self))
-
-        self.main_preview_pushButton.clicked.connect(
-            lambda: Call_Thread.start_capture(self, 4))
 # ---------------------------------------------------------------------------- #
 #                            ambient sensor signals                            #
 # ---------------------------------------------------------------------------- #
