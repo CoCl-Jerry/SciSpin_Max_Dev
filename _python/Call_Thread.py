@@ -84,9 +84,9 @@ def start_capture(self, mode):
     self.Capture_Thread.transmit.connect(
         lambda: UI_Update.transmit_update(self))
     self.Capture_Thread.started.connect(
-        lambda: UI_Update.capture_start(self))
+        lambda: UI_Update.image_capture_toggle(self, 1))
     self.Capture_Thread.finished.connect(
-        lambda: UI_Update.capture_complete(self))
+        lambda: UI_Update.image_capture_toggle(self, 0))
 
     self.Capture_Thread.start()
 
