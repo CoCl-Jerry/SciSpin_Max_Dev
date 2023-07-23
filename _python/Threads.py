@@ -81,10 +81,10 @@ class Ambient(QThread):
 
         while General.ambient_thread_running:
             if (
-                perf_counter()
-                - General.ambient_sensor_initial_time
-                - General.ambient_sensor_previous_time
-                > General.ambient_sensor_interval
+                (perf_counter()
+                 - General.ambient_sensor_initial_time
+                 - General.ambient_sensor_previous_time
+                 > General.ambient_sensor_interval and General.ambient_graphing_complete)
                 or len(General.ambient_sensor_time_stamp) == 0
             ):
 
@@ -116,6 +116,7 @@ class Ambient(QThread):
                     self.initialized.emit()
                 elif len(General.ambient_sensor_time_stamp) > 2:
                     self.ambient_sensor_update.emit()
+                    General.ambient_graphing_complete = False
 
 
 class Motion(QThread):
@@ -158,10 +159,10 @@ class Motion(QThread):
 
         while General.motion_thread_running:
             if (
-                perf_counter()
-                - General.motion_sensor_initial_time
-                - General.motion_sensor_previous_time
-                > General.motion_sensor_interval
+                (perf_counter()
+                 - General.motion_sensor_initial_time
+                 - General.motion_sensor_previous_time
+                 > General.motion_sensor_interval and General.motion_graphing_complete)
                 or len(General.motion_sensor_time_stamp) == 0
             ):
                 curent_acceleration = motion_sensor.acceleration
@@ -223,6 +224,7 @@ class Motion(QThread):
                     self.initialized.emit()
                 elif len(General.motion_sensor_time_stamp) > 2:
                     self.motion_sensor_update.emit()
+                    General.motion_graphing_complete = False
 
 
 # ---------------------------------------------------------------------------- #

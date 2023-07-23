@@ -145,6 +145,10 @@ green_pen = mkPen(color=(0, 204, 0), width=2)
 
 blue_pen = mkPen(color=(0, 0, 204), width=2)
 
+ambient_graphing_complete = True
+
+motion_graphing_complete = True
+
 # ---------------------------------------------------------------------------- #
 #                          ambient sensor declarations                         #
 # ---------------------------------------------------------------------------- #

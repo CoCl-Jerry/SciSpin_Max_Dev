@@ -933,7 +933,7 @@
            <string> px</string>
           </property>
           <property name="minimum">
-           <number>50</number>
+           <number>100</number>
           </property>
           <property name="maximum">
            <number>2592</number>
@@ -1012,7 +1012,7 @@
         <item row="1" column="1">
          <widget class="QLabel" name="imaging_x_resolution_range_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 4608 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 100 , 4608 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1039,7 +1039,7 @@
            <string> px</string>
           </property>
           <property name="minimum">
-           <number>50</number>
+           <number>100</number>
           </property>
           <property name="maximum">
            <number>4608</number>
@@ -1066,7 +1066,7 @@
         <item row="1" column="4">
          <widget class="QLabel" name="imaging_y_resolution_range_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 100 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1974,7 +1974,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>166</width>
+       <width>151</width>
        <height>171</height>
       </rect>
      </property>
