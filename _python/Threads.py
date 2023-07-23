@@ -222,7 +222,7 @@ class Capture(QThread):
                     General.current_image = "../_temp/snapshot.jpg"
                 else:
                     General.current_image = "../_temp/snapshot.png"
-            print("sending command", cmd)
+
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
             if General.capture_mode < 3:
