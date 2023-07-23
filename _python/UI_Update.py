@@ -647,7 +647,6 @@ def motion_sensor_graph_update(self):
                 General.motion_accelerometer_x_graph_ref.setData(
                     General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_x
                 )
-                print(len(General.motion_sensor_time_stamp))
                 General.motion_accelerometer_y_graph_ref.setData(
                     General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_y
                 )
@@ -674,75 +673,22 @@ def motion_sensor_graph_update(self):
                     General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_z
                 )
 
-# def snap_start(self):
-#     self.core_status_label.setText("Core Status: IMAGING")
-#     Settings.imaging = True
-#     update_imaging(self)
+# ---------------------------------------------------------------------------- #
+#                              lighting UI updates                             #
+# ---------------------------------------------------------------------------- #
 
 
-# def snap_complete(self):
-#     self.core_status_label.setText("Core Status: IDLE")
-
-#     snap_img = QImage("../_temp/snapshot.jpg")
-#     self.Image_Frame.setPixmap(QPixmap(snap_img))
-#     Settings.imaging = False
-#     Settings.trasmitted = 0
-#     update_imaging(self)
+def LED_validate(self):
+    if self.lighting_start_LED_value_spinBox.value() >= self.lighting_end_LED_value_spinBox.value():
+        self.lighting_LED_confirm_pushButton.setEnabled(False)
+    else:
+        self.lighting_LED_confirm_pushButton.setEnabled(True)
 
 
-# def lightingPreset_update(self):
-#     self.lightingPreset_tabWidget.setEnabled(
-#         not Settings.lightingPreset_running)
-#     if not Settings.lightingPreset_running:
-#         Commands.light_reset(self)
-
-
-# def sensor_update(self):
-
-#     if Settings.tag_index == 0:
-#         self.ACC_X_text_label.setText(Settings.ACC_X_text)
-#         self.ACC_Y_text_label.setText(Settings.ACC_Y_text)
-#         self.ACC_Z_text_label.setText(Settings.ACC_Z_text)
-
-#     elif Settings.tag_index == 1:
-#         self.TEMP_text_label.setText(Settings.TEMP_text)
-#         self.HUM_text_label.setText(Settings.HUD_text)
-
-#     else:
-#         self.PR_text_label.setText(Settings.PR_text)
-
-
-# def LED_validate(self):
-#     if self.Start_spinBox.value() >= self.End_spinBox.value():
-#         self.light_Confirm_pushButton.setEnabled(False)
-#     else:
-#         self.light_Confirm_pushButton.setEnabled(True)
-
-
-# def sensor_logstart(self):
-#     self.log_pushButton.setEnabled(False)
-#     self.sample_doubleSpinBox.setEnabled(False)
-#     self.log_spinBox.setEnabled(False)
-
-
-# def sensor_logdone(self):
-#     self.log_pushButton.setEnabled(True)
-#     self.sample_doubleSpinBox.setEnabled(True)
-#     self.log_spinBox.setEnabled(True)
-
-
-# def motor_update(self):
-#     if not Settings.frame_enabled:
-#         self.frameErgz_pushButton.setText("DISABLE MOTOR")
-#     else:
-#         self.frameErgz_pushButton.setText("ENABLE MOTOR")
-
-#     if not Settings.core_enabled:
-#         self.coreErgz_pushButton.setText("DISABLE MOTOR")
-#     else:
-#         self.coreErgz_pushButton.setText("ENABLE MOTOR")
-
-
-# def fanlabel_update(self):
-#     self.fanSpeed_label.setText(
-#         "Speed: " + str(self.fanSpeed_horizontalSlider.sliderPosition()) + "%")
+def fanlabel_update(self, mode):
+    if mode:
+        self.lighting_core_fan_speed_value_label.setText(
+            "Speed: " + str(self.lighting_core_fan_speed_horizontalSlider.sliderPosition()) + "%")
+    else:
+        self.lighting_controller_fan_speed_value_label.setText(
+            "Speed: " + str(self.lighting_controller_fan_speed_horizontalSlider.sliderPosition()) + "%")

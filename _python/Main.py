@@ -36,6 +36,10 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: UI_Update.lighting_source_update(self))
         self.lighting_source_tabWidget.currentChanged.connect(
             lambda: UI_Update.lighting_source_update(self))
+        self.lighting_start_LED_value_spinBox.valueChanged.connect(
+            lambda: UI_Update.LED_validate(self))
+        self.lighting_end_LED_value_spinBox.valueChanged.connect(
+            lambda: UI_Update.LED_validate(self))
 
 # --------------------------- Power cycle signals ---------------------------- #
         self.lighting_confirm_cycle_pushButton.clicked.connect(
@@ -92,7 +96,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.main_start_timelapse_pushButton.clicked.connect(
             lambda: Call_Thread.start_timelapse(self))
-        
+
         self.main_autofocus_pushButton.clicked.connect(
             lambda: Call_Thread.start_capture(self, 0))
         self.main_increase_focus_pushButton.clicked.connect(
@@ -146,58 +150,18 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
             lambda: Functions.sensor_export_data(self)
         )
 
+# ---------------------------------------------------------------------------- #
+#                              fan control signals                             #
+# ---------------------------------------------------------------------------- #
 
-#         Call_Thread.sensor_init(self)
-#         Commands.init()
-
-#         self.Sensor_tabWidget.currentChanged.connect(
-#             lambda: Functions.printci(self))
-
-
-#         self.preview_pushButton.clicked.connect(
-#             lambda: Call_Thread.start_preview(self))
-
-#         self.rotate_pushButton.clicked.connect(
-#             lambda: Functions.rotate_image(self))
-
-#         self.sample_doubleSpinBox.valueChanged.connect(
-#             lambda: Functions.sample_change(self))
-
-
-#         self.Start_spinBox.valueChanged.connect(
-#             lambda: UI_Update.LED_validate(self))
-#         self.End_spinBox.valueChanged.connect(
-#             lambda: UI_Update.LED_validate(self))
-
-
-#         self.log_pushButton.clicked.connect(
-#             lambda: Functions.sensor_log(self))
-
-
-#         self.x_resolution_spinBox.valueChanged.connect(
-#             lambda: Functions.camera_update(self))
-#         self.y_resolution_spinBox.valueChanged.connect(
-#             lambda: Functions.camera_update(self))
-
-#         self.xAxis_horizontalSlider.valueChanged.connect(
-#             lambda: Functions.camera_update(self))
-#         self.xAxis_horizontalSlider.sliderReleased.connect(
-#             lambda: Call_Thread.start_snapshot(self))
-
-#         self.yAxis_horizontalSlider.valueChanged.connect(
-#             lambda: Functions.camera_update(self))
-#         self.yAxis_horizontalSlider.sliderReleased.connect(
-#             lambda: Call_Thread.start_snapshot(self))
-
-#         self.JPG_radioButton.toggled.connect(
-#             lambda: Functions.update_mode(self))
-#         self.infraredImaging_checkBox.stateChanged.connect(
-#             lambda: Functions.IR_mode(self))
-
-#         self.fanSpeed_horizontalSlider.sliderReleased.connect(
-#             lambda: Functions.fanspeed_update(self))
-#         self.fanSpeed_horizontalSlider.valueChanged.connect(
-#             lambda: UI_Update.fanlabel_update(self))
+        # self.lighting_core_fan_speed_horizontalSlider.sliderReleased.connect(
+        #     lambda: Functions.fanspeed_update(self))
+        # self.lighting_controller_fan_speed_horizontalSlider.sliderReleased.connect(
+        #     lambda: Functions.fanspeed_update(self))
+        self.lighting_core_fan_speed_horizontalSlider.valueChanged.connect(
+            lambda: UI_Update.fanlabel_update(self, 1))
+        self.lighting_controller_fan_speed_horizontalSlider.valueChanged.connect(
+            lambda: UI_Update.fanlabel_update(self, 0))
 
 
 def main():
