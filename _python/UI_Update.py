@@ -578,15 +578,15 @@ def motion_sensor_initialize(self):
     )
 
     General.motion_gyroscope_x_graph_ref = self.motion_gyroscope_graphWidget.plot(
-        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_x, pen=General.red_pen
+        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_x, pen=General.red_pen
     )
 
     General.motion_gyroscope_y_graph_ref = self.motion_gyroscope_graphWidget.plot(
-        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_y, pen=General.green_pen
+        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_y, pen=General.green_pen
     )
 
     General.motion_gyroscope_z_graph_ref = self.motion_gyroscope_graphWidget.plot(
-        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_z, pen=General.blue_pen
+        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_z, pen=General.blue_pen
     )
 
 
@@ -657,15 +657,15 @@ def motion_sensor_graph_update(self):
                 self.motion_z_axis_value_label.setText(
                     str(General.motion_gyroscope_z[-1]))
                 General.motion_gyroscope_x_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_gyroscope_x
+                    General.motion_sensor_time_stamp, General.motion_gyroscope_graph_x
                 )
 
                 General.motion_gyroscope_y_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_gyroscope_y
+                    General.motion_sensor_time_stamp, General.motion_gyroscope_graph_y
                 )
 
                 General.motion_gyroscope_z_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_gyroscope_z
+                    General.motion_sensor_time_stamp, General.motion_gyroscope_graph_z
                 )
 
 # def snap_start(self):

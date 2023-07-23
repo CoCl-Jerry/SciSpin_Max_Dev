@@ -153,6 +153,12 @@ class Motion(QThread):
 
         General.motion_acceleration_graph_z = deque(maxlen=500)
 
+        General.motion_gyroscope_graph_x = deque(maxlen=500)
+
+        General.motion_gyroscope_graph_y = deque(maxlen=500)
+
+        General.motion_gyroscope_graph_z = deque(maxlen=500)
+
         while General.motion_thread_running:
             if (
                 perf_counter()
@@ -177,15 +183,15 @@ class Motion(QThread):
                 )
 
                 General.motion_acceleration_graph_x.append(
-                    round(curent_acceleration[0], 2)
+                    General.motion_acceleration_x[-1]
                 )
 
                 General.motion_acceleration_graph_y.append(
-                    round(curent_acceleration[1], 2)
+                    General.motion_acceleration_y[-1]
                 )
 
                 General.motion_acceleration_graph_z.append(
-                    round(curent_acceleration[2], 2)
+                    General.motion_acceleration_z[-1]
                 )
 
                 General.motion_gyroscope_x.append(
@@ -196,6 +202,13 @@ class Motion(QThread):
 
                 General.motion_gyroscope_z.append(
                     round(math.degrees(current_gyro[2]), 2))
+
+                General.motion_gyroscope_graph_x.append(
+                    General.motion_gyroscope_x[-1])
+                General.motion_gyroscope_graph_y.append(
+                    General.motion_gyroscope_y[-1])
+                General.motion_gyroscope_graph_z.append(
+                    General.motion_gyroscope_z[-1])
 
                 General.motion_sensor_time_stamp.append(
                     round(perf_counter() -
