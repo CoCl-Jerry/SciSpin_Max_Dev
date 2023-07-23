@@ -566,7 +566,7 @@
         <x>10</x>
         <y>10</y>
         <width>601</width>
-        <height>511</height>
+        <height>501</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_10">
@@ -1079,7 +1079,7 @@
         <x>10</x>
         <y>440</y>
         <width>601</width>
-        <height>81</height>
+        <height>71</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_9">
@@ -1864,13 +1864,6 @@
           </property>
          </widget>
         </item>
-        <item row="5" column="0" colspan="3">
-         <widget class="Line" name="line_20">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
         <item row="3" column="0" colspan="3">
          <widget class="Line" name="line_18">
           <property name="orientation">
@@ -1882,19 +1875,6 @@
          <widget class="QLabel" name="x_axis_text_label">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#cc0000;&quot;&gt;X Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="4" rowspan="2">
-         <widget class="QPushButton" name="motion_sensor_export_CSV_pushButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Export CSV File</string>
           </property>
          </widget>
         </item>
@@ -1947,6 +1927,19 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QPushButton" name="motion_sensor_export_CSV_pushButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Export CSV File</string>
           </property>
          </widget>
         </item>
