@@ -278,6 +278,9 @@
       </widget>
      </widget>
      <widget class="QTabWidget" name="lighting_source_tabWidget">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1867,7 +1870,7 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="3" rowspan="6">
+        <item row="0" column="3" rowspan="5">
          <spacer name="horizontalSpacer_3">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -1903,17 +1906,14 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="2" rowspan="2">
-         <widget class="QLabel" name="z_axis_units_text_label">
+        <item row="4" column="0">
+         <widget class="QLabel" name="z_axis_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:700; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#0000cc;&quot;&gt;Z Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
-        <item row="4" column="1" rowspan="2">
+        <item row="4" column="1">
          <widget class="QLabel" name="motion_z_axis_value_label">
           <property name="text">
            <string>N/A</string>
@@ -1923,14 +1923,17 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="0" rowspan="2">
-         <widget class="QLabel" name="z_axis_text_label">
+        <item row="4" column="2">
+         <widget class="QLabel" name="z_axis_units_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#0000cc;&quot;&gt;Z Axis:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;m/s&lt;/span&gt;&lt;span style=&quot; font-weight:700; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="4" column="4" rowspan="2">
+        <item row="4" column="4">
          <widget class="QPushButton" name="motion_sensor_export_CSV_pushButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
