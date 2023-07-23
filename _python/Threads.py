@@ -225,17 +225,18 @@ class Capture(QThread):
 
             core_socket.sendall(cmd.encode())
             print("Command sent", cmd)
-
-            try:
-                response = core_socket.recv(128).decode("utf-8").split('~', 2)
-                if float(response[1]) > 0:
-                    General.lens_position = str(
-                        round(100/float(response[1]), 2))+"mm"
-                else:
-                    General.lens_position = "∞"
-                print("Lens Position:", General.lens_position)
-            except socket.timeout:
-                print("No response from server, timed out")
+            if General.capture_mode < 3:
+                try:
+                    response = core_socket.recv(
+                        128).decode("utf-8").split('~', 2)
+                    if float(response[1]) > 0:
+                        General.lens_position = str(
+                            round(100/float(response[1]), 2))+"mm"
+                    else:
+                        General.lens_position = "∞"
+                    print("Lens Position:", General.lens_position)
+                except socket.timeout:
+                    print("No response from server, timed out")
 
             with open(General.current_image, 'wb') as f:
 
