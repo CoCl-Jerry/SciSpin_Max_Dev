@@ -154,10 +154,11 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 #                              fan control signals                             #
 # ---------------------------------------------------------------------------- #
 
-        # self.lighting_core_fan_speed_horizontalSlider.sliderReleased.connect(
-        #     lambda: Functions.fanspeed_update(self))
-        # self.lighting_controller_fan_speed_horizontalSlider.sliderReleased.connect(
-        #     lambda: Functions.fanspeed_update(self))
+        self.lighting_core_fan_speed_horizontalSlider.sliderReleased.connect(
+            lambda: Functions.fanspeed_update(self, 1))
+        self.lighting_controller_fan_speed_horizontalSlider.sliderReleased.connect(
+            lambda: Functions.fanspeed_update(self, 0))
+
         self.lighting_core_fan_speed_horizontalSlider.valueChanged.connect(
             lambda: UI_Update.fanlabel_update(self, 1))
         self.lighting_controller_fan_speed_horizontalSlider.valueChanged.connect(

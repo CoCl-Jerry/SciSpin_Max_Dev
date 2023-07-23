@@ -170,59 +170,19 @@ def sensor_export_data(self):
     except Exception as e:
         print(e, "Export failure, contact Jerry for support")
 
-# def rotate_image(self):
-#     Settings.rotation += 1
-#     Call_Thread.start_snapshot(self)
 
-# def camera_update(self):
-#     Settings.AOI_X = self.xAxis_horizontalSlider.sliderPosition() / 100
-#     Settings.AOI_Y = self.xAxis_horizontalSlider.sliderPosition() / 100
-#     Settings.AOI_W = self.yAxis_horizontalSlider.sliderPosition() / 100
-#     Settings.AOI_H = self.yAxis_horizontalSlider.sliderPosition() / 100
+def fanspeed_update(self, mode):
+    if mode:
+        try:
+            core_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            core_socket.settimeout(General.socket_timeout)
+            core_socket.connect(General.server_address)
+            cmd = "B~" + \
+                str(self.lighting_core_fan_speed_horizontalSlider.sliderPosition())
+            core_socket.sendall(cmd.encode())
+            core_socket.close()
 
-#     Settings.x_resolution = self.x_resolution_spinBox.value()
-#     Settings.y_resolution = self.y_resolution_spinBox.value()
-
-#     formatted_x = "{:.2f}".format(
-#         self.xAxis_horizontalSlider.sliderPosition() / 100)
-#     formatted_y = "{:.2f}".format(
-#         self.yAxis_horizontalSlider.sliderPosition() / 100)
-#     self.xAxis_label.setText(
-#         "Zoom Axis A: " + formatted_x)
-#     self.yAxis_label.setText(
-#         "Zoom Axis B: " + formatted_y)
-
-
-# def update_mode(self):
-#     Settings.imaging_mode = self.JPG_radioButton.isChecked()
-
-
-# def fanspeed_update(self):
-#     try:
-#         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#         ip_address = "10.0.5.1"
-#         server_address = (ip_address, 23456)
-#         sock.connect(server_address)
-#         cmd = "B~" + str(self.fanSpeed_horizontalSlider.sliderPosition())
-#         sock.sendall(cmd.encode())
-#         sock.close()
-
-#     except Exception as e:
-#         print(e, "Fan failure,contact Jerry for support")
-
-
-# def IR_mode(self):
-#     Settings.IR_imaging = self.infraredImaging_checkBox.isChecked()
-
-# def printci(self):
-#     Settings.tag_index = self.Sensor_tabWidget.currentIndex()
-
-
-# def sample_change(self):
-#     Settings.sample_time = self.sample_doubleSpinBox.value()
-
-
-# def sensor_log(self):
-#     Settings.log_start_time = timeit.default_timer()
-#     Settings.log_sensor = True
-#     Settings.log_duration = self.log_spinBox.value() * 60
+        except Exception as e:
+            print(e, "Fan failure,contact Jerry for support")
+    else:
+        Commands.set_fan_speed(self)

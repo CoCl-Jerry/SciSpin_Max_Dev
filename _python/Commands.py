@@ -73,7 +73,7 @@ def deploy_lights():
 
 
 # ---------------------------------------------------------------------------- #
-#                              cammands for motors                             #
+#                              commands for motors                             #
 # ---------------------------------------------------------------------------- #
 
 def set_speed():
@@ -91,3 +91,12 @@ def set_speed():
 def motor_enable():
     Communication.sendCMD(
         "1~0~"+str(int(General.frame_enabled)) + "~"+str(int(General.core_enabled)))
+
+# ---------------------------------------------------------------------------- #
+#                               commands for fan                               #
+# ---------------------------------------------------------------------------- #
+
+
+def set_fan_speed(self):
+    Communication.sendCMD(
+        "5~"+str(self.lighting_controller_fan_speed_horizontalSlider.value()))
