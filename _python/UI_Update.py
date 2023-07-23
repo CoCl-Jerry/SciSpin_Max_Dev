@@ -640,7 +640,7 @@ def motion_sensor_graph_update(self):
                 General.motion_accelerometer_x_graph_ref.setData(
                     General.motion_sensor_time_stamp, General.motion_acceleration_x
                 )
-
+                print(len(General.motion_acceleration_x))
                 General.motion_accelerometer_y_graph_ref.setData(
                     General.motion_sensor_time_stamp, General.motion_acceleration_y
                 )
