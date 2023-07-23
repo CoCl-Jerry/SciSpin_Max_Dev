@@ -404,7 +404,7 @@ def timelapse_capture_toggle(self, mode):
         self.imaging_progress_progressBar.setValue(
             General.imaging_current_count)
 
-    image_capture_toggle(self)
+    imaging_UI_toggle(self)
 
 
 def image_capture_toggle(self, mode):
