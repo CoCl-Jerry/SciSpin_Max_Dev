@@ -277,7 +277,7 @@ class Capture(QThread):
                         128).decode("utf-8").split('~', 2)
                     if float(response[1]) > 0:
                         General.lens_position = str(
-                            round(100/float(response[1]), 2))+"mm"
+                            round(float(response[1]), 2))+"mm"
                     else:
                         General.lens_position = "∞"
                     print("Lens Position:", General.lens_position)
