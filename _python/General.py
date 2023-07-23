@@ -1,5 +1,6 @@
 from PyQt5.QtGui import QPalette, QColor, QImage, QIcon, QPixmap
 from pyqtgraph import mkPen
+from collections import deque
 
 import time
 import socket
@@ -191,11 +192,17 @@ motion_gyroscope_z_graph_ref = None
 
 motion_sensor_time_stamp = []
 
-motion_acceleration_x = []
+motion_acceleration_x = deque(maxlen=500)
 
-motion_acceleration_y = []
+motion_acceleration_y = deque(maxlen=500)
 
-motion_acceleration_z = []
+motion_acceleration_z = deque(maxlen=500)
+
+motion_graph_acceleration_x = deque(maxlen=500)
+
+motion_graph_acceleration_y = deque(maxlen=500)
+
+motion_graph_acceleration_z = deque(maxlen=500)
 
 motion_gyroscope_x = []
 
