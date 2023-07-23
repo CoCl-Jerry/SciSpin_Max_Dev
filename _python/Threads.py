@@ -8,6 +8,7 @@ import os
 import timeit
 import datetime
 from time import sleep, perf_counter
+from collections import deque
 import Commands
 
 from adafruit_bme280 import basic as adafruit_bme280
@@ -143,6 +144,14 @@ class Motion(QThread):
         # LSM6DS_RATE_1_66K_HZ, LSM6DS_RATE_3_33K_HZ, LSM6DS_RATE_6_66K_HZ
 
         General.motion_sensor_initial_time = round(perf_counter(), 2)
+
+        General.motion_sensor_time_stamp = deque(maxlen=10)
+
+        General.motion_acceleration_x = deque(maxlen=10)
+
+        General.motion_acceleration_y = deque(maxlen=10)
+
+        General.motion_acceleration_z = deque(maxlen=10)
 
         while General.motion_thread_running:
             if (
