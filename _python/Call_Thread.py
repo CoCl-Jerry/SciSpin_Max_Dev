@@ -13,17 +13,16 @@ def start_cycle(self):
     General.off_duration = self.lighting_off_duration_value_spinBox.value()
 
     if not General.cycle_thread_running:
-        try:
-            self.Cycle_Thread = Threads.Cycle()
-            self.Cycle_Thread.started.connect(
-                lambda: UI_Update.cycle_start(self))
-            self.Cycle_Thread.finished.connect(
-                lambda: UI_Update.cycle_end(self))
+        self.Cycle_Thread = Threads.Cycle()
+        self.Cycle_Thread.started.connect(
+            lambda: UI_Update.cycle_start(self))
+        self.Cycle_Thread.finished.connect(
+            lambda: UI_Update.cycle_end(self))
+        self.Cycle_Thread.countdown.connect(
+            lambda: UI_Update.cycle_countdown(self))
 
-            self.Cycle_Thread.start()
+        self.Cycle_Thread.start()
 
-        except Exception as e:
-            print(e, "cycle failure, please contact Jerry for support")
     else:
         General.cycle_thread_running = False
 

@@ -19,6 +19,7 @@ from PyQt5.QtCore import QThread, pyqtSignal
 
 
 class Cycle(QThread):
+    countdown = pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
@@ -28,30 +29,38 @@ class Cycle(QThread):
 
     def run(self):
         Commands.extract_lights()
-        on_stat = False
+        General.power_status = False
         sleep(2)
         Commands.deploy_lights()
-        on_stat = True
+        General.power_status = True
 
         while True:
-            if on_stat:
-                for x in range(General.on_duration * 1):
+            if General.power_status:
+                target_time = datetime.datetime.now() + datetime.timedelta(minutes=General.on_duration)
+                while datetime.datetime.now() < target_time:
                     sleep(1)
-
+                    General.cycle_countdown = int(
+                        (target_time - datetime.datetime.now()).total_seconds())
+                    self.countdown.emit()
                     if not General.cycle_thread_running:
-                        on_stat = False
+                        General.power_status = False
                         break
                 Commands.extract_lights()
-                on_stat = False
+                General.power_status = False
             else:
-                for x in range(General.off_duration * 1):
+                target_time = datetime.datetime.now() + datetime.timedelta(minutes=General.off_duration)
+
+                while datetime.datetime.now() < target_time:
                     sleep(1)
+                    General.cycle_countdown = int(
+                        (target_time - datetime.datetime.now()).total_seconds())
+                    self.countdown.emit()
 
                     if not General.cycle_thread_running:
-                        on_stat = False
+                        General.power_status = False
                         break
                 Commands.deploy_lights()
-                on_stat = True
+                General.power_status = True
             if not General.cycle_thread_running:
                 break
 
