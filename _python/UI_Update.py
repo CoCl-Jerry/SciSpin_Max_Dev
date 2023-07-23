@@ -349,6 +349,7 @@ def imaging_settings_update(self):
     General.digital_zoom = str(
         self.imaging_digital_zoom_horizontalSlider.value())
     General.imaging_format = int(self.imaging_JPG_radioButton.isChecked())
+    General.IR_imaging = self.lighting_automatic_IR_imaging_checkBox.isChecked()
 
 
 def image_sequence_title_add_date(self):

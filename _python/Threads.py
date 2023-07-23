@@ -145,13 +145,13 @@ class Motion(QThread):
 
         General.motion_sensor_initial_time = round(perf_counter(), 2)
 
-        General.motion_sensor_time_stamp = deque(maxlen=10000)
+        General.motion_sensor_time_stamp = deque(maxlen=1000)
 
-        General.motion_acceleration_x = deque(maxlen=10000)
+        General.motion_acceleration_x = deque(maxlen=1000)
 
-        General.motion_acceleration_y = deque(maxlen=10000)
+        General.motion_acceleration_y = deque(maxlen=1000)
 
-        General.motion_acceleration_z = deque(maxlen=10000)
+        General.motion_acceleration_z = deque(maxlen=1000)
 
         while General.motion_thread_running:
             if (
