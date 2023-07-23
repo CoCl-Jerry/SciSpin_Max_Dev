@@ -1,11 +1,8 @@
 import General
 import Commands
-import Threads
 import UI_Update
 import Functions
 import Call_Thread
-import os
-import time
 
 import sys
 
@@ -51,22 +48,22 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
 # ------------------------------- motor signals ------------------------------ #
         self.motion_frame_motor_enable_pushButton.clicked.connect(
-            lambda: UI_Update.motor_enable(1, self))
+            lambda: UI_Update.motor_enable(self, 1))
         self.motion_core_motor_enable_pushButton.clicked.connect(
-            lambda: UI_Update.motor_enable(0, self))
+            lambda: UI_Update.motor_enable(self, 0))
 
         self.motion_link_toggle_pushButton.clicked.connect(
             lambda: UI_Update.link_update(self))
 
         self.motion_frame_motor_value_spinBox.valueChanged.connect(
-            lambda: UI_Update.motor_spinbox_changed(1, self))
+            lambda: UI_Update.motor_spinbox_changed(self, 1))
         self.motion_core_motor_value_spinBox.valueChanged.connect(
-            lambda: UI_Update.motor_spinbox_changed(0, self))
+            lambda: UI_Update.motor_spinbox_changed(self, 0))
 
         self.motion_frame_motor_value_verticalSlider.valueChanged.connect(
-            lambda: UI_Update.motor_slider_change(1, self))
+            lambda: UI_Update.motor_slider_change(self, 1))
         self.motion_core_motor_value_verticalSlider.valueChanged.connect(
-            lambda: UI_Update.motor_slider_change(0, self))
+            lambda: UI_Update.motor_slider_change(self, 0))
 
         self.motion_frame_motor_value_verticalSlider.sliderReleased.connect(
             lambda: Functions.calculate_speed())

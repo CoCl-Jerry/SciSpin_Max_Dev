@@ -1,9 +1,7 @@
 import General
-import Functions
 import UI_Update
 import Threads
-from PyQt5 import QtCore, QtGui, QtWidgets
-import PyQt5
+
 
 import os
 

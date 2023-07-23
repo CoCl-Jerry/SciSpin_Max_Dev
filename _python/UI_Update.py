@@ -1,10 +1,8 @@
 import General
-
 import os
-import subprocess
 import Commands
 import Functions
-from PyQt5.QtGui import QImage, QPixmap, QPalette, QColor
+from PyQt5.QtGui import QImage, QPixmap
 
 # ---------------------------------------------------------------------------- #
 #                              system status check                             #
@@ -171,16 +169,16 @@ def link_update(self):
     General.motors_linked = not General.motors_linked
 
 
-def motor_enable(frame_motor, self):
+def motor_enable(self, mode):
     if General.motors_linked:
-        if frame_motor:
+        if mode:
             General.frame_enabled = not General.frame_enabled
             General.core_enabled = General.frame_enabled
         else:
             General.core_enabled = not General.core_enabled
             General.frame_enabled = General.core_enabled
     else:
-        if frame_motor:
+        if mode:
             General.frame_enabled = not General.frame_enabled
         else:
             General.core_enabled = not General.core_enabled
@@ -193,6 +191,7 @@ def motor_enable(frame_motor, self):
         self.motion_core_motor_enable_pushButton.setText("DISABLE MOTOR")
     else:
         self.motion_core_motor_enable_pushButton.setText("ENABLE MOTOR")
+    Functions.calculate_speed()
     Commands.motor_enable()
 
 
@@ -225,11 +224,11 @@ def reverse_motor(frame_motor, self):
     Functions.calculate_speed()
 
 
-def motor_spinbox_changed(frame_motor, self):
+def motor_spinbox_changed(self, mode):
 
     block_motor_signals(self)
     if General.motors_linked:
-        if frame_motor:
+        if mode:
             General.frame_RPM = round(
                 self.motion_frame_motor_value_spinBox.value(), 2)
             General.core_RPM = General.frame_RPM
@@ -253,7 +252,7 @@ def motor_spinbox_changed(frame_motor, self):
 
             self.motion_frame_motor_value_spinBox.setValue(General.frame_RPM)
     else:
-        if frame_motor:
+        if mode:
             General.frame_RPM = round(
                 self.motion_frame_motor_value_spinBox.value(), 2)
             self.motion_frame_motor_value_verticalSlider.setValue(
@@ -268,11 +267,11 @@ def motor_spinbox_changed(frame_motor, self):
     Functions.calculate_speed()
 
 
-def motor_slider_change(frame_motor, self):
+def motor_slider_change(self, mode):
 
     block_motor_signals(self)
     if General.motors_linked:
-        if frame_motor:
+        if mode:
             General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
                 100
             General.core_RPM = General.frame_RPM
@@ -288,7 +287,7 @@ def motor_slider_change(frame_motor, self):
         self.motion_frame_motor_value_spinBox.setValue(General.frame_RPM)
         self.motion_core_motor_value_spinBox.setValue(General.core_RPM)
     else:
-        if frame_motor:
+        if mode:
             General.frame_RPM = self.motion_frame_motor_value_verticalSlider.sliderPosition() / \
                 100
             self.motion_frame_motor_value_spinBox.setValue(General.frame_RPM)

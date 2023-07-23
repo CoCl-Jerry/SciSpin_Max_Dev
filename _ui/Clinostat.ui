@@ -419,7 +419,7 @@
         <item row="0" column="0" rowspan="2" colspan="5">
          <widget class="QLabel" name="lighting_LED_settings_text_label">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;LED Settings: [1,90]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;LED Settings: [1,86]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -513,10 +513,10 @@
            <number>2</number>
           </property>
           <property name="maximum">
-           <number>90</number>
+           <number>86</number>
           </property>
           <property name="value">
-           <number>90</number>
+           <number>86</number>
           </property>
          </widget>
         </item>
@@ -1653,7 +1653,7 @@
          <x>10</x>
          <y>10</y>
          <width>581</width>
-         <height>41</height>
+         <height>42</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_11">
@@ -1974,7 +1974,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>151</width>
+       <width>166</width>
        <height>171</height>
       </rect>
      </property>

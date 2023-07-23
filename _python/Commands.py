@@ -1,9 +1,5 @@
 import General
 import Communication
-import socket
-import UI_Update
-import decimal
-from time import sleep
 
 
 def reset_MCU():

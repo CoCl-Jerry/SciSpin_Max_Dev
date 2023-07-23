@@ -1,7 +1,6 @@
 from PyQt5.QtGui import QPalette, QColor, QImage, QIcon, QPixmap
 from pyqtgraph import mkPen
 
-
 import time
 import socket
 
