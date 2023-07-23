@@ -451,11 +451,11 @@ def cycle_end(self):
 def cycle_countdown(self):
     if General.power_status:
         self.lighting_on_duration_text_label.setText(
-            "On Duration:" + General.cycle_countdown + " s")
+            "On Duration:" + str(General.cycle_countdown) + " s")
         self.lighting_off_duration_text_label.setText("Off Duration:")
     else:
         self.lighting_off_duration_text_label.setText(
-            "Off Duration:" + General.cycle_countdown + " s")
+            "Off Duration:" + str(General.cycle_countdown) + " s")
         self.lighting_on_duration_text_label.setText("On Duration:")
 
 # ---------------------------------------------------------------------------- #
