@@ -311,7 +311,7 @@ def unblock_motor_signals(self):
 #                              imaging UI updates                              #
 # ---------------------------------------------------------------------------- #
 def imaging_UI_update(self):
-    print("imaging UI update")
+    imaging_settings_update(self)
     if General.imaging_total > 0 and len(General.sequence_name) != 0:
         self.main_start_timelapse_pushButton.setEnabled(True)
     else:
