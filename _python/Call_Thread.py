@@ -28,19 +28,6 @@ def start_cycle(self):
         General.cycle_thread_running = False
 
 
-def start_capture(self, mode):
-    General.capture_mode = mode
-    self.Capture_Thread = Threads.Capture()
-    self.Capture_Thread.transmit.connect(
-        lambda: UI_Update.transmit_update(self))
-    self.Capture_Thread.started.connect(
-        lambda: UI_Update.capture_start(self))
-    self.Capture_Thread.finished.connect(
-        lambda: UI_Update.capture_complete(self))
-
-    self.Capture_Thread.start()
-
-
 def ambient_sensors(self):
     if not General.ambient_thread_running:
         self.Ambient_Thread = Threads.Ambient()
@@ -86,6 +73,23 @@ def motion_sensors(self):
     else:
         General.motion_thread_running = False
 
+# ---------------------------------------------------------------------------- #
+#                             imaging call threads                             #
+# ---------------------------------------------------------------------------- #
+
+
+def start_capture(self, mode):
+    General.capture_mode = mode
+    self.Capture_Thread = Threads.Capture()
+    self.Capture_Thread.transmit.connect(
+        lambda: UI_Update.transmit_update(self))
+    self.Capture_Thread.started.connect(
+        lambda: UI_Update.capture_start(self))
+    self.Capture_Thread.finished.connect(
+        lambda: UI_Update.capture_complete(self))
+
+    self.Capture_Thread.start()
+
 
 def start_timelapse(self):
 
@@ -94,16 +98,16 @@ def start_timelapse(self):
         self.Timelapse_Thread.transmit.connect(
             lambda: UI_Update.transmit_update(self))
         self.Timelapse_Thread.capturing.connect(
-            lambda: UI_Update.timelapse_capture_toggle(self,1))
+            lambda: UI_Update.timelapse_capture_toggle(self, 1))
         self.Timelapse_Thread.captured.connect(
-            lambda: UI_Update.timelapse_capture_toggle(self,0))
+            lambda: UI_Update.timelapse_capture_toggle(self, 0))
         self.Timelapse_Thread.countdown.connect(
             lambda: UI_Update.timelapse_countdown(self))
 
         self.Timelapse_Thread.started.connect(
-            lambda: UI_Update.timelapse_toggle(self,1))
+            lambda: UI_Update.timelapse_toggle(self, 1))
         self.Timelapse_Thread.finished.connect(
-            lambda: UI_Update.timelapse_toggle(self,0))
+            lambda: UI_Update.timelapse_toggle(self, 0))
 
         self.Timelapse_Thread.start()
 

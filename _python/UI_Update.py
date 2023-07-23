@@ -311,20 +311,6 @@ def unblock_motor_signals(self):
 #                              imaging UI updates                              #
 # ---------------------------------------------------------------------------- #
 def imaging_UI_update(self):
-    General.sequence_name = self.imaging_image_sequence_title_value_lineEdit.text()
-    General.imaging_interval = self.imaging_image_capture_interval_value_spinBox.value()
-    General.imaging_duration = self.imaging_image_sequence_duration_value_spinBox.value()
-    General.imaging_total = int(
-        General.imaging_duration / General.imaging_interval)
-    General.x_resolution = str(
-        self.imaging_x_resolution_value_spinBox.value())
-    General.y_resolution = str(
-        self.imaging_y_resolution_value_spinBox.value())
-
-    General.digital_zoom = str(
-        self.imaging_digital_zoom_horizontalSlider.value())
-    General.imaging_format = int(self.imaging_JPG_radioButton.isChecked())
-
     if General.imaging_total > 0 and len(General.sequence_name) != 0:
         self.main_start_timelapse_pushButton.setEnabled(True)
     else:
@@ -348,13 +334,29 @@ def imaging_UI_update(self):
     self.imaging_directory_value_label.setText(General.full_directory)
 
 
+def imaging_settings_update(self):
+    General.sequence_name = self.imaging_image_sequence_title_value_lineEdit.text()
+    General.imaging_interval = self.imaging_image_capture_interval_value_spinBox.value()
+    General.imaging_duration = self.imaging_image_sequence_duration_value_spinBox.value()
+    General.imaging_total = int(
+        General.imaging_duration / General.imaging_interval)
+    General.x_resolution = str(
+        self.imaging_x_resolution_value_spinBox.value())
+    General.y_resolution = str(
+        self.imaging_y_resolution_value_spinBox.value())
+
+    General.digital_zoom = str(
+        self.imaging_digital_zoom_horizontalSlider.value())
+    General.imaging_format = int(self.imaging_JPG_radioButton.isChecked())
+
+
 def image_sequence_title_add_date(self):
     General.sequence_name = General.sequence_name + "_" + General.date
     self.imaging_image_sequence_title_value_lineEdit.setText(
         General.sequence_name)
 
 
-def imaging_checkpoint(self):
+def imaging_UI_toggle(self):
     if General.core_busy:
         self.main_imaging_frame.setEnabled(False)
         self.imaging_settings_frame.setEnabled(False)
@@ -388,12 +390,10 @@ def timelapse_toggle(self, mode):
 def timelapse_capture_toggle(self, mode):
     if mode:
         General.core_busy = True
-        imaging_checkpoint(self)
+        imaging_settings_update(self)
 
     else:
         General.core_busy = False
-        imaging_checkpoint(self)
-
         capture_img = QImage(General.current_image)
         self.main_image_label.setPixmap(QPixmap(capture_img))
         General.received_packets = 0
@@ -403,33 +403,34 @@ def timelapse_capture_toggle(self, mode):
         self.imaging_progress_progressBar.setValue(
             General.imaging_current_count)
 
+    image_capture_toggle(self)
+
+
+def image_capture_toggle(self, mode):
+    if mode:
+        if General.capture_mode < 3:
+            self.main_core_status_value_label.setText("Focusing...")
+        General.core_busy = True
+        imaging_settings_update(self)
+    else:
+        if General.capture_mode < 3:
+            self.main_autofocus_pushButton.setText(General.lens_position)
+        if General.capture_mode == 4:
+            os.system("gpicview " + General.current_image)
+        snap_img = QImage(General.current_image)
+        self.main_image_label.setPixmap(QPixmap(snap_img))
+        General.core_busy = False
+        General.received_packets = 0
+
+        if General.lens_position != "∞":
+            self.main_increase_focus_pushButton.setEnabled(True)
+            self.main_decrease_focus_pushButton.setEnabled(True)
+    imaging_UI_toggle(self)
+
 
 def timelapse_countdown(self):
     self.imaging_countdown_value_label.setText(
         "Next Image: "+str(General.timelapse_countdown)+" s")
-
-
-def capture_start(self):
-    if General.capture_mode < 3:
-        self.main_core_status_value_label.setText("Focusing...")
-    General.core_busy = True
-    imaging_checkpoint(self)
-
-
-def capture_complete(self):
-    if General.capture_mode < 3:
-        self.main_autofocus_pushButton.setText(General.lens_position)
-    if General.capture_mode == 4:
-        os.system("gpicview " + General.current_image)
-    snap_img = QImage(General.current_image)
-    self.main_image_label.setPixmap(QPixmap(snap_img))
-    General.core_busy = False
-    General.received_packets = 0
-
-    if General.lens_position != "∞":
-        self.main_increase_focus_pushButton.setEnabled(True)
-        self.main_decrease_focus_pushButton.setEnabled(True)
-    imaging_checkpoint(self)
 
 # ---------------------------------------------------------------------------- #
 #                         power cycle thread UI updates                        #
