@@ -566,27 +566,27 @@ def motion_UI_toggle(self):
 
 def motion_sensor_initialize(self):
     General.motion_accelerometer_x_graph_ref = self.motion_accelerometer_graphWidget.plot(
-        General.motion_sensor_time_stamp, General.motion_acceleration_x, pen=General.red_pen
+        General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_x, pen=General.red_pen
     )
 
     General.motion_accelerometer_y_graph_ref = self.motion_accelerometer_graphWidget.plot(
-        General.motion_sensor_time_stamp, General.motion_acceleration_y, pen=General.green_pen
+        General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_y, pen=General.green_pen
     )
 
     General.motion_accelerometer_z_graph_ref = self.motion_accelerometer_graphWidget.plot(
-        General.motion_sensor_time_stamp, General.motion_acceleration_z, pen=General.blue_pen
+        General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_z, pen=General.blue_pen
     )
 
     General.motion_gyroscope_x_graph_ref = self.motion_gyroscope_graphWidget.plot(
-        General.motion_sensor_time_stamp, General.motion_gyroscope_x, pen=General.red_pen
+        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_x, pen=General.red_pen
     )
 
     General.motion_gyroscope_y_graph_ref = self.motion_gyroscope_graphWidget.plot(
-        General.motion_sensor_time_stamp, General.motion_gyroscope_y, pen=General.green_pen
+        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_y, pen=General.green_pen
     )
 
     General.motion_gyroscope_z_graph_ref = self.motion_gyroscope_graphWidget.plot(
-        General.motion_sensor_time_stamp, General.motion_gyroscope_z, pen=General.blue_pen
+        General.motion_sensor_graph_time_stamp, General.motion_gyroscope_z, pen=General.blue_pen
     )
 
 
@@ -639,15 +639,15 @@ def motion_sensor_graph_update(self):
                     str(General.motion_acceleration_z[-1]))
 
                 General.motion_accelerometer_x_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_acceleration_x
+                    General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_x
                 )
                 print(len(General.motion_sensor_time_stamp))
                 General.motion_accelerometer_y_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_acceleration_y
+                    General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_y
                 )
 
                 General.motion_accelerometer_z_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_acceleration_z
+                    General.motion_sensor_graph_time_stamp, General.motion_acceleration_graph_z
                 )
             else:
                 self.motion_x_axis_value_label.setText(

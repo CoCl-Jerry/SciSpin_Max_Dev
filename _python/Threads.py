@@ -145,13 +145,13 @@ class Motion(QThread):
 
         General.motion_sensor_initial_time = round(perf_counter(), 2)
 
-        General.motion_sensor_time_stamp = deque(maxlen=1000)
+        General.motion_sensor_graph_time_stamp = deque(maxlen=500)
 
-        General.motion_acceleration_x = deque(maxlen=1000)
+        General.motion_acceleration_graph_x = deque(maxlen=500)
 
-        General.motion_acceleration_y = deque(maxlen=1000)
+        General.motion_acceleration_graph_y = deque(maxlen=500)
 
-        General.motion_acceleration_z = deque(maxlen=1000)
+        General.motion_acceleration_graph_z = deque(maxlen=500)
 
         while General.motion_thread_running:
             if (
@@ -163,6 +163,7 @@ class Motion(QThread):
             ):
                 curent_acceleration = motion_sensor.acceleration
                 current_gyro = motion_sensor.gyro
+
                 General.motion_acceleration_x.append(
                     round(curent_acceleration[0], 2)
                 )
@@ -172,6 +173,18 @@ class Motion(QThread):
                 )
 
                 General.motion_acceleration_z.append(
+                    round(curent_acceleration[2], 2)
+                )
+
+                General.motion_acceleration_graph_x.append(
+                    round(curent_acceleration[0], 2)
+                )
+
+                General.motion_acceleration_graph_y.append(
+                    round(curent_acceleration[1], 2)
+                )
+
+                General.motion_acceleration_graph_z.append(
                     round(curent_acceleration[2], 2)
                 )
 
@@ -189,6 +202,9 @@ class Motion(QThread):
                           General.motion_sensor_initial_time, 2)
                 )
 
+                General.motion_sensor_graph_time_stamp.append(
+                    General.motion_sensor_time_stamp[-1]
+                )
                 General.motion_sensor_previous_time = (
                     General.motion_sensor_time_stamp[-1]
                 )

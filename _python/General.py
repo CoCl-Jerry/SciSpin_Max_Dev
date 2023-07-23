@@ -198,6 +198,14 @@ motion_acceleration_y = []
 
 motion_acceleration_z = []
 
+motion_sensor_graph_time_stamp = []
+
+motion_acceleration_graph_x = []
+
+motion_acceleration_graph_y = []
+
+motion_acceleration_graph_z = []
+
 motion_gyroscope_x = []
 
 motion_gyroscope_y = []
