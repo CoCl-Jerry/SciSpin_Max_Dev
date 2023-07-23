@@ -315,6 +315,7 @@ class Timelapse(QThread):
                 core_socket.close()
             if General.IR_imaging:
                 Commands.IR_imaging_toggle(0)
+            General.imaging_current_count += 1
             self.captured.emit()
 
             while datetime.datetime.now() < target_time:
