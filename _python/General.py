@@ -192,11 +192,11 @@ motion_gyroscope_z_graph_ref = None
 
 motion_sensor_time_stamp = []
 
-motion_acceleration_x = deque(maxlen=500)
+motion_acceleration_x = deque(maxlen=10)
 
-motion_acceleration_y = deque(maxlen=500)
+motion_acceleration_y = deque(maxlen=10)
 
-motion_acceleration_z = deque(maxlen=500)
+motion_acceleration_z = deque(maxlen=10)
 
 motion_graph_acceleration_x = deque(maxlen=500)
 
