@@ -191,7 +191,6 @@ def motor_enable(self, mode):
         self.motion_core_motor_enable_pushButton.setText("DISABLE MOTOR")
     else:
         self.motion_core_motor_enable_pushButton.setText("ENABLE MOTOR")
-    Functions.calculate_speed()
     Commands.motor_enable()
 
 
