@@ -244,7 +244,7 @@ class Capture(QThread):
                     try:
                         data = core_socket.recv(128)
                     except Exception as e:
-                        print(e, 'timeout after 20 seconds... retaking image')
+                        print(e)
                     if not data:
                         break
                     f.write(data)
