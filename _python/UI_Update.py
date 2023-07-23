@@ -23,6 +23,8 @@ def system_status_check(self):
     else:
         self.main_core_status_value_label.setPalette(General.palette_red)
         self.main_core_status_value_label.setText("Offline")
+        self.main_image_label.setPixmap(
+            QPixmap(General.camera_error_image))
     # --------------------------- check MCU connection --------------------------- #
     if Functions.check_i2c_device(General.MCU_address):
         self.main_MCU_status_value_label.setPalette(General.palette_green)
@@ -30,6 +32,8 @@ def system_status_check(self):
     else:
         self.main_MCU_status_value_label.setPalette(General.palette_red)
         self.main_MCU_status_value_label.setText("Offline")
+        self.main_image_label.setPixmap(
+            QPixmap(General.cummunication_error_image))
     # --------------------------- check ambient sensor connection ---------------- #
     if Functions.check_i2c_device(General.ambient_sensor_address):
         self.main_ambient_sensor_status_value_label.setPalette(
@@ -46,10 +50,12 @@ def system_status_check(self):
         self.main_motion_sensor_status_value_label.setPalette(
             General.palette_green)
         self.main_motion_sensor_status_value_label.setText("Online")
+        self.motion_sensor_frame.setEnabled(True)
     else:
         self.main_motion_sensor_status_value_label.setPalette(
             General.palette_red)
         self.main_motion_sensor_status_value_label.setText("Offline")
+        self.motion_sensor_frame.setEnabled(False)
     # --------------------------- check storage space ---------------------------- #
     free_space = Functions.get_remaining_storage()
     formatted_free_space = "{:.1f}".format(free_space)
@@ -657,15 +663,15 @@ def motion_sensor_graph_update(self):
                 self.motion_z_axis_value_label.setText(
                     str(General.motion_gyroscope_z[-1]))
                 General.motion_gyroscope_x_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_gyroscope_graph_x
+                    General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_x
                 )
 
                 General.motion_gyroscope_y_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_gyroscope_graph_y
+                    General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_y
                 )
 
                 General.motion_gyroscope_z_graph_ref.setData(
-                    General.motion_sensor_time_stamp, General.motion_gyroscope_graph_z
+                    General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_z
                 )
 
 # def snap_start(self):

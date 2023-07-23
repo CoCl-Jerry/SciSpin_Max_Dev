@@ -18,6 +18,8 @@ palette_green.setColor(QPalette.WindowText, QColor(0, 150, 0))
 # ---------------------------------------------------------------------------- #
 camera_error_image = QImage("../_image/camera_error.png")
 
+cummunication_error_image = QImage("../_image/communication_error.png")
+
 storage_critical_error_image = QImage("../_image/storage_critical_error.png")
 
 # ---------------------------------------------------------------------------- #
