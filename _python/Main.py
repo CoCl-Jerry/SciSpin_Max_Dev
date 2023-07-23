@@ -23,7 +23,6 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 # ------------------------------- initialzation ------------------------------ #
         UI_Update.system_status_check(self)
         UI_Update.graph_setup(self)
-        UI_Update.imaging_update_settings(self)
         Commands.reset_MCU()
         General.initialize_icons()
 # ------------------------------ Main UI signals ----------------------------- #
@@ -93,7 +92,7 @@ class MainWindow(QMainWindow, Clinostat_UI.Ui_MainWindow):
 
         self.main_start_timelapse_pushButton.clicked.connect(
             lambda: Call_Thread.start_timelapse(self))
-
+        
         self.main_autofocus_pushButton.clicked.connect(
             lambda: Call_Thread.start_capture(self, 0))
         self.main_increase_focus_pushButton.clicked.connect(
