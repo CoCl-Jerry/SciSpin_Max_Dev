@@ -536,7 +536,6 @@ def ambient_sensor_graph_update(self):
                 General.ambient_pressure_graph_ref.setData(
                     General.ambient_sensor_time_stamp, General.ambient_pressure
                 )
-    General.ambient_graphing_complete = True
 
 
 def ambient_update_labels(self):
@@ -684,7 +683,6 @@ def motion_sensor_graph_update(self):
                 General.motion_gyroscope_z_graph_ref.setData(
                     General.motion_sensor_graph_time_stamp, General.motion_gyroscope_graph_z
                 )
-            General.motion_graphing_complete = True
 
 # ---------------------------------------------------------------------------- #
 #                              lighting UI updates                             #
